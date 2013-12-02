@@ -1,0 +1,17 @@
+﻿
+<h2>Firearms</h2>
+<table ng-cloak="">
+    <tr>
+        <th><a href="" ng-click="sort='Model';reverse=!reverse" title="Sort">Model</a></th>
+        <th><a href="" ng-click="sort='Brand';reverse=!reverse" title="Sort">Brand</a></th>
+        <th><a href="" ng-click="sort='Caliber';reverse=!reverse" title="Sort">Caliber</a></th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="firearm in Firearms | orderBy:sort:reverse">
+        <td><a href="#/edit/{{firearm.FirearmId}}" title="Edit">{{firearm.Model}}</a></td>
+        <td>{{firearm.Brand | EnumToString:Enums.Brands}}</td>
+        <td>{{firearm.Chamber | EnumToString:Enums.Cartidges}}</td>
+        <td><a href="" ng-click="Delete(firearm.FirearmId)" title="Delete">X</a></td>
+    </tr>
+</table>
+<p><a href="#/new">Add Firearm</a></p>

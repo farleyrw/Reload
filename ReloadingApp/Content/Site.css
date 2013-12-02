@@ -1,0 +1,159 @@
+﻿
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin: 0 0 50px; /* use height of sticky footer here - http://mystrd.at/modern-clean-css-sticky-footer/*/
+	padding: 0;
+	font-size: .85em;
+	font-family: Arial, Helvetica, Sans-Serif;
+	color: #444;
+	background-color: #fff;
+	min-height: 400px;
+}
+
+header, footer, nav, section {
+	display: block;
+	background-color: #bbb;
+}
+
+header {
+	padding: 10px 5px;
+	border-bottom: 1px solid grey;
+}
+
+header .Menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+}
+
+.Page {
+	padding: 10px 20px;
+}
+
+footer {
+	border-top: 1px solid grey;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 50px;
+	width: 100%;
+}
+
+footer .Footer {
+	height: 100%;
+	vertical-align: middle;
+}
+
+/* Styles for basic forms */
+fieldset {
+	display: inline-block;
+	min-width: 250px;
+	border: 1px solid grey;
+	border-radius: 8px;
+	padding: 1em 1.4em;
+	margin: 0 0 1.5em 0;
+	background-color: #efefef;
+}
+
+legend {
+	font-size: 1.2em;
+	font-weight: bold;
+	background-color: #bbb;
+	border: 1px solid grey;
+	border-radius: 2px;
+}
+
+fieldset label {
+	display: inline-block;
+	width: 150px;
+	font-weight: bold;
+	text-align: right;
+	margin-right: 10px;
+}
+
+fieldset label:after {
+	content: ':';
+}
+
+form button {
+	float: right;
+}
+
+form ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+form ul li {
+	padding: 5px 0;
+}
+
+input, textarea, select {
+	width: 200px;
+	height: 1.5em;
+	border-radius: 4px;
+	border: 1px solid grey;
+	padding-left: 4px;
+}
+
+textarea {
+	min-height: 100px;
+	resize: none;
+}
+
+table {
+	border: 1px solid grey;
+	text-align: left;
+}
+
+table th {
+	font-weight: bold;
+	background-color: #ddd;
+	border-bottom: 1px solid #666;
+}
+
+table td {
+	padding: 2px 8px 2px 2px;
+}
+
+a:link, a:visited {
+	color: blue;
+}
+
+/* Styles for validation helpers */
+.field-validation-valid, .field-validation-error {
+	vertical-align: top;
+	display: block;
+	text-align: right;
+	min-height: 2em;
+	font-size: .8em;
+}
+
+.field-validation-error {
+	color: #f00;
+	visibility: visible;
+}
+
+.field-validation-valid {
+	visibility: hidden;
+}
+
+.input-validation-error {
+	border: 1px solid #f00;
+	background-color: #fee;
+}
+
+.validation-summary-errors {
+	font-weight: bold;
+	color: #f00;
+}
+
+.validation-summary-valid {
+	display: none;
+}

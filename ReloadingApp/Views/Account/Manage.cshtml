@@ -1,0 +1,24 @@
+﻿@model Reload.Common.Authentication.UserLogin
+@using ReloadingApp.Helpers.Mvc;
+
+<h2>Manage your account</h2>
+<fieldset>
+	<legend>Login</legend>
+	@using (Html.BeginForm())
+	{
+		@Html.ValidationSummary(true)
+		<div>
+			@Html.LabelFor(u => u.Email)
+			@Html.MaxLengthTextBoxFor(u => u.Email)
+			@Html.ValidationMessageFor(u => u.Email)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.Password)
+			@Html.PasswordFor(u => u.Password)
+			@Html.ValidationMessageFor(u => u.Password)
+		</div>
+		@Html.Hidden("ReturnUrl", Request.QueryString.Get("returnUrl"))
+		<button type="submit">Login</button>
+	}
+</fieldset>
+<p>@Html.ActionLink("Sign up!", "Register")</p>

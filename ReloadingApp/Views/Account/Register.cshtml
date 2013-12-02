@@ -1,0 +1,51 @@
+﻿@model ReloadingApp.Models.Account.UnregisteredUser
+@using ReloadingApp.Helpers.Mvc;
+
+@{
+	ViewBag.Title = "Register";
+}
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryvalidation")
+}
+
+<h2>Become a member</h2>
+<fieldset>
+	<legend>Info</legend>
+	@using (Html.BeginForm())
+	{
+		@Html.ValidationSummary(true)
+		<div>
+			@Html.LabelFor(u => u.Email)
+			@Html.MaxLengthTextBoxFor(u => u.Email)
+			@Html.ValidationMessageFor(u => u.Email)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.ConfirmEmail)
+			@Html.MaxLengthTextBoxFor(u => u.ConfirmEmail)
+			@Html.ValidationMessageFor(u => u.ConfirmEmail)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.Password)
+			@Html.PasswordFor(u => u.Password)
+			@Html.ValidationMessageFor(u => u.Password)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.ConfirmPassword)
+			@Html.PasswordFor(u => u.ConfirmPassword)
+			@Html.ValidationMessageFor(u => u.ConfirmPassword)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.FirstName)
+			@Html.MaxLengthTextBoxFor(u => u.FirstName)
+			@Html.ValidationMessageFor(u => u.FirstName)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.LastName)
+			@Html.MaxLengthTextBoxFor(u => u.LastName)
+			@Html.ValidationMessageFor(u => u.LastName)
+		</div>
+		<button type="submit">Sign Up</button>
+	}
+</fieldset>
+<p>@Html.ActionLink("Already a user?", "Login")</p>

@@ -1,0 +1,32 @@
+﻿
+<h2>Modify Firearm</h2>
+<fieldset>
+	<legend>Info</legend>
+	<form name="FirearmForm" ng-cloak="">
+		<ul>
+			<li>
+				<label>Model</label>
+				<input ng-model="Firearm.Model" type="text" placeholder="Enter a model" required />
+			</li>
+			<li>
+				<label>Brand</label>
+				<select ng-model="Firearm.Brand" ng-options="b.Id as b.Name for b in Enums.Brands"></select>
+			</li>
+			<li>
+				<label>Caliber</label>
+				<select ng-model="Firearm.Chamber" ng-options="c.Id as c.Name for c in Enums.Cartidges"></select>
+			</li>
+			<li>
+				<label>Barrel Length</label>
+				<input ng-model="Firearm.BarrelLength" type="number" placeholder="Enter a barrel length" required />
+				<span style="font-weight: bold">in</span>
+			</li>
+			<li>
+				<label>Type</label>
+				<select ng-model="Firearm.Type" ng-options="t.Id as t.Name for t in Enums.Types"></select>
+			</li>
+		</ul>
+		<button ng-click="Save()" ng-disabled="FirearmForm.$invalid || !IsValid()">Save</button>
+	</form>
+</fieldset>
+<p><a href="#/list">Back to list</a></p>

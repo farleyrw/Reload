@@ -1,0 +1,36 @@
+﻿
+Download VS 2013
+Put code into VS Online
+
+UI
+*User account management
+Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
+Mock up:
+-Handload entry
+-Handload result - yds, conditions
+Correct parameter in firearm unit tests
+Create angular tests, where do they go? testacular, jasmine, karma runner, https://github.com/angular/angular-seed
+Research
+-ng-grid
+-Web Api
+
+
+Business
+Enumerate all enum values
+Create slimmed firearm list (reference) model?
+Create layer unit tests
+Setup data annotations on handloads
+
+
+Features
+Add help section
+Handload reports
+Ballistics calculator/charts
+-Choose mobile friendly reports - canvas js
+
+Links
+http://msdn.microsoft.com/en-US/data/ee712907
+http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8/sourcecode?fileId=66049&pathId=443885674
+http://weblogs.asp.net/scottgu/archive/2010/07/23/entity-framework-4-code-first-custom-database-schema-mapping.aspx
+SQL CE Editor
+http://sqlcetoolbox.codeplex.com/releases

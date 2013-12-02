@@ -1,0 +1,36 @@
+﻿@model ReloadingApp.Models.Account.User
+@using ReloadingApp.Helpers.Mvc;
+
+@{
+	ViewBag.Title = "Log In";
+}
+
+@section Scripts{
+	@Scripts.Render("~/bundles/jqueryvalidation")
+}
+
+<h2>Start Here</h2>
+@if(ViewBag.AutoLogout)
+{
+<h3>You have been automatically logged out due to inactivity.</h3>
+}
+<fieldset>
+	<legend>Login</legend>
+	@using (Html.BeginForm())
+	{
+		@Html.ValidationSummary(true)
+		<div>
+			@Html.LabelFor(u => u.Email)
+			@Html.MaxLengthTextBoxFor(u => u.Email)
+			@Html.ValidationMessageFor(u => u.Email)
+		</div>
+		<div>
+			@Html.LabelFor(u => u.Password)
+			@Html.PasswordFor(u => u.Password)
+			@Html.ValidationMessageFor(u => u.Password)
+		</div>
+		@Html.Hidden("ReturnUrl", Request.QueryString.Get("returnUrl"))
+		<button type="submit">Login</button>
+	}
+</fieldset>
+<p>@Html.ActionLink("Sign up!", "Register")</p>

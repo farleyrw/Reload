@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>@(ViewBag.Title ?? "Reloading Data Source")</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.png")" type="image/png">
+	
+	@if(Request.IsAuthenticated)
+	{
+	<meta name="meta-refresh" http-equiv="refresh" content="@(Session.Timeout * 60);url=@FormsAuthentication.LoginUrl?autologout=true" />
+	}
+		
+	@Html.Partial("Html5Shiv")
+
+	@Styles.Render("~/bundles/sitecss", "~/Content/themes/Reload/jqueryuicss")
+</head>
+<body>
+	<header>
+		<h1>Reloading Data Source</h1>
+		<div class="Menu">
+			@Html.Partial("SiteMenu")
+		</div>
+	</header>
+
+	<div class="Page">@RenderBody()</div>
+
+	<footer>
+		<div class="Footer">Copyright</div>
+	</footer>
+
+	@Scripts.Render("~/bundles/jqueryjs", "~/bundles/jqueryuijs")
+	
+	@RenderSection("Scripts", required: false)
+
+	<script>
+		$(':button').button()
+	</script>
+</body>
+</html>
