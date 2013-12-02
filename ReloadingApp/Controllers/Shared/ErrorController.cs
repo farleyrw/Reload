@@ -5,7 +5,7 @@ using Reload.Service.Interfaces;
 namespace ReloadingApp.Controllers.Shared
 {
 	[AllowAnonymous]
-	public class ErrorController : Controller
+	public class ErrorController : BaseController
 	{
 		private readonly IErrorLoggingService Service;
 
