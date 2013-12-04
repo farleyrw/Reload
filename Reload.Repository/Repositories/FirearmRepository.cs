@@ -12,6 +12,9 @@ namespace Reload.Repository.Repositories
 
 		/// <summary>Initializes a new instance of the <see cref="FirearmRepository"/> class.</summary>
 		/// <param name="context">The context.</param>
-		public FirearmRepository(FirearmContext context) : base(context) { }
+		public FirearmRepository(FirearmContext context) : base(context)
+		{
+			this.IncludeExpressions.Add(f => f.Handloads);
+		}
 	}
 }

@@ -13,18 +13,26 @@ namespace Reload.Common.Models
 		public Powder Powder { get; set; }
 
 		[Required]
-		public long PowderCharge { get; set; }
+		public double PowderCharge { get; set; }
 
 		public Primer Primer { get; set; }
 
 		public Brass Casing { get; set; }
 
 		[Required]
-		public long SeatingDepth { get; set; }
+		public double SeatingDepth { get; set; }
 
 		public Bullet Bullet { get; set; }
 
-		[ForeignKey("FirearmId")]
+		//[ForeignKey("FirearmId")]
 		public Firearm Firearm { get; set; }
+
+		public Handload()
+		{
+			this.Powder = Powder.None;
+			this.Primer = new Primer();
+			this.Casing = new Brass();
+			this.Bullet = new Bullet();
+		}
 	}
 }

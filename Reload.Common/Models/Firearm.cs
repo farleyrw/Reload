@@ -25,6 +25,6 @@ namespace Reload.Common.Models
 		public double BarrelLength { get; set; }
 
 		//[ForeignKey("HandloadId")]
-		//public List<Handload> Handloads { get; set; }
+		public List<Handload> Handloads { get; set; }
 	}
 }

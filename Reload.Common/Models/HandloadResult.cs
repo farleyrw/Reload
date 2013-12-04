@@ -9,13 +9,14 @@ namespace Reload.Common.Models
 		[Key]
 		public int HandloadResultId { get; set; }
 
+		[Required]
 		public DateTime Date { get; set; }
 
 		[Required]
 		public int TotalShots { get; set; }
 
 		[Required]
-		public long GroupSize { get; set; }
+		public double GroupSize { get; set; }
 
 		public WeatherConditions Weather { get; set; }
 

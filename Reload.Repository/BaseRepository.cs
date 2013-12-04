@@ -27,6 +27,7 @@ namespace Reload.Repository
 		public BaseRepository(DbContext context)
 		{
 			this.Context = context;
+			this.IncludeExpressions = new List<Expression<Func<TEntity, object>>>();
 		}
 
 		/// <summary>Gets the entity with the specified id.</summary>

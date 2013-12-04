@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Reload.Common.Enums;
+using Reload.Common.Enums.Components;
 using Reload.Common.Enums.Firearms;
 using Reload.Common.Models;
+using Reload.Common.Models.Components;
 
 namespace Reload.Common.Data
 {
@@ -66,7 +68,16 @@ namespace Reload.Common.Data
 				Model = "700",
 				Type = GunType.Rifle,
 				Chamber = Cartridge.TwentyTwoTwoFiftyRemington,
-				BarrelLength = 26
+				BarrelLength = 26,
+				Handloads = new List<Handload> 
+				{ 
+					new Handload 
+					{
+						Powder = Powder.IMR4895,
+						PowderCharge = 35,
+						SeatingDepth = 2.5
+					}
+				}
 			});
 			
 			Firearms.Add(new Firearm

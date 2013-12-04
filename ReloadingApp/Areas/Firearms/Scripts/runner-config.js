@@ -1,6 +1,6 @@
 ﻿// Karma configuration
 // Generated on Thu Nov 28 2013 20:19:51 GMT-0500 (Eastern Standard Time)
-
+/*
 module.exports = function(config) {
   config.set({
 
@@ -66,3 +66,4 @@ module.exports = function(config) {
     singleRun: false
   });
 };
+*/
