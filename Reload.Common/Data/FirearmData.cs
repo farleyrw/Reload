@@ -26,7 +26,7 @@ namespace Reload.Common.Data
 		/// <param name="firearmId">The firearm id.</param>
 		public static Firearm Get(int firearmId)
 		{
-			return firearmId == 0 ? new Firearm() : Firearms.FirstOrDefault(f => f.FirearmId == firearmId);
+			return Firearms.FirstOrDefault(f => f.FirearmId == firearmId) ?? new Firearm();
 		}
 
 		/// <summary>Saves the specified firearm.</summary>
@@ -69,9 +69,9 @@ namespace Reload.Common.Data
 				Type = GunType.Rifle,
 				Chamber = Cartridge.TwentyTwoTwoFiftyRemington,
 				BarrelLength = 26,
-				Handloads = new List<Handload> 
-				{ 
-					new Handload 
+				Handloads = new List<Handload>
+				{
+					new Handload
 					{
 						Powder = Powder.IMR4895,
 						PowderCharge = 35,

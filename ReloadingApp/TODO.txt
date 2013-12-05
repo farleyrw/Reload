@@ -1,6 +1,6 @@
 ﻿
-Download VS 2013
-Put code into VS Online
+Put code into TFS
+Initialize test data from xml
 
 UI
 *User account management

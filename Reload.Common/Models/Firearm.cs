@@ -26,5 +26,13 @@ namespace Reload.Common.Models
 
 		//[ForeignKey("HandloadId")]
 		public List<Handload> Handloads { get; set; }
+
+		public Firearm()
+		{
+			this.Brand = GunManufacturer.Custom;
+			this.Type = GunType.Other;
+			this.Chamber = Cartridge.Custom;
+			this.Handloads = new List<Handload>();
+		}
 	}
 }

@@ -24,8 +24,8 @@ namespace Reload.Common.Models
 
 		public Bullet Bullet { get; set; }
 
-		//[ForeignKey("FirearmId")]
-		public Firearm Firearm { get; set; }
+		[Required]
+		public int FirearmId { get; set; }
 
 		public Handload()
 		{

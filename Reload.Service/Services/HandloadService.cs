@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Reload.Common.Models;
 using Reload.Repository.Interfaces;
 using Reload.Repository.Repositories;
@@ -33,7 +34,7 @@ namespace Reload.Service.Services
 		/// <param name="firearmId">The firearm id.</param>
 		public List<Handload> GetList(int firearmId)
 		{
-			return this.GetList(firearmId);
+			return this.Repository.GetList(h => h.FirearmId == firearmId).ToList();
 		}
 
 		/// <summary>Saves the handload.</summary>
