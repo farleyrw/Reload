@@ -41,14 +41,7 @@ namespace Reload.Service.Services
 		/// <param name="handload">The handload.</param>
 		public void Save(Handload handload)
 		{
-			if(handload.HandloadId > 0)
-			{
-				this.Repository.Update(handload);
-			}
-			else
-			{
-				this.Repository.Insert(handload);
-			}
+			this.Repository.Save(handload, handload.HandloadId);
 		}
 
 		/// <summary>Deletes the handload by id.</summary>

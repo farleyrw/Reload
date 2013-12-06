@@ -18,7 +18,7 @@ namespace Reload.Service.Services
 
 		public void LogError(Error error)
 		{
-			this.Repository.Insert(error);
+			this.Repository.Save(error);
 		}
 	}
 }

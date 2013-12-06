@@ -55,26 +55,37 @@ namespace Reload.Repository
 			return this.Entities.Where(predicate ?? (x => true)).AsEnumerable();
 		}
 
-		/// <summary>Inserts the specified entity.</summary>
+		/// <summary>Saves the entity.</summary>
 		/// <param name="entity">The entity.</param>
-		public virtual void Insert(TEntity entity)
+		/// <param name="primaryKey">The primary key.</param>
+		public virtual void Save(TEntity entity, int primaryKey = 0)
 		{
 			CheckForNullEntityAndThrowExecption(entity);
 
-			this.Entities.Add(entity);
+			if (primaryKey == 0)
+			{
+				this.Insert(entity);
+			}
+			else
+			{
+				this.Update(entity);
+			}
 
 			this.Context.SaveChanges();
 		}
 
+		/// <summary>Inserts the specified entity.</summary>
+		/// <param name="entity">The entity.</param>
+		private void Insert(TEntity entity)
+		{
+			this.Entities.Add(entity);
+		}
+
 		/// <summary>Updates the specified entity.</summary>
 		/// <param name="entity">The entity.</param>
-		public virtual void Update(TEntity entity)
+		private void Update(TEntity entity)
 		{
-			CheckForNullEntityAndThrowExecption(entity);
-
 			this.Context.Entry(entity).State = EntityState.Modified;
-
-			this.Context.SaveChanges();
 		}
 
 		/// <summary>Deletes the entity by id.</summary>

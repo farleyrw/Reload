@@ -20,13 +20,10 @@ namespace Reload.Repository
 		/// <param name="predicate">The predicate.</param>
 		IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate = null);
 
-		/// <summary>Inserts the entity.</summary>
+		/// <summary>Saves the entity.</summary>
 		/// <param name="entity">The entity.</param>
-		void Insert(TEntity entity);
-
-		/// <summary>Updates the entity.</summary>
-		/// <param name="entity">The entity.</param>
-		void Update(TEntity entity);
+		/// <param name="primaryKey">The primary key.</param>
+		void Save(TEntity entity, int primaryKey = 0);
 
 		/// <summary>Deletes the entity by id.</summary>
 		/// <param name="id">The entity id.</param>

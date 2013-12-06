@@ -32,7 +32,7 @@ namespace Reload.Repository.Repositories
 		/// <param name="user">The user.</param>
 		public UserLogin CreateUser(UserLogin user)
 		{
-			base.Insert(user);
+			base.Save(user);
 
 			return user;
 		}

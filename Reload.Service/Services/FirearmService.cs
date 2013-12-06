@@ -42,14 +42,7 @@ namespace Reload.Service.Services
 		/// <param name="firearm">The firearm.</param>
 		public void Save(Firearm firearm)
 		{
-			if(firearm.FirearmId == 0)
-			{
-				this.Repository.Insert(firearm);
-			}
-			else
-			{
-				this.Repository.Update(firearm);
-			}
+			this.Repository.Save(firearm, firearm.FirearmId);
 		}
 
 		/// <summary>Delets the firearm by id.</summary>
