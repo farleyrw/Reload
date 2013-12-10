@@ -3,7 +3,7 @@ Put code into TFS
 Initialize test data from xml
 
 UI
-Replace callback with query http://docs.angularjs.org/tutorial/step_11
+Replace callback with query http://docs.angularjs.org/tutorial/step_11, http://www.bennadel.com/blog/2433-Using-RESTful-Controllers-In-An-AngularJS-Resource.htm
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 Mock up:
