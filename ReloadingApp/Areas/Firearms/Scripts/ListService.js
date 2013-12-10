@@ -1,9 +1,24 @@
 ﻿
 FirearmManager.service("FirearmListService",
-	["$http", "$rootScope",
-        function (ajax, scope) {
+	["$http", "$rootScope", "$resource",
+        function (ajax, scope, xhr) {
+		    var api = xhr('firearms/data/:action', {
+				action: '@action'
+		    }, {
+		    	List: {
+		    		method: 'GET',
+					params: { action: 'list' },
+		    		isArray: true
+		    	},
+		    	Delete: {
+		    		method: 'POST',
+		    		params: { action: 'delete' }
+		    	}
+		    });
+
 		    return {
-			    Get: Get,
+		    	Get: api.List,
+				Query: api.List,
 			    Delete: Delete,
 			    Refresh: Refresh
 		    };
