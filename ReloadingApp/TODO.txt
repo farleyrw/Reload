@@ -1,6 +1,7 @@
 ﻿
 Put code into TFS
 Initialize test data from xml
+Use http://www.Pluralsight.com
 
 UI
 Replace callback with query http://docs.angularjs.org/tutorial/step_11, http://www.bennadel.com/blog/2433-Using-RESTful-Controllers-In-An-AngularJS-Resource.htm
