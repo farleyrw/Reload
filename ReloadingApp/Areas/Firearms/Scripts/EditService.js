@@ -1,21 +1,35 @@
 ﻿
 FirearmManager.service('FirearmEditService',
-	['$http', 'FirearmListService',
+	['$resource', 'FirearmListService',
         function (ajax, ListService) {
-		    return {
-			    Get: GetFirearm,
-			    Save: SaveFirearm
-		    };
+        	var api = ajax('firearms/data/:action/:id', {
+        		action: '@action',
+				id: '@id'
+        	}, {
+        		Edit: {
+        			method: 'GET',
+        			params: { action: 'edit', id: 'id' }
+        		},
+        		Save: {
+        			method: 'POST',
+        			params: { action: 'save' }
+        		}
+        	});
 
-		    function GetFirearm(firearmId, callback) {
-			    ajax.get('firearms/data/edit/' + (firearmId || 0)).success(callback);
+		    function GetFirearm(firearmId) {
+		    	return api.Edit({ id: firearmId || 0 });
 		    };
 
 		    function SaveFirearm(firearm, callback) {
-			    ajax.post('firearms/data/save', firearm).success(function () {
+		    	api.Save({ firearm: firearm }, function () {
 				    ListService.Refresh();
 				    callback();
 			    });
+		    };
+
+		    return {
+			    Get: GetFirearm,
+			    Save: SaveFirearm
 		    };
         }
 	]
