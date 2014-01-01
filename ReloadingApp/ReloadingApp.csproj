@@ -202,8 +202,8 @@
     <Content Include="App_Data\Reload.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Firearms\Scripts\FirearmApplicationTest.js" />
-    <Content Include="Areas\Firearms\Scripts\runner-config.js" />
+    <Content Include="Areas\Firearms\Scripts\Tests\FirearmApplicationTest.js" />
+    <Content Include="Areas\Firearms\Scripts\Tests\runner-config.js" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.css" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.filter.css" />
@@ -329,7 +329,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Firearms\Scripts\Tests\" />
     <Folder Include="Areas\Handloads\Models\" />
     <Folder Include="Areas\Handloads\Scripts\" />
   </ItemGroup>

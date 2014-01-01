@@ -5,7 +5,6 @@ Use http://www.Pluralsight.com
 
 UI
 Validation
-Replace callback with query http://docs.angularjs.org/tutorial/step_11, http://www.bennadel.com/blog/2433-Using-RESTful-Controllers-In-An-AngularJS-Resource.htm
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 Mock up:
