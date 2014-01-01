@@ -1,8 +1,8 @@
 ﻿
 FirearmManager.service("FirearmListService",
-	["$http", "$rootScope", "$resource",
-        function (ajax, scope, xhr) {
-		    var api = xhr('firearms/data/:action', {
+	["$rootScope", "$resource",
+        function (scope, ajax) {
+		    var api = ajax('firearms/data/:action', {
 		    	action: '@action'
 		    }, {
 		    	List: {

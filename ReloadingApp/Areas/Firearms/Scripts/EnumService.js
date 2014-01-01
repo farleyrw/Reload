@@ -1,11 +1,15 @@
 ﻿
 FirearmManager.service("FirearmEnumService",
-	["$http",
+	["$resource",
         function (ajax) {
+        	var api = ajax('firearms/enums', { }, {
+        		Get: {
+        			method: 'GET'
+        		}
+        	});
+
 		    return {
-			    GetEnums: function () {
-				    return ajax.get('Enums');
-			    }
+			    Get: api.Get
 		    };
         }
 	]

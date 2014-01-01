@@ -19,9 +19,7 @@ FirearmManager.controller("FirearmEditController",
 					scope.Firearm.BarrelLength > 0;
 			};
 
-			EnumService.GetEnums().success(function (data) {
-				scope.Enums = data;
-			});
+			scope.Enums = EnumService.Get();
 		}
 	]
 );

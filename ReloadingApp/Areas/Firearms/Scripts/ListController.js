@@ -10,9 +10,7 @@ FirearmManager.controller("FirearmListController",
 
 		    scope.Delete = ListService.Delete;
 
-		    EnumService.GetEnums().success(function (data) {
-			    scope.Enums = data;
-		    });
+		    scope.Enums = EnumService.Get();
         }
 	]
 );
