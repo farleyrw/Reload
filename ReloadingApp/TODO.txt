@@ -4,13 +4,14 @@ Initialize test data from xml
 Use http://www.Pluralsight.com
 
 UI
+Validation
 Replace callback with query http://docs.angularjs.org/tutorial/step_11, http://www.bennadel.com/blog/2433-Using-RESTful-Controllers-In-An-AngularJS-Resource.htm
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 Mock up:
 -Handload entry
 -Handload result - yds, conditions
-Correct parameter in firearm unit tests
+Correct id parameter in firearm unit tests
 Create angular tests, where do they go? testacular, jasmine, karma runner, https://github.com/angular/angular-seed
 Research
 -ng-grid

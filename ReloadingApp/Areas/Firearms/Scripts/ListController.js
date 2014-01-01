@@ -2,14 +2,10 @@
 FirearmManager.controller("FirearmListController",
 	["$scope", "FirearmListService", "FirearmEnumService",
         function (scope, ListService, EnumService) {
-		    ListService.Get(function (firearms) {
-			    scope.Firearms = firearms;
-		    });
+        	scope.Firearms = ListService.Get();
 
 		    scope.$on("RefreshFirearmList", function () {
-			    ListService.Get(function (firearms) {
-				    scope.Firearms = firearms;
-			    });
+		    	scope.Firearms = ListService.Get();
 		    });
 
 		    scope.Delete = ListService.Delete;
