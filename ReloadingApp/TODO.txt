@@ -1,6 +1,4 @@
 ﻿
-Put code into TFS
-Initialize test data from xml
 Use http://www.Pluralsight.com
 
 UI
@@ -11,18 +9,19 @@ Mock up:
 -Handload entry
 -Handload result - yds, conditions
 Correct id parameter in firearm unit tests
-Create angular tests, where do they go? testacular, jasmine, karma runner, https://github.com/angular/angular-seed
+Create angular tests - testacular, jasmine, karma runner
+
+Business
+Setup data annotations on handloads
+Create layer unit tests
+Enumerate all enum values
+Create slimmed firearm list (reference) model
+
 Research
 -ng-grid
 -Web Api
-
-
-Business
-Enumerate all enum values
-Create slimmed firearm list (reference) model?
-Create layer unit tests
-Setup data annotations on handloads
-
+Put code into TFS
+Initialize test data from xml
 
 Features
 Add help section
