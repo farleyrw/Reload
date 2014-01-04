@@ -184,7 +184,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Areas\Firearms\Controllers\DataController.cs" />
     <Compile Include="Areas\Firearms\Controllers\EnumsController.cs" />
-    <Compile Include="Areas\Firearms\Controllers\ViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Shared\ErrorController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -302,9 +301,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Areas\Firearms\Views\List.cshtml" />
+    <Content Include="Areas\Firearms\Templates\List.html" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Areas\Firearms\Views\Edit.cshtml" />
+    <Content Include="Areas\Firearms\Templates\Edit.html" />
     <Content Include="Areas\Firearms\Views\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\SiteMenu.cshtml" />

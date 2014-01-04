@@ -4,9 +4,9 @@ var FirearmManager = angular.module("FirearmManager", ['ngRoute', 'ngResource'])
 
 FirearmManager.config(['$routeProvider', function (routing) {
 	routing
-        .when('/list', { templateUrl: '/firearms/view/list', controller: 'FirearmListController' })
-        .when('/new', { templateUrl: '/firearms/view/edit', controller: 'FirearmEditController' })
-        .when('/edit/:Id', { templateUrl: '/firearms/view/edit', controller: 'FirearmEditController' })
+        .when('/list', { templateUrl: '/areas/firearms/templates/list.html', controller: 'FirearmListController' })
+        .when('/new', { templateUrl: '/areas/firearms/templates/edit.html', controller: 'FirearmEditController' })
+        .when('/edit/:Id', { templateUrl: '/areas/firearms/templates/edit.html', controller: 'FirearmEditController' })
         .otherwise({ redirectTo: '/list' });
 }]);
 

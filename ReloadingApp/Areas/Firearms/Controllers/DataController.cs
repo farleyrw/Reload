@@ -19,6 +19,12 @@ namespace ReloadingApp.Areas.Firearms.Controllers
 			this.FirearmService = service;
 		}
 
+		/// <summary>Returns the index view result.</summary>
+		public ViewResult Index()
+		{
+			return View();
+		}
+
 		/// <summary>Gets the firearm list.</summary>
 		public JsonResult List()
 		{

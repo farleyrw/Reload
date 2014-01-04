@@ -17,7 +17,7 @@ namespace ReloadingApp.Areas.Firearms
 			context.MapRoute(
 				this.AreaName,
 				this.AreaName + "/{controller}/{action}/{id}",
-				new { controller = "View", action = "Index", id = UrlParameter.Optional }
+				new { controller = "Data", action = "Index", id = UrlParameter.Optional }
 			);
 			
 			BundleTable.Bundles.Add(new ScriptBundle("~/bundles/firearm")
