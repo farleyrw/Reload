@@ -19,6 +19,10 @@ namespace Reload.Repository.Context.Initialization
 				if(context.Entry<Firearm>(firearm).State == EntityState.Detached)
 				{
 					context.Firearms.Add(firearm);
+					foreach (Handload handload in firearm.Handloads)
+					{
+						context.Handloads.Add(handload);
+					}
 				}
 			}
 

@@ -6,10 +6,10 @@ namespace Reload.Common.Models
 	{
 		public int Temperature { get; set; }
 
+		public int ElevationFeet { get; set; }
+
 		public int WindSpeedMph { get; set; }
 
 		public WindDirection WindDirection { get; set; }
-
-		public int ElevationFeet { get; set; }
 	}
 }

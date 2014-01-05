@@ -29,7 +29,7 @@ namespace Reload.Service.Services
 		{
 			if(firearmId == 0) { return new Firearm(); }
 
-			return this.Repository.Find(firearmId);
+			return this.Repository.Get(x => x.FirearmId == firearmId);
 		}
 
 		/// <summary>Gets all firearms.</summary>

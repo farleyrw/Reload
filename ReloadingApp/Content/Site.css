@@ -159,6 +159,7 @@ a:link, a:visited {
 }
 
 /* Angular validation CSS */
-/*.ng-invalid {
-	background-color: red;
+/**:not(form).ng-invalid.ng-dirty {
+	border-color: red;
+	background-color: #ffc9c9;
 }*/

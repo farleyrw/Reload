@@ -41,7 +41,7 @@ namespace Reload.Repository
 		/// <param name="predicate">The predicate.</param>
 		public virtual TEntity Get(Expression<Func<TEntity, bool>> predicate)
 		{
-			if(this.IncludeExpressions == null || !this.IncludeExpressions.Any()) { return this.Entities.FirstOrDefault(predicate); }
+			if(!this.IncludeExpressions.Any()) { return this.Entities.FirstOrDefault(predicate); }
 
 			return this.IncludeExpressions
 				.Aggregate(this.Entities.AsQueryable(), (current, include) => current.Include(include))
