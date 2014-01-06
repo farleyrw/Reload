@@ -203,6 +203,7 @@
     </Content>
     <Content Include="Areas\Firearms\Scripts\Tests\FirearmApplicationTest.js" />
     <Content Include="Areas\Firearms\Scripts\Tests\runner-config.js" />
+    <Content Include="Areas\Handloads\Scripts\Application.js" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.css" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.filter.css" />
@@ -259,7 +260,7 @@
     <Content Include="Areas\Handloads\Views\Web.config" />
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Handloads\Views\Index.cshtml" />
-    <Content Include="Areas\Handloads\Views\List.cshtml" />
+    <Content Include="Areas\Handloads\Templates\List.html" />
     <Content Include="Scripts\angular\errors.json" />
     <Content Include="Scripts\angular\angular-touch.min.js.map" />
     <Content Include="Scripts\angular\angular-sanitize.min.js.map" />
@@ -329,7 +330,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Handloads\Models\" />
-    <Folder Include="Areas\Handloads\Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
