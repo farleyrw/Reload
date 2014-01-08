@@ -37,7 +37,7 @@ namespace Reload.Repository
 			return this.Entities.Find(id);
 		}
 
-		/// <summary>Returns the element with it's associations.</summary>
+		/// <summary>Returns the element with included associations.</summary>
 		/// <param name="predicate">The predicate.</param>
 		public virtual TEntity Get(Expression<Func<TEntity, bool>> predicate)
 		{

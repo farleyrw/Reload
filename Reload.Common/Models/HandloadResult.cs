@@ -16,7 +16,7 @@ namespace Reload.Common.Models
 		public int TotalShots { get; set; }
 
 		[Required]
-		public double GroupSize { get; set; }
+		public double GroupSizeInches { get; set; }
 
 		public WeatherConditions Weather { get; set; }
 

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<firearm name="">
+		<model></model>
+		<brand></brand>
+		<type></type>
+		<chamber></chamber>
+		<barrelLength></barrelLength>
+		<handloads>
+			<handload>
+				<powder></powder>
+				<powderCharge></powderCharge>
+				<primer></primer>
+				<casing></casing>
+				<bullet></bullet>
+				<seatingDepth></seatingDepth>
+				<handloadResult>
+					<date></date>
+					<totalShots></totalShots>
+					<groupSizeInches></groupSizeInches>
+					<weatherConditions>
+						<temperature></temperature>
+						<elevationFeet></elevationFeet>
+						<windDirection></windDirection>
+						<windSpeedMph></windSpeedMph>
+					</weatherConditions>
+				</handloadResult>
+			</handload>
+		</handloads>
+	</firearm>
+</data>

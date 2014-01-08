@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<firearm name="243Rem700">
+		<model>700</model>
+		<brand>Remington</brand>
+		<type>Rifle</type>
+		<chamber>243 Winchester</chamber>
+		<barrelLength>24</barrelLength>
+		<handloads>
+			<handload>
+				<powder></powder>
+				<powderCharge></powderCharge>
+				<primer></primer>
+				<casing></casing>
+				<bullet></bullet>
+				<seatingDepth></seatingDepth>
+				<handloadResult>
+					<date></date>
+					<totalShots></totalShots>
+					<groupSizeInches></groupSizeInches>
+					<weatherConditions>
+						<temperature></temperature>
+						<elevationFeet></elevationFeet>
+						<windDirection></windDirection>
+						<windSpeedMph></windSpeedMph>
+					</weatherConditions>
+				</handloadResult>
+			</handload>
+		</handloads>
+	</firearm>
+</data>
