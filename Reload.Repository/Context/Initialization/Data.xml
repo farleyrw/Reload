@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<data>
-	<firearm name="243Rem700">
-		<model>700</model>
+<firearms>
+	<Firearm>
+		<Model>700</Model>
 		<brand>Remington</brand>
 		<type>Rifle</type>
 		<chamber>243 Win</chamber>
@@ -27,7 +27,7 @@
 				</handloadResult>
 			</handload>
 		</handloads>-->
-	</firearm>
+	</Firearm>
 	<!--<firearm name="22-250Rem700">
 		<model>700</model>
 		<brand>Remington</brand>
@@ -84,4 +84,4 @@
 			</handload>
 		</handloads>
 	</firearm>-->
-</data>
+</firearms>

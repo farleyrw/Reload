@@ -29,6 +29,7 @@ namespace Reload.Common.Models
 
 		public Firearm()
 		{
+			this.Model = string.Empty;
 			this.Brand = GunManufacturer.Custom;
 			this.Type = GunType.Other;
 			this.Chamber = Cartridge.Custom;

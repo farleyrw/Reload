@@ -21,7 +21,7 @@ namespace Reload.Repository.Repositories
 		/// <param name="password">The password.</param>
 		public UserLogin GetUserLogin(string email, string password)
 		{
-			//var x = FirearmDeserialization.DeserializeXml();
+			var x = FirearmDeserialization.DeserializeXml();
 
 			UserLogin userLogin = this.Entities
 				.FirstOrDefault(user =>

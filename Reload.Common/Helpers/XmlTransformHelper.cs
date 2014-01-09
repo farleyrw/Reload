@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace Reload.Common.Helpers
 {
 	/// <summary>The Xml serialization helper.</summary>
-	public static class XmlSerializationHelper
+	public static class XmlTransformHelper
 	{
 		/// <summary>Serializes an object to an xml string.</summary>
 		/// <param name="objectToSerialize">The object to serialize.</param>

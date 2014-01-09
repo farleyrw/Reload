@@ -60,7 +60,7 @@
     <Compile Include="Enums\Components\PrimerManufacturer.cs" />
     <Compile Include="Enums\Components\PrimerType.cs" />
     <Compile Include="Enums\WindDirection.cs" />
-    <Compile Include="Helpers\XmlSerializationHelper.cs" />
+    <Compile Include="Helpers\XmlTransformHelper.cs" />
     <Compile Include="Models\WeatherConditions.cs" />
     <Compile Include="Models\Firearm.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />

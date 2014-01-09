@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<data>
+<firearms>
 	<firearm name="">
 		<model></model>
 		<brand></brand>
@@ -28,4 +28,4 @@
 			</handload>
 		</handloads>
 	</firearm>
-</data>
+</firearms>

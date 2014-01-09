@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using Reload.Common.Models;
 
@@ -9,18 +10,30 @@ namespace Reload.Repository.Context.Initialization
 {
 	public static class FirearmDeserialization
 	{
-		public static List<Firearm> DeserializeXml()
+		public static Firearm DeserializeXml()
 		{
-			List<Firearm> firearms = null;
-			string fileContents = File.ReadAllText(GetXmlFile());
+			Firearm firearms = null;
+			var x = XDocument.Load(GetXmlFile());
+			foreach(var element in x.Root.Elements())
+			{
+				element.ToString();
+			}
+			
+			return firearms;
+		}
 
-			XmlSerializer serial = new XmlSerializer(typeof(List<Firearm>), new XmlRootAttribute("data"));
+		public static Firearm DeserializeXml_Better()
+		{
+			Firearm firearms = null;
+			string fileContents = File.ReadAllText(GetXmlFile());
+			
+			XmlSerializer serial = new XmlSerializer(typeof(Firearm), new XmlRootAttribute("firearms"));
 			StringReader reader = new StringReader(fileContents);
 			object result = serial.Deserialize(reader);
 
-			if (result != null && result is List<Firearm>)
+			if (result != null && result is Firearm)
 			{
-				firearms = ((List<Firearm>)result);
+				firearms = ((Firearm)result);
 			}
 
 			reader.Close();

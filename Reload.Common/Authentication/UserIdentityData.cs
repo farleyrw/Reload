@@ -18,7 +18,7 @@ namespace Reload.Common.Authentication
 		{
 			if(string.IsNullOrWhiteSpace(cookieData)) { return; }
 
-			UserIdentityData userData = XmlSerializationHelper.Deserialize<UserIdentityData>(cookieData);
+			UserIdentityData userData = XmlTransformHelper.Deserialize<UserIdentityData>(cookieData);
 
 			if(userData == null) { return; }
 
