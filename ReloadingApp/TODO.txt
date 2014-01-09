@@ -13,14 +13,13 @@ Correct id parameter in firearm unit tests
 Create angular tests - testacular, jasmine, karma runner
 
 Business
-Setup data annotations on handloads
+Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values
 Create slimmed firearm list (reference) model
 
 Research
 -ng-grid
--Web Api
 Put code into TFS
 Initialize test data from xml
 

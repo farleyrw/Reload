@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Reload.Common.Authentication;
 using Reload.Repository.Context;
+using Reload.Repository.Context.Initialization;
 using Reload.Repository.Interfaces;
 
 namespace Reload.Repository.Repositories
@@ -20,6 +21,8 @@ namespace Reload.Repository.Repositories
 		/// <param name="password">The password.</param>
 		public UserLogin GetUserLogin(string email, string password)
 		{
+			//var x = FirearmDeserialization.DeserializeXml();
+
 			UserLogin userLogin = this.Entities
 				.FirstOrDefault(user =>
 					user.Email == email && 
