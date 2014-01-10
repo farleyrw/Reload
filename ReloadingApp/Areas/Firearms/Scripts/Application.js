@@ -1,14 +1,15 @@
 ﻿'use strict';
 
-var FirearmManager = angular.module("FirearmManager", ['ngRoute', 'ngResource']);
-
-FirearmManager.config(['$routeProvider', function (routing) {
-	routing
-        .when('/list', { templateUrl: '/areas/firearms/templates/list.html', controller: 'FirearmListController' })
-        .when('/new', { templateUrl: '/areas/firearms/templates/edit.html', controller: 'FirearmEditController' })
-        .when('/edit/:Id', { templateUrl: '/areas/firearms/templates/edit.html', controller: 'FirearmEditController' })
-        .otherwise({ redirectTo: '/list' });
-}]);
+var FirearmManager = angular.module("FirearmManager", ['ngRoute', 'ngResource'])
+	.constant('templateUrl', '/areas/firearms/templates/')
+	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
+		routing
+			.when('/list', { templateUrl: templateUrl + 'list.html', controller: 'FirearmListController' })
+			.when('/new', { templateUrl: templateUrl + 'edit.html', controller: 'FirearmEditController' })
+			.when('/edit/:Id', { templateUrl: templateUrl + 'edit.html', controller: 'FirearmEditController' })
+			.otherwise({ redirectTo: '/list' });
+	}
+]);
 
 // Filter to get the string value of the enum.
 FirearmManager.filter("EnumToString", function () {
