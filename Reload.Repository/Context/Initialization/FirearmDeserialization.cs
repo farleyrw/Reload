@@ -1,53 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Xml.Linq;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Reload.Common.Models;
 
 namespace Reload.Repository.Context.Initialization
 {
 	public static class FirearmDeserialization
 	{
-		public static Firearm DeserializeXml()
+		public static Firearm GetData()
 		{
-			Firearm firearms = null;
-			var x = XDocument.Load(GetXmlFile());
-			foreach(var element in x.Root.Elements())
-			{
-				element.ToString();
-			}
-			
-			return firearms;
+			Firearm firearm = JsonConvert.DeserializeObject<Firearm>(
+				File.ReadAllText(GetJsonFile()), 
+				new StringEnumConverter()
+			);
+
+			return firearm;
 		}
 
-		public static Firearm DeserializeXml_Better()
-		{
-			Firearm firearms = null;
-			string fileContents = File.ReadAllText(GetXmlFile());
-			
-			XmlSerializer serial = new XmlSerializer(typeof(Firearm), new XmlRootAttribute("firearms"));
-			StringReader reader = new StringReader(fileContents);
-			object result = serial.Deserialize(reader);
-
-			if (result != null && result is Firearm)
-			{
-				firearms = ((Firearm)result);
-			}
-
-			reader.Close();
-
-			return firearms;
-		}
-
-		private static string GetXmlFile()
+		private static string GetJsonFile()
 		{
 			string codeBase = Assembly.GetExecutingAssembly().CodeBase;
 			string path = Uri.UnescapeDataString(new UriBuilder(codeBase).Path);
 			string x = Path.GetDirectoryName(path);
 
-			return Path.Combine(x, @"Context\Initialization\Data.xml");
+			return Path.Combine(x, @"Context\Initialization\Data.json");
 		}
 	}
 }

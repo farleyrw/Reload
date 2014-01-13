@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using Reload.Common.Data;
 using Reload.Common.Models;
@@ -12,7 +12,7 @@ namespace Reload.Repository.Context.Initialization
 		/// <param name="context">The context.</param>
 		protected override void Seed(FirearmContext context)
 		{
-			FirearmData.Initialize();
+			//Firearm x = FirearmDeserialization.GetData();
 
 			foreach(Firearm firearm in FirearmData.Firearms)
 			{

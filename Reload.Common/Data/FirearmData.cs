@@ -4,13 +4,18 @@ using Reload.Common.Enums;
 using Reload.Common.Enums.Components;
 using Reload.Common.Enums.Firearms;
 using Reload.Common.Models;
-using Reload.Common.Models.Components;
 
 namespace Reload.Common.Data
 {
 	/// <summary>Firearm data</summary>
 	public static class FirearmData
 	{
+		/// <summary>Private static constructor.</summary>
+		static FirearmData()
+		{
+			Initialize();
+		}
+
 		/// <summary>The firearms</summary>
 		public static List<Firearm> Firearms { get; set; }
 
@@ -22,45 +27,13 @@ namespace Reload.Common.Data
 			return Firearms.Max(f => f.FirearmId) + 1;
 		}
 
-		/// <summary>Gets the specified firearm id.</summary>
-		/// <param name="firearmId">The firearm id.</param>
-		public static Firearm Get(int firearmId)
-		{
-			return Firearms.FirstOrDefault(f => f.FirearmId == firearmId) ?? new Firearm();
-		}
-
-		/// <summary>Saves the specified firearm.</summary>
-		/// <param name="firearm">The firearm.</param>
-		public static void Save(Firearm firearm)
-		{
-			if(firearm.FirearmId <= 0)
-			{
-				firearm.FirearmId = GetNextId();
-				Firearms.Add(firearm);
-			}
-			else
-			{
-				int firearmIndex = Firearms.FindIndex(f => f.FirearmId == firearm.FirearmId);
-				Firearms[firearmIndex] = firearm;
-			}
-		}
-
-		/// <summary>Deletes the specified firearm id.</summary>
-		/// <param name="firearmId">The firearm id.</param>
-		public static void Delete(int firearmId)
-		{
-			Firearm firearm = Firearms.FirstOrDefault(f => f.FirearmId == firearmId);
-
-			if(firearm != null) { Firearms.Remove(firearm); }
-		}
-
 		/// <summary>Initializes this instance.</summary>
-		public static void Initialize()
+		private static void Initialize()
 		{
 			if(Firearms != null) { return; }
 
 			Firearms = new List<Firearm>();
-			
+
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
@@ -79,7 +52,7 @@ namespace Reload.Common.Data
 					}
 				}
 			});
-			
+
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
