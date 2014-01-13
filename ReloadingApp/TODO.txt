@@ -3,7 +3,7 @@ Use http://www.Pluralsight.com
 
 UI
 add account Id to requests
-unify data requests - list/edit/delete
+unify data requests with resource- list/edit/delete
 Angular validation
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
