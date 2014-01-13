@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 var FirearmManager = angular.module("FirearmManager", ['ngRoute', 'ngResource'])
-	.constant('templateUrl', '/areas/firearms/templates/')
+	.constant('templateUrl', 'areas/firearms/templates/')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
 			.when('/list', { templateUrl: templateUrl + 'list.html', controller: 'FirearmListController' })

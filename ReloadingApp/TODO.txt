@@ -2,8 +2,9 @@
 Use http://www.Pluralsight.com
 
 UI
+add account Id to requests
 unify data requests - list/edit/delete
-Validation
+Angular validation
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 Mock up:
@@ -21,7 +22,7 @@ Create slimmed firearm list (reference) model
 Research
 -ng-grid
 Put code into TFS
-Initialize test data from xml
+Initialize test data from json
 
 Features
 Add help section

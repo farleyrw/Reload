@@ -256,6 +256,7 @@
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />
