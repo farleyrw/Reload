@@ -12,12 +12,16 @@ namespace Informz.Web.App.Attributes
 		/// <param name="filterContext">The action-filter context.</param>
 		public override void OnException(ExceptionContext filterContext)
 		{
-			Error error = new Error
-			{
-				Location = string.Format(
+			string errorLocation = filterContext.Exception.TargetSite.DeclaringType != null ?
+				string.Format(
 					"{0}.{1}()",
 					filterContext.Exception.TargetSite.DeclaringType.FullName,
-					filterContext.Exception.TargetSite.Name),
+					filterContext.Exception.TargetSite.Name) :
+				string.Empty;
+
+			Error error = new Error
+			{
+				Location = errorLocation,
 				Description = filterContext.Exception.Message,
 				StackTrace = filterContext.Exception.StackTrace
 			};

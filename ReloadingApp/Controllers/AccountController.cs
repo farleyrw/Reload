@@ -144,26 +144,6 @@ namespace ReloadingApp.Controllers
 		private bool IsLocalUrl(string url)
 		{
 			return Url.IsLocalUrl(url);
-			/*
-			if(string.IsNullOrEmpty(url)) { return false; }
-
-			Uri absoluteUri;
-			if(Uri.TryCreate(url, UriKind.Absolute, out absoluteUri))
-			{
-				// Ensure that the redirect Url host matches the current Url host.
-				string currentUrlHost = this.Request.Url.Host;
-				string redirectUrlHost = absoluteUri.Host;
-
-				return currentUrlHost.Equals(absoluteUri.Host, StringComparison.OrdinalIgnoreCase);
-			}
-			else
-			{
-				// Check that the redirect Url is relatively well formed.
-				bool isLocalUrl = !url.StartsWith("http", StringComparison.OrdinalIgnoreCase)
-					&& Uri.IsWellFormedUriString(url, UriKind.Relative);
-
-				return isLocalUrl;
-			}*/
 		}
 	}
 }

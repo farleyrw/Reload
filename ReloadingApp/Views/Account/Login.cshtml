@@ -10,7 +10,7 @@
 }
 
 <h2>Start Here</h2>
-@if(ViewBag.AutoLogout)
+@if(ViewBag.AutoLogout ?? false)
 {
 <h3>You have been automatically logged out due to inactivity.</h3>
 }
