@@ -1,8 +1,24 @@
-﻿
+﻿[
 	{
 		"Model": "700",
 		"Brand": "Remington",
 		"Type": "Rifle",
 		"Chamber": "TwoFourtyThreeWinchester",
-		"BarrelLength": 0
+		"BarrelLength": 24,
+		"Handloads": [
+			{
+				"Powder": "IMR4895",
+				"PowderCharge": 35,
+				"SeatingDepth": 2.5
+			}
+		]
+	},
+	{
+		"Model": "700",
+		"Brand": "Remington",
+		"Type": "Rifle",
+		"Chamber": "TwentyTwoTwoFiftyRemington",
+		"BarrelLength": 26,
+		"Handloads": []
 	}
+]

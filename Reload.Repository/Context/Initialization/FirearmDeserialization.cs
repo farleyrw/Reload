@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
@@ -9,10 +10,10 @@ namespace Reload.Repository.Context.Initialization
 {
 	public static class FirearmDeserialization
 	{
-		public static Firearm GetData()
+		public static List<Firearm> GetData()
 		{
-			Firearm firearm = JsonConvert.DeserializeObject<Firearm>(
-				File.ReadAllText(GetJsonFile()), 
+			List<Firearm> firearm = JsonConvert.DeserializeObject<List<Firearm>>(
+				File.ReadAllText(GetJsonFile()),
 				new StringEnumConverter()
 			);
 

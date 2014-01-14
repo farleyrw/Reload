@@ -14,6 +14,7 @@ Correct id parameter in firearm unit tests
 Create angular tests - testacular, jasmine, karma runner
 
 Business
+Figure out best way to handle integer enum names
 Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values

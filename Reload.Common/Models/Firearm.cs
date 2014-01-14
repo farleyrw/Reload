@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Reload.Common.Enums;
 using Reload.Common.Enums.Firearms;
+using Reload.Common.Helpers;
 
 namespace Reload.Common.Models
 {
@@ -20,6 +20,19 @@ namespace Reload.Common.Models
 		public GunType Type { get; set; }
 
 		public Cartridge Chamber { get; set; }
+
+		public string ShortName
+		{
+			get
+			{
+				return string.Format(
+					"{0} {1} {2}",
+					EnumHelper.Description<GunManufacturer>(this.Brand),
+					this.Model,
+					EnumHelper.Description<Cartridge>(this.Chamber)
+				);
+			}
+		}
 
 		[Required]
 		public double BarrelLength { get; set; }
