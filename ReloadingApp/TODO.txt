@@ -3,7 +3,7 @@ Use http://www.Pluralsight.com
 
 UI
 add account Id to requests
-unify data requests with resource- list/edit/delete
+unify data requests with resource http://docs.angularjs.org/api/ngResource.$resource
 Angular validation
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
@@ -15,6 +15,7 @@ Create angular tests - testacular, jasmine, karma runner
 
 Business
 Figure out best way to handle integer enum names
+Fix db initialization error - "The specified table does not exist"
 Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values

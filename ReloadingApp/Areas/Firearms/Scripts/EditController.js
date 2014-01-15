@@ -1,14 +1,20 @@
 ﻿
 FirearmManager.controller("FirearmEditController",
-	["$scope", "$routeParams", "$location", "FirearmEditService", "FirearmEnumService",
-		function (scope, route, location, EditService, EnumService) {
-			scope.Firearm = EditService.Get(route.Id)
-
+	["$scope", "$routeParams", "$location", "FirearmService", "FirearmEnumService",
+		function (scope, route, location, FirearmService, EnumService) {
+			scope.Firearm = FirearmService.Get(route.Id)
+			
 			scope.Save = function () {
-				EditService.Save(scope.Firearm, function () {
+				console.log(scope.Firearm);
+				FirearmService.Save(scope.Firearm, function () {
 					location.path('/list');
 				});
 			};
+			
+			/*scope.Save = function () {
+				scope.Firearm.$save();
+				//location.path('/list');
+			};*/
 
 			scope.Enums = EnumService.Get();
 

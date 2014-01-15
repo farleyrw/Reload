@@ -201,6 +201,7 @@
     <Content Include="App_Data\Reload.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Firearms\Scripts\FirearmService.js" />
     <Content Include="Areas\Firearms\Scripts\Tests\FirearmApplicationTest.js" />
     <Content Include="Areas\Firearms\Scripts\Tests\runner-config.js" />
     <Content Include="Areas\Handloads\Scripts\Application.js" />
@@ -281,10 +282,8 @@
     <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Areas\Firearms\Scripts\Application.js" />
     <Content Include="Areas\Firearms\Scripts\EditController.js" />
-    <Content Include="Areas\Firearms\Scripts\EditService.js" />
     <Content Include="Areas\Firearms\Scripts\EnumService.js" />
     <Content Include="Areas\Firearms\Scripts\ListController.js" />
-    <Content Include="Areas\Firearms\Scripts\ListService.js" />
     <Content Include="TODO.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
