@@ -11,7 +11,7 @@
         <td><a href="#/edit/{{firearm.FirearmId}}" title="Edit">{{firearm.Model}}</a></td>
         <td>{{firearm.Brand | EnumToString:Enums.Brands}}</td>
         <td>{{firearm.Chamber | EnumToString:Enums.Cartidges}}</td>
-        <td><a href="" ng-click="Delete(firearm.FirearmId)" title="Delete">X</a></td>
+        <td><a href="" ng-click="Delete(firearm)" title="Delete">X</a></td>
     </tr>
 </table>
 <p><a href="#/new">Add Firearm</a></p>

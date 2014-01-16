@@ -4,11 +4,11 @@ FirearmManager.controller("FirearmListController",
         function (scope, FirearmService, EnumService) {
         	scope.Firearms = FirearmService.List();
 
-		    scope.$on("RefreshFirearmList", function () {
-		    	scope.Firearms = FirearmService.List();
-		    });
-
-		    scope.Delete = FirearmService.Delete;
+        	scope.Delete = function (firearm) {
+        		FirearmService.Delete(firearm, function (firearm) {
+        			scope.Firearms.splice(scope.Firearms.indexOf(firearm), 1);
+        		});
+        	};
 
 		    scope.Enums = EnumService.Get();
         }

@@ -1,7 +1,7 @@
 ﻿
 FirearmManager.service("FirearmService",
-	["$rootScope", "$resource",
-		function (scope, ajax) {
+	["$resource",
+		function (ajax) {
 			var api = ajax('firearms/data/:action/:id', {
 				action: '@action',
 				id: '@id'
@@ -25,31 +25,23 @@ FirearmManager.service("FirearmService",
 				}
 			});
 
-			function GetFirearm(firearmId) {
+			function Get(firearmId) {
 				return api.Edit({ id: firearmId || 0 });
 			};
 
-			function SaveFirearm(firearm, callback) {
-				api.Save({ firearm: firearm }, function () {
-					Refresh();
-					callback();
-				});
+			function Save(firearm, callback) {
+				api.Save({ firearm: firearm }, callback);
 			};
 
-			function Delete(id) {
-				api.Delete({ firearmId: id }, Refresh);
-			};
-
-			function Refresh() {
-				scope.$broadcast('RefreshFirearmList');
+			function Delete(firearm, callback) {
+				api.Delete({ firearmId: firearm.FirearmId }, callback);
 			};
 
 			return {
 				List: api.List,
 				Delete: Delete,
-				Refresh: Refresh,
-				Get: GetFirearm,
-				Save: SaveFirearm
+				Get: Get,
+				Save: Save
 			};
 		}
 	]

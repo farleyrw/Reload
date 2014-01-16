@@ -5,17 +5,11 @@ FirearmManager.controller("FirearmEditController",
 			scope.Firearm = FirearmService.Get(route.Id)
 			
 			scope.Save = function () {
-				console.log(scope.Firearm);
 				FirearmService.Save(scope.Firearm, function () {
 					location.path('/list');
 				});
 			};
 			
-			/*scope.Save = function () {
-				scope.Firearm.$save();
-				//location.path('/list');
-			};*/
-
 			scope.Enums = EnumService.Get();
 
 			scope.IsValid = function () {
