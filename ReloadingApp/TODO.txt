@@ -2,7 +2,7 @@
 Use http://www.Pluralsight.com
 
 UI
-unify data requests with resource - http://docs.angularjs.org/api/ngResource.$resource
+centralize data requests with resource - http://docs.angularjs.org/api/ngResource.$resource
 Angular validation
 *User account management
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/

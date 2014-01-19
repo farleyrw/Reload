@@ -29,6 +29,18 @@ FirearmManager.service("FirearmService",
 				return api.Edit({ id: firearmId || 0 });
 			};
 
+			/*var Firearms = api.List();
+
+			function GetNew(firearmId) {
+				var firearm = {};
+				Firearms.forEach(function(key) {
+					if (key.FirearmId == firearmId) {
+						firearm = key;
+					}
+				});
+				return firearm;
+			};*/
+
 			function Save(firearm, callback) {
 				api.Save({ firearm: firearm }, callback);
 			};

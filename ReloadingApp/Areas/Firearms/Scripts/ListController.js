@@ -10,7 +10,7 @@ FirearmManager.controller("FirearmListController",
         		});
         	};
 
-		    scope.Enums = EnumService.Get();
+        	scope.Enums = EnumService.Get();
         }
 	]
 );
