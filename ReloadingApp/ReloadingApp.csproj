@@ -117,11 +117,11 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -129,19 +129,19 @@
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -247,16 +247,16 @@
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery\multiselect\jquery.multiselect.filter.js" />
     <Content Include="Scripts\jquery\multiselect\jquery.multiselect.filter.min.js" />
     <Content Include="Scripts\jquery\multiselect\jquery.multiselect.js" />
     <Content Include="Scripts\jquery\multiselect\jquery.multiselect.min.js" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.js" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.min.js" />
-    <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
@@ -277,9 +277,6 @@
     <Content Include="Scripts\jquery\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
     <Content Include="Scripts\html5\html5shiv.js" />
-    <None Include="Scripts\jquery\validation\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery\validation\jquery.validate.js" />
-    <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Areas\Firearms\Scripts\Application.js" />
     <Content Include="Areas\Firearms\Scripts\EditController.js" />
     <Content Include="Areas\Firearms\Scripts\EnumService.js" />
