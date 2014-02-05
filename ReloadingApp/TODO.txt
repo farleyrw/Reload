@@ -10,7 +10,7 @@ Mock up:
 -Handload entry
 -Handload result - yds, conditions
 Correct id parameter in firearm unit tests
-Create angular tests - testacular, jasmine, karma runner
+Create angular tests - testacular, jasmine, karma runner http://docs.angularjs.org/tutorial/step_11
 
 Business
 add account Id to requests
