@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 	<title>@(ViewBag.Title ?? "Reloading Data Source")</title>
+	<meta name="meta-refresh" http-equiv="refresh" content="5;url=@FormsAuthentication.LoginUrl?autologout=true" />
+	@if(Request.IsAuthenticated)
+	{
+		<meta name="meta-refresh" http-equiv="refresh" content="@(Session.Timeout * 60);url=@FormsAuthentication.LoginUrl?autologout=true" />
+	}
+
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.png")" type="image/png">
 	
-	@if(Request.IsAuthenticated)
-	{
-	<meta name="meta-refresh" http-equiv="refresh" content="@(Session.Timeout * 60);url=@FormsAuthentication.LoginUrl?autologout=true" />
-	}
-		
 	@Html.Partial("Html5Shiv")
 
 	@Styles.Render("~/bundles/sitecss", "~/Content/themes/Reload/jqueryuicss")
@@ -34,7 +35,7 @@
 	@RenderSection("Scripts", required: false)
 
 	<script>
-		$(':button').button()
+		$(function () { $(':button').button() });
 	</script>
 </body>
 </html>

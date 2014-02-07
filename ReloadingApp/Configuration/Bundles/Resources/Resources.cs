@@ -81,8 +81,8 @@ namespace ReloadingApp.Configuration.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/jqueryvalidation")
 					.Include(
-						"~/Scripts/jquery/validation/jquery.validate.js",
-						"~/Scripts/jquery/validation/jquery.validate.unobtrusive.js"
+						"~/Scripts/jquery/validation/jquery.validate.unobtrusive.js",
+						"~/Scripts/jquery/validation/jquery.unobtrusive-ajax.js"
 					);
 			}
 		}

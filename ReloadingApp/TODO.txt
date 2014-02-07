@@ -19,7 +19,6 @@ Fix db initialization error - "The specified table does not exist"
 Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values
-Create slimmed firearm list (reference) model
 
 Research
 -ng-grid
