@@ -22,6 +22,6 @@
 /// <reference path="angular/angular-touch.js" />
 /// <reference path="html5/html5shiv.js" />
 /// <reference path="angular/i18n/angular-locale_en.js" />
+/// <reference path="jquery/jquery-2.1.0.js" />
 /// <reference path="jquery/validation/jquery.validate.unobtrusive.js" />
 /// <reference path="jquery/validation/jquery.unobtrusive-ajax.js" />
-/// <reference path="jquery/jquery-2.1.0.js" />
