@@ -54,7 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Helpers\EnumHelperFixture.cs" />
-    <Compile Include="Helpers\TestEnum.cs" />
+    <Compile Include="Helpers\XmlTransformHelperFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

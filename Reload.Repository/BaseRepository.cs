@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Reload.Common.Authentication;
 
 namespace Reload.Repository
 {
@@ -11,8 +10,6 @@ namespace Reload.Repository
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
 	public class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
 	{
-		public UserIdentityData Identity { get; set; }
-
 		/// <summary>Gets or sets the include expressions.</summary>
 		/// <value>The include expressions.</value>
 		protected List<Expression<Func<TEntity, object>>> IncludeExpressions { get; set; }

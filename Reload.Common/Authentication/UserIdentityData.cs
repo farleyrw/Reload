@@ -7,7 +7,7 @@ namespace Reload.Common.Authentication
 {
 	/// <summary>The user data.</summary>
 	[XmlRoot("UserData"), KnownType(typeof(UserIdentity))]
-	public class UserIdentityData
+	public class UserIdentityData : IUserIdentityData
 	{
 		/// <summary>Initializes a new instance of the <see cref="UserIdentityData"/> class.</summary>
 		public UserIdentityData() { }
@@ -20,9 +20,10 @@ namespace Reload.Common.Authentication
 
 			UserIdentityData userData = XmlTransformHelper.Deserialize<UserIdentityData>(cookieData);
 
-			if(userData == null) { return; }
-
-			this.Initialize(userData.AccountId, userData.Email, userData.FirstName, userData.LastName);
+			if(userData != null)
+			{
+				this.Initialize(userData.AccountId, userData.Email, userData.FirstName, userData.LastName);
+			}
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="UserIdentityData"/> class.</summary>

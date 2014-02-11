@@ -2,28 +2,27 @@
 Use http://www.Pluralsight.com
 
 UI
-centralize data requests with resource - http://docs.angularjs.org/api/ngResource.$resource
-Angular validation
 *User account management
-Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
+Fix jquery validation
+Angular validation
 Mock up:
 -Handload entry
 -Handload result - yds, conditions
 Correct id parameter in firearm unit tests
 Create angular tests - testacular, jasmine, karma runner http://docs.angularjs.org/tutorial/step_11
+Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 
 Business
-add account Id to requests
-Figure out best way to handle integer enum names
+*add account Id to requests
+*Figure out best way to handle integer enum names
 Fix db initialization error - "The specified table does not exist"
 Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values
 
 Research
+*Initialize test data from json
 -ng-grid
-Put code into TFS
-Initialize test data from json
 
 Features
 Add help section

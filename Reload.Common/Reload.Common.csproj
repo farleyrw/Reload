@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\IHasIdentity.cs" />
+    <Compile Include="Authentication\IUserIdentityData.cs" />
     <Compile Include="Authentication\UserIdentityData.cs" />
     <Compile Include="Authentication\UserIdentity.cs" />
     <Compile Include="Authentication\UserPrincipal.cs" />

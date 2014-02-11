@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Autofac;
+using Reload.Common.Authentication;
 using Reload.Repository;
 using Reload.Service;
 
@@ -20,6 +21,8 @@ namespace ReloadingApp.Configuration.Dependencies
 			ContainerBuilder builder = new ContainerBuilder();
 
 			builder.RegisterAssemblyTypes(typeof(MvcApplication).Assembly).PropertiesAutowired();
+
+			//builder.RegisterType<UserIdentityData>().As<IUserIdentityData>();
 
 			// Auto register all Services.
 			builder.RegisterAssemblyTypes(typeof(BaseService).Assembly)

@@ -10,7 +10,7 @@ namespace Reload.Common.Helpers
 	{
 		/// <summary>Serializes an object to an xml string.</summary>
 		/// <param name="objectToSerialize">The object to serialize.</param>
-		public static string ToXml(object objectToSerialize)
+		public static string Serialize(object objectToSerialize)
 		{
 			XmlSerializer xs = new XmlSerializer(objectToSerialize.GetType());
 

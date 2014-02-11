@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>@(ViewBag.Title ?? "Reloading Data Source")</title>
-	<meta name="meta-refresh" http-equiv="refresh" content="5;url=@FormsAuthentication.LoginUrl?autologout=true" />
+
 	@if(Request.IsAuthenticated)
 	{
 		<meta name="meta-refresh" http-equiv="refresh" content="@(Session.Timeout * 60);url=@FormsAuthentication.LoginUrl?autologout=true" />

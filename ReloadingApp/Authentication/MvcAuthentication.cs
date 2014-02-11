@@ -20,7 +20,7 @@ namespace ReloadingApp.Authentication
 				DateTime.Now,
 				DateTime.Now.AddMinutes(timeoutMinutes),
 				true,
-				XmlTransformHelper.ToXml(userData)
+				XmlTransformHelper.Serialize(userData)
 			);
 
 			HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket))

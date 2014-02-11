@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Helpers;
+using Description = System.ComponentModel.DescriptionAttribute;
 
 namespace Reload.Common.Tests.Helpers
 {
@@ -56,5 +58,15 @@ namespace Reload.Common.Tests.Helpers
 			Assert.AreEqual(TestEnum.B, enums[1]);
 			Assert.AreEqual(TestEnum.C, enums[2]);
 		}
+	}
+
+	public enum TestEnum
+	{
+		[Description("A")]
+		A = 0,
+		[Description("B")]
+		B,
+		[Description("C")]
+		C
 	}
 }

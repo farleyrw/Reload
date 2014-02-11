@@ -2,8 +2,7 @@
 
 namespace Reload.Service
 {
-	public abstract class BaseService : IHasIdentity
+	public abstract class BaseService
 	{
-		public UserIdentityData Identity { get; set; }
 	}
 }

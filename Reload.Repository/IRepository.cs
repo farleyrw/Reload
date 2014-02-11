@@ -7,7 +7,7 @@ namespace Reload.Repository
 {
 	/// <summary>The repository interface.</summary>
 	/// <typeparam name="TEntity">The generic entity.</typeparam>
-	public interface IRepository<TEntity> : IHasIdentity where TEntity : class
+	public interface IRepository<TEntity> where TEntity : class
 	{
 		/// <summary>Finds the entity with the specified id.</summary>
 		/// <param name="id">The entity id.</param>
