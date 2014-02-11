@@ -10,23 +10,23 @@ namespace Reload.Repository.Context.Initialization
 {
 	public static class FirearmDeserialization
 	{
-		public static List<Firearm> GetData()
+		public static List<Firearm> GetFirearmData()
 		{
-			List<Firearm> firearm = JsonConvert.DeserializeObject<List<Firearm>>(
-				File.ReadAllText(GetJsonFile()),
+			List<Firearm> firearms = JsonConvert.DeserializeObject<List<Firearm>>(
+				GetJsonData(),
 				new StringEnumConverter()
 			);
 
-			return firearm;
+			return firearms;
 		}
 
-		private static string GetJsonFile()
+		private static string GetJsonData()
 		{
-			string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-			string path = Uri.UnescapeDataString(new UriBuilder(codeBase).Path);
-			string x = Path.GetDirectoryName(path);
+			string assemblyName = Assembly.GetExecutingAssembly().CodeBase;
+			string assemblyPath = Uri.UnescapeDataString(new UriBuilder(assemblyName).Path);
+			string filePath = Path.Combine(Path.GetDirectoryName(assemblyPath), @"Context\Initialization\Data.json");
 
-			return Path.Combine(x, @"Context\Initialization\Data.json");
+			return File.ReadAllText(filePath);
 		}
 	}
 }

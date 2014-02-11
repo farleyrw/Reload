@@ -20,5 +20,29 @@
 		"Chamber": "TwentyTwoTwoFiftyRemington",
 		"BarrelLength": 26,
 		"Handloads": []
+	},
+	{
+		"Model": "PT99",
+		"Brand": "Taurus",
+		"Type": "Handgun",
+		"Chamber": "NineLuger",
+		"BarrelLength": 5,
+		"Handloads": []
+	},
+	{
+		"Model": "R1s Enhanced",
+		"Brand": "Remington",
+		"Type": "Handgun",
+		"Chamber": "FourtyFiveAcp",
+		"BarrelLength": 5,
+		"Handloads": []
+	},
+	{
+		"Model": "Mark II BTVS",
+		"Brand": "Savage",
+		"Type": "Rifle",
+		"Chamber": "TwentyTwoLongRifle",
+		"BarrelLength": 20,
+		"Handloads": []
 	}
 ]

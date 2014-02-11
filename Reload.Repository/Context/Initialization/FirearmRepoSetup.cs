@@ -12,7 +12,7 @@ namespace Reload.Repository.Context.Initialization
 		/// <param name="context">The context.</param>
 		protected override void Seed(FirearmContext context)
 		{
-			var x = FirearmDeserialization.GetData();
+			List<Firearm> x = FirearmDeserialization.GetFirearmData();
 
 			foreach(Firearm firearm in FirearmData.Firearms)
 			{

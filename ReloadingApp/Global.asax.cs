@@ -1,12 +1,9 @@
-﻿using System.Data.Entity;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using Reload.Common.Authentication;
-using Reload.Repository.Context;
-using Reload.Repository.Context.Initialization;
 using ReloadingApp.Authentication;
 using ReloadingApp.Configuration;
 using ReloadingApp.Configuration.Bundles;
@@ -20,8 +17,7 @@ namespace ReloadingApp
 		/// <summary>Application_s the start.</summary>
 		protected void Application_Start()
 		{
-			Database.SetInitializer<FirearmContext>(new FirearmRepoSetup());
-			Database.SetInitializer<UserContext>(new UserRepoSetup());
+			DatabaseConfig.Initialize();
 
 			AreaRegistration.RegisterAllAreas();
 
