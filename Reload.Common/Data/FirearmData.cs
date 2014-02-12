@@ -57,6 +57,7 @@ namespace Reload.Common.Data
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
+				AccountId = 1,
 				Brand = GunManufacturer.Taurus,
 				Model = "PT99",
 				Type = GunType.Handgun,
