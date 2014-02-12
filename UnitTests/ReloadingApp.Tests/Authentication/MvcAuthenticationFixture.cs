@@ -3,8 +3,7 @@ using System.Web;
 using System.Web.Security;
 using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Reload.Common.Authentication;
-using ReloadingApp.Authentication;
+using Reload.Common.Authentication.Mvc;
 
 namespace Reload.Common.Tests.Authentication
 {

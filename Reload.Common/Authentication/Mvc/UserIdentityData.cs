@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Reload.Common.Helpers;
 
-namespace Reload.Common.Authentication
+namespace Reload.Common.Authentication.Mvc
 {
 	/// <summary>The user data.</summary>
 	[XmlRoot("UserData"), KnownType(typeof(UserIdentity))]

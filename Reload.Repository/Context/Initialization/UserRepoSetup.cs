@@ -13,7 +13,7 @@ namespace Reload.Repository.Context.Initialization
 		{
 			UserLogin userLogin = new UserLogin
 			{
-				UserId = 1,
+				AccountId = 1,
 				Email = "farleyrw@gmail.com",
 				FirstName = "Rich",
 				LastName = "Farley",

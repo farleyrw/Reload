@@ -5,10 +5,12 @@ using Reload.Common.Models.Components;
 
 namespace Reload.Common.Models
 {
-	public class Handload
+	public class Handload : IBaseModel
 	{
 		[Key]
 		public int HandloadId { get; set; }
+
+		public int AccountId { get; set; }
 
 		public Powder Powder { get; set; }
 

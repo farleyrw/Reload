@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Reload.Common.Models;
 
 namespace Reload.Common.Authentication
 {
-	public class UserLogin
+	public class UserLogin : IBaseModel
 	{
 		[Key]
-		public int UserId { get; set; }
+		public int AccountId { get; set; }
 
 		[Required]
 		[DataType(DataType.EmailAddress)]

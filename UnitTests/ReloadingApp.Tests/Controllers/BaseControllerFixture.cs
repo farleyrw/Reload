@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Reload.Common.Authentication;
+using Reload.Common.Authentication.Mvc;
 using ReloadingApp.Controllers;
 
 namespace ReloadingApp.Tests.Controllers
@@ -31,7 +31,7 @@ namespace ReloadingApp.Tests.Controllers
 		/// <param name="userData">The user data.</param>
 		public new void SaveAuthentication(UserIdentityData userData)
 		{
-			base.SaveAuthentication(userData);
+			//base.SaveAuthentication(userData);
 		}
 	}
 }

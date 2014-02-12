@@ -3,8 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using Reload.Common.Authentication;
-using ReloadingApp.Authentication;
+using Reload.Common.Authentication.Mvc;
 using ReloadingApp.Models;
 
 namespace ReloadingApp.Controllers

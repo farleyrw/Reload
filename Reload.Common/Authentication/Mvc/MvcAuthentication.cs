@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Web;
 using System.Web.Security;
-using Reload.Common.Authentication;
 using Reload.Common.Helpers;
 
-namespace ReloadingApp.Authentication
+namespace Reload.Common.Authentication.Mvc
 {
-	/// <summary>The Mvc authentication.</summary>
-	public class MvcAuthentication
+	/// <summary>The Mvc authentication class.</summary>
+	public static class MvcAuthentication
 	{
 		/// <summary>Gets the authorization cookie.</summary>
 		/// <param name="userData">The user data.</param>
@@ -30,8 +29,16 @@ namespace ReloadingApp.Authentication
 
 			return authCookie;
 		}
+		
+		/// <summary>Gets the identity from the authorization cookie value.</summary>
+		public static UserIdentity GetUserIdentity()
+		{
+			HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
 
-		/// <summary>Gets the informz identity from the Shared Session Cookie value.</summary>
+			return GetUserIdentity(authCookie);
+		}
+
+		/// <summary>Gets the identity from the authorization cookie value.</summary>
 		/// <param name="authorizationCookie">The auth cookie.</param>
 		public static UserIdentity GetUserIdentity(HttpCookie authorizationCookie)
 		{

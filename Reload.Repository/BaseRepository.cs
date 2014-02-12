@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using Reload.Common.Authentication;
+using Reload.Common.Models;
 
 namespace Reload.Repository
 {
 	/// <summary>The base repository for generic CRUD operations.</summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
-	public class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
+	public class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable, IHasIdentityData where TEntity : class, IBaseModel
 	{
+		/// <summary>Gets or sets the identity.</summary>
+		/// <value>The identity.</value>
+		public IUserIdentityData Identity { get; set; }
+
 		/// <summary>Gets or sets the include expressions.</summary>
 		/// <value>The include expressions.</value>
 		protected List<Expression<Func<TEntity, object>>> IncludeExpressions { get; set; }
@@ -52,7 +58,10 @@ namespace Reload.Repository
 		/// <param name="predicate">The predicate.</param>
 		public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate = null)
 		{
-			return this.Entities.Where(predicate ?? (x => true)).AsEnumerable();
+			return this.Entities
+				.Where(predicate ?? (x => true))
+				.Where(entity => entity.AccountId == this.Identity.AccountId)
+				.AsEnumerable();;
 		}
 
 		/// <summary>Saves the entity.</summary>

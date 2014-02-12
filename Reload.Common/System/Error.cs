@@ -1,12 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Reload.Common.Models;
 
 namespace Reload.Common.System
 {
 	/// <summary>Represents an error in the system.</summary>
-	public class Error
+	public class Error : IBaseModel
 	{
 		[Key]
 		public int Id { get; set; }
+
+		public int AccountId { get; set; }
 
 		[Required]
 		public string Location { get; set; }

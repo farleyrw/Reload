@@ -1,6 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Reload.Common.Authentication;
+using Reload.Common.Authentication.Mvc;
 using Reload.Service.Interfaces;
 using Reload.Service.Services;
 using ReloadingApp.Models.Account;
@@ -79,7 +79,7 @@ namespace ReloadingApp.Controllers
 
 			UserIdentityData userData = new UserIdentityData
 			{
-				AccountId = userLogin.UserId,
+				AccountId = userLogin.AccountId,
 				Email = userLogin.Email,
 				FirstName = userLogin.FirstName,
 				LastName = userLogin.LastName
@@ -121,7 +121,7 @@ namespace ReloadingApp.Controllers
 
 			UserIdentityData userData = new UserIdentityData
 			{
-				AccountId = userLogin.UserId,
+				AccountId = userLogin.AccountId,
 				Email = userLogin.Email,
 				FirstName = userLogin.FirstName,
 				LastName = userLogin.LastName

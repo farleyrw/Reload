@@ -22,7 +22,7 @@ namespace ReloadingApp.Configuration.Dependencies
 
 			builder.RegisterAssemblyTypes(typeof(MvcApplication).Assembly).PropertiesAutowired();
 
-			//builder.RegisterType<UserIdentityData>().As<IUserIdentityData>();
+			builder.RegisterType<UserMetadata>().As<IUserIdentityData>();//.InstancePerLifetimeScope();
 
 			// Auto register all Services.
 			builder.RegisterAssemblyTypes(typeof(BaseService).Assembly)

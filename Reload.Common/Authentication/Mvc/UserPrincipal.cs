@@ -1,6 +1,6 @@
 ﻿using System.Security.Principal;
 
-namespace Reload.Common.Authentication
+namespace Reload.Common.Authentication.Mvc
 {
 	/// <summary>The user principal.</summary>
 	public class UserPrincipal : IPrincipal

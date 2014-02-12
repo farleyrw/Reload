@@ -1,8 +1,11 @@
 ﻿
 namespace Reload.Common.Authentication
 {
-	public interface IHasIdentity
+	/// <summary>Interface applying user identity data.</summary>
+	public interface IHasIdentityData
 	{
-		UserIdentityData Identity { get; set; }
+		/// <summary>Gets or sets the identity.</summary>
+		/// <value>The identity.</value>
+		IUserIdentityData Identity { get; set; }
 	}
 }

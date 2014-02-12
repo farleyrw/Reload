@@ -47,11 +47,12 @@
   <ItemGroup>
     <Compile Include="Authentication\IHasIdentity.cs" />
     <Compile Include="Authentication\IUserIdentityData.cs" />
-    <Compile Include="Authentication\UserIdentityData.cs" />
-    <Compile Include="Authentication\UserIdentity.cs" />
-    <Compile Include="Authentication\UserPrincipal.cs" />
+    <Compile Include="Authentication\Mvc\MvcAuthentication.cs" />
+    <Compile Include="Authentication\Mvc\UserIdentityData.cs" />
+    <Compile Include="Authentication\Mvc\UserIdentity.cs" />
+    <Compile Include="Authentication\UserMetadata.cs" />
+    <Compile Include="Authentication\Mvc\UserPrincipal.cs" />
     <Compile Include="Data\FirearmData.cs" />
-    <Compile Include="Data\HandloadData.cs" />
     <Compile Include="Enums\Caliber.cs" />
     <Compile Include="Enums\Components\BrassManufacturer.cs" />
     <Compile Include="Enums\Components\Bullet\BulletBase.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Enums\Components\PrimerType.cs" />
     <Compile Include="Enums\WindDirection.cs" />
     <Compile Include="Helpers\XmlTransformHelper.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\WeatherConditions.cs" />
     <Compile Include="Models\Firearm.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />

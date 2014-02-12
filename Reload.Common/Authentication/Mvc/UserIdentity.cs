@@ -1,7 +1,7 @@
 ﻿using System.Security.Principal;
 using System.Web.Security;
 
-namespace Reload.Common.Authentication
+namespace Reload.Common.Authentication.Mvc
 {
 	/// <summary>The user identity.</summary>
 	public class UserIdentity : UserIdentityData, IIdentity

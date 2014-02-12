@@ -7,10 +7,12 @@ using Reload.Common.Helpers;
 namespace Reload.Common.Models
 {
 	/// <summary>The Firearm class.</summary>
-	public class Firearm
+	public class Firearm : IBaseModel
 	{
 		[Key]
 		public int FirearmId { get; set; }
+
+		public int AccountId { get; set; }
 
 		[Required]
 		public string Model { get; set; }

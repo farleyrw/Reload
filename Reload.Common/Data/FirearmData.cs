@@ -37,6 +37,7 @@ namespace Reload.Common.Data
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
+				AccountId = 1,
 				Brand = GunManufacturer.Remington,
 				Model = "700",
 				Type = GunType.Rifle,
@@ -56,16 +57,6 @@ namespace Reload.Common.Data
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
-				Brand = GunManufacturer.Remington,
-				Model = "700",
-				Type = GunType.Rifle,
-				Chamber = Cartridge.TwoFourtyThreeWinchester,
-				BarrelLength = 24
-			});
-
-			Firearms.Add(new Firearm
-			{
-				FirearmId = GetNextId(),
 				Brand = GunManufacturer.Taurus,
 				Model = "PT99",
 				Type = GunType.Handgun,
@@ -76,6 +67,7 @@ namespace Reload.Common.Data
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
+				AccountId = 2,
 				Brand = GunManufacturer.Remington,
 				Model = "R1s Enhanced",
 				Type = GunType.Handgun,
@@ -86,6 +78,7 @@ namespace Reload.Common.Data
 			Firearms.Add(new Firearm
 			{
 				FirearmId = GetNextId(),
+				AccountId = 1,
 				Brand = GunManufacturer.Savage,
 				Model = "Mark II BTVS",
 				Type = GunType.Rifle,
