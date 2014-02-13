@@ -40,17 +40,25 @@ namespace Reload.Repository
 		/// <param name="id">The id.</param>
 		public virtual TEntity Find(int id)
 		{
-			return this.Entities.Find(id);
+			TEntity entity = this.Entities.Find(id);
+
+			return (entity.AccountId == this.Identity.AccountId) ? entity : null;
 		}
 
 		/// <summary>Returns the element with included associations.</summary>
 		/// <param name="predicate">The predicate.</param>
 		public virtual TEntity Get(Expression<Func<TEntity, bool>> predicate)
 		{
-			if(!this.IncludeExpressions.Any()) { return this.Entities.FirstOrDefault(predicate); }
+			if(!this.IncludeExpressions.Any()) 
+			{
+				return this.Entities
+					.Where(entity => entity.AccountId == this.Identity.AccountId)
+					.FirstOrDefault(predicate);
+			}
 
 			return this.IncludeExpressions
 				.Aggregate(this.Entities.AsQueryable(), (current, include) => current.Include(include))
+				.Where(entity => entity.AccountId == this.Identity.AccountId)
 				.SingleOrDefault(predicate);
 		}
 
@@ -87,6 +95,8 @@ namespace Reload.Repository
 		/// <param name="entity">The entity.</param>
 		private void Insert(TEntity entity)
 		{
+			entity.AccountId = this.Identity.AccountId;
+
 			this.Entities.Add(entity);
 		}
 
