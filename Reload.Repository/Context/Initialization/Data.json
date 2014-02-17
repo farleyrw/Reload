@@ -1,12 +1,14 @@
 ﻿[
 	{
+		"AccountId": 1,
 		"Model": "700",
 		"Brand": "Remington",
 		"Type": "Rifle",
-		"Chamber": "TwoFourtyThreeWinchester",
-		"BarrelLength": 24,
+		"Chamber": "TwentyTwoTwoFiftyRemington",
+		"BarrelLength": 26,
 		"Handloads": [
 			{
+				"AccountId": 1,
 				"Powder": "IMR4895",
 				"PowderCharge": 35,
 				"SeatingDepth": 2.5
@@ -14,14 +16,16 @@
 		]
 	},
 	{
+		"AccountId": 2,
 		"Model": "700",
 		"Brand": "Remington",
 		"Type": "Rifle",
-		"Chamber": "TwentyTwoTwoFiftyRemington",
-		"BarrelLength": 26,
+		"Chamber": "TwoFourtyThreeWinchester",
+		"BarrelLength": 24,
 		"Handloads": []
 	},
 	{
+		"AccountId": 1,
 		"Model": "PT99",
 		"Brand": "Taurus",
 		"Type": "Handgun",
@@ -30,6 +34,7 @@
 		"Handloads": []
 	},
 	{
+		"AccountId": 2,
 		"Model": "R1s Enhanced",
 		"Brand": "Remington",
 		"Type": "Handgun",
@@ -38,6 +43,7 @@
 		"Handloads": []
 	},
 	{
+		"AccountId": 1,
 		"Model": "Mark II BTVS",
 		"Brand": "Savage",
 		"Type": "Rifle",

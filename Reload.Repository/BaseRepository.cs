@@ -49,7 +49,7 @@ namespace Reload.Repository
 		/// <param name="predicate">The predicate.</param>
 		public virtual TEntity Get(Expression<Func<TEntity, bool>> predicate)
 		{
-			if(!this.IncludeExpressions.Any()) 
+			if(!this.IncludeExpressions.Any())
 			{
 				return this.Entities
 					.Where(entity => entity.AccountId == this.Identity.AccountId)
@@ -69,7 +69,7 @@ namespace Reload.Repository
 			return this.Entities
 				.Where(predicate ?? (x => true))
 				.Where(entity => entity.AccountId == this.Identity.AccountId)
-				.AsEnumerable();;
+				.AsEnumerable();
 		}
 
 		/// <summary>Saves the entity.</summary>
@@ -104,7 +104,10 @@ namespace Reload.Repository
 		/// <param name="entity">The entity.</param>
 		private void Update(TEntity entity)
 		{
-			this.Context.Entry(entity).State = EntityState.Modified;
+			if(entity.AccountId == this.Identity.AccountId)
+			{
+				this.Context.Entry(entity).State = EntityState.Modified;
+			}
 		}
 
 		/// <summary>Deletes the entity by id.</summary>
@@ -122,9 +125,12 @@ namespace Reload.Repository
 		{
 			CheckForNullEntityAndThrowExecption(entity);
 
-			this.Entities.Remove(entity);
+			if(entity.AccountId == this.Identity.AccountId)
+			{
+				this.Entities.Remove(entity);
 
-			this.Context.SaveChanges();
+				this.Context.SaveChanges();
+			}
 		}
 
 		/// <summary>Releases unmanaged and - optionally - managed resources.</summary>

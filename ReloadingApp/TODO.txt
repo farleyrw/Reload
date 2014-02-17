@@ -13,15 +13,13 @@ Create angular tests - testacular, jasmine, karma runner http://docs.angularjs.o
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 
 Business
-*add account Id to requests
-*Figure out best way to handle integer enum names
+*Figure out best way to handle integer enum names - _123 ?
 Fix db initialization error - "The specified table does not exist"
 Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values
 
 Research
-*Initialize test data from json
 -ng-grid
 
 Features

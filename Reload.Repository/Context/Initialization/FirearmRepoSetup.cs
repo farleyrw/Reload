@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using Reload.Common.Data;
 using Reload.Common.Models;
 
 namespace Reload.Repository.Context.Initialization
@@ -12,18 +11,12 @@ namespace Reload.Repository.Context.Initialization
 		/// <param name="context">The context.</param>
 		protected override void Seed(FirearmContext context)
 		{
-			List<Firearm> x = FirearmDeserialization.GetFirearmData();
+			List<Firearm> firearms = FirearmDeserialization.GetFirearmData();
 
-			foreach(Firearm firearm in FirearmData.Firearms)
+			foreach(Firearm firearm in firearms)
 			{
-				if(context.Entry<Firearm>(firearm).State == EntityState.Detached)
-				{
-					context.Firearms.Add(firearm);
-					foreach (Handload handload in firearm.Handloads)
-					{
-						context.Handloads.Add(handload);
-					}
-				}
+				context.Firearms.Add(firearm);
+				context.Handloads.AddRange(firearm.Handloads);
 			}
 
 			context.SaveChanges();

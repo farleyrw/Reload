@@ -52,7 +52,6 @@
     <Compile Include="Authentication\Mvc\UserIdentity.cs" />
     <Compile Include="Authentication\UserMetadata.cs" />
     <Compile Include="Authentication\Mvc\UserPrincipal.cs" />
-    <Compile Include="Data\FirearmData.cs" />
     <Compile Include="Enums\Caliber.cs" />
     <Compile Include="Enums\Components\BrassManufacturer.cs" />
     <Compile Include="Enums\Components\Bullet\BulletBase.cs" />

@@ -16,7 +16,7 @@ namespace ReloadingApp
 		/// <summary>Application_s the start.</summary>
 		protected void Application_Start()
 		{
-			DatabaseConfig.Initialize();
+			DatabaseConfig.RegisterInitializers();
 
 			AreaRegistration.RegisterAllAreas();
 
