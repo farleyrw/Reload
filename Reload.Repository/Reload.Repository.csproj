@@ -84,9 +84,6 @@
     <Compile Include="Context\ErrorContext.cs" />
     <Compile Include="Context\FirearmsContext.cs" />
     <Compile Include="Context\HandloadContext.cs" />
-    <Compile Include="Context\Initialization\FirearmDeserialization.cs" />
-    <Compile Include="Context\Initialization\FirearmRepoSetup.cs" />
-    <Compile Include="Context\Initialization\UserRepoSetup.cs" />
     <Compile Include="Interfaces\IErrorLoggingRepository.cs" />
     <Compile Include="Interfaces\IFirearmRepository.cs" />
     <Compile Include="Interfaces\IHandloadRepository.cs" />
@@ -109,9 +106,6 @@
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Context\Initialization\Data.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

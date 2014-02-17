@@ -166,6 +166,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Initialization\FirearmRepoSetup.cs" />
+    <Compile Include="App_Data\Initialization\UserRepoSetup.cs" />
     <Compile Include="Areas\Firearms\FirearmsAreaRegistration.cs" />
     <Compile Include="Areas\Handloads\Controllers\DataController.cs" />
     <Compile Include="Areas\Handloads\Controllers\ViewController.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Json\JsonDeserializationHelper.cs" />
     <Compile Include="Helpers\Mvc\MaxLengthTextBox.cs" />
     <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Account\UnregisteredUser.cs" />
@@ -245,6 +248,9 @@
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
+    <Content Include="App_Data\Initialization\Data\Firearm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />

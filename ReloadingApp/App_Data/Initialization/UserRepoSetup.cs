@@ -1,8 +1,8 @@
-﻿using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Reload.Common.Authentication;
+using Reload.Repository.Context;
 
-namespace Reload.Repository.Context.Initialization
+namespace ReloadingApp.Initialization
 {
 	/// <summary>The user repository setup.</summary>
 	public class UserRepoSetup : DropCreateDatabaseAlways<UserContext>

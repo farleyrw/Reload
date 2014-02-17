@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using Reload.Repository.Context;
-using Reload.Repository.Context.Initialization;
+using ReloadingApp.Initialization;
 
 namespace ReloadingApp.Configuration
 {

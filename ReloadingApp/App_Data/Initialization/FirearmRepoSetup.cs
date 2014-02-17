@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using Reload.Common.Models;
+using Reload.Repository.Context;
+using ReloadingApp.Helpers.Json;
 
-namespace Reload.Repository.Context.Initialization
+namespace ReloadingApp.Initialization
 {
 	/// <summary>Initializes the firearm repository.</summary>
 	public class FirearmRepoSetup : DropCreateDatabaseAlways<FirearmContext>
@@ -11,7 +13,7 @@ namespace Reload.Repository.Context.Initialization
 		/// <param name="context">The context.</param>
 		protected override void Seed(FirearmContext context)
 		{
-			List<Firearm> firearms = FirearmDeserialization.GetFirearmData();
+			List<Firearm> firearms = JsonDeserializationHelper.GetData<Firearm>();
 
 			foreach(Firearm firearm in firearms)
 			{
