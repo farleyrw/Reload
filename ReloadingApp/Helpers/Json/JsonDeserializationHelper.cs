@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
@@ -29,8 +30,9 @@ namespace ReloadingApp.Helpers.Json
 			string objectTypeName = typeof(T).Name;
 			string assemblyName = Assembly.GetExecutingAssembly().CodeBase;
 			string assemblyPath = Uri.UnescapeDataString(new UriBuilder(assemblyName).Path);
-			string filePath = Path.Combine(Path.GetDirectoryName(assemblyPath), 
-				string.Format(@"App_Data\Initialization\Data\{0}.json", objectTypeName)
+			string filePath = Path.Combine(Path.GetDirectoryName(assemblyPath),
+				string.Format(@"{0}\{1}.json", ConfigurationManager.AppSettings["TestDataInitializationPath"], objectTypeName)
+				//string.Format(@"App_Data\Initialization\Data\{0}.json", objectTypeName)
 			);
 
 			return File.ReadAllText(filePath);
