@@ -94,6 +94,7 @@
     <None Include="Scripts\angular\angular-touch.min.js.map" />
     <None Include="Scripts\angular\angular.min.js.map" />
     <None Include="Scripts\angular\errors.json" />
+    <None Include="Scripts\angular\version.json" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
