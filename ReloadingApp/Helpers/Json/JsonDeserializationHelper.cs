@@ -32,7 +32,6 @@ namespace ReloadingApp.Helpers.Json
 			string assemblyPath = Uri.UnescapeDataString(new UriBuilder(assemblyName).Path);
 			string filePath = Path.Combine(Path.GetDirectoryName(assemblyPath),
 				string.Format(@"{0}\{1}.json", ConfigurationManager.AppSettings["TestDataInitializationPath"], objectTypeName)
-				//string.Format(@"App_Data\Initialization\Data\{0}.json", objectTypeName)
 			);
 
 			return File.ReadAllText(filePath);

@@ -2,6 +2,7 @@
 Use http://www.Pluralsight.com
 
 UI
+*Create user account - email validation
 *User account management
 Fix jquery validation
 Angular validation

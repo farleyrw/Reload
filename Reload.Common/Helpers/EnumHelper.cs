@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
@@ -30,23 +29,20 @@ namespace Reload.Common.Helpers
 			{
 				if(Enum.IsDefined(enumType, i))
 				{
-					return (T) Enum.Parse(enumType, i.ToString(CultureInfo.CurrentCulture));
+					return (T)Enum.Parse(enumType, i.ToString(), false);
 				}
 			}
 
 			if(Enum.IsDefined(enumType, value))
 			{
-				return (T) Enum.Parse(enumType, value);
+				return (T)Enum.Parse(enumType, value);
 			}
 
-			object[] customAttributes = typeof(T).GetCustomAttributes(typeof(DefaultValueAttribute), false);
-			if(customAttributes.Length > 0)
+			// Read default value.
+			var customAttribute = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
+			if(customAttribute.Any())
 			{
-				DefaultValueAttribute defaultValue = customAttributes[0] as DefaultValueAttribute;
-				if(defaultValue != null)
-				{
-					return Parse<T>(defaultValue.Value.ToString());
-				}
+				return Parse<T>(customAttribute.First().Value.ToString());
 			}
 
 			return default(T);
@@ -58,7 +54,7 @@ namespace Reload.Common.Helpers
 		public static T ParseDescription<T>(string descriptionValue) where T : struct
 		{
 			IDictionary<T, string> descriptions = Descriptions<T>();
-			
+
 			KeyValuePair<T, string> keyValuePair = descriptions
 				.FirstOrDefault(v => v.Value.Equals(descriptionValue, StringComparison.OrdinalIgnoreCase));
 
@@ -71,10 +67,11 @@ namespace Reload.Common.Helpers
 		public static string Description<T>(T value) where T : struct
 		{
 			FieldInfo enumField = value.GetType().GetField(value.ToString());
-			object[] attributes = enumField.GetCustomAttributes(typeof(DescriptionAttribute), true);
 
-			return attributes.Length > 0
-					? ((DescriptionAttribute) attributes[0]).Description
+			var attribute = enumField.GetCustomAttributes<DescriptionAttribute>(false);
+
+			return attribute.Any()
+					? attribute.First().Description
 					: value.ToString();
 		}
 
@@ -99,11 +96,10 @@ namespace Reload.Common.Helpers
 		/// <typeparam name="T">The type of the enum.</typeparam>
 		public static T DefaultValue<T>() where T : struct
 		{
-			Type enumType = typeof(T);
-			DefaultValueAttribute[] attributes = (DefaultValueAttribute[]) enumType.GetCustomAttributes(typeof(DefaultValueAttribute), false);
+			var attributes = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
 
-			return attributes.Length > 0
-				? (T) attributes[0].Value
+			return attributes.Any()
+				? (T)attributes.First().Value
 				: default(T);
 		}
 
