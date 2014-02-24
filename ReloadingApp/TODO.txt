@@ -14,6 +14,7 @@ Create angular tests - testacular, jasmine, karma runner http://docs.angularjs.o
 Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/
 
 Business
+Upload using enum description field - custom deserializer
 *Figure out best way to handle integer enum names - _123 ?
 Fix db initialization error - "The specified table does not exist"
 Setup data annotations on handloads/results

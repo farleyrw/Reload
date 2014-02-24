@@ -39,7 +39,7 @@ namespace Reload.Common.Helpers
 			}
 
 			// Read default value.
-			var customAttribute = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
+			IEnumerable<DefaultValueAttribute> customAttribute = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
 			if(customAttribute.Any())
 			{
 				return Parse<T>(customAttribute.First().Value.ToString());
@@ -53,9 +53,7 @@ namespace Reload.Common.Helpers
 		/// <param name="descriptionValue">The <see cref="DescriptionAttribute"/> value.</param>
 		public static T ParseDescription<T>(string descriptionValue) where T : struct
 		{
-			IDictionary<T, string> descriptions = Descriptions<T>();
-
-			KeyValuePair<T, string> keyValuePair = descriptions
+			KeyValuePair<T, string> keyValuePair = Descriptions<T>()
 				.FirstOrDefault(v => v.Value.Equals(descriptionValue, StringComparison.OrdinalIgnoreCase));
 
 			return keyValuePair.Key;
@@ -68,7 +66,7 @@ namespace Reload.Common.Helpers
 		{
 			FieldInfo enumField = value.GetType().GetField(value.ToString());
 
-			var attribute = enumField.GetCustomAttributes<DescriptionAttribute>(false);
+			IEnumerable<DescriptionAttribute> attribute = enumField.GetCustomAttributes<DescriptionAttribute>(false);
 
 			return attribute.Any()
 					? attribute.First().Description
@@ -79,15 +77,7 @@ namespace Reload.Common.Helpers
 		/// <typeparam name="T">The type of the enum.</typeparam>
 		public static IDictionary<T, string> Descriptions<T>() where T : struct
 		{
-			Dictionary<T, string> result = new Dictionary<T, string>();
-
-			foreach(string name in Enum.GetNames(typeof(T)))
-			{
-				T value = Parse<T>(name);
-				string description = Description(value);
-
-				result.Add(value, description);
-			}
+			Dictionary<T, string> result = ToList<T>().ToDictionary(key => key, value => Description(value));
 
 			return result;
 		}
@@ -96,7 +86,7 @@ namespace Reload.Common.Helpers
 		/// <typeparam name="T">The type of the enum.</typeparam>
 		public static T DefaultValue<T>() where T : struct
 		{
-			var attributes = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
+			IEnumerable<DefaultValueAttribute> attributes = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
 
 			return attributes.Any()
 				? (T)attributes.First().Value
