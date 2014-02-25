@@ -38,11 +38,11 @@ namespace Reload.Common.Helpers
 				return (T)Enum.Parse(enumType, value);
 			}
 
-			// Read default value.
-			IEnumerable<DefaultValueAttribute> customAttribute = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
-			if(customAttribute.Any())
+			// No enum matching string value.  Return default value.
+			DefaultValueAttribute defaultAttribute = typeof(T).GetCustomAttribute<DefaultValueAttribute>(false);
+			if(defaultAttribute != null)
 			{
-				return Parse<T>(customAttribute.First().Value.ToString());
+				return Parse<T>(defaultAttribute.Value.ToString());
 			}
 
 			return default(T);
@@ -66,30 +66,28 @@ namespace Reload.Common.Helpers
 		{
 			FieldInfo enumField = value.GetType().GetField(value.ToString());
 
-			IEnumerable<DescriptionAttribute> attribute = enumField.GetCustomAttributes<DescriptionAttribute>(false);
+			DescriptionAttribute descriptionAttribute = enumField.GetCustomAttribute<DescriptionAttribute>(false);
 
-			return attribute.Any()
-					? attribute.First().Description
-					: value.ToString();
+			return descriptionAttribute != null
+				? descriptionAttribute.Description
+				: value.ToString();
 		}
 
 		/// <summary>Returns a dictionary of the enum with the type as the key, and description as the value.</summary>
 		/// <typeparam name="T">The type of the enum.</typeparam>
 		public static IDictionary<T, string> Descriptions<T>() where T : struct
 		{
-			Dictionary<T, string> result = ToList<T>().ToDictionary(key => key, value => Description(value));
-
-			return result;
+			return ToList<T>().ToDictionary(key => key, value => Description(value));
 		}
 
 		/// <summary>Gets the default enum value, checking the attribute first.</summary>
 		/// <typeparam name="T">The type of the enum.</typeparam>
 		public static T DefaultValue<T>() where T : struct
 		{
-			IEnumerable<DefaultValueAttribute> attributes = typeof(T).GetCustomAttributes<DefaultValueAttribute>(false);
+			DefaultValueAttribute defaultAttribute = typeof(T).GetCustomAttribute<DefaultValueAttribute>(false);
 
-			return attributes.Any()
-				? (T)attributes.First().Value
+			return defaultAttribute != null
+				? (T)defaultAttribute.Value
 				: default(T);
 		}
 
