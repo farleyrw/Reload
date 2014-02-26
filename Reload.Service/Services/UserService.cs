@@ -1,4 +1,5 @@
-﻿using Reload.Common.Authentication;
+﻿using System;
+using Reload.Common.Authentication;
 using Reload.Repository.Interfaces;
 using Reload.Repository.Repositories;
 using Reload.Service.Interfaces;
@@ -21,7 +22,7 @@ namespace Reload.Service.Services
 		/// <param name="password">The password.</param>
 		public UserLogin GetUser(string email, string password)
 		{
-			return this.Repository.GetUserLogin(email, password);
+			return this.Repository.GetUser(email, password);
 		}
 
 		/// <summary>Creates a registered user.</summary>

@@ -23,7 +23,7 @@ namespace Reload.Common.Models
 
 		public Cartridge Chamber { get; set; }
 
-		public string ShortName
+		public string Name
 		{
 			get
 			{

@@ -87,7 +87,7 @@ namespace ReloadingApp.Controllers
 
 			base.SaveAuthentication(userData);
 
-			if(this.IsLocalUrl(returnUrl))
+			if(Url.IsLocalUrl(returnUrl))
 			{
 				return this.Redirect(returnUrl);
 			}
@@ -97,11 +97,15 @@ namespace ReloadingApp.Controllers
 
 		/// <summary>Creates the account.</summary>
 		/// <param name="user">The user.</param>
-		/// <param name="returnUrl">The return URL.</param>
 		[HttpPost]
 		[ActionName("Register")]
-		public ActionResult CreateAccount(UnregisteredUser user, string returnUrl)
+		public ActionResult CreateAccount(UnregisteredUser user)
 		{
+			if(!ModelState.IsValid)
+			{
+				return View(user);
+			}
+
 			UserLogin newUser = new UserLogin
 			{
 				Email = user.Email,
@@ -112,10 +116,10 @@ namespace ReloadingApp.Controllers
 
 			UserLogin userLogin = this.Service.CreateUser(newUser);
 
-			// If user was not found, they were not saved.
+			// If user was not found, they already exist in the system with this email address.
 			if(userLogin == null)
 			{
-				ModelState.AddModelError("", "User not found.");
+				ModelState.AddModelError("", "User already exists with this email address.");
 				return View(user);
 			}
 
@@ -136,14 +140,6 @@ namespace ReloadingApp.Controllers
 		public new RedirectToRouteResult Logout()
 		{
 			return base.Logout();
-		}
-
-		/// <summary>Determines whether [is local URL] [the specified URL].</summary>
-		/// <param name="url">The URL.</param>
-		/// <returns><c>true</c> if [is local URL] [the specified URL]; otherwise, <c>false</c>.</returns>
-		private bool IsLocalUrl(string url)
-		{
-			return Url.IsLocalUrl(url);
 		}
 	}
 }
