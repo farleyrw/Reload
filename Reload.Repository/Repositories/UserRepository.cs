@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Reload.Common.Authentication;
 using Reload.Repository.Context;
 using Reload.Repository.Interfaces;
@@ -18,11 +19,11 @@ namespace Reload.Repository.Repositories
 		/// <summary>Returns a user login.</summary>
 		/// <param name="email">The email.</param>
 		/// <param name="password">The password.</param>
-		public UserLogin GetUserLogin(string email, string password)
+		public UserLogin GetUser(string email, string password)
 		{
 			UserLogin userLogin = this.Entities
 				.FirstOrDefault(user =>
-					user.Email == email && 
+					user.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && 
 					user.Password == password);
 
 			return userLogin;
@@ -32,9 +33,17 @@ namespace Reload.Repository.Repositories
 		/// <param name="user">The user.</param>
 		public UserLogin CreateUser(UserLogin user)
 		{
-			base.Save(user);
+			UserLogin existingUser = this.Entities
+				.FirstOrDefault(u => u.Email.Equals(user.Email, StringComparison.OrdinalIgnoreCase));
 
-			return user;
+			if(existingUser == null)
+			{
+				this.Save(user);
+
+				return user;
+			}
+
+			return null;
 		}
 	}
 }
