@@ -192,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Json\CartridgeEnumDescriptionConverter.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelper.cs" />
     <Compile Include="Helpers\Mvc\MaxLengthTextBox.cs" />
     <Compile Include="Models\Account\User.cs" />
