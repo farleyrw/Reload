@@ -319,6 +319,20 @@
   <ItemGroup>
     <Folder Include="Areas\Handloads\Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Reload.Common.csproj">
+      <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
+      <Name>Reload.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Reload.Repository.csproj">
+      <Project>{a6902463-4887-4e58-aa17-c4fd1b9ae9f2}</Project>
+      <Name>Reload.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Reload.Service.csproj">
+      <Project>{afc49427-3d09-4b26-b5c2-a655108931e5}</Project>
+      <Name>Reload.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

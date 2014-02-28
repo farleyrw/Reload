@@ -125,9 +125,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Reload.Common.csproj">
+      <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
+      <Name>Reload.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ReloadingApp\ReloadingApp.csproj">
       <Project>{3D00FC3E-37EA-44E1-A3A5-89C86DD956A4}</Project>
       <Name>ReloadingApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\Reload.Service.csproj">
+      <Project>{afc49427-3d09-4b26-b5c2-a655108931e5}</Project>
+      <Name>Reload.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
