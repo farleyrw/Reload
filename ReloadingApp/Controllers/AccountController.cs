@@ -68,12 +68,17 @@ namespace ReloadingApp.Controllers
 		[ActionName("Login")]
 		public ActionResult Authenticate(User user, string returnUrl)
 		{
+			if(!ModelState.IsValid)
+			{
+				return View(user);
+			}
+
 			UserLogin userLogin = this.Service.GetUser(user.Email, user.Password);
 
 			// If user was not found, bad credentials were given.
 			if(userLogin == null)
 			{
-				ModelState.AddModelError("", "User not found.");
+				ModelState.AddModelError("", "Invalid username or password.");
 				return View(user);
 			}
 

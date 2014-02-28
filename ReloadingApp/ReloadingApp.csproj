@@ -276,6 +276,7 @@
     <Content Include="Scripts\jquery\jquery-2.1.0.min.map" />
     <Content Include="Scripts\angular\version.json" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Site\Account\Account.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />

@@ -3,7 +3,7 @@
 
 <h2>Manage your account</h2>
 <fieldset>
-	<legend>Login</legend>
+	<legend>Profile</legend>
 	@using (Html.BeginForm())
 	{
 		@Html.ValidationSummary(true)
@@ -17,8 +17,6 @@
 			@Html.PasswordFor(u => u.Password)
 			@Html.ValidationMessageFor(u => u.Password)
 		</div>
-		@Html.Hidden("ReturnUrl", Request.QueryString.Get("returnUrl"))
-		<button type="submit">Login</button>
+		<button type="submit">Save</button>
 	}
 </fieldset>
-<p>@Html.ActionLink("Sign up!", "Register")</p>

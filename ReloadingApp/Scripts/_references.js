@@ -25,3 +25,4 @@
 /// <reference path="angular/angular-cookies.js" />
 /// <reference path="angular/angular-animate.js" />
 /// <reference path="angular/i18n/angular-locale_en.js" />
+/// <reference path="site/account/account.js" />
