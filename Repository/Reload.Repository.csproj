@@ -98,7 +98,7 @@
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Reload.Common\Reload.Common.csproj">
+    <ProjectReference Include="..\Common\Reload.Common.csproj">
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
       <Name>Reload.Common</Name>
     </ProjectReference>

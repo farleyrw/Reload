@@ -314,20 +314,6 @@
     <Content Include="Views\Shared\Html5Shiv.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Reload.Common\Reload.Common.csproj">
-      <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
-      <Name>Reload.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Reload.Repository\Reload.Repository.csproj">
-      <Project>{a6902463-4887-4e58-aa17-c4fd1b9ae9f2}</Project>
-      <Name>Reload.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Reload.Service\Reload.Service.csproj">
-      <Project>{afc49427-3d09-4b26-b5c2-a655108931e5}</Project>
-      <Name>Reload.Service</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

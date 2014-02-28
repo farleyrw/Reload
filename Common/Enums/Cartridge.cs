@@ -3,8 +3,12 @@
 namespace Reload.Common.Enums
 {
 	/// <summary>The gun caliber.</summary>
+	[DefaultValue(Cartridge.None)]
 	public enum Cartridge
 	{
+		/// <summary>Not specified</summary>
+		None = -1,
+
 		/// <summary>Custom Caliber</summary>
 		[Description("Wildcat")]
 		Custom = 0,
@@ -46,7 +50,7 @@ namespace Reload.Common.Enums
 		EightMauser,
 
 		/// <summary>35 Remington</summary>
-		[Description("25 Remington")]
+		[Description("35 Remington")]
 		ThirtyFiveRemington,
 
 		/// <summary>9mm Luger</summary>

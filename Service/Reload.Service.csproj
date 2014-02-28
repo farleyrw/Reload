@@ -55,13 +55,9 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Reload.Common\Reload.Common.csproj">
+    <ProjectReference Include="..\Common\Reload.Common.csproj">
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
       <Name>Reload.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Reload.Repository\Reload.Repository.csproj">
-      <Project>{a6902463-4887-4e58-aa17-c4fd1b9ae9f2}</Project>
-      <Name>Reload.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,8 @@ namespace Reload.Common.Enums.Components.Bullet
 
 		LeadFree,
 
-		CopperJacket
+		CopperJacket,
+
+		NickelPlated
 	}
 }

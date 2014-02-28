@@ -57,12 +57,6 @@
     <Compile Include="Helpers\XmlTransformHelperFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Reload.Common\Reload.Common.csproj">
-      <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
-      <Name>Reload.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
