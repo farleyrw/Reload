@@ -4,7 +4,7 @@
 		"Model": "700",
 		"Brand": "Remington",
 		"Type": "Rifle",
-		"Chamber": "TwentyTwoTwoFiftyRemington",
+		"Chamber": "22-250 Remington",
 		"BarrelLength": 26,
 		"Handloads": [
 			{
@@ -20,7 +20,7 @@
 		"Model": "700",
 		"Brand": "Remington",
 		"Type": "Rifle",
-		"Chamber": "TwoFourtyThreeWinchester",
+		"Chamber": "243 Winchester",
 		"BarrelLength": 24,
 		"Handloads": []
 	},
@@ -29,7 +29,7 @@
 		"Model": "PT99",
 		"Brand": "Taurus",
 		"Type": "Handgun",
-		"Chamber": "NineLuger",
+		"Chamber": "9mm Luger",
 		"BarrelLength": 5,
 		"Handloads": []
 	},
@@ -38,7 +38,7 @@
 		"Model": "R1s Enhanced",
 		"Brand": "Remington",
 		"Type": "Handgun",
-		"Chamber": "FourtyFiveAcp",
+		"Chamber": "45 ACP",
 		"BarrelLength": 5,
 		"Handloads": []
 	},
@@ -47,7 +47,7 @@
 		"Model": "Mark II BTVS",
 		"Brand": "Savage",
 		"Type": "Rifle",
-		"Chamber": "TwentyTwoLongRifle",
+		"Chamber": "22 LR",
 		"BarrelLength": 20,
 		"Handloads": []
 	}

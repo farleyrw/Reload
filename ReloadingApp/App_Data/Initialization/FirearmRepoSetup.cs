@@ -13,7 +13,7 @@ namespace ReloadingApp.Initialization
 		/// <param name="context">The context.</param>
 		protected override void Seed(FirearmContext context)
 		{
-			List<Firearm> firearms = JsonDeserializationHelper.GetData<Firearm>();
+			List<Firearm> firearms = JsonDeserializationHelper.GetData<Firearm>(new CartridgeEnumDescriptionConverter());
 
 			foreach(Firearm firearm in firearms)
 			{

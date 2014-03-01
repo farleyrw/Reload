@@ -15,8 +15,17 @@ namespace ReloadingApp.Helpers.Json
 		/// <typeparam name="T"></typeparam>
 		public static List<T> GetData<T>()
 		{
+			return GetData<T>(new StringEnumConverter());
+		}
+
+		/// <summary>Gets the data.</summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="jsonConverter">The json converter.</param>
+		public static List<T> GetData<T>(JsonConverter jsonConverter)
+		{
 			List<T> objects = JsonConvert.DeserializeObject<List<T>>(
 				GetJsonFileData<T>(),
+				jsonConverter,
 				new StringEnumConverter()
 			);
 
@@ -31,7 +40,11 @@ namespace ReloadingApp.Helpers.Json
 			string assemblyName = Assembly.GetExecutingAssembly().CodeBase;
 			string assemblyPath = Uri.UnescapeDataString(new UriBuilder(assemblyName).Path);
 			string filePath = Path.Combine(Path.GetDirectoryName(assemblyPath),
-				string.Format(@"{0}\{1}.json", ConfigurationManager.AppSettings["TestDataInitializationPath"], objectTypeName)
+				string.Format(
+					@"{0}\{1}.json",
+					ConfigurationManager.AppSettings["TestDataInitializationPath"],
+					objectTypeName
+				)
 			);
 
 			return File.ReadAllText(filePath);
