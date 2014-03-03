@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\EnumDeserializeDescriptionAttribute.cs" />
     <Compile Include="Authentication\IHasIdentity.cs" />
     <Compile Include="Authentication\IUserIdentityData.cs" />
     <Compile Include="Authentication\Mvc\MvcAuthentication.cs" />

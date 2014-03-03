@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Reload.Common.Attributes;
 using Reload.Common.Enums;
 using Reload.Common.Helpers;
 
@@ -13,6 +14,7 @@ namespace ReloadingApp.Helpers.Json
 		/// <returns><c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.</returns>
 		public override bool CanConvert(Type objectType)
 		{
+			//return Attribute.IsDefined(objectType, typeof(EnumDeserializeDescriptionAttribute), false);
 			return objectType == typeof(Cartridge);
 		}
 
