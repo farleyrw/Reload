@@ -204,8 +204,6 @@
   <ItemGroup>
     <Content Include="App_Data\Reload.sdf" />
     <Content Include="Areas\Firearms\Scripts\FirearmService.js" />
-    <Content Include="Areas\Firearms\Scripts\Tests\FirearmApplicationTest.js" />
-    <Content Include="Areas\Firearms\Scripts\Tests\runner-config.js" />
     <Content Include="Areas\Handloads\Scripts\Application.js" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.css" />
