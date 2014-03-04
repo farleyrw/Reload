@@ -1,11 +1,16 @@
-﻿
+﻿using System.ComponentModel;
+
 namespace Reload.Common.Enums.Components
 {
 	/// <summary>The gun powder type.</summary>
-	public enum Powder
+	[DefaultValue(Cartridge.None)]
+	public enum GunPowder
 	{
 		/// <summary>None specified.</summary>
-		None = 0,
+		None = -1,
+
+		/// <summary>Custom powder</summary>
+		Custom = 0,
 
 		/// <summary>Hodgdon Varget</summary>
 		Varget,

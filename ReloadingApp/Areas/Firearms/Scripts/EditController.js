@@ -14,7 +14,6 @@ FirearmManager.controller("FirearmEditController",
 
 			scope.IsValid = function () {
 				return scope.Firearm &&
-					scope.Firearm.Brand >= 0 &&
 					scope.Firearm.Chamber >= 0 &&
 					scope.Firearm.BarrelLength > 0;
 			};

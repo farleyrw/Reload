@@ -3,7 +3,7 @@
 namespace ReloadingApp.Areas.Firearms.Models
 {
 	/// <summary>The firearm enum view model.</summary>
-	public class FirearmEnum
+	public class FirearmEnumViewModel
 	{
 		/// <summary>Gets or sets the id.</summary>
 		/// <value>The id.</value>

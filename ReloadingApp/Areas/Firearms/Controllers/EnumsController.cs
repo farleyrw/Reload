@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Reload.Common.Enums;
-using Reload.Common.Enums.Firearms;
 using Reload.Common.Helpers;
 using ReloadingApp.Areas.Firearms.Models;
 using ReloadingApp.Controllers;
@@ -29,19 +28,18 @@ namespace ReloadingApp.Areas.Firearms.Controllers
 			return new
 			{
 				Cartidges = FirearmEnumHelper.ToViewModel<Cartridge>(),
-				Brands = FirearmEnumHelper.ToViewModel<GunManufacturer>(),
-				Types = FirearmEnumHelper.ToViewModel<GunType>()
+				Types = FirearmEnumHelper.ToViewModel<FirearmType>()
 			};
 		}
 
 		/// <summary>Returns the firearm enum as an kvp (Enum, Description).</summary>
-		/// <typeparam name="TEnum"></typeparam>
-		private static List<FirearmEnum> ToViewModel<TEnum>() where TEnum : struct
+		/// <typeparam name="T"></typeparam>
+		private static List<FirearmEnumViewModel> ToViewModel<T>() where T : struct
 		{
-			return EnumHelper.Descriptions<TEnum>()
-				.Select(e => new FirearmEnum
+			return EnumHelper.Descriptions<T>()
+				.Select(e => new FirearmEnumViewModel
 				{
-					Id = (TEnum) e.Key as Enum,
+					Id = (T)e.Key as Enum,
 					Name = e.Value
 				})
 				.ToList();

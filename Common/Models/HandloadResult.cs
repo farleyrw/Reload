@@ -20,7 +20,7 @@ namespace Reload.Common.Models
 
 		public WeatherConditions Weather { get; set; }
 
-		[ForeignKey("HandloadId")]
-		public Handload Handload { get; set; }
+		//[ForeignKey("HandloadId")]
+		public int HandloadId { get; set; }
 	}
 }

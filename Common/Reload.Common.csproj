@@ -64,15 +64,14 @@
     <Compile Include="Enums\Components\PrimerType.cs" />
     <Compile Include="Enums\WindDirection.cs" />
     <Compile Include="Helpers\XmlTransformHelper.cs" />
-    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\IBaseModel.cs" />
     <Compile Include="Models\WeatherConditions.cs" />
     <Compile Include="Models\Firearm.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Models\Components\Brass.cs" />
     <Compile Include="Enums\Components\Powder.cs" />
     <Compile Include="Enums\Cartridge.cs" />
-    <Compile Include="Enums\Firearms\GunManufacturer.cs" />
-    <Compile Include="Enums\Firearms\GunType.cs" />
+    <Compile Include="Enums\Firearms\FirearmType.cs" />
     <Compile Include="Models\Components\Bullet.cs" />
     <Compile Include="Models\Components\Primer.cs" />
     <Compile Include="Models\Handload.cs" />

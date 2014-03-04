@@ -2,6 +2,8 @@
 Use http://www.Pluralsight.com
 
 UI
+Default model binder for string nulls
+Ajax logout redirection
 *User account management
 Fix jquery validation
 Angular validation

@@ -12,7 +12,7 @@ namespace Reload.Common.Models
 
 		public int AccountId { get; set; }
 
-		public Powder Powder { get; set; }
+		public GunPowder Powder { get; set; }
 
 		[Required]
 		public double PowderCharge { get; set; }
@@ -31,7 +31,7 @@ namespace Reload.Common.Models
 
 		public Handload()
 		{
-			this.Powder = Powder.None;
+			this.Powder = GunPowder.None;
 			this.Primer = new Primer();
 			this.Casing = new Brass();
 			this.Bullet = new Bullet();

@@ -5,7 +5,7 @@ using Reload.Common.Helpers;
 
 namespace ReloadingApp.Helpers.Json
 {
-	/// <summary>Firearm cartridge enum description converter.</summary>
+	/// <summary>Enum description converter.</summary>
 	public class EnumDescriptionConverter<T> : JsonConverter where T : struct
 	{
 		/// <summary>Gets the enum value from the given description.</summary>

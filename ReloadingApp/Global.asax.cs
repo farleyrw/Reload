@@ -19,11 +19,12 @@ namespace ReloadingApp
 			DatabaseConfig.RegisterInitializers();
 
 			AreaRegistration.RegisterAllAreas();
-
+			
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			ViewEngineConfig.RegisterCustomViewEngines(ViewEngines.Engines);
+			ModelBinderConfig.RegisterModelBinders(ModelBinders.Binders);
 
 			DependencyConfig.Initialize();
 		}

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Reload.Common.Enums;
-using Reload.Common.Enums.Firearms;
 using Reload.Common.Helpers;
 
 namespace Reload.Common.Models
@@ -17,9 +16,9 @@ namespace Reload.Common.Models
 		[Required]
 		public string Model { get; set; }
 
-		public GunManufacturer Brand { get; set; }
+		public string Brand { get; set; }
 
-		public GunType Type { get; set; }
+		public FirearmType Type { get; set; }
 
 		public Cartridge Chamber { get; set; }
 
@@ -29,7 +28,7 @@ namespace Reload.Common.Models
 			{
 				return string.Format(
 					"{0} {1} {2}",
-					EnumHelper.Description<GunManufacturer>(this.Brand),
+					this.Brand,
 					this.Model,
 					EnumHelper.Description<Cartridge>(this.Chamber)
 				);
@@ -39,15 +38,12 @@ namespace Reload.Common.Models
 		[Required]
 		public double BarrelLength { get; set; }
 
-		//[ForeignKey("HandloadId")]
 		public List<Handload> Handloads { get; set; }
 
 		public Firearm()
 		{
-			this.Model = string.Empty;
-			this.Brand = GunManufacturer.Custom;
-			this.Type = GunType.Other;
-			this.Chamber = Cartridge.Custom;
+			this.Type = FirearmType.Other;
+			this.Chamber = Cartridge.None;
 			this.Handloads = new List<Handload>();
 		}
 	}
