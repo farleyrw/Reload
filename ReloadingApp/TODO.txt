@@ -23,6 +23,8 @@ Research
 -ng-grid
 
 Features
+Add manufactured ammo load data
+Add range handload results print offs
 Add help section
 Handload reports
 Ballistics calculator/charts

@@ -192,7 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Json\CartridgeEnumDescriptionConverter.cs" />
+    <Compile Include="Helpers\Json\EnumDescriptionConverter.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelper.cs" />
     <Compile Include="Helpers\Mvc\MaxLengthTextBox.cs" />
     <Compile Include="Models\Account\User.cs" />
@@ -347,7 +347,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55252</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
