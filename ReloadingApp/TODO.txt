@@ -2,10 +2,7 @@
 Use http://www.Pluralsight.com
 
 UI
-Default model binder for string nulls
-Ajax logout redirection
 *User account management
-Fix jquery validation
 Angular validation
 Mock up:
 -Handload entry
@@ -16,7 +13,6 @@ Use jquery ui widgets - multi select http://www.erichynds.com/examples/jquery-ui
 
 Business
 Figure out best way to handle integer enum names
-Fix db initialization error - "The specified table does not exist"
 Setup data annotations on handloads/results
 Create layer unit tests
 Enumerate all enum values
@@ -25,8 +21,6 @@ Research
 -ng-grid
 
 Features
-Add manufactured ammo load data
-Add range handload results print offs
 Add help section
 Handload reports
 Ballistics calculator/charts
