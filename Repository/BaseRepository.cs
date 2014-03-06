@@ -10,7 +10,7 @@ namespace Reload.Repository
 {
 	/// <summary>The base repository for generic CRUD operations.</summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
-	public class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable, IHasIdentityData where TEntity : class, IBaseModel
+	public abstract class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable, IHasIdentityData where TEntity : class, IBaseModel
 	{
 		/// <summary>Gets or sets the identity.</summary>
 		/// <value>The identity.</value>
