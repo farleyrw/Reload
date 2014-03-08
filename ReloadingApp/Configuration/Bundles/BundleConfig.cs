@@ -1,4 +1,6 @@
-﻿using System.Web.Optimization;
+﻿using System.Linq;
+using System.Reflection;
+using System.Web.Optimization;
 using ReloadingApp.Configuration.Bundles.Resources;
 
 namespace ReloadingApp.Configuration.Bundles
@@ -11,20 +13,11 @@ namespace ReloadingApp.Configuration.Bundles
 		{
 			//BundleTable.EnableOptimizations = true;
 			bundles.UseCdn = true;
-
-			bundles.Add(ResourceBundle.Html5Shiv);
-
-			bundles.Add(ResourceBundle.JqueryJs);
-			bundles.Add(ResourceBundle.JqueryUiJs);
-			bundles.Add(ResourceBundle.JqueryUiCss);
-			bundles.Add(ResourceBundle.JqueryValidation);
-
-			bundles.Add(ResourceBundle.AngularJs);
-			bundles.Add(ResourceBundle.AngularLoaderJs);
-			bundles.Add(ResourceBundle.AngularResourceJs);
-			bundles.Add(ResourceBundle.AngularRouteJs);
-
-			bundles.Add(ResourceBundle.SiteCss);
+			
+			typeof(ResourceBundle).GetProperties(BindingFlags.Public | BindingFlags.Static).ToList().ForEach(property =>
+			{
+				bundles.Add((Bundle)property.GetValue(null));
+			});
 		}
 	}
 }

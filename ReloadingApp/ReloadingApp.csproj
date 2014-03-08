@@ -210,6 +210,7 @@
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.css" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.filter.css" />
+    <Content Include="Content\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_666666_40x100.png" />
@@ -278,6 +279,10 @@
     <Content Include="Scripts\angular\version.json" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\Site\Account\Account.js" />
+    <Content Include="Scripts\angular\ui\ui-bootstrap-0.10.0.js" />
+    <Content Include="Scripts\angular\ui\ui-bootstrap-0.10.0.min.js" />
+    <Content Include="Scripts\angular\ui\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="Scripts\angular\ui\ui-bootstrap-tpls-0.10.0.min.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />
