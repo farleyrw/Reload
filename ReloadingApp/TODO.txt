@@ -2,10 +2,6 @@
 Use http://www.Pluralsight.com
 
 UI
-Default model binder for string nulls
-Ajax logout redirection
-*User account management
-Fix jquery validation
 Angular validation
 Mock up:
 -Handload entry
@@ -25,12 +21,9 @@ Research
 -ng-grid
 
 Features
-Add manufactured ammo load data
-Add range handload results print offs
 Add help section
-Handload reports
 Ballistics calculator/charts
--Choose mobile friendly reports - canvas js
+-Choose mobile friendly reports like mint - canvas js
 
 Links
 http://msdn.microsoft.com/en-US/data/ee712907
