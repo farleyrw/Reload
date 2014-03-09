@@ -6,6 +6,9 @@ namespace Reload.Repository
 	public class BaseContext : DbContext
 	{
 		/// <summary>Initializes a new instance of the <see cref="BaseContext"/> class.</summary>
-		public BaseContext() : base("Reload") { }
+		public BaseContext() : base("Reload")
+		{
+			this.Configuration.LazyLoadingEnabled = false;
+		}
 	}
 }
