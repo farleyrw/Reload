@@ -13,7 +13,7 @@
 
 <h2>Become a member</h2>
 <fieldset>
-	<legend>Info</legend>
+	<legend>Create an account</legend>
 	@using (Html.BeginForm())
 	{
 		@Html.ValidationSummary(true)
@@ -47,7 +47,7 @@
 			@Html.MaxLengthTextBoxFor(u => u.LastName)
 			@Html.ValidationMessageFor(u => u.LastName)
 		</div>
-		<button type="submit">Sign Up</button>
+		<button type="submit" class="btn btn-primary">Sign Up</button>
 	}
 </fieldset>
 <p>@Html.ActionLink("Already a user?", "Login")</p>

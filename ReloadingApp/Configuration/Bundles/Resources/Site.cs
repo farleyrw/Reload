@@ -11,7 +11,7 @@ namespace ReloadingApp.Configuration.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/sitejs")
-					.Include("~/Content/Site.js");
+					.Include("~/Scripts/Site/Site.js");
 			}
 		}
 

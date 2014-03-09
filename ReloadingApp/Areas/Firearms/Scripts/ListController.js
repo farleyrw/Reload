@@ -1,8 +1,13 @@
-﻿
+﻿'use strict';
+
 FirearmManager.controller("FirearmListController",
-	["$scope", "FirearmService", "FirearmEnumService",
-        function (scope, FirearmService, EnumService) {
+	["$scope", "$location", "FirearmService", "FirearmEnumService",
+        function (scope, location, FirearmService, EnumService) {
         	scope.Firearms = FirearmService.List();
+
+        	scope.Add = function () {
+        		location.path('/new');
+        	};
 
         	scope.Delete = function (firearm) {
         		FirearmService.Delete(firearm, function (firearm) {

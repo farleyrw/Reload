@@ -17,7 +17,7 @@
 <h3>You have been automatically logged out due to inactivity.</h3>
 }
 <fieldset>
-	<legend>Login</legend>
+	<legend>Login to your account</legend>
 	@using (Html.BeginForm())
 	{
 		@Html.ValidationSummary(true)
@@ -32,7 +32,7 @@
 			@Html.ValidationMessageFor(u => u.Password)
 		</div>
 		@Html.Hidden("ReturnUrl", Request.QueryString.Get("returnUrl"))
-		<button type="submit">Login</button>
+		<button type="submit" class="btn btn-primary">Login</button>
 	}
 </fieldset>
 <p>@Html.ActionLink("Sign up!", "Register")</p>

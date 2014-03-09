@@ -1,4 +1,5 @@
-﻿
+﻿'use strict';
+
 FirearmManager.service("FirearmEnumService",
 	["$resource",
         function (ajax) {

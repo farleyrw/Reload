@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-var FirearmManager = angular.module("FirearmManager", ['ngRoute', 'ngResource'])
+var FirearmManager = angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	.constant('templateUrl', 'areas/firearms/templates/')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing

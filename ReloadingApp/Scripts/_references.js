@@ -26,4 +26,4 @@
 /// <reference path="angular/i18n/angular-locale_en.js" />
 /// <reference path="angular/ui/ui-bootstrap-tpls-0.10.0.js" />
 /// <reference path="angular/ui/ui-bootstrap-0.10.0.js" />
-/// <reference path="../content/site.js" />
+/// <reference path="site/site.js" />

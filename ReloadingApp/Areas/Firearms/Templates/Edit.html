@@ -5,12 +5,12 @@
 	<form name="FirearmForm" ng-cloak="">
 		<ul>
 			<li>
-				<label>Model</label>
-				<input ng-model="Firearm.Model" type="text" placeholder="Enter a model" required />
+				<label>Brand</label>
+				<input ng-model="Firearm.Brand" type="text" placeholder="Enter a brand" required tooltip-placement="right" tooltip="eg. Remington" />
 			</li>
 			<li>
-				<label>Brand</label>
-				<input ng-model="Firearm.Brand" type="text" placeholder="Enter a brand" required />
+				<label>Model</label>
+				<input ng-model="Firearm.Model" type="text" placeholder="Enter a model" required tooltip-placement="right" tooltip="eg. Model 700" />
 			</li>
 			<li>
 				<label>Caliber</label>
@@ -26,7 +26,7 @@
 				<select ng-model="Firearm.Type" ng-options="t.Id as t.Name for t in Enums.Types"></select>
 			</li>
 		</ul>
-		<button ng-click="Save()" ng-disabled="FirearmForm.$invalid || !IsValid()">Save</button>
+		<button ng-click="Save()" ng-disabled="FirearmForm.$invalid || !IsValid()" class="btn btn-primary">Save</button>
 	</form>
 </fieldset>
 <p><a href="#/list">Back to list</a></p>

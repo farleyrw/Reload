@@ -147,5 +147,15 @@ namespace ReloadingApp.Configuration.Bundles.Resources
 					);
 			}
 		}
+
+		/// <summary>Gets the bootstrap css bundle</summary>
+		public static Bundle BootStrap
+		{
+			get
+			{
+				return new StyleBundle("~/bundles/bootstrapcss")
+					.Include("~/Content/bootstrap/bootstrap.css");
+			}
+		}
 	}
 }

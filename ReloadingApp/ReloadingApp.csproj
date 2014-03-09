@@ -94,9 +94,8 @@
     <Reference Include="Glimpse.EF6">
       <HintPath>..\packages\Glimpse.EF6.1.6.0\lib\net45\Glimpse.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.Mvc4, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Glimpse.Mvc4.1.5.3\lib\net40\Glimpse.Mvc4.dll</HintPath>
+    <Reference Include="Glimpse.Mvc5">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -207,10 +206,14 @@
     <Content Include="App_Data\Reload.sdf" />
     <Content Include="Areas\Firearms\Scripts\FirearmService.js" />
     <Content Include="Areas\Handloads\Scripts\Application.js" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.css" />
     <Content Include="Content\jquery-multiselect\jquery.multiselect.filter.css" />
-    <Content Include="Content\Site.js" />
+    <Content Include="Scripts\Site\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_666666_40x100.png" />

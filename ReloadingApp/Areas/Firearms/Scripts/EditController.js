@@ -1,4 +1,5 @@
-﻿
+﻿'use strict';
+
 FirearmManager.controller("FirearmEditController",
 	["$scope", "$routeParams", "$location", "FirearmService", "FirearmEnumService",
 		function (scope, route, location, FirearmService, EnumService) {

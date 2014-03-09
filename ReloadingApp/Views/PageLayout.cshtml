@@ -14,6 +14,9 @@
 	
 	@Html.Partial("Html5Shiv")
 
+	@RenderSection("HeadIncludes", required: false)
+
+	@Styles.Render("~/bundles/bootstrapcss")
 	@Styles.Render("~/bundles/sitecss", "~/Content/themes/Reload/jqueryuicss")
 </head>
 <body>
@@ -33,9 +36,5 @@
 	@Scripts.Render("~/bundles/jqueryjs", "~/bundles/jqueryuijs")
 	
 	@RenderSection("Scripts", required: false)
-
-	<script>
-		$(function () { $(':button').button() });
-	</script>
 </body>
 </html>
