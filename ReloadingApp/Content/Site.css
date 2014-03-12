@@ -103,11 +103,14 @@ input, textarea, select {
 	width: 200px;
 	border-radius: 4px;
 	border: 1px solid grey;
-	padding-left: 4px;
 }
 
 input, select {
 	height: 1.7em;
+}
+
+input, textarea {
+	padding-left: 4px;
 }
 
 textarea {
