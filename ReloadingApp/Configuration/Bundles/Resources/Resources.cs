@@ -45,24 +45,6 @@ namespace ReloadingApp.Configuration.Bundles.Resources
 			}
 		}
 
-		public static Bundle JqueryMultiSelectJs
-		{
-			get
-			{
-				return new ScriptBundle("~/bundles/jquerymultiselect")
-					.Include("~/Scripts/jquery/multiselect/jquery.multiselect.js");
-			}
-		}
-
-		public static Bundle JqueryMultiSelectCss
-		{
-			get
-			{
-				return new StyleBundle("~/bundles/jquerymultiselectcss")
-					.Include("~/Contnt/jquery-multiselect/jquery.multiselect.css");
-			}
-		}
-
 		/// <summary>Returns the jquery ui css bundle.</summary>
 		public static Bundle JqueryUiCss
 		{
@@ -82,6 +64,7 @@ namespace ReloadingApp.Configuration.Bundles.Resources
 				return new ScriptBundle("~/bundles/jqueryvalidation")
 					.Include(
 						"~/Scripts/jquery/validation/jquery.unobtrusive-ajax.js",
+						"~/Scripts/jquery/validation/jquery.validate.js",
 						"~/Scripts/jquery/validation/jquery.validate.unobtrusive.js"
 					);
 			}

@@ -211,8 +211,8 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\images\favicon.png" />
-    <Content Include="Content\jquery-multiselect\jquery.multiselect.css" />
-    <Content Include="Content\jquery-multiselect\jquery.multiselect.filter.css" />
+    <Content Include="Scripts\jquery\validation\jquery.validate.js" />
+    <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\Site\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
@@ -272,10 +272,6 @@
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery\jquery-2.1.0.min.js" />
-    <Content Include="Scripts\jquery\multiselect\jquery.multiselect.filter.js" />
-    <Content Include="Scripts\jquery\multiselect\jquery.multiselect.filter.min.js" />
-    <Content Include="Scripts\jquery\multiselect\jquery.multiselect.js" />
-    <Content Include="Scripts\jquery\multiselect\jquery.multiselect.min.js" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.js" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\jquery\jquery-2.1.0.min.map" />
