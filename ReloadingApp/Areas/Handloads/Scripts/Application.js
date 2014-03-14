@@ -11,7 +11,7 @@ HandloadManager.config(['$routeProvider', function (routing) {
 }]);
 
 // Filter to get the string value of the enum.
-FirearmManager.filter("EnumToString", function () {
+HandloadManager.filter("EnumToString", function () {
 	return function (index, array) {
 		return array ? array[index].Name : index;
 	};

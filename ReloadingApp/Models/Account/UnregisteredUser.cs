@@ -12,7 +12,7 @@ namespace ReloadingApp.Models.Account
 		[StringLength(255)]
 		[DataType(DataType.EmailAddress)]
 		[EmailAddress]
-		[Compare("Email")]
+		[Compare("Email", ErrorMessage="This does not match the email above.")]
 		[Required]
 		public string ConfirmEmail { get; set; }
 
@@ -21,7 +21,7 @@ namespace ReloadingApp.Models.Account
 		[DisplayName("Confirm Password")]
 		[StringLength(16, MinimumLength = 6, ErrorMessage = "Confirm password should be between 6 and 16 characters.")]
 		[DataType(DataType.Password)]
-		[Compare("Password")]
+		[Compare("Password", ErrorMessage = "This does not match the password above.")]
 		[Required]
 		public string ConfirmPassword { get; set; }
 
