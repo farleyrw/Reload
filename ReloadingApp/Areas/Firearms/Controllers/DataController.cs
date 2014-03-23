@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Reload.Common.Models;
 using Reload.Service.Interfaces;
 using ReloadingApp.Controllers;
@@ -28,18 +27,14 @@ namespace ReloadingApp.Areas.Firearms.Controllers
 		/// <summary>Gets the firearm list.</summary>
 		public JsonResult List()
 		{
-			List<Firearm> firearms = this.FirearmService.GetList();
-
-			return this.GetJsonResult(firearms);
+			return this.GetJsonResult(this.FirearmService.GetList());
 		}
 
 		/// <summary>Edits the specified firearm id.</summary>
 		/// <param name="id">The firearm id.</param>
 		public JsonResult Edit(int? id)
 		{
-			Firearm firearm = this.FirearmService.Get(id.GetValueOrDefault(0));
-
-			return this.GetJsonResult(firearm);
+			return this.GetJsonResult(this.FirearmService.Get(id.GetValueOrDefault(0)));
 		}
 
 		/// <summary>Saves the specified firearm.</summary>

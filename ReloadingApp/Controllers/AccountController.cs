@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MvcContrib;
 using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
 using Reload.Service.Interfaces;
@@ -27,16 +28,16 @@ namespace ReloadingApp.Controllers
 		/// <summary>Gets the index view result, default login page.</summary>
 		public RedirectToRouteResult Index()
 		{
-			return this.RedirectToAction("Login");
+			return this.RedirectToAction(action => action.Login(false));
 		}
 
 		/// <summary>The login view.</summary>
 		[HttpGet]
-		public ActionResult Login(bool? autoLogout)
+		public ActionResult Login(bool? autoLogout = false)
 		{
 			if(this.Request.IsAuthenticated)
 			{
-				return this.RedirectToAction("Welcome", "Home");
+				return this.RedirectToAction<HomeController>(action => action.Welcome());
 			}
 
 			base.DeleteFormsAuthentication();
@@ -53,7 +54,7 @@ namespace ReloadingApp.Controllers
 			// TODO: remove this duplication.
 			if(this.Request.IsAuthenticated)
 			{
-				return this.RedirectToAction("Welcome", "Home");
+				return this.RedirectToAction<HomeController>(action => action.Welcome());
 			}
 
 			base.DeleteFormsAuthentication();
@@ -97,7 +98,7 @@ namespace ReloadingApp.Controllers
 				return this.Redirect(returnUrl);
 			}
 
-			return this.RedirectToAction("Welcome", "Home");
+			return this.RedirectToAction<HomeController>(action => action.Welcome());
 		}
 
 		/// <summary>Creates the account.</summary>
@@ -138,7 +139,7 @@ namespace ReloadingApp.Controllers
 
 			base.SaveAuthentication(userData);
 
-			return this.RedirectToAction("Welcome", "Home");
+			return this.RedirectToAction<HomeController>(action => action.Welcome());
 		}
 
 		/// <summary>Logs out the user.</summary>
