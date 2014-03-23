@@ -19,7 +19,7 @@ namespace ReloadingApp.Models.Account
 		/// <summary>Gets or sets the confirm password.</summary>
 		/// <value>The confirm password.</value>
 		[DisplayName("Confirm Password")]
-		[StringLength(16, MinimumLength = 6, ErrorMessage = "Confirm password should be between 6 and 16 characters.")]
+		[StringLength(16, MinimumLength = 6, ErrorMessage = "{0} length must be between {2} and {1} characters.")]
 		[DataType(DataType.Password)]
 		[Compare("Password", ErrorMessage = "This does not match the password above.")]
 		[Required]

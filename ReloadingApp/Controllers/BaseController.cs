@@ -72,6 +72,5 @@ namespace ReloadingApp.Controllers
 		{
 			return this.GetJsonResult(new JsonStatusResult { Success = success, Message = message });
 		}
-
 	}
 }

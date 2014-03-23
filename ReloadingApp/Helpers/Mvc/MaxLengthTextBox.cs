@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
@@ -24,9 +24,7 @@ namespace ReloadingApp.Helpers.Mvc
 			object htmlAttributes = null)
 		{
 			MemberExpression member = expression.Body as MemberExpression;
-			StringLengthAttribute stringLength = member.Member
-				.GetCustomAttributes(typeof(StringLengthAttribute), false)
-				.FirstOrDefault() as StringLengthAttribute;
+			StringLengthAttribute stringLength = member.Member.GetCustomAttribute<StringLengthAttribute>(false);
 
 			IDictionary<string, object> attributes = (IDictionary<string, object>) new RouteValueDictionary(htmlAttributes ?? new { });
 			if(stringLength != null)

@@ -18,7 +18,7 @@ namespace ReloadingApp.Models.Account
 		/// <summary>Gets or sets the password.</summary>
 		/// <value>The password.</value>
 		[DisplayName("Password")]
-		[StringLength(16, MinimumLength = 6, ErrorMessage = "Password length should be between 6 and 16 characters.")]
+		[StringLength(16, MinimumLength = 6, ErrorMessage = "{0} length must be between {2} and {1} characters.")]
 		[DataType(DataType.Password)]
 		[Required]
 		public string Password { get; set; }

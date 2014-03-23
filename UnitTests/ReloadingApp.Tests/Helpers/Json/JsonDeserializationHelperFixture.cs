@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReloadingApp.Helpers.Json;
 
@@ -13,11 +14,9 @@ namespace ReloadingApp.Tests.Helpers.Json
 			List<TestThing> expectedList = new List<TestThing> { new TestThing { Name = "Bleh", Enum = TestEnum.B } };
 			List<TestThing> deserializedList = JsonDeserializationHelper.GetData<TestThing>();
 
-			Assert.AreEqual(expectedList.Count, deserializedList.Count);
-			Assert.AreEqual(expectedList[0].Enum, deserializedList[0].Enum);
-			Assert.AreEqual(expectedList[0].Name, deserializedList[0].Name);
-			//Assert.AreEqual<TestThing>(expectedList[0], deserializedList[0]);
-			//CollectionAssert.AreEqual(expectedList, deserializedList);
+			CompareLogic comparer = new CompareLogic();
+			ComparisonResult result = comparer.Compare(expectedList, deserializedList);
+			Assert.IsTrue(result.AreEqual, result.DifferencesString);
 		}
 	}
 
