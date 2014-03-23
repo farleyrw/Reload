@@ -12,7 +12,7 @@ namespace ReloadingApp.Configuration
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			routes.MapMvcAttributeRoutes();
+			//routes.MapMvcAttributeRoutes();
 
 			routes.MapRoute(
 				name: "Default",

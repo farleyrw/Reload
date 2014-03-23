@@ -1,7 +1,7 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Models;
-using Reload.Repository;
 
 namespace Reload.Repository.Tests.Repositories
 {
@@ -11,22 +11,29 @@ namespace Reload.Repository.Tests.Repositories
 		[TestMethod]
 		public void EntitySavedWithAccountIdTest()
 		{
-			Assert.IsTrue(true);
+			TestRepository repo = new TestRepository();
+
+			var x = repo.Identity;
+
+			Assert.Inconclusive();
 		}
 	}
 
-	public class TestRepository //: BaseRepository<TestClass>
+	public class TestRepository : BaseRepository<TestClass>
 	{
-		//public TestRepository() { }
+		public TestRepository() : base(new TestContext()) { }
 	}
 
 	public class TestContext : BaseContext
 	{
-
+		DbSet<TestClass> TestClasses { get; set; }
 	}
 
 	public class TestClass : IBaseModel
 	{
+		[Key]
+		public int Id { get; set; }
+
 		public int AccountId { get; set; }
 
 		public string TestField { get; set; }

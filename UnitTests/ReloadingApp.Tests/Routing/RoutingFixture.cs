@@ -1,6 +1,6 @@
 ﻿using System.Web.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcContrib.TestHelper;
+using MvcRouteTester;
 using ReloadingApp.Configuration;
 using ReloadingApp.Controllers;
 
@@ -10,7 +10,7 @@ namespace ReloadingApp.Tests.Routing
 	public class RoutingFixture
 	{
 		[ClassInitialize]
-		public static void Setup(TestContext testContext)
+		public static void Setup(TestContext context)
 		{
 			RouteTable.Routes.Clear();
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -19,9 +19,9 @@ namespace ReloadingApp.Tests.Routing
 		[TestMethod]
 		public void DefaultRoutingTest()
 		{
-			"~/".ShouldMapTo<HomeController>(action => action.Index());
-			"~/home".ShouldMapTo<HomeController>(action => action.Index());
-			"~/home/index".ShouldMapTo<HomeController>(action => action.Index());
+			RouteTable.Routes.ShouldMap("~/").To<HomeController>(action => action.Index());
+			RouteTable.Routes.ShouldMap("~/Home").To<HomeController>(action => action.Index());
+			RouteTable.Routes.ShouldMap("~/Home/Index").To<HomeController>(action => action.Index());
 		}
 	}
 }
