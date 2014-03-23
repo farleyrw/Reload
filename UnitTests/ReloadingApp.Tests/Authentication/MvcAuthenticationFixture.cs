@@ -10,7 +10,7 @@ namespace Reload.Common.Tests.Authentication
 	[TestClass]
 	public class MvcAuthenticationFixture
 	{
-		private static readonly CompareObjects comparer = new CompareObjects();
+		private static readonly CompareLogic comparer = new CompareLogic();
 
 		private static UserIdentityData TestUserData = new UserIdentityData
 		{
@@ -40,7 +40,8 @@ namespace Reload.Common.Tests.Authentication
 				authorizationTicket.IssueDate.AddMinutes(TestTimeoutMinutes),
 				authorizationTicket.Expiration,
 				"The expected timeout minutes do not match the actual.");
-			Assert.IsTrue(comparer.Compare(TestUserData, identity.GetUserData()), comparer.DifferencesString);
+			ComparisonResult result = comparer.Compare(TestUserData, identity.GetUserData());
+			Assert.IsTrue(result.AreEqual, result.DifferencesString);
 		}
 
 		[TestMethod]
@@ -48,7 +49,8 @@ namespace Reload.Common.Tests.Authentication
 		{
 			UserIdentity identity = MvcAuthentication.GetUserIdentity(TestAuthorizationCookie);
 
-			Assert.IsTrue(comparer.Compare(TestUserData, identity.GetUserData()), comparer.DifferencesString);
+			ComparisonResult result = comparer.Compare(TestUserData, identity.GetUserData());
+			Assert.IsTrue(result.AreEqual, result.DifferencesString);
 		}
 	}
 }
