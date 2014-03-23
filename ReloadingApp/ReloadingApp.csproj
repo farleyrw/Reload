@@ -165,6 +165,7 @@
     <Compile Include="Areas\Handloads\Controllers\DataController.cs" />
     <Compile Include="Areas\Handloads\Controllers\ViewController.cs" />
     <Compile Include="Areas\Handloads\HandloadsAreaRegistration.cs" />
+    <Compile Include="Attributes\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Attributes\HandleExceptionAttribute.cs" />
     <Compile Include="Binders\EmptyStringModelBinder.cs" />
     <Compile Include="Configuration\Bundles\BundleConfig.cs" />
