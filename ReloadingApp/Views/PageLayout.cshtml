@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<title>@(ViewBag.Title ?? "Reloading Data Source")</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
 
 	@if(Request.IsAuthenticated)
 	{
-		<meta name="meta-refresh" http-equiv="refresh" content="@(Session.Timeout * 60);url=@FormsAuthentication.LoginUrl?autologout=true" />
+		<meta name="meta-refresh" http-equiv="refresh" content="@(FormsAuthentication.Timeout.TotalSeconds);url=@FormsAuthentication.LoginUrl?autologout=true" />
 	}
 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
 	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.png")" type="image/png">
 	
 	@Html.Partial("Html5Shiv")

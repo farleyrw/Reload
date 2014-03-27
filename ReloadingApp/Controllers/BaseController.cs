@@ -11,9 +11,6 @@ namespace ReloadingApp.Controllers
 	/// <summary>Base controller implementation.</summary>
 	public abstract class BaseController : Controller
 	{
-		/// <summary>Initializes a new instance of the <see cref="BaseController"/> class.</summary>
-		public BaseController() { }
-
 		/// <summary>Initializes data that is not be available when the constructor is called.</summary>
 		/// <param name="requestContext">The HTTP context and route data.</param>
 		protected override void Initialize(RequestContext requestContext)
@@ -23,7 +20,7 @@ namespace ReloadingApp.Controllers
 			HttpCookie requestAuthCookie = requestContext.HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
 			if(requestAuthCookie != null)
 			{
-				requestAuthCookie.Expires = DateTime.Now.AddMinutes(requestContext.HttpContext.Session.Timeout);
+				requestAuthCookie.Expires = DateTime.Now.AddMinutes(FormsAuthentication.Timeout.TotalMinutes);
 				requestContext.HttpContext.Response.SetCookie(requestAuthCookie);
 			}
 		}
@@ -32,7 +29,7 @@ namespace ReloadingApp.Controllers
 		/// <param name="userData">The user data.</param>
 		protected void SaveAuthentication(UserIdentityData userData)
 		{
-			double authenticationTimeout = Convert.ToDouble(this.Session.Timeout);
+			double authenticationTimeout = FormsAuthentication.Timeout.TotalMinutes;
 
 			HttpCookie authorizationCookie = MvcAuthentication.GetAuthorizationCookie(userData, authenticationTimeout);
 
