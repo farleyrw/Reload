@@ -11,6 +11,14 @@ namespace ReloadingApp.Controllers
 	/// <summary>Base controller implementation.</summary>
 	public abstract class BaseController : Controller
 	{
+		protected UserIdentity Identity
+		{
+			get
+			{
+				return this.User.Identity as UserIdentity;
+			}
+		}
+
 		/// <summary>Initializes data that is not be available when the constructor is called.</summary>
 		/// <param name="requestContext">The HTTP context and route data.</param>
 		protected override void Initialize(RequestContext requestContext)

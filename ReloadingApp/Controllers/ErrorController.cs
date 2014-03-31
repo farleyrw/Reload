@@ -4,12 +4,9 @@ using Reload.Service.Interfaces;
 
 namespace ReloadingApp.Controllers.Shared
 {
-	[AllowAnonymous]
 	public class ErrorController : BaseController
 	{
 		private readonly IErrorLoggingService Service;
-
-		public ErrorController() { }
 
 		public ErrorController(IErrorLoggingService service)
 		{

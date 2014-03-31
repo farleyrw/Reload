@@ -12,8 +12,6 @@
 
 	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.png")" type="image/png">
 	
-	@Html.Partial("Html5Shiv")
-
 	@RenderSection("HeadIncludes", required: false)
 
 	@Styles.Render("~/bundles/bootstrapcss")
@@ -26,11 +24,9 @@
 			@Html.Partial("SiteMenu")
 		</div>
 	</header>
-
 	<div class="Page">@RenderBody()</div>
-
 	<footer>
-		<div class="Footer">Copyright</div>
+		<div class="Footer">&copy; Copyright</div>
 	</footer>
 
 	@Scripts.Render("~/bundles/jqueryjs", "~/bundles/jqueryuijs")

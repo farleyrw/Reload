@@ -23,6 +23,7 @@ namespace ReloadingApp.Controllers
 		/// <summary>Returns the welcome view.</summary>
 		public ViewResult Welcome()
 		{
+			ViewBag.UserName = this.Identity.FirstName;
 			return View();
 		}
     }
