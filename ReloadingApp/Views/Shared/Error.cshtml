@@ -3,5 +3,11 @@
 	ViewBag.Title = "Error";
 }
 
-<h2>Error@(": " + ViewBag.Message)</h2>
-<h3>An error occurred.</h3>
+@if(string.IsNullOrWhiteSpace(ViewBag.Message))
+{
+<h2>An error has occurred.</h2>
+}
+else
+{
+<h3>Error: @ViewBag.Message</h3>
+}
