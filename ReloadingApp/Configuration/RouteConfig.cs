@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ReloadingApp.Configuration
+namespace Reload.Web.Configuration
 {
 	/// <summary>The base route configuration for the application.</summary>
 	public class RouteConfig

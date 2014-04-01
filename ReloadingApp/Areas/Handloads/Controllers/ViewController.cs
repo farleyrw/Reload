@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using ReloadingApp.Controllers;
+using Reload.Web.Controllers;
 
-namespace ReloadingApp.Areas.Handloads.Controllers
+namespace Reload.Web.Areas.Handloads.Controllers
 {
     public class ViewController : BaseController
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace ReloadingApp.Configuration.Bundles.Resources
+namespace Reload.Web.Configuration.Bundles.Resources
 {
 	/// <summary>Partial class for common resource bundles.</summary>
 	public static partial class ResourceBundle

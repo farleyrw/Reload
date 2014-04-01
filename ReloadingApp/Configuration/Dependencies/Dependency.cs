@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Autofac;
 
-namespace ReloadingApp.Configuration.Dependencies
+namespace Reload.Web.Configuration.Dependencies
 {
 	/// <summary>The dependency class.</summary>
 	public class Dependency : IDependencyResolver

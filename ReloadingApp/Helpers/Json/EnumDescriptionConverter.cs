@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Reload.Common.Attributes;
 using Reload.Common.Helpers;
 
-namespace ReloadingApp.Helpers.Json
+namespace Reload.Web.Helpers.Json
 {
 	/// <summary>Enum description converter.</summary>
 	public class EnumDescriptionConverter<T> : JsonConverter where T : struct

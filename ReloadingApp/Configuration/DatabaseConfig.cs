@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using Reload.Repository.Context;
-using ReloadingApp.Initialization;
+using Reload.Web.Initialization;
 
-namespace ReloadingApp.Configuration
+namespace Reload.Web.Configuration
 {
 	/// <summary>The database configuration.</summary>
 	public static class DatabaseConfig

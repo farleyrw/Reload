@@ -4,9 +4,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Reload.Common.Authentication.Mvc;
-using ReloadingApp.Models;
+using Reload.Web.Models;
 
-namespace ReloadingApp.Controllers
+namespace Reload.Web.Controllers
 {
 	/// <summary>Base controller implementation.</summary>
 	public abstract class BaseController : Controller

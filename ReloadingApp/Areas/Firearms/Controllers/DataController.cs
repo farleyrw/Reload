@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using Reload.Common.Models;
 using Reload.Service.Interfaces;
-using ReloadingApp.Controllers;
+using Reload.Web.Controllers;
 
-namespace ReloadingApp.Areas.Firearms.Controllers
+namespace Reload.Web.Areas.Firearms.Controllers
 {
 	/// <summary>The firearm action controller.</summary>
 	public class DataController : BaseController

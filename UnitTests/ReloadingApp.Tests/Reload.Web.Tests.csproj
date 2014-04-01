@@ -9,8 +9,8 @@
     <ProjectGuid>{12892DA6-684F-4FE8-90C1-D24D0457FF12}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReloadingApp.Tests</RootNamespace>
-    <AssemblyName>ReloadingApp.Tests</AssemblyName>
+    <RootNamespace>Reload.Web.Tests</RootNamespace>
+    <AssemblyName>Reload.Web.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -118,7 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\MvcAuthenticationFixture.cs" />
     <Compile Include="Controllers\AccountControllerFixture.cs" />
     <Compile Include="Controllers\BaseControllerFixture.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelperFixture.cs" />
@@ -140,9 +139,9 @@
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
       <Name>Reload.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ReloadingApp\ReloadingApp.csproj">
+    <ProjectReference Include="..\..\ReloadingApp\Reload.Web.csproj">
       <Project>{3D00FC3E-37EA-44E1-A3A5-89C86DD956A4}</Project>
-      <Name>ReloadingApp</Name>
+      <Name>Reload.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Service\Reload.Service.csproj">
       <Project>{afc49427-3d09-4b26-b5c2-a655108931e5}</Project>

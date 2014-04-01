@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using Reload.Service.Interfaces;
 using Reload.Service.Services;
-using ReloadingApp.Controllers;
+using Reload.Web.Controllers;
 
-namespace ReloadingApp.Areas.Handloads.Controllers
+namespace Reload.Web.Areas.Handloads.Controllers
 {
 	public class DataController : BaseController
 	{

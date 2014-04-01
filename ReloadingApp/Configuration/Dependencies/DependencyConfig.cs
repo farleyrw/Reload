@@ -4,7 +4,7 @@ using Reload.Common.Authentication;
 using Reload.Repository;
 using Reload.Service;
 
-namespace ReloadingApp.Configuration.Dependencies
+namespace Reload.Web.Configuration.Dependencies
 {
 	/// <summary>The dependency configuration class.</summary>
 	public static class DependencyConfig

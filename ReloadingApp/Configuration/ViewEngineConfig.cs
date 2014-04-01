@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace ReloadingApp.Configuration
+namespace Reload.Web.Configuration
 {
 	/// <summary>The view enging configuration.</summary>
 	public class ViewEngineConfig

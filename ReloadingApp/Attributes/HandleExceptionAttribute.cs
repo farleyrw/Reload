@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using Reload.Common.System;
-using ReloadingApp.Models;
+using Reload.Web.Models;
 
-namespace Informz.Web.App.Attributes
+namespace Reload.Web.Attributes
 {
 	/// <summary>The handle exception attribute.</summary>
 	public class HandleExceptionAttribute : HandleErrorAttribute

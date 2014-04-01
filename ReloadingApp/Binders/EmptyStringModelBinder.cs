@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace ReloadingApp.Binders
+namespace Reload.Web.Binders
 {
 	/// <summary>The empty string model binder.</summary>
 	public class EmptyStringModelBinder : DefaultModelBinder

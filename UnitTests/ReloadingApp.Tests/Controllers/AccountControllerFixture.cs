@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ReloadingApp.Tests.Controllers
+namespace Reload.Web.Tests.Controllers
 {
 	[TestClass]
 	public class AccountControllerFixture

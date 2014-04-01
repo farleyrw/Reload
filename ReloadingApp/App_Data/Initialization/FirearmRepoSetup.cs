@@ -3,9 +3,9 @@ using System.Data.Entity;
 using Reload.Common.Enums;
 using Reload.Common.Models;
 using Reload.Repository.Context;
-using ReloadingApp.Helpers.Json;
+using Reload.Web.Helpers.Json;
 
-namespace ReloadingApp.Initialization
+namespace Reload.Web.Initialization
 {
 	/// <summary>Initializes the firearm repository.</summary>
 	public class FirearmRepoSetup : DropCreateDatabaseAlways<FirearmContext>

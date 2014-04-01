@@ -1,10 +1,10 @@
 ﻿using System.Web.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcRouteTester;
-using ReloadingApp.Configuration;
-using ReloadingApp.Controllers;
+using Reload.Web.Configuration;
+using Reload.Web.Controllers;
 
-namespace ReloadingApp.Tests.Routing
+namespace Reload.Web.Tests.Routing
 {
 	[TestClass]
 	public class RoutingFixture

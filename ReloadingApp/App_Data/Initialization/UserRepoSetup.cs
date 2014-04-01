@@ -2,7 +2,7 @@
 using Reload.Common.Authentication;
 using Reload.Repository.Context;
 
-namespace ReloadingApp.Initialization
+namespace Reload.Web.Initialization
 {
 	/// <summary>The user repository setup.</summary>
 	public class UserRepoSetup : DropCreateDatabaseAlways<UserContext>

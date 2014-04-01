@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 
-namespace ReloadingApp.Areas.Handloads
+namespace Reload.Web.Areas.Handloads
 {
 	public class HandloadsAreaRegistration : AreaRegistration
 	{

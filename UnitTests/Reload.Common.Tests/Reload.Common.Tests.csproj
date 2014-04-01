@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects">
+      <HintPath>..\..\packages\CompareNETObjects.2.00.0.0\lib\net45\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
   </ItemGroup>
@@ -53,6 +56,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Authentication\MvcAuthenticationFixture.cs" />
     <Compile Include="Helpers\EnumHelperFixture.cs" />
     <Compile Include="Helpers\XmlTransformHelperFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +66,9 @@
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
       <Name>Reload.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

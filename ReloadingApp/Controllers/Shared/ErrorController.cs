@@ -2,7 +2,7 @@
 using Reload.Common.System;
 using Reload.Service.Interfaces;
 
-namespace ReloadingApp.Controllers.Shared
+namespace Reload.Web.Controllers.Shared
 {
 	[AllowAnonymous]
 	public class ErrorController : BaseController

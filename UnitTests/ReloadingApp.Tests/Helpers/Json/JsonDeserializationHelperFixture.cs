@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ReloadingApp.Helpers.Json;
+using Reload.Web.Helpers.Json;
 
-namespace ReloadingApp.Tests.Helpers.Json
+namespace Reload.Web.Tests.Helpers.Json
 {
 	[TestClass]
 	public class JsonDeserializationHelperFixture
