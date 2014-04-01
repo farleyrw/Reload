@@ -4,11 +4,11 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using Reload.Common.Authentication.Mvc;
-using ReloadingApp.Configuration;
-using ReloadingApp.Configuration.Bundles;
-using ReloadingApp.Configuration.Dependencies;
+using Reload.Web.Configuration;
+using Reload.Web.Configuration.Bundles;
+using Reload.Web.Configuration.Dependencies;
 
-namespace ReloadingApp
+namespace Reload.Web
 {
 	/// <summary>The base configuration of the MVC application.</summary>
 	public class MvcApplication : HttpApplication

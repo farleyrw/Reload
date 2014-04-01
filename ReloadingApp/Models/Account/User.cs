@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace ReloadingApp.Models.Account
+namespace Reload.Web.Models.Account
 {
 	/// <summary>The logon model.</summary>
 	public class User

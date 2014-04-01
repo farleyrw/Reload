@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Reload.Common.Authentication;
 
-namespace ReloadingApp.Controllers
+namespace Reload.Web.Controllers
 {
 	/// <summary>The home controller.</summary>
     public class HomeController : BaseController

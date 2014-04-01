@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Reflection;
 using System.Web.Optimization;
-using ReloadingApp.Configuration.Bundles.Resources;
+using Reload.Web.Configuration.Bundles.Resources;
 
-namespace ReloadingApp.Configuration.Bundles
+namespace Reload.Web.Configuration.Bundles
 {
 	/// <summary>The bundle configuration</summary>
 	public class BundleConfig

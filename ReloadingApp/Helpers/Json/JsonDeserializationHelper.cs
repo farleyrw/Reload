@@ -6,7 +6,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace ReloadingApp.Helpers.Json
+namespace Reload.Web.Helpers.Json
 {
 	/// <summary>The json deserialization helper.</summary>
 	public static class JsonDeserializationHelper

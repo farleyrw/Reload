@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace ReloadingApp.Models.Account
+namespace Reload.Web.Models.Account
 {
 	/// <summary>The unregistered user.</summary>
 	public class UnregisteredUser : User

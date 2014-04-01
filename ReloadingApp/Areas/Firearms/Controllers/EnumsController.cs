@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web.Mvc;
 using Reload.Common.Enums;
 using Reload.Common.Helpers;
-using ReloadingApp.Areas.Firearms.Models;
-using ReloadingApp.Controllers;
+using Reload.Web.Areas.Firearms.Models;
+using Reload.Web.Controllers;
 
-namespace ReloadingApp.Areas.Firearms.Controllers
+namespace Reload.Web.Areas.Firearms.Controllers
 {
 	/// <summary>The firearm enum controller.</summary>
 	public class EnumsController : BaseController

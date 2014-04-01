@@ -3,10 +3,10 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Models;
 using Reload.Service.Interfaces;
-using ReloadingApp.Areas.Firearms.Controllers;
+using Reload.Web.Areas.Firearms.Controllers;
 using Rhino.Mocks;
 
-namespace ReloadingApp.Tests
+namespace Reload.Web.Tests
 {
 	[TestClass]
 	public class FirearmControllerFixture

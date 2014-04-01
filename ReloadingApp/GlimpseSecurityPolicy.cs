@@ -4,7 +4,7 @@
 using Glimpse.AspNet.Extensions;
 using Glimpse.Core.Extensibility;
 
-namespace ReloadingApp
+namespace Reload.Web
 {
     public class GlimpseSecurityPolicy:IRuntimePolicy
     {

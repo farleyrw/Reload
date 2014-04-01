@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReloadingApp", "ReloadingApp\ReloadingApp.csproj", "{3D00FC3E-37EA-44E1-A3A5-89C86DD956A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Web", "ReloadingApp\Reload.Web.csproj", "{3D00FC3E-37EA-44E1-A3A5-89C86DD956A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Referenced Projects", "Referenced Projects", "{63A93397-09AC-422E-AF4C-3DD11F4CD908}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{36D82D4C-54F5-4598-A444-B63DF4BC86EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReloadingApp.Tests", "UnitTests\ReloadingApp.Tests\ReloadingApp.Tests.csproj", "{12892DA6-684F-4FE8-90C1-D24D0457FF12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Web.Tests", "UnitTests\ReloadingApp.Tests\Reload.Web.Tests.csproj", "{12892DA6-684F-4FE8-90C1-D24D0457FF12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Common.Tests", "UnitTests\Reload.Common.Tests\Reload.Common.Tests.csproj", "{1CF8C808-2F4F-44BF-9EFE-49A33AF44D66}"
 EndProject

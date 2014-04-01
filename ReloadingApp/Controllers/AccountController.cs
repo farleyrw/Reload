@@ -4,9 +4,9 @@ using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
 using Reload.Service.Interfaces;
 using Reload.Service.Services;
-using ReloadingApp.Models.Account;
+using Reload.Web.Models.Account;
 
-namespace ReloadingApp.Controllers
+namespace Reload.Web.Controllers
 {
 	/// <summary>The account controller.</summary>
 	[AllowAnonymous]

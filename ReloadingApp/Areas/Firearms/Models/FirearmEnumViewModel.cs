@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReloadingApp.Areas.Firearms.Models
+namespace Reload.Web.Areas.Firearms.Models
 {
 	/// <summary>The firearm enum view model.</summary>
 	public class FirearmEnumViewModel

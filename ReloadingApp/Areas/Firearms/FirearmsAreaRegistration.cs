@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 
-namespace ReloadingApp.Areas.Firearms
+namespace Reload.Web.Areas.Firearms
 {
 	/// <summary>The firearms area registration.</summary>
 	public class FirearmsAreaRegistration : AreaRegistration

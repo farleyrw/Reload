@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Informz.Web.App.Attributes;
+using Reload.Web.Attributes;
 
-namespace ReloadingApp.Configuration
+namespace Reload.Web.Configuration
 {
 	/// <summary>The base filter configuration for the application.</summary>
 	public class FilterConfig

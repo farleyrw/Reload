@@ -1,5 +1,5 @@
 ﻿
-namespace ReloadingApp.Models
+namespace Reload.Web.Models
 {
 	/// <summary>The json status result.</summary>
 	public class JsonStatusResult

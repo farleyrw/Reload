@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using ReloadingApp.Binders;
+using Reload.Web.Binders;
 
-namespace ReloadingApp.Configuration
+namespace Reload.Web.Configuration
 {
 	/// <summary>The model binder configuration.</summary>
 	public static class ModelBinderConfig

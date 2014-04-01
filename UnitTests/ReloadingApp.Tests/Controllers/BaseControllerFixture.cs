@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Authentication.Mvc;
-using ReloadingApp.Controllers;
+using Reload.Web.Controllers;
 
-namespace ReloadingApp.Tests.Controllers
+namespace Reload.Web.Tests.Controllers
 {
 	[TestClass]
 	public class BaseControllerFixture

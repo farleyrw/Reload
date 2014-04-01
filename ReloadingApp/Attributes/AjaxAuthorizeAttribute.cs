@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace ReloadingApp.Attributes
+namespace Reload.Web.Attributes
 {
 	public class AjaxAuthorizeAttribute : AuthorizeAttribute
 	{
