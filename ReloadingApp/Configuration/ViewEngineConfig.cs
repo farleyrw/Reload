@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace Reload.Web.Configuration
 {
 	/// <summary>The view enging configuration.</summary>
-	public class ViewEngineConfig
+	public static class ViewEngineConfig
 	{
 		/// <summary>Registers the custom view engines.</summary>
 		/// <param name="engines">The engines.</param>
