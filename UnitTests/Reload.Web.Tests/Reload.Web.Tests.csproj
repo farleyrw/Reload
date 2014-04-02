@@ -130,9 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="TestData\Initialization\TestThing.json">
+    <Content Include="TestData\Initialization\TestThing.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Reload.Common.csproj">
