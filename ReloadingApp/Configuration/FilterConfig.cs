@@ -4,7 +4,7 @@ using Reload.Web.Attributes;
 namespace Reload.Web.Configuration
 {
 	/// <summary>The base filter configuration for the application.</summary>
-	public class FilterConfig
+	public static class FilterConfig
 	{
 		/// <summary>Registers the global filters.</summary>
 		/// <param name="filters">The filters.</param>

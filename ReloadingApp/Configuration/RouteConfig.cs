@@ -4,7 +4,7 @@ using System.Web.Routing;
 namespace Reload.Web.Configuration
 {
 	/// <summary>The base route configuration for the application.</summary>
-	public class RouteConfig
+	public static class RouteConfig
 	{
 		/// <summary>Registers the routes.</summary>
 		/// <param name="routes">The routes.</param>
