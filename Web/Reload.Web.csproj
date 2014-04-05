@@ -120,7 +120,7 @@
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.1\lib\net45\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -232,12 +232,12 @@
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\jquery\validation\jquery.validate.js" />
+    <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jquery\validation\jquery.validate.js" />
-    <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\Site\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
