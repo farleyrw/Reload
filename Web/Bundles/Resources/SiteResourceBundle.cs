@@ -1,9 +1,9 @@
 ﻿using System.Web.Optimization;
 
-namespace Reload.Web.Configuration.Bundles.Resources
+namespace Reload.Web.Bundles.Resources
 {
-	/// <summary>Partial class for site resource bundles.</summary>
-	public static partial class ResourceBundle
+	/// <summary>Site resource bundles.</summary>
+	public class SiteResourceBundle : BaseResourceBundle
 	{
 		/// <summary>Returns the site js bundle.</summary>
 		public static Bundle SiteJs

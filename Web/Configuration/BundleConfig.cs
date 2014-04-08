@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
 using System.Web.Optimization;
-using Reload.Web.Configuration.Bundles.Resources;
+using Reload.Web.Bundles;
 
 namespace Reload.Web.Configuration.Bundles
 {
@@ -13,8 +13,13 @@ namespace Reload.Web.Configuration.Bundles
 		{
 			//BundleTable.EnableOptimizations = true;
 			bundles.UseCdn = true;
-			
-			typeof(ResourceBundle).GetProperties(BindingFlags.Public | BindingFlags.Static).ToList().ForEach(property =>
+
+			var resources = typeof(BaseResourceBundle).Assembly.GetTypes()
+				.Where(type => type.IsClass && type.IsSubclassOf(typeof(BaseResourceBundle)))
+				.SelectMany(type => type.GetProperties(BindingFlags.Public | BindingFlags.Static))
+				.ToList();
+
+			resources.ForEach(property =>
 			{
 				bundles.Add((Bundle)property.GetValue(null));
 			});

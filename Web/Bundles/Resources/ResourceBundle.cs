@@ -1,9 +1,9 @@
 ﻿using System.Web.Optimization;
 
-namespace Reload.Web.Configuration.Bundles.Resources
+namespace Reload.Web.Bundles.Resources
 {
-	/// <summary>Partial class for common resource bundles.</summary>
-	public static partial class ResourceBundle
+	/// <summary>Common resource bundles.</summary>
+	public class ResourceBundle : BaseResourceBundle
 	{
 		/// <summary>Returns the html5 shiv js bundle.</summary>
 		public static Bundle Html5Shiv

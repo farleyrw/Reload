@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using System.Web.Optimization;
 
 namespace Reload.Web.Areas.Firearms
 {
@@ -19,9 +18,6 @@ namespace Reload.Web.Areas.Firearms
 				this.AreaName + "/{controller}/{action}/{id}",
 				new { controller = "Data", action = "Index", id = UrlParameter.Optional }
 			);
-
-			BundleTable.Bundles.Add(new ScriptBundle("~/bundles/firearm")
-				.IncludeDirectory("~/Areas/Firearms/Scripts", "*.js"));
 		}
 	}
 }

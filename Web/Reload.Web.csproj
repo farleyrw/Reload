@@ -167,6 +167,7 @@
   <ItemGroup>
     <Compile Include="App_Data\Initialization\FirearmRepoSetup.cs" />
     <Compile Include="App_Data\Initialization\UserRepoSetup.cs" />
+    <Compile Include="Areas\Firearms\FirearmResourceBundle.cs" />
     <Compile Include="Areas\Firearms\FirearmsAreaRegistration.cs" />
     <Compile Include="Areas\Handloads\Controllers\DataController.cs" />
     <Compile Include="Areas\Handloads\Controllers\ViewController.cs" />
@@ -174,13 +175,14 @@
     <Compile Include="Attributes\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Attributes\HandleExceptionAttribute.cs" />
     <Compile Include="Binders\EmptyStringModelBinder.cs" />
-    <Compile Include="Configuration\Bundles\BundleConfig.cs" />
-    <Compile Include="Configuration\Bundles\Resources\Resources.cs" />
+    <Compile Include="Bundles\BaseResourceBundle.cs" />
+    <Compile Include="Configuration\BundleConfig.cs" />
+    <Compile Include="Bundles\Resources\ResourceBundle.cs" />
     <Compile Include="Configuration\DatabaseConfig.cs" />
     <Compile Include="Configuration\Dependencies\Dependency.cs" />
     <Compile Include="Configuration\Dependencies\DependencyConfig.cs" />
     <Compile Include="Configuration\FilterConfig.cs" />
-    <Compile Include="Configuration\Bundles\Resources\Site.cs" />
+    <Compile Include="Bundles\Resources\SiteResourceBundle.cs" />
     <Compile Include="Configuration\ModelBinderConfig.cs" />
     <Compile Include="Configuration\RouteConfig.cs" />
     <Compile Include="Configuration\ViewEngineConfig.cs" />
