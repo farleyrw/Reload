@@ -6,8 +6,8 @@
     <ProjectGuid>{0AA16D42-8308-4A4E-98A3-4648ED913841}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Angular.Tests</RootNamespace>
-    <AssemblyName>Angular.Tests</AssemblyName>
+    <RootNamespace>Reload.Web.Angular.Tests</RootNamespace>
+    <AssemblyName>Reload.Web.Angular.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

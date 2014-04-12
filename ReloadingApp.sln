@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Service", "Service\R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Repository", "Repository\Reload.Repository.csproj", "{A6902463-4887-4E58-AA17-C4FD1B9AE9F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Tests", "UnitTests\Angular.Tests\Angular.Tests.csproj", "{0AA16D42-8308-4A4E-98A3-4648ED913841}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Web.Angular.Tests", "UnitTests\Angular.Tests\Reload.Web.Angular.Tests.csproj", "{0AA16D42-8308-4A4E-98A3-4648ED913841}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reload.Repository.Tests", "UnitTests\Reload.Repository.Tests\Reload.Repository.Tests.csproj", "{ACC58E7C-C61C-4E17-BB03-E094FD0261A4}"
 EndProject
