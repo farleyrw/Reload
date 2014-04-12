@@ -11,6 +11,7 @@ namespace Reload.Web.Configuration
 		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 			filters.Add(new HandleExceptionAttribute());
+			filters.Add(new AjaxAuthorizeAttribute());
 			filters.Add(new AuthorizeAttribute());
 		}
 	}
