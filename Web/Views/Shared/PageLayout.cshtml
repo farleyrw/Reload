@@ -31,11 +31,11 @@
 
 	@Scripts.Render("~/bundles/jqueryjs", "~/bundles/jqueryuijs")
 	
+	@RenderSection("Scripts", required: false)
+
 	@if(Request.IsAuthenticated)
 	{
 		@Scripts.Render("~/bundles/sitejs")
 	}
-
-	@RenderSection("Scripts", required: false)
 </body>
 </html>
