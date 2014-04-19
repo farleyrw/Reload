@@ -188,7 +188,7 @@
     <Compile Include="Configuration\ViewEngineConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Areas\Firearms\Controllers\DataController.cs" />
+    <Compile Include="Areas\Firearms\Controllers\ManageController.cs" />
     <Compile Include="Areas\Firearms\Controllers\EnumsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />

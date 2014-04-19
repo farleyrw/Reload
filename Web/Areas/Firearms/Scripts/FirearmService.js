@@ -3,7 +3,7 @@
 FirearmManager.service("FirearmService",
 	["$resource",
 		function (ajax) {
-			var api = ajax('firearms/data/:action/:id', {
+			var api = ajax('firearms/manage/:action/:id', {
 				action: '@action',
 				id: '@id'
 			}, {

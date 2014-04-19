@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Models;
 using Reload.Service.Interfaces;
 using Reload.Web.Areas.Firearms.Controllers;
+using Reload.Web.Models;
 using Rhino.Mocks;
 
 namespace Reload.Web.Tests
@@ -13,7 +14,7 @@ namespace Reload.Web.Tests
 	{
 		private static List<Firearm> Firearms { get; set; }
 		private static IFirearmService Service { get; set; }
-		private static DataController Controller { get; set; }
+		private static ManageController Controller { get; set; }
 
 		[ClassInitialize]
 		public static void Initialize(TestContext context)
@@ -37,7 +38,7 @@ namespace Reload.Web.Tests
 
 			mock.ReplayAll();
 
-			Controller = new DataController(Service);
+			Controller = new ManageController(Service);
 		}
 
 		[TestInitialize]
@@ -70,8 +71,9 @@ namespace Reload.Web.Tests
 		{
 			int startCount = Firearms.Count;
 
-			Controller.Delete(1);
+			JsonStatusResult result = (JsonStatusResult)Controller.Delete(1).Data;
 
+			Assert.AreEqual<bool>(true, result.Success);
 			Assert.AreEqual<int>(startCount - 1, Firearms.Count);
 		}
 
@@ -80,8 +82,9 @@ namespace Reload.Web.Tests
 		{
 			int startCount = Firearms.Count;
 
-			Controller.Save(new Firearm());
+			JsonStatusResult result = (JsonStatusResult)Controller.Save(new Firearm()).Data;
 
+			Assert.AreEqual<bool>(true, result.Success);
 			Assert.AreEqual<int>(startCount + 1, Firearms.Count);
 		}
 	}

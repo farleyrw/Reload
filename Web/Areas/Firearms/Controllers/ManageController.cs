@@ -5,15 +5,15 @@ using Reload.Web.Controllers;
 
 namespace Reload.Web.Areas.Firearms.Controllers
 {
-	/// <summary>The firearm action controller.</summary>
-	public class DataController : BaseController
+	/// <summary>The firearm manage controller.</summary>
+	public class ManageController : BaseController
 	{
 		/// <summary>The firearm service.</summary>
 		private readonly IFirearmService FirearmService;
 
 		/// <summary>The firearm controller constructor.</summary>
-		/// <param name="logic"></param>
-		public DataController(IFirearmService service)
+		/// <param name="service">The service.</param>
+		public ManageController(IFirearmService service)
 		{
 			this.FirearmService = service;
 		}
