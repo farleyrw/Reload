@@ -169,8 +169,8 @@
     <Compile Include="App_Data\Initialization\UserRepoSetup.cs" />
     <Compile Include="Areas\Firearms\FirearmResourceBundle.cs" />
     <Compile Include="Areas\Firearms\FirearmsAreaRegistration.cs" />
-    <Compile Include="Areas\Handloads\Controllers\DataController.cs" />
-    <Compile Include="Areas\Handloads\Controllers\ViewController.cs" />
+    <Compile Include="Areas\Handloads\Controllers\ManageController.cs" />
+    <Compile Include="Areas\Handloads\HandloadResourceBundle.cs" />
     <Compile Include="Areas\Handloads\HandloadsAreaRegistration.cs" />
     <Compile Include="Attributes\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Attributes\HandleExceptionAttribute.cs" />
@@ -323,9 +323,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Handloads\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Reload.Common.csproj">
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>

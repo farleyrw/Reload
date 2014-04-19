@@ -16,7 +16,7 @@ namespace Reload.Web.Areas.Firearms
 			context.MapRoute(
 				this.AreaName,
 				this.AreaName + "/{controller}/{action}/{id}",
-				new { controller = "Data", action = "Index", id = UrlParameter.Optional }
+				new { controller = "Manage", action = "Index", id = UrlParameter.Optional }
 			);
 		}
 	}
