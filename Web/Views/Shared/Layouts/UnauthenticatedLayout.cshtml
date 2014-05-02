@@ -1,0 +1,20 @@
+﻿
+@{
+	Layout = "~/Views/Shared/Layouts/PageLayout.cshtml";
+}
+
+@section HeadIncludes {
+	@RenderSection("HeadIncludes", required: false)
+}
+
+@section SiteMenu{
+	@Html.ActionLink("About", "About", "Home", new { area = "" }, new { title = "About" })
+	|
+	@Html.ActionLink("Sign In", "Index", "Account", new { area = "" }, new { title = "Sign In" })
+}
+
+@section Scripts {
+	@RenderSection("Scripts", required: false)
+}
+
+@RenderBody()

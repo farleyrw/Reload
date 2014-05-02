@@ -26,3 +26,4 @@
 /// <reference path="angular/angular-loader.js" />
 /// <reference path="angular/angular-cookies.js" />
 /// <reference path="angular/angular-animate.js" />
+/// <reference path="reload/reload.js" />

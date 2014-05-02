@@ -5,23 +5,18 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 
-	@if(Request.IsAuthenticated)
-	{
-		<meta name="meta-refresh" http-equiv="refresh" content="@(FormsAuthentication.Timeout.TotalSeconds);url=@FormsAuthentication.LoginUrl?autologout=true" />
-	}
-
 	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.png")" type="image/png">
-	
-	@RenderSection("HeadIncludes", required: false)
 
 	@Styles.Render("~/bundles/bootstrapcss")
 	@Styles.Render("~/bundles/sitecss", "~/Content/themes/Reload/jqueryuicss")
+	
+	@RenderSection("HeadIncludes", required: false)
 </head>
 <body>
 	<header>
 		<h1>Reloading Data Source</h1>
 		<div class="Menu">
-			@Html.Partial("SiteMenu")
+			@RenderSection("SiteMenu")
 		</div>
 	</header>
 	<div class="Page">@RenderBody()</div>
@@ -30,12 +25,8 @@
 	</footer>
 
 	@Scripts.Render("~/bundles/jqueryjs", "~/bundles/jqueryuijs")
-	
-	@RenderSection("Scripts", required: false)
 
-	@if(Request.IsAuthenticated)
-	{
-		@Scripts.Render("~/bundles/sitejs")
-	}
+	<script src="~/Scripts/Reload/reload.js"></script>
+	@RenderSection("Scripts", required: false)
 </body>
 </html>
