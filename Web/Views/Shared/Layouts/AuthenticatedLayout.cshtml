@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Layouts/PageLayout.cshtml";
+}
+
+@section HeadIncludes {
+	<meta name="meta-refresh" http-equiv="refresh" content="@(FormsAuthentication.Timeout.TotalSeconds);url=@FormsAuthentication.LoginUrl?autologout=true" />
+
+	@RenderSection("HeadIncludes", required: false)
+}
+
+@section SiteMenu{
+	@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { title = "Home" })
+	|
+	@Html.ActionLink("About", "About", "Home", new { area = "" }, new { title = "About" })
+	|
+	@Html.ActionLink("Firearms", "", "", new { area = "Firearms" }, new { title = "My Firearms" })
+	|
+	@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { title = "Logout" })
+}
+
+@section Scripts {
+	@RenderSection("Scripts", required: false)
+
+	@Scripts.Render("~/bundles/sitejs")
+}
+
+@RenderBody()
