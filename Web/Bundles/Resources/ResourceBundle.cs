@@ -76,7 +76,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				Bundle angularBundle = new ScriptBundle("~/bundles/angularjs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js")
+						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js")
 					.Include("~/Scripts/angular/angular.js");
 
 				angularBundle.CdnFallbackExpression = "window.angular";
@@ -91,7 +91,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/angularresourcejs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-resource.min.js")
+						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js")
 					.Include("~/Scripts/angular/angular-resource.js");
 			}
 		}
@@ -102,7 +102,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/angularloaderjs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-loader.min.js")
+						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-loader.min.js")
 					.Include("~/Scripts/angular/angular-loader.js");
 			}
 		}
@@ -113,7 +113,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/angularroutejs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.min.js")
+						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js")
 					.Include("~/Scripts/angular/angular-route.js");
 			}
 		}
@@ -125,8 +125,8 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/angularui")
 					.Include(
-						"~/Scripts/angular/ui/ui-bootstrap-{version}.js",
-						"~/Scripts/angular/ui/ui-bootstrap-tpls-{version}.js"
+						"~/Scripts/angular/ui/ui-bootstrap.js",
+						"~/Scripts/angular/ui/ui-bootstrap-tpls.js"
 					);
 			}
 		}

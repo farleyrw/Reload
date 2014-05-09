@@ -44,7 +44,6 @@ namespace Reload.Web.Configuration
 			// Register global exception handling attribute.
 			builder.RegisterType<HandleExceptionAttribute>()
 				.AsExceptionFilterFor<BaseController>()
-				.InstancePerHttpRequest()
 				.PropertiesAutowired();
 
 			return builder.Build();
