@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcContrib;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -15,7 +16,7 @@ namespace Reload.Web.Controllers
 		{
 			get
 			{
-				return this.User.Identity as UserIdentity;
+				return (UserIdentity)this.User.Identity;
 			}
 		}
 
@@ -60,22 +61,22 @@ namespace Reload.Web.Controllers
 		{
 			this.DeleteFormsAuthentication();
 
-			return this.RedirectToAction("Login", "Account");
+			return this.RedirectToAction<AccountController>(c => c.Login(null));
 		}
 
 		/// <summary>Gets the JSON result.</summary>
 		/// <param name="result">The result.</param>
-		protected JsonResult GetJsonResult(object result)
+		public static JsonResult GetJsonResult(object result)
 		{
-			return Json(result, JsonRequestBehavior.AllowGet);
+			return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 		}
 
 		/// <summary>Gets the JSON status result.</summary>
 		/// <param name="success">if set to <c>true</c> [success].</param>
 		/// <param name="message">The message.</param>
-		protected JsonResult GetJsonStatusResult(bool success, string message)
+		public static JsonResult GetJsonStatusResult(bool success, object message = null)
 		{
-			return this.GetJsonResult(new JsonStatusResult { Success = success, Message = message });
+			return GetJsonResult(new JsonStatusResult { Success = success, Message = message });
 		}
 	}
 }

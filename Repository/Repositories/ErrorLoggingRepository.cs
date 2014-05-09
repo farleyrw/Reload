@@ -7,8 +7,7 @@ namespace Reload.Repository.Repositories
 	/// <summary>The error logging repository.</summary>
 	public class ErrorLoggingRepository : BaseRepository<Error>, IErrorLoggingRepository
 	{
-		public ErrorLoggingRepository() : this(new ErrorContext()) { }
-
-		public ErrorLoggingRepository(ErrorContext context) : base(context) { }
+		/// <summary>Creates a new instance of the error logging repository.</summary>
+		public ErrorLoggingRepository() : base(new ErrorContext()) { }
 	}
 }

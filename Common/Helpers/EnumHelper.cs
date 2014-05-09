@@ -66,6 +66,7 @@ namespace Reload.Common.Helpers
 		{
 			FieldInfo enumField = value.GetType().GetField(value.ToString());
 
+			// TODO: allow for generic attributes.
 			DescriptionAttribute descriptionAttribute = enumField.GetCustomAttribute<DescriptionAttribute>(false);
 
 			return descriptionAttribute != null

@@ -27,14 +27,14 @@ namespace Reload.Web.Areas.Firearms.Controllers
 		/// <summary>Gets the firearm list.</summary>
 		public JsonResult List()
 		{
-			return this.GetJsonResult(this.FirearmService.GetList());
+			return GetJsonResult(this.FirearmService.GetList());
 		}
 
 		/// <summary>Edits the specified firearm id.</summary>
 		/// <param name="id">The firearm id.</param>
 		public JsonResult Edit(int? id)
 		{
-			return this.GetJsonResult(this.FirearmService.Get(id.GetValueOrDefault(0)));
+			return GetJsonResult(this.FirearmService.Get(id.GetValueOrDefault(0)));
 		}
 
 		/// <summary>Saves the specified firearm.</summary>
@@ -44,7 +44,7 @@ namespace Reload.Web.Areas.Firearms.Controllers
 		{
 			this.FirearmService.Save(firearm);
 
-			return this.GetJsonStatusResult(true, "Saved");
+			return GetJsonStatusResult(true);
 		}
 
 		/// <summary>Deletes the specified firearm id.</summary>
@@ -54,7 +54,7 @@ namespace Reload.Web.Areas.Firearms.Controllers
 		{
 			this.FirearmService.Delete(firearmId);
 
-			return this.GetJsonStatusResult(true, "Deleted");
+			return GetJsonStatusResult(true);
 		}
 	}
 }

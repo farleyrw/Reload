@@ -2,7 +2,6 @@
 
 namespace Reload.Repository.Interfaces
 {
-	public interface IErrorLoggingRepository : IRepository<Error>
-	{
-	}
+	/// <summary>The error logging repository interface.</summary>
+	public interface IErrorLoggingRepository : IRepository<Error> { }
 }

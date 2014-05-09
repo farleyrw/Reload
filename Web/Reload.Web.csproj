@@ -179,8 +179,7 @@
     <Compile Include="Configuration\BundleConfig.cs" />
     <Compile Include="Bundles\Resources\ResourceBundle.cs" />
     <Compile Include="Configuration\DatabaseConfig.cs" />
-    <Compile Include="Configuration\Dependencies\Dependency.cs" />
-    <Compile Include="Configuration\Dependencies\DependencyConfig.cs" />
+    <Compile Include="Configuration\DependencyConfig.cs" />
     <Compile Include="Configuration\FilterConfig.cs" />
     <Compile Include="Bundles\Resources\SiteResourceBundle.cs" />
     <Compile Include="Configuration\ModelBinderConfig.cs" />

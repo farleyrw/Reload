@@ -6,7 +6,6 @@ using System.Web.Security;
 using Reload.Common.Authentication.Mvc;
 using Reload.Web.Configuration;
 using Reload.Web.Configuration.Bundles;
-using Reload.Web.Configuration.Dependencies;
 
 namespace Reload.Web
 {
@@ -20,13 +19,13 @@ namespace Reload.Web
 
 			AreaRegistration.RegisterAllAreas();
 
+			DependencyConfig.Initialize();
+
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			ViewEngineConfig.RegisterCustomViewEngines(ViewEngines.Engines);
 			ModelBinderConfig.RegisterModelBinders(ModelBinders.Binders);
-
-			DependencyConfig.Initialize();
 		}
 
 		/// <summary>Executes custom initialization code after all event handler modules have been added.</summary>

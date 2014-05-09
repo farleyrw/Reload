@@ -1,10 +1,13 @@
 ﻿using System.Web.Mvc;
 using Autofac;
+using Autofac.Integration.Mvc;
 using Reload.Common.Authentication;
 using Reload.Repository;
 using Reload.Service;
+using Reload.Web.Attributes;
+using Reload.Web.Controllers;
 
-namespace Reload.Web.Configuration.Dependencies
+namespace Reload.Web.Configuration
 {
 	/// <summary>The dependency configuration class.</summary>
 	public static class DependencyConfig
@@ -12,7 +15,7 @@ namespace Reload.Web.Configuration.Dependencies
 		/// <summary>Configures the dependencies.</summary>
 		public static void Initialize()
 		{
-			DependencyResolver.SetResolver(new Dependency(RegisterServices()));
+			DependencyResolver.SetResolver(new AutofacDependencyResolver(RegisterServices()));
 		}
 
 		/// <summary>Registers the services as dependencies.</summary>
@@ -34,6 +37,14 @@ namespace Reload.Web.Configuration.Dependencies
 			builder.RegisterAssemblyTypes(typeof(BaseRepository<>).Assembly)
 				.Where(t => t.Name.EndsWith("Repository"))
 				.AsImplementedInterfaces()
+				.PropertiesAutowired();
+
+			builder.RegisterFilterProvider();
+
+			// Register global exception handling attribute.
+			builder.RegisterType<HandleExceptionAttribute>()
+				.AsExceptionFilterFor<BaseController>()
+				.InstancePerHttpRequest()
 				.PropertiesAutowired();
 
 			return builder.Build();

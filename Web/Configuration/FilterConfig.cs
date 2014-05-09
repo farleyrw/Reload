@@ -10,7 +10,6 @@ namespace Reload.Web.Configuration
 		/// <param name="filters">The filters.</param>
 		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
-			filters.Add(new HandleExceptionAttribute());
 			filters.Add(new AjaxAuthorizeAttribute());
 			filters.Add(new AuthorizeAttribute());
 		}
