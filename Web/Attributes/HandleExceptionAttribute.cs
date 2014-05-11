@@ -41,7 +41,7 @@ namespace Reload.Web.Attributes
 			{
 				Location = errorLocation,
 				Description = filterContext.Exception.Message,
-				StackTrace = filterContext.Exception.StackTrace // TODO: use ExceptionHelper to get all inner exceptions if ToString doesn't
+				StackTrace = filterContext.Exception.StackTrace
 			};
 
 			this.Service.LogError(error);

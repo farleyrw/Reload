@@ -48,13 +48,35 @@ namespace Reload.Common.Helpers
 			return default(T);
 		}
 
-		/// <summary>Parses the <see cref="DescriptionAttribute"/> to return the enum value.</summary>
+		/// <summary>Gets the default enum value, checking the attribute first.</summary>
 		/// <typeparam name="T">The type of the enum.</typeparam>
-		/// <param name="descriptionValue">The <see cref="DescriptionAttribute"/> value.</param>
-		public static T ParseDescription<T>(string descriptionValue) where T : struct
+		public static T DefaultValue<T>() where T : struct
 		{
-			KeyValuePair<T, string> keyValuePair = Descriptions<T>()
-				.FirstOrDefault(v => v.Value.Equals(descriptionValue, StringComparison.OrdinalIgnoreCase));
+			DefaultValueAttribute defaultAttribute = typeof(T).GetCustomAttribute<DefaultValueAttribute>(false);
+
+			return defaultAttribute != null
+				? (T)defaultAttribute.Value
+				: default(T);
+		}
+
+		/// <summary>Parses the <see cref="DescriptionAttribute" /> to return the enum value.</summary>
+		/// <typeparam name="T">The type of the enum.</typeparam>
+		/// <param name="description">The description.</param>
+		public static T ParseDescription<T>(string description) where T : struct
+		{
+			return ParseCustomDescription<T, DescriptionAttribute>(description);
+		}
+
+		/// <summary>Parses the <see cref="DescriptionAttribute" /> to return the enum value.</summary>
+		/// <typeparam name="T">The type of the enum.</typeparam>
+		/// <typeparam name="TAttribute">The type of the attribute.</typeparam>
+		/// <param name="description">The description.</param>
+		public static T ParseCustomDescription<T, TAttribute>(string description)
+			where T : struct
+			where TAttribute : DescriptionAttribute
+		{
+			KeyValuePair<T, string> keyValuePair = CustomDescriptions<T, TAttribute>()
+				.FirstOrDefault(v => v.Value.Equals(description, StringComparison.OrdinalIgnoreCase));
 
 			return keyValuePair.Key;
 		}
@@ -64,24 +86,19 @@ namespace Reload.Common.Helpers
 		/// <param name="value">The value.</param>
 		public static string Description<T>(T value) where T : struct
 		{
-			FieldInfo enumField = value.GetType().GetField(value.ToString());
-
-			// TODO: allow for generic attributes.
-			DescriptionAttribute descriptionAttribute = enumField.GetCustomAttribute<DescriptionAttribute>(false);
-
-			return descriptionAttribute != null
-				? descriptionAttribute.Description
-				: value.ToString();
+			return CustomDescription<T, DescriptionAttribute>(value);
 		}
-		
-		/// <summary>Gets the <see cref="DescriptionAttribute"/> of the value.</summary>
-		/// <typeparam name="TEnum">The type of the enum.</typeparam>
+
+		/// <summary>Gets the custom <see cref="DescriptionAttribute" /> inherited attribute of the value.</summary>
+		/// <typeparam name="T">The type of enum.</typeparam>
+		/// <typeparam name="TAttribute">The type of the attribute.</typeparam>
 		/// <param name="value">The value.</param>
-		public static string Stuff<T, TAttribute>(T value) where T : struct where TAttribute : DescriptionAttribute
+		public static string CustomDescription<T, TAttribute>(T value)
+			where T : struct
+			where TAttribute : DescriptionAttribute
 		{
 			FieldInfo enumField = value.GetType().GetField(value.ToString());
 
-			// TODO: allow for generic attributes.
 			TAttribute descriptionAttribute = enumField.GetCustomAttribute<TAttribute>(false);
 
 			return descriptionAttribute != null
@@ -93,18 +110,17 @@ namespace Reload.Common.Helpers
 		/// <typeparam name="T">The type of the enum.</typeparam>
 		public static IDictionary<T, string> Descriptions<T>() where T : struct
 		{
-			return ToList<T>().ToDictionary(key => key, value => Description(value));
+			return CustomDescriptions<T, DescriptionAttribute>();
 		}
 
-		/// <summary>Gets the default enum value, checking the attribute first.</summary>
+		/// <summary>Returns a dictionary of the enum with the type as the key, and description as the value.</summary>
 		/// <typeparam name="T">The type of the enum.</typeparam>
-		public static T DefaultValue<T>() where T : struct
+		/// <typeparam name="TAttribute">The type of the attribute.</typeparam>
+		public static IDictionary<T, string> CustomDescriptions<T, TAttribute>()
+			where T : struct
+			where TAttribute : DescriptionAttribute
 		{
-			DefaultValueAttribute defaultAttribute = typeof(T).GetCustomAttribute<DefaultValueAttribute>(false);
-
-			return defaultAttribute != null
-				? (T)defaultAttribute.Value
-				: default(T);
+			return ToList<T>().ToDictionary(key => key, value => CustomDescription<T, TAttribute>(value));
 		}
 
 		/// <summary>Returns a list of enum values.</summary>
