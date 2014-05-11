@@ -73,6 +73,21 @@ namespace Reload.Common.Helpers
 				? descriptionAttribute.Description
 				: value.ToString();
 		}
+		
+		/// <summary>Gets the <see cref="DescriptionAttribute"/> of the value.</summary>
+		/// <typeparam name="TEnum">The type of the enum.</typeparam>
+		/// <param name="value">The value.</param>
+		public static string Stuff<T, TAttribute>(T value) where T : struct where TAttribute : DescriptionAttribute
+		{
+			FieldInfo enumField = value.GetType().GetField(value.ToString());
+
+			// TODO: allow for generic attributes.
+			TAttribute descriptionAttribute = enumField.GetCustomAttribute<TAttribute>(false);
+
+			return descriptionAttribute != null
+				? descriptionAttribute.Description
+				: value.ToString();
+		}
 
 		/// <summary>Returns a dictionary of the enum with the type as the key, and description as the value.</summary>
 		/// <typeparam name="T">The type of the enum.</typeparam>

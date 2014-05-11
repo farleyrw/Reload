@@ -12,25 +12,25 @@ namespace Reload.Common.Tests.Helpers
 		[TestMethod]
 		public void EnumParse()
 		{
-			TestEnum testEnum = EnumHelper.Parse<TestEnum>("A");
+			TestEnum testEnum = EnumHelper.Parse<TestEnum>("B");
 
-			Assert.AreEqual(TestEnum.A, testEnum);
+			Assert.AreEqual(TestEnum.B, testEnum);
 		}
 
 		[TestMethod]
 		public void EnumDescription()
 		{
-			string x = EnumHelper.Description<TestEnum>(TestEnum.A);
+			string x = EnumHelper.Description<TestEnum>(TestEnum.B);
 
-			Assert.AreEqual("A", x);
+			Assert.AreEqual("B", x);
 		}
 
 		[TestMethod]
 		public void EnumParseDescription()
 		{
-			TestEnum testEnum = EnumHelper.ParseDescription<TestEnum>("A");
+			TestEnum testEnum = EnumHelper.ParseDescription<TestEnum>("B");
 
-			Assert.AreEqual(TestEnum.A, testEnum);
+			Assert.AreEqual(TestEnum.B, testEnum);
 		}
 
 		[TestMethod]
@@ -58,6 +58,14 @@ namespace Reload.Common.Tests.Helpers
 			Assert.AreEqual(TestEnum.B, enums[1]);
 			Assert.AreEqual(TestEnum.C, enums[2]);
 		}
+
+		[TestMethod]
+		public void EnumCustomAttribute()
+		{
+			string x = EnumHelper.Stuff<TestCustomEnum, TestCustomAttribute>(TestCustomEnum.B);
+
+			Assert.AreEqual(x, "B");
+		}
 	}
 
 	public enum TestEnum
@@ -68,5 +76,20 @@ namespace Reload.Common.Tests.Helpers
 		B,
 		[Description("C")]
 		C
+	}
+
+	public enum TestCustomEnum
+	{
+		[TestCustomAttribute("A")]
+		A = 0,
+		[TestCustomAttribute("B")]
+		B,
+		[TestCustomAttribute("C")]
+		C
+	}
+
+	public class TestCustomAttribute : Description
+	{
+		public TestCustomAttribute(string description) : base(description) { }
 	}
 }
