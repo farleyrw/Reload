@@ -10,12 +10,12 @@ using Reload.Web.Controllers;
 namespace Reload.Web.Areas.Firearms.Controllers
 {
 	/// <summary>The firearm enum controller.</summary>
-	public class EnumsController : BaseController
+	public class EnumController : BaseController
 	{
 		/// <summary>Returns the firearm enums.</summary>
-		public JsonResult Index()
+		public ActionResult Index()
 		{
-			return this.GetJsonResult(FirearmEnumHelper.GetEnums());
+			return GetJsonResult(FirearmEnumHelper.GetEnums());
 		}
 	}
 

@@ -32,9 +32,9 @@ namespace Reload.Web.Areas.Firearms.Controllers
 
 		/// <summary>Edits the specified firearm id.</summary>
 		/// <param name="id">The firearm id.</param>
-		public JsonResult Edit(int? id)
+		public JsonResult Edit(int id)
 		{
-			return GetJsonResult(this.FirearmService.Get(id.GetValueOrDefault(0)));
+			return GetJsonResult(this.FirearmService.Get(id));
 		}
 
 		/// <summary>Saves the specified firearm.</summary>

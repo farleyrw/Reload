@@ -3,12 +3,10 @@
 FirearmManager.controller("FirearmEditController",
 	["$scope", "$routeParams", "$location", "FirearmService", "FirearmEnumService",
 		function (scope, route, location, FirearmService, EnumService) {
-			scope.Firearm = FirearmService.Get(route.Id)
-			
+			scope.Firearm = (route.Id) ? FirearmService.Get(route.Id) : {};
+
 			scope.Save = function () {
-				FirearmService.Save(scope.Firearm, function () {
-					location.path('/list');
-				});
+				FirearmService.Save(scope.Firearm, scope.BackToList);
 			};
 			
 			scope.Enums = EnumService.Get();
@@ -17,6 +15,10 @@ FirearmManager.controller("FirearmEditController",
 				return scope.Firearm &&
 					scope.Firearm.Chamber >= 0 &&
 					scope.Firearm.BarrelLength > 0;
+			};
+
+			scope.BackToList = function () {
+				location.path('/list');
 			};
 		}
 	]

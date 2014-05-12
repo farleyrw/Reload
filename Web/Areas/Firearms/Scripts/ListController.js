@@ -10,9 +10,11 @@ FirearmManager.controller("FirearmListController",
         	};
 
         	scope.Delete = function (firearm) {
-        		FirearmService.Delete(firearm, function (firearm) {
-        			scope.Firearms.splice(scope.Firearms.indexOf(firearm), 1);
-        		});
+        		if (confirm("Are you sure you want to delete your " + firearm.Name + "?")) {
+        			FirearmService.Delete(firearm, function (firearm) {
+        				scope.Firearms.splice(scope.Firearms.indexOf(firearm), 1);
+        			});
+        		}
         	};
 
         	scope.Enums = EnumService.Get();

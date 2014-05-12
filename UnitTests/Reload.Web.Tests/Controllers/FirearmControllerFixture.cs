@@ -51,7 +51,7 @@ namespace Reload.Web.Tests
 		[TestMethod]
 		public void GetFirearm()
 		{
-			Firearm firearm = Controller.Edit(1).Data as Firearm;
+			Firearm firearm = (Firearm) Controller.Edit(1).Data;
 
 			Assert.IsNotNull(firearm);
 			Assert.AreEqual<int>(1, firearm.FirearmId);

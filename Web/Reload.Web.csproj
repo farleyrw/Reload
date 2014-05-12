@@ -242,7 +242,8 @@
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Reload\reload.js" />
+    <Content Include="Scripts\Reload\Common\Helpers\EnumHelper.js" />
+    <Content Include="Scripts\Reload\Reload.js" />
     <Content Include="Scripts\Site\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
