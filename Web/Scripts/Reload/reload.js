@@ -44,8 +44,14 @@ window.Reload = window.Reload || {};
 			parent = parent[namespacePart];
 		}
 
-		// Return the full namespaced object with the provided implementation.
-		return $.extend(true, parent, { ModuleName: fullNamespace }, implementation || {});
+		// Set the definition to the specified implementation.
+		if ($.isFunction(implementation)) { implementation.call(parent); }
+
+		// Return the namespaced object with base functionality.
+		return $.extend(true, parent, GetBaseObject(fullNamespace));
 	};
 
+	function GetBaseObject(fullNamespace) {
+		return { ModuleName: fullNamespace };
+	};
 })(Reload, window, jQuery);
