@@ -2,14 +2,14 @@
 window.Reload = window.Reload || {};
 
 (Reload = function (Root, window, $) {
-	//'use strict';
+	'use strict';
 
 	window.Reload = Root;
 	Root.ModuleName = "Reload";
 
 	/// Adds the module if not already included.
 	Root.IncludeModule = function (namespace) {
-		if (!namespace || typeof DoesNamespaceExist(namespace) != "undefined") { return; }
+		if (!namespace || DoesNamespaceExist(namespace)) { return; }
 
 		var moduleUrl = namespace.replace(/\./g, '/') + ".js";
 		$('head').append('<script src="/reload/scripts/' + moduleUrl.toLowerCase() + '"></script>\n');
@@ -26,21 +26,10 @@ window.Reload = window.Reload || {};
 			throw "Namespace '" + fullNamespace + "' is not derived from " + Root.ModuleName;
 		}
 
-		// Remove root namespace.
-		namespaceParts = namespaceParts.slice(1);
-		
-		// Loop through namespace parts and create a nested namespaces.
-		for (var i = 0; i < namespaceParts.length; i++) {
-			var namespacePart = namespaceParts[i];
-
-			parent[namespacePart] = parent[namespacePart] || {};
-
-			parent = parent[namespacePart];
-		}
-
-		/*parent = namespaceParts.reduce(function (parent, current) {
+		// Construct the namespace.
+		parent = namespaceParts.reduce(function (parent, current) {
 			return parent[current] = parent[current] || {};
-		}, window);*/
+		}, window);
 
 		// Set the definition to the specified implementation.
 		if ($.isFunction(implementation)) { implementation.apply(parent, dependencies); }
@@ -49,11 +38,13 @@ window.Reload = window.Reload || {};
 		return $.extend(true, parent, GetBaseObject(fullNamespace));
 	};
 
-	/// Returns (safely) if the namespace exists.
+	/// Returns if the namespace exists.
 	function DoesNamespaceExist(namespace) {
-		return namespace.split('.').reduce(function (parent, current) {
-			return (typeof parent == "undefined") ? parent : parent[current];
+		var highestDefinedModule = namespace.split('.').reduce(function (parent, current) {
+			return parent[current] || parent;
 		}, window);
+
+		return highestDefinedModule.ModuleName == namespace;
 	}
 
 	/// Gets the base object to add to the 
