@@ -24,5 +24,15 @@ namespace Reload.Web.Bundles.Resources
 					.Include("~/Content/Site.css");
 			}
 		}
+
+		/// <summary>Returns the reload js bundle.</summary>
+		public static Bundle ReloadJs
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/reloadjs")
+					.Include("~/Scripts/Reload/Reload.js");
+			}
+		}
 	}
 }
