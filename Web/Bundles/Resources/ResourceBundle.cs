@@ -21,7 +21,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				Bundle jqueryBundle = new ScriptBundle("~/bundles/jqueryjs",
-						"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js")
+						"//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
 					.Include("~/Scripts/jquery/jquery-{version}.js");
 
 				jqueryBundle.CdnFallbackExpression = "window.jQuery";

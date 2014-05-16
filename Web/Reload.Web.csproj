@@ -236,6 +236,9 @@
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
+    <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.js" />
@@ -276,12 +279,9 @@
     <Content Include="Scripts\angular\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular\angular-animate.min.js.map" />
     <Content Include="Scripts\angular\angular.min.js.map" />
-    <None Include="Scripts\jquery\jquery-2.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.0.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.min.map" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.js" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.0.min.map" />
     <Content Include="Scripts\angular\version.json" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\Site\Account\Account.js" />
