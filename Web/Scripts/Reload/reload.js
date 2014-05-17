@@ -17,25 +17,26 @@ window.Reload = window.Reload || {};
 
 	/// Defines the namespace with the provided implementation with dependencies.
 	Root.DefineNamespace = function (fullNamespace, implementation, dependencies) {
-		fullNamespace = fullNamespace || "";
-
 		var namespaceParts = fullNamespace.split(".");
-		var parent = Root;
-
 		if (namespaceParts[0] != Root.ModuleName) {
 			throw "Namespace '" + fullNamespace + "' is not derived from " + Root.ModuleName;
 		}
 
 		// Construct the namespace.
-		parent = namespaceParts.reduce(function (parent, current) {
+		var namespace = namespaceParts.reduce(function (parent, current) {
 			return parent[current] = parent[current] || {};
 		}, window);
 
 		// Set the definition to the specified implementation.
-		if ($.isFunction(implementation)) { implementation.apply(parent, dependencies); }
+		if ($.isFunction(implementation)) { implementation.apply(namespace, dependencies); }
 
 		// Return the namespaced object with base functionality.
-		return $.extend(true, parent, GetBaseObject(fullNamespace));
+		return $.extend(true, namespace, GetBaseObject(fullNamespace));
+	};
+
+	/// Gets the base object to add to the 
+	function GetBaseObject(fullNamespace) {
+		return { ModuleName: fullNamespace };
 	};
 
 	/// Returns if the namespace exists.
@@ -45,10 +46,5 @@ window.Reload = window.Reload || {};
 		}, window);
 
 		return highestDefinedModule.ModuleName == namespace;
-	}
-
-	/// Gets the base object to add to the 
-	function GetBaseObject(fullNamespace) {
-		return { ModuleName: fullNamespace };
 	};
 })(Reload, window, jQuery);

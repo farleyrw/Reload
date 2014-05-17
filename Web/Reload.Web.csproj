@@ -245,8 +245,8 @@
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Reload\Common\Helpers\EnumHelper.js" />
-    <Content Include="Scripts\Reload\Reload.js" />
+    <Content Include="Scripts\reload\common\example\testmodule.js" />
+    <Content Include="Scripts\reload\reload.js" />
     <Content Include="Scripts\Site\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
@@ -290,7 +290,6 @@
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Handloads\Views\Index.cshtml" />
     <Content Include="Areas\Handloads\Templates\List.html" />
-    <Content Include="Scripts\html5\html5shiv.js" />
     <Content Include="Areas\Firearms\Scripts\Application.js" />
     <Content Include="Areas\Firearms\Scripts\EditController.js" />
     <Content Include="Areas\Firearms\Scripts\EnumService.js" />

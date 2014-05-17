@@ -1,5 +1,5 @@
 ﻿
-Reload.DefineNamespace('Reload.Common.Helpers.EnumHelper', function ($) {
+Reload.DefineNamespace('Reload.Common.Example.TestModule', function ($) {
 	'use strict';
 
 	var x = "X";

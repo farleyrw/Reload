@@ -1,5 +1,4 @@
 ﻿@model Reload.Web.Models.Account.User
-@using Reload.Web.Helpers.Mvc;
 
 @{
 	Layout = "~/Views/Shared/Layouts/UnauthenticatedLayout.cshtml";
@@ -9,14 +8,16 @@
 @section Scripts{
 	@Scripts.Render("~/bundles/jqueryvalidation")
 
-	<script src="@Url.Content("~/Scripts/Site/Account/Account.js")"></script>
+	<script src="~/Scripts/Site/Account/Account.js"></script>
 }
 
 <h2>Start Here</h2>
+
 @if(ViewBag.AutoLogout ?? false)
 {
 <h3>You have been automatically logged out due to inactivity.</h3>
 }
+
 <fieldset>
 	<legend>Login to your account</legend>
 	@using (Html.BeginForm())
@@ -36,4 +37,5 @@
 		<button type="submit" class="btn btn-primary">Login</button>
 	}
 </fieldset>
+
 <p>@Html.ActionLink("Sign up!", "Register")</p>
