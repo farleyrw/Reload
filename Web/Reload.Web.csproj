@@ -205,12 +205,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Firearms\Scripts\FirearmService.js" />
+    <Content Include="Areas\Firearms\Scripts\FirearmManager.js" />
     <Content Include="Areas\Handloads\Scripts\Application.js" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Scripts\angular\ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular\ui\ui-bootstrap-tpls.min.js" />
@@ -236,6 +237,9 @@
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
@@ -245,7 +249,9 @@
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\reload\common\example\testmodule.js" />
+    <Content Include="Scripts\reload\angular\filters.js" />
+    <Content Include="Scripts\reload\angular\providers.js" />
+    <Content Include="Scripts\reload\angular\services.js" />
     <Content Include="Scripts\reload\reload.js" />
     <Content Include="Scripts\Site\Site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
@@ -290,10 +296,6 @@
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Handloads\Views\Index.cshtml" />
     <Content Include="Areas\Handloads\Templates\List.html" />
-    <Content Include="Areas\Firearms\Scripts\Application.js" />
-    <Content Include="Areas\Firearms\Scripts\EditController.js" />
-    <Content Include="Areas\Firearms\Scripts\EnumService.js" />
-    <Content Include="Areas\Firearms\Scripts\ListController.js" />
     <Content Include="TODO.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

@@ -11,13 +11,12 @@ namespace Reload.Web.Areas.Firearms
 		{
 			get
 			{
-				return new ScriptBundle("~/bundles/firearm")
+				return new ScriptBundle("~/bundles/firearms")
 					.Include(
-						"~/Areas/Firearms/Scripts/Application.js",
-						"~/Areas/Firearms/Scripts/EditController.js",
-						"~/Areas/Firearms/Scripts/EnumService.js",
-						"~/Areas/Firearms/Scripts/FirearmService.js",
-						"~/Areas/Firearms/Scripts/ListController.js"
+						"~/Scripts/reload/angular/services.js",
+						"~/Scripts/reload/angular/filters.js",
+						"~/Scripts/reload/angular/providers.js",
+						"~/Areas/Firearms/Scripts/FirearmManager.js"
 					);
 			}
 		}
