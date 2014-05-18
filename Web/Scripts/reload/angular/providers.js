@@ -1,4 +1,5 @@
-﻿
+﻿'use strict';
+
 Reload.DefineNamespace('Reload.Angular.Providers', function () {
 	this.Authorization = function (provider, loginUrl) {
 		// Add custom request interceptor.

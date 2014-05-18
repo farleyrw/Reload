@@ -249,6 +249,7 @@
     <Content Include="Scripts\jquery\validation\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\reload\angular\directives.js" />
     <Content Include="Scripts\reload\angular\filters.js" />
     <Content Include="Scripts\reload\angular\providers.js" />
     <Content Include="Scripts\reload\angular\services.js" />

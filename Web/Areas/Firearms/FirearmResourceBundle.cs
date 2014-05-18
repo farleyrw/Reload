@@ -16,6 +16,7 @@ namespace Reload.Web.Areas.Firearms
 						"~/Scripts/reload/angular/services.js",
 						"~/Scripts/reload/angular/filters.js",
 						"~/Scripts/reload/angular/providers.js",
+						"~/Scripts/reload/angular/directives.js",
 						"~/Areas/Firearms/Scripts/FirearmManager.js"
 					);
 			}

@@ -24,3 +24,4 @@
 /// <reference path="reload/angular/providers.js" />
 /// <reference path="reload/angular/services.js" />
 /// <reference path="../areas/handloads/scripts/application.js" />
+/// <reference path="reload/angular/directives.js" />

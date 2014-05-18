@@ -1,4 +1,5 @@
-﻿
+﻿'use strict';
+
 Reload.DefineNamespace('Reload.Angular.Filters', function () {
 	this.EnumToString = function () {
 		return function (index, array) {

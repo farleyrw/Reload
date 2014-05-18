@@ -3,6 +3,7 @@
 Reload.IncludeModule('Reload.Angular.Filters');
 Reload.IncludeModule('Reload.Angular.Providers');
 Reload.IncludeModule('Reload.Angular.Services');
+Reload.IncludeModule('Reload.Angular.Directives');
 
 angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap'])
 	.constant('loginUrl', '/account/logon')
@@ -16,6 +17,7 @@ angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap']
 	}])
 	.config(['$httpProvider', 'loginUrl', Reload.Angular.Providers.Authorization])
 	.filter("EnumToString", Reload.Angular.Filters.EnumToString)
+	.directive("modifyItemControl", Reload.Angular.Directives.ModifyItem)
 	.controller("FirearmEditController",
 		["$scope", "$routeParams", "$location", "FirearmService", "FirearmEnumService",
 			function (scope, route, location, FirearmService, EnumService) {
