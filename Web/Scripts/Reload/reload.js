@@ -15,11 +15,16 @@ window.Reload = window.Reload || {};
 		$('head').append('<script src="/reload/scripts/' + moduleUrl.toLowerCase() + '"></script>\n');
 	};
 
+	/// Adds the list of modules.
+	Root.IncludeModules = function (namespaces) {
+		namespaces.forEach(Root.IncludeModule);
+	};
+
 	/// Defines the namespace with the provided implementation with dependencies.
-	Root.DefineNamespace = function (fullNamespace, implementation, dependencies) {
-		var namespaceParts = fullNamespace.split(".");
+	Root.DefineNamespace = function (moduleNamespace, implementation, dependencies) {
+		var namespaceParts = moduleNamespace.split(".");
 		if (namespaceParts[0] != Root.ModuleName) {
-			throw "Namespace '" + fullNamespace + "' is not derived from " + Root.ModuleName;
+			throw "Namespace '" + moduleNamespace + "' is not derived from " + Root.ModuleName;
 		}
 
 		// Construct the namespace.
@@ -31,12 +36,12 @@ window.Reload = window.Reload || {};
 		if ($.isFunction(implementation)) { implementation.apply(namespace, dependencies); }
 
 		// Return the namespaced object with base functionality.
-		return $.extend(true, namespace, GetBaseObject(fullNamespace));
+		return $.extend(true, namespace, GetBaseObject(moduleNamespace));
 	};
 
-	/// Gets the base object to add to the 
-	function GetBaseObject(fullNamespace) {
-		return { ModuleName: fullNamespace };
+	/// Gets the base object to add to the namespace.
+	function GetBaseObject(moduleNamespace) {
+		return { ModuleName: moduleNamespace };
 	};
 
 	/// Returns if the namespace exists.

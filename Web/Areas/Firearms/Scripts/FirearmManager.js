@@ -1,9 +1,11 @@
 ﻿'use strict';
 
-Reload.IncludeModule('Reload.Angular.Filters');
-Reload.IncludeModule('Reload.Angular.Providers');
-Reload.IncludeModule('Reload.Angular.Services');
-Reload.IncludeModule('Reload.Angular.Directives');
+Reload.IncludeModules([
+	'Reload.Angular.Filters',
+	'Reload.Angular.Providers',
+	'Reload.Angular.Services',
+	'Reload.Angular.Directives'
+]);
 
 angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap'])
 	.constant('loginUrl', '/account/logon')
@@ -91,10 +93,6 @@ angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap']
 			}
 		});
 
-		function Get(firearmId) {
-			return api.Edit({ id: firearmId || 0 });
-		};
-
 		/*var Firearms = api.List();
 
 		function GetNew(firearmId) {
@@ -107,18 +105,16 @@ angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap']
 			return firearm;
 		};*/
 
-		function Save(firearm, callback) {
-			api.Save({ firearm: firearm }, callback);
-		};
-
-		function Delete(firearm, callback) {
-			api.Delete({ firearmId: firearm.FirearmId }, callback);
-		};
-
 		return {
 			List: api.List,
-			Delete: Delete,
-			Get: Get,
-			Save: Save
+			Delete: function (firearm, callback) {
+				api.Delete({ firearmId: firearm.FirearmId }, callback);
+			},
+			Get: function (firearmId) {
+				return api.Edit({ id: firearmId || 0 });
+			},
+			Save: function (firearm, callback) {
+				api.Save({ firearm: firearm }, callback);
+			}
 		};
 	}]);
