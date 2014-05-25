@@ -1,14 +1,11 @@
 ﻿
-window.Reload = window.Reload || {};
-
-(Reload = function (Root, window, $) {
+(function (Reload, window, $) {
 	'use strict';
 
-	window.Reload = Root;
-	Root.ModuleName = "Reload";
+	Reload.ModuleName = "Reload";
 
 	/// Adds the module if not already included.
-	Root.IncludeModule = function (namespace) {
+	Reload.IncludeModule = function (namespace) {
 		if (!namespace || DoesNamespaceExist(namespace)) { return; }
 
 		var moduleUrl = namespace.replace(/\./g, '/') + ".js";
@@ -16,15 +13,15 @@ window.Reload = window.Reload || {};
 	};
 
 	/// Adds the list of modules.
-	Root.IncludeModules = function (namespaces) {
-		namespaces.forEach(Root.IncludeModule);
+	Reload.IncludeModules = function (namespaces) {
+		namespaces.forEach(Reload.IncludeModule);
 	};
 
 	/// Defines the namespace with the provided implementation with dependencies.
-	Root.DefineNamespace = function (moduleNamespace, implementation, dependencies) {
+	Reload.DefineNamespace = function (moduleNamespace, implementation, dependencies) {
 		var namespaceParts = moduleNamespace.split(".");
-		if (namespaceParts[0] != Root.ModuleName) {
-			throw "Namespace '" + moduleNamespace + "' is not derived from " + Root.ModuleName;
+		if (namespaceParts[0] != Reload.ModuleName) {
+			throw "Namespace '" + moduleNamespace + "' is not derived from " + Reload.ModuleName;
 		}
 
 		// Construct the namespace.
@@ -52,4 +49,4 @@ window.Reload = window.Reload || {};
 
 		return highestDefinedModule.ModuleName == namespace;
 	};
-})(Reload, window, jQuery);
+})(window.Reload = window.Reload || {}, window, jQuery);

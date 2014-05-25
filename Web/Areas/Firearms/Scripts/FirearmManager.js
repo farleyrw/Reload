@@ -7,7 +7,7 @@ Reload.IncludeModules([
 	'Reload.Angular.Directives'
 ]);
 
-angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap'])
+angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	.constant('loginUrl', '/account/logon')
 	.constant('enumUrl', 'firearms/enum')
 	.constant('templateUrl', 'areas/firearms/templates/')
@@ -92,18 +92,6 @@ angular.module("FirearmManager", ['ng', 'ngRoute', 'ngResource', 'ui.bootstrap']
 				params: { action: 'save' }
 			}
 		});
-
-		/*var Firearms = api.List();
-
-		function GetNew(firearmId) {
-			var firearm = {};
-			Firearms.forEach(function(key) {
-				if (key.FirearmId == firearmId) {
-					firearm = key;
-				}
-			});
-			return firearm;
-		};*/
 
 		return {
 			List: api.List,
