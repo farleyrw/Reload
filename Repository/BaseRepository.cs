@@ -88,6 +88,12 @@ namespace Reload.Repository
 				this.Update(entity);
 			}
 
+			this.SaveChanges();
+		}
+
+		/// <summary>Saves the changes to the context.</summary>
+		protected void SaveChanges()
+		{
 			this.Context.SaveChanges();
 		}
 
