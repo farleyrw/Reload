@@ -9,8 +9,8 @@ namespace Reload.Repository
 	public interface IRepository<TEntity> where TEntity : class
 	{
 		/// <summary>Finds the entity with the specified id.</summary>
-		/// <param name="id">The entity id.</param>
-		TEntity Find(int id);
+		/// <param name="ids">The entity ids.</param>
+		TEntity Find(params object[] ids);
 
 		/// <summary>Returns the element with it's associations.</summary>
 		/// <param name="predicate">The predicate.</param>

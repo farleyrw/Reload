@@ -37,10 +37,10 @@ namespace Reload.Repository
 		}
 
 		/// <summary>Gets the entity with the specified id.</summary>
-		/// <param name="id">The id.</param>
-		public virtual TEntity Find(int id)
+		/// <param name="ids">The ids.</param>
+		public virtual TEntity Find(params object[] ids)
 		{
-			TEntity entity = this.Entities.Find(id);
+			TEntity entity = this.Entities.Find(ids);
 
 			return (entity.AccountId == this.Identity.AccountId) ? entity : null;
 		}
