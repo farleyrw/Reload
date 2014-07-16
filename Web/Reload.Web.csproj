@@ -232,10 +232,10 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
-    <Content Include="Scripts\angular\ui\ui-bootstrap-tpls.js" />
-    <Content Include="Scripts\angular\ui\ui-bootstrap-tpls.min.js" />
-    <Content Include="Scripts\angular\ui\ui-bootstrap.js" />
-    <Content Include="Scripts\angular\ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

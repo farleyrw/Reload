@@ -125,8 +125,8 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/angularui")
 					.Include(
-						"~/Scripts/angular/ui/ui-bootstrap.js",
-						"~/Scripts/angular/ui/ui-bootstrap-tpls.js"
+						"~/Scripts/angular-ui/ui-bootstrap.js",
+						"~/Scripts/angular-ui/ui-bootstrap-tpls.js"
 					);
 			}
 		}
