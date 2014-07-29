@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 
-namespace Reload.Web.Helpers.Mvc
+namespace Reload.Web.Helpers.Html
 {
 	/// <summary>The maxlength text box helper class.</summary>
 	public static class MaxLengthTextBox

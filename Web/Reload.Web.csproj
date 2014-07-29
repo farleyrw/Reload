@@ -62,7 +62,7 @@
     </Reference>
     <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Autofac.Mvc5.3.3.1\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <HintPath>..\packages\Autofac.Mvc5.3.3.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -167,6 +167,7 @@
   <ItemGroup>
     <Compile Include="App_Data\Initialization\FirearmRepoSetup.cs" />
     <Compile Include="App_Data\Initialization\UserRepoSetup.cs" />
+    <Compile Include="Areas\Firearms\Controllers\EnumsController.cs" />
     <Compile Include="Areas\Firearms\FirearmResourceBundle.cs" />
     <Compile Include="Areas\Firearms\FirearmsAreaRegistration.cs" />
     <Compile Include="Areas\Handloads\Controllers\ManageController.cs" />
@@ -188,19 +189,19 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Areas\Firearms\Controllers\ManageController.cs" />
-    <Compile Include="Areas\Firearms\Controllers\EnumsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EnumViewModelHelper.cs" />
     <Compile Include="Helpers\Json\EnumDescriptionConverter.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelper.cs" />
-    <Compile Include="Helpers\Mvc\MaxLengthTextBox.cs" />
+    <Compile Include="Helpers\Html\MaxLengthTextBox.cs" />
     <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Account\UnregisteredUser.cs" />
-    <Compile Include="Areas\Firearms\Models\FirearmEnumViewModel.cs" />
+    <Compile Include="Models\Enums\FirearmEnumViewModel.cs" />
     <Compile Include="Models\JsonStatusResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Reload.Web.Areas.Firearms.Models
+namespace Reload.Web.Models.Enums
 {
-	/// <summary>The firearm enum view model.</summary>
-	public class FirearmEnumViewModel
+	/// <summary>The enum view model.</summary>
+	public class EnumViewModel
 	{
 		/// <summary>Gets or sets the id.</summary>
 		/// <value>The id.</value>

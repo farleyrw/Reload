@@ -10,7 +10,7 @@ Reload.IncludeModules([
 angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	.constant('loginUrl', '/reload/account/logon')
 	.constant('templateUrl', '/reload/areas/firearms/templates/')
-	.value('enumUrl', '/reload/firearms/enum')
+	.value('enumUrl', '/reload/firearms/enums')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
 			.when('/list', {
