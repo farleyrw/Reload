@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Firearms\Scripts\FirearmManager.js" />
+    <Content Include="Areas\Firearms\Scripts\FirearmService.js" />
     <Content Include="Areas\Handloads\Scripts\HandloadManager.js" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />

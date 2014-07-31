@@ -11,8 +11,15 @@ namespace Reload.Web.Areas.Handloads
 		{
 			get
 			{
-				return new ScriptBundle("~/bundles/handload")
-					.Include("~/Areas/Hanloads/Scripts/Application.js");
+				return new ScriptBundle("~/bundles/handloads")
+					.Include(
+						"~/Scripts/reload/angular/services.js",
+						"~/Scripts/reload/angular/filters.js",
+						"~/Scripts/reload/angular/providers.js",
+						"~/Scripts/reload/angular/directives.js",
+						"~/Areas/Firearms/Scripts/FirearmService.js",
+						"~/Areas/Handloads/Scripts/HandloadManager.js"
+					);
 			}
 		}
 	}

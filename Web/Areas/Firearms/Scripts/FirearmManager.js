@@ -29,6 +29,8 @@ angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	}])
 	.config(['$httpProvider', 'loginUrl', Reload.Angular.Providers.Authorization])
 	.filter("EnumToString", Reload.Angular.Filters.EnumToString)
+	.service("FirearmEnumService", ["$resource", "enumUrl", Reload.Angular.Services.Enums])
+	.service("FirearmService", ["$resource", Reload.Firearms.Service.FirearmService])
 	.directive("modifyItemControl", Reload.Angular.Directives.ModifyItem)
 	.controller("FirearmEditController",
 		["$scope", "$routeParams", "$location", "FirearmService", "FirearmEnumService",
@@ -77,42 +79,4 @@ angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
         		scope.Enums = EnumService.Get();
 			}
 		]
-	)
-	.service("FirearmEnumService", ["$resource", "enumUrl", Reload.Angular.Services.Enums])
-	.service("FirearmService", ["$resource", function (ajax) {
-		var api = ajax('firearms/manage/:action/:id', {
-			action: '@action',
-			id: '@id'
-		}, {
-			List: {
-				method: 'GET',
-				params: { action: 'list' },
-				isArray: true
-			},
-			Delete: {
-				method: 'POST',
-				params: { action: 'delete' }
-			},
-			Edit: {
-				method: 'GET',
-				params: { action: 'edit', id: 'id' }
-			},
-			Save: {
-				method: 'POST',
-				params: { action: 'save' }
-			}
-		});
-
-		return {
-			List: api.List,
-			Delete: function (firearm, callback) {
-				api.Delete({ firearmId: firearm.FirearmId }, callback);
-			},
-			Get: function (firearmId) {
-				return api.Edit({ id: firearmId || 0 });
-			},
-			Save: function (firearm, callback) {
-				api.Save({ firearm: firearm }, callback);
-			}
-		};
-	}]);
+	);

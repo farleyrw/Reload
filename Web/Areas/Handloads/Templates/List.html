@@ -1,10 +1,8 @@
 ﻿
-<h2>Handloads</h2>
+<h2>My Handloads</h2>
 
 <div>
-	<select>
-		<option></option>
-	</select>
+	<select ng-model="Selected" ng-options="f.FirearmId as f.Name for f in Firearms"></select>
 </div>
 
 <table ng-cloak="">
