@@ -7,8 +7,8 @@ Reload.IncludeModules([
 	'Reload.Angular.Directives'
 ]);
 
-angular.module("HandloadManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
-	.value('enumUrl', '/reload/handloads/enum')
+angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
+	.value('enumUrl', '/reload/firearms/enums')
 	.config(['$routeProvider', function (routing) {
 		routing
 			.when('/list', { templateUrl: 'areas/handloads/templates/list.html', controller: 'HandloadListController' })
@@ -16,15 +16,19 @@ angular.module("HandloadManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 			//.when('/edit/:Id', { templateUrl: 'areas/handloads/templates/edit.html', controller: 'HandloadEditController' })
 			.otherwise({ redirectTo: '/list' });
 	}])
-	.filter("EnumToString", Reload.Angular.Filters.EnumToString)
-	.service("HandloadEnumService", ["$resource", "enumUrl", Reload.Angular.Services.Enums])
+	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
+	.service('HandloadEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])
-	.controller("HandloadListController",
-		["$scope", "$location", 'FirearmService', "HandloadEnumService",
+	.controller('HandloadListController',
+		['$scope', '$location', 'FirearmService', 'HandloadEnumService',
 			function (scope, location, FirearmService, EnumService) {
 				scope.Firearms = FirearmService.List();
 
-				scope.SelectedFirearm = scope.Firearms[0];
+				scope.click = function () {
+					scope.SelectedFirearm = scope.Firearms[0];
+				}
+
+				scope.Enums = EnumService.Get();
 			}
 		]);
 

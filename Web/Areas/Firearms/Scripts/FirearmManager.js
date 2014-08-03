@@ -7,7 +7,7 @@ Reload.IncludeModules([
 	'Reload.Angular.Directives'
 ]);
 
-angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
+angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	.constant('loginUrl', '/reload/account/logon')
 	.constant('templateUrl', '/reload/areas/firearms/templates/')
 	.value('enumUrl', '/reload/firearms/enums')
@@ -28,12 +28,12 @@ angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 			.otherwise({ redirectTo: '/list' });
 	}])
 	.config(['$httpProvider', 'loginUrl', Reload.Angular.Providers.Authorization])
-	.filter("EnumToString", Reload.Angular.Filters.EnumToString)
-	.service("FirearmEnumService", ["$resource", "enumUrl", Reload.Angular.Services.Enums])
-	.service("FirearmService", ["$resource", Reload.Firearms.Service.FirearmService])
-	.directive("modifyItemControl", Reload.Angular.Directives.ModifyItem)
-	.controller("FirearmEditController",
-		["$scope", "$routeParams", "$location", "FirearmService", "FirearmEnumService",
+	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
+	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
+	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])
+	.directive('modifyItemControl', Reload.Angular.Directives.ModifyItem)
+	.controller('FirearmEditController',
+		['$scope', '$routeParams', '$location', 'FirearmService', 'FirearmEnumService',
 			function (scope, route, location, FirearmService, EnumService) {
 				scope.Firearm = (route.Id) ? FirearmService.Get(route.Id) : {};
 
@@ -55,8 +55,8 @@ angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
 			}
 		]
 	)
-	.controller("FirearmListController",
-		["$scope", "$location", "FirearmService", "FirearmEnumService",
+	.controller('FirearmListController',
+		['$scope', '$location', 'FirearmService', 'FirearmEnumService',
 			function (scope, location, FirearmService, EnumService) {
         		scope.Firearms = FirearmService.List();
 
@@ -65,11 +65,11 @@ angular.module("FirearmManager", ['ngRoute', 'ngResource', 'ui.bootstrap'])
         		};
 
         		scope.Edit = function (id) {
-        			location.path("/edit/" + id);
+        			location.path('/edit/' + id);
         		};
 
         		scope.Delete = function (firearm) {
-        			if (confirm("Are you sure you want to delete your " + firearm.Name + "?")) {
+        			if (confirm('Are you sure you want to delete your ' + firearm.Name + '?')) {
         				FirearmService.Delete(firearm, function (firearm) {
         					scope.Firearms.splice(scope.Firearms.indexOf(firearm), 1);
         				});

@@ -2,8 +2,10 @@
 <h2>My Handloads</h2>
 
 <div>
-	<select ng-model="Selected" ng-options="f.FirearmId as f.Name for f in Firearms"></select>
+	<select ng-model="SelectedFirearm" ng-options="f.Name for f in Firearms"></select>
 </div>
+
+<button ng-click="click()">Init</button>
 
 <table ng-cloak="">
 	<tr>
