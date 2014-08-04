@@ -9,6 +9,8 @@ namespace Reload.Common.Models
 		[Key]
 		public int HandloadResultId { get; set; }
 
+		public int AccountId { get; set; }
+
 		[Required]
 		public DateTime Date { get; set; }
 

@@ -8,7 +8,7 @@ Reload.IncludeModules([
 ]);
 
 angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
-	.value('enumUrl', '/reload/firearms/enums')
+	.value('enumUrl', '/reload/handloads/enums')
 	.config(['$routeProvider', function (routing) {
 		routing
 			.when('/list', { templateUrl: 'areas/handloads/templates/list.html', controller: 'HandloadListController' })

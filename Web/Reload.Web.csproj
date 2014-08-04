@@ -170,6 +170,7 @@
     <Compile Include="Areas\Firearms\Controllers\EnumsController.cs" />
     <Compile Include="Areas\Firearms\FirearmResourceBundle.cs" />
     <Compile Include="Areas\Firearms\FirearmsAreaRegistration.cs" />
+    <Compile Include="Areas\Handloads\Controllers\EnumsController.cs" />
     <Compile Include="Areas\Handloads\Controllers\ManageController.cs" />
     <Compile Include="Areas\Handloads\HandloadResourceBundle.cs" />
     <Compile Include="Areas\Handloads\HandloadsAreaRegistration.cs" />
@@ -329,7 +330,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Handloads\Views\Enum\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Reload.Common.csproj">
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
