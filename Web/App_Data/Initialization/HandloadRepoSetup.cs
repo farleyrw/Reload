@@ -7,19 +7,18 @@ using Reload.Web.Helpers.Json;
 
 namespace Reload.Web.Initialization
 {
-	/// <summary>Initializes the firearm repository.</summary>
-	public class FirearmRepoSetup : DropCreateDatabaseAlways<FirearmContext>
+	/// <summary>The handload repository setup.</summary>
+	public class HandloadRepoSetup : DropCreateDatabaseAlways<HandloadContext>
 	{
 		/// <summary>Seeds the specified context.</summary>
 		/// <param name="context">The context.</param>
-		protected override void Seed(FirearmContext context)
+		protected override void Seed(HandloadContext context)
 		{
 			List<Firearm> firearms = JsonDeserializationHelper.GetData<Firearm>(new EnumDescriptionConverter<Cartridge>());
 
 			foreach(Firearm firearm in firearms)
 			{
-				context.Firearms.Add(firearm);
-				//context.Handloads.AddRange(firearm.Handloads);
+				context.Handloads.AddRange(firearm.Handloads);
 			}
 
 			context.SaveChanges();

@@ -6,7 +6,7 @@ namespace Reload.Web.Controllers
 	/// <summary>The home controller.</summary>
     public class HomeController : BaseController
     {
-		/// <summary>Returns the home view.</summary>
+		/// <summary>Returns the default view.</summary>
 		[AllowAnonymous]
 		public ViewResult Index()
         {

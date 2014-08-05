@@ -22,5 +22,19 @@ namespace Reload.Web.Areas.Handloads.Controllers
 		{
 			return View();
 		}
+
+		/// <summary>Gets the handload for the specified firearm.</summary>
+		/// <param name="id">The handload identifier.</param>
+		public ActionResult Get(int id)
+		{
+			return BaseController.GetJsonResult(this.Service.Get(id));
+		}
+
+		/// <summary>Gets the handloads for the specified firearm.</summary>
+		/// <param name="id">The firearm identifier.</param>
+		public ActionResult GetAll(int id)
+		{
+			return BaseController.GetJsonResult(this.Service.GetList(id));
+		}
 	}
 }

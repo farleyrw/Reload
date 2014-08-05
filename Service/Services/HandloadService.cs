@@ -27,7 +27,7 @@ namespace Reload.Service.Services
 		/// <param name="handloadId">The handload id.</param>
 		public Handload Get(int handloadId)
 		{
-			return this.Repository.Find(handloadId);
+			return this.Repository.Get(x => x.HandloadId == handloadId);
 		}
 
 		/// <summary>Gets the handloads for the firearm.</summary>
