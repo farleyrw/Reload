@@ -1,6 +1,7 @@
 ﻿'use strict';
 
 Reload.DefineNamespace('Reload.Angular.Directives', function () {
+	// Directive for modifying or deleting an item.
 	this.ModifyItem = function () {
 		return {
 			restrict: 'E',

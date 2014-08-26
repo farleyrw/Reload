@@ -4,7 +4,7 @@
 
 	Reload.ModuleName = "Reload";
 
-	/// Adds the module if not already included.
+	/// Adds the module to the page if not already included.
 	Reload.IncludeModule = function (namespace) {
 		if (!namespace || DoesNamespaceExist(namespace)) { return; }
 
@@ -36,7 +36,7 @@
 		return $.extend(true, namespace, GetBaseObject(moduleNamespace));
 	};
 
-	/// Gets the base object to add to the namespace.
+	/// Returns the base object of a namespace.
 	function GetBaseObject(moduleNamespace) {
 		return { ModuleName: moduleNamespace };
 	};
