@@ -10,6 +10,8 @@ namespace Reload.Repository.Context
 		/// <value>The firearms.</value>
 		public DbSet<Firearm> Firearms { get; set; }
 
+		/// <summary>Gets or sets the handloads.</summary>
+		/// <value>The handloads.</value>
 		public DbSet<Handload> Handloads { get; set; }
 	}
 }

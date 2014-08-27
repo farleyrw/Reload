@@ -10,8 +10,9 @@ namespace Reload.Web.Configuration
 		/// <summary>Initializes the database initializers.</summary>
 		public static void RegisterInitializers()
 		{
-			Database.SetInitializer<FirearmContext>(new FirearmRepoSetup());
 			Database.SetInitializer<UserContext>(new UserRepoSetup());
+			Database.SetInitializer<FirearmContext>(new FirearmRepoSetup());
+			Database.SetInitializer<HandloadContext>(new HandloadRepoSetup());
 		}
 	}
 }
