@@ -1,8 +1,14 @@
 ﻿@{
-	Layout = "~/Views/Shared/Layouts/UnauthenticatedLayout.cshtml";
 	ViewBag.Title = "Home";
 }
 
+@if(Request.IsAuthenticated)
+{
+<h2>Setup some @Html.ActionLink("Firearms", "", "", new { area = "Firearms" }, null)</h2>
+}
+else
+{
 <h2>To begin @Html.ActionLink("Sign In", "Index", "Account", new { area = "" }, null)</h2>
+}
 
 <h3>Save all your reloading data for your handloads in your guns!</h3>

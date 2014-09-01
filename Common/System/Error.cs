@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Reload.Common.Models;
 
 namespace Reload.Common.System
@@ -10,6 +11,8 @@ namespace Reload.Common.System
 		public int Id { get; set; }
 
 		public int AccountId { get; set; }
+
+		public DateTime TimeStamp { get; set; }
 
 		[Required]
 		public string Location { get; set; }
@@ -28,6 +31,11 @@ namespace Reload.Common.System
 				this.Description,
 				this.StackTrace
 			);
+		}
+
+		public Error()
+		{
+			this.TimeStamp = DateTime.Now;
 		}
 	}
 }

@@ -18,6 +18,7 @@ namespace Reload.Web.Initialization
 
 			foreach(Firearm firearm in firearms)
 			{
+				// Remove handloads because they are going in another context for now.
 				firearm.Handloads = new List<Handload>();
 				context.Firearms.Add(firearm);
 				//context.Handloads.AddRange(firearm.Handloads);

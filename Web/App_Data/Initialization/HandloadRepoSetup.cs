@@ -7,7 +7,7 @@ using Reload.Web.Helpers.Json;
 
 namespace Reload.Web.Initialization
 {
-	/// <summary>The handload repository setup.</summary>
+	/// <summary>Initializes the handload repository.</summary>
 	public class HandloadRepoSetup : DropCreateDatabaseAlways<HandloadContext>
 	{
 		/// <summary>Seeds the specified context.</summary>

@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Reload.Common.Enums.Components;
 using Reload.Common.Models.Components;
 
@@ -21,13 +21,15 @@ namespace Reload.Common.Models
 
 		public Brass Casing { get; set; }
 
-		[Required]
-		public double SeatingDepth { get; set; }
-
 		public Bullet Bullet { get; set; }
 
 		[Required]
+		public double SeatingDepth { get; set; }
+
+		[Required]
 		public int FirearmId { get; set; }
+
+		public List<HandloadResult> Results { get; set; }
 
 		public Handload()
 		{
@@ -35,6 +37,7 @@ namespace Reload.Common.Models
 			this.Primer = new Primer();
 			this.Casing = new Brass();
 			this.Bullet = new Bullet();
+			this.Results = new List<HandloadResult>();
 		}
 	}
 }
