@@ -56,7 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tests\Firearms\firearmmanagertest.js" />
+    <Content Include="Tests\Firearms\FirearmManagerFixture.js" />
+    <Content Include="Tests\Firearms\FirearmServiceFixture.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="chutzpah.json" />
