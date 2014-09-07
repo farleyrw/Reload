@@ -17,33 +17,31 @@ describe('Firearm Manager tests', function () {
 	beforeEach(module('FirearmManager'));
 
 	describe('FirearmListController', function () {
-		var scope, controller, $httpBackend;
-
 		beforeEach(inject(function (_$httpBackend_, $rootScope, $controller, $location) {
-			$httpBackend = _$httpBackend_;
-			$httpBackend.expectGET('firearms/manage/list').respond([{ abc: '123' }]);
-			$httpBackend.expectGET('/reload/firearms/enums').respond({ abc: '123' });
+			this.$httpBackend = _$httpBackend_;
+			this.$httpBackend.expectGET('firearms/manage/list').respond([{ abc: '123' }]);
+			this.$httpBackend.expectGET('/reload/firearms/enums').respond({ abc: '123' });
 
-			scope = $rootScope.$new();
-			controller = $controller('FirearmListController', { $scope: scope, $location: $location });
+			this.scope = $rootScope.$new();
+			this.controller = $controller('FirearmListController', { $scope: this.scope, $location: $location });
 		}));
 
 		it('should create scope methods', function () {
-			expect(scope.Add).toBeDefined();
-			expect(scope.Edit).toBeDefined();
-			expect(scope.Delete).toBeDefined();
-		});
-
-		it('should create "Firearms" model with data fetched from xhr', function () {
-			$httpBackend.flush();
-
-			expect(scope.Firearms[0].abc).toBe('123');
+			expect(this.scope.Add).toBeDefined();
+			expect(this.scope.Edit).toBeDefined();
+			expect(this.scope.Delete).toBeDefined();
 		});
 
 		it('should create "Enums" model with data fetched from xhr', function () {
-			$httpBackend.flush();
+			this.$httpBackend.flush();
 
-			expect(scope.Enums.abc).toBe('123');
+			expect(this.scope.Enums.abc).toBe('123');
+		});
+
+		it('should create "Firearms" model with data fetched from xhr', function () {
+			this.$httpBackend.flush();
+
+			expect(this.scope.Firearms[0].abc).toBe('123');
 		});
 	});
 });
