@@ -16,9 +16,6 @@ namespace Reload.Web.Controllers
 		private readonly IUserService Service;
 
 		/// <summary>Initializes a new instance of the <see cref="AccountController"/> class.</summary>
-		public AccountController() : this(new UserService()) { }
-
-		/// <summary>Initializes a new instance of the <see cref="AccountController"/> class.</summary>
 		/// <param name="service">The service.</param>
 		public AccountController(IUserService service)
 		{

@@ -10,6 +10,9 @@ namespace Reload.Service.Interfaces
 		/// <param name="handloadId">The handload id.</param>
 		Handload Get(int handloadId);
 
+		/// <summary>Gets all handloads.</summary>
+		List<Handload> GetList();
+
 		/// <summary>Gets the handloads for the firearm.</summary>
 		/// <param name="firearmId">The firearm id.</param>
 		List<Handload> GetList(int firearmId);

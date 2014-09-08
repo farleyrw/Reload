@@ -1,17 +1,16 @@
-﻿using System;
-using Reload.Common.Authentication;
+﻿using Reload.Common.Authentication;
 using Reload.Repository.Interfaces;
-using Reload.Repository.Repositories;
 using Reload.Service.Interfaces;
 
 namespace Reload.Service.Services
 {
+	/// <summary>The user account service.</summary>
 	public class UserService : BaseService, IUserService
 	{
 		private readonly IUserRepository Repository;
 
-		public UserService() : this(new UserRepository()) { }
-
+		/// <summary>Initializes a new instance of the <see cref="UserService"/> class.</summary>
+		/// <param name="repository">The repository.</param>
 		public UserService(IUserRepository repository)
 		{
 			this.Repository = repository;

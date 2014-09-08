@@ -8,7 +8,7 @@ using Reload.Web.Helpers.Json;
 namespace Reload.Web.Initialization
 {
 	/// <summary>Initializes the firearm repository.</summary>
-	public class FirearmRepoSetup : DropCreateDatabaseAlways<FirearmContext>
+	public class FirearmRepoSetup : CreateDatabaseIfNotExists<FirearmContext>
 	{
 		/// <summary>Seeds the specified context.</summary>
 		/// <param name="context">The context.</param>

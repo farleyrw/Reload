@@ -2,7 +2,6 @@
 using System.Linq;
 using Reload.Common.Models;
 using Reload.Repository.Interfaces;
-using Reload.Repository.Repositories;
 using Reload.Service.Interfaces;
 
 namespace Reload.Service.Services
@@ -12,9 +11,6 @@ namespace Reload.Service.Services
 	{
 		/// <summary>The repository</summary>
 		private readonly IHandloadRepository Repository;
-
-		/// <summary>Initializes a new instance of the <see cref="HandloadService"/> class.</summary>
-		public HandloadService() : this(new HandloadRepository()) { }
 
 		/// <summary>Initializes a new instance of the <see cref="HandloadService"/> class.</summary>
 		/// <param name="repository">The repository.</param>
@@ -28,6 +24,12 @@ namespace Reload.Service.Services
 		public Handload Get(int handloadId)
 		{
 			return this.Repository.Get(x => x.HandloadId == handloadId);
+		}
+
+		/// <summary>Gets all handloads.</summary>
+		public List<Handload> GetList()
+		{
+			return this.Repository.GetList().ToList();
 		}
 
 		/// <summary>Gets the handloads for the firearm.</summary>

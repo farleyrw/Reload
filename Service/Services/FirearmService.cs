@@ -2,7 +2,6 @@
 using System.Linq;
 using Reload.Common.Models;
 using Reload.Repository.Interfaces;
-using Reload.Repository.Repositories;
 using Reload.Service.Interfaces;
 
 namespace Reload.Service.Services
@@ -12,9 +11,6 @@ namespace Reload.Service.Services
 	{
 		/// <summary>The firearm repository.</summary>
 		private readonly IFirearmRepository Repository;
-
-		/// <summary>Initializes a new instance of the <see cref="FirearmService"/> class.</summary>
-		public FirearmService() : this(new FirearmRepository()) { }
 
 		/// <summary>Initializes a new instance of the <see cref="FirearmService"/> class.</summary>
 		/// <param name="repository">The repository.</param>

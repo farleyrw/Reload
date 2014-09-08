@@ -30,6 +30,12 @@ namespace Reload.Web.Areas.Handloads.Controllers
 			return BaseController.GetJsonResult(this.Service.Get(id));
 		}
 
+		/// <summary>Gets the handload for the specified firearm.</summary>
+		public ActionResult GetThem()
+		{
+			return BaseController.GetJsonResult(this.Service.GetList());
+		}
+
 		/// <summary>Gets the handloads for the specified firearm.</summary>
 		/// <param name="id">The firearm identifier.</param>
 		public ActionResult GetAll(int id)

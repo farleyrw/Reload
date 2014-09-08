@@ -19,10 +19,49 @@ angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
 	.service('HandloadEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])
+	.service('HandloadService', ['$resource', function (ajax) {
+		var api = ajax('handloads/manage/:action/:id', {
+			action: '@action',
+			id: '@id'
+		}, {
+			List: {
+				method: 'GET',
+				params: { action: 'getthem' },
+				isArray: true
+			},
+			Delete: {
+				method: 'POST',
+				params: { action: 'delete' }
+			},
+			Edit: {
+				method: 'GET',
+				params: { action: 'edit', id: 'id' }
+			},
+			Save: {
+				method: 'POST',
+				params: { action: 'save' }
+			}
+		});
+
+		return {
+			List: api.List,
+			Delete: function (firearm, callback) {
+				api.Delete({ firearmId: firearm.FirearmId }, callback);
+			},
+			Get: function (firearmId) {
+				return api.Edit({ id: firearmId || 0 });
+			},
+			Save: function (firearm, callback) {
+				api.Save({ firearm: firearm }, callback);
+			}
+		};
+	}])
 	.controller('HandloadListController',
-		['$scope', '$location', 'FirearmService', 'HandloadEnumService',
-			function (scope, location, FirearmService, EnumService) {
+		['$scope', '$location', 'FirearmService', 'HandloadService', 'HandloadEnumService',
+			function (scope, location, FirearmService, HandloadService, EnumService) {
 				scope.Firearms = FirearmService.List();
+
+				scope.Hanloads = HandloadService.List();
 
 				scope.click = function () {
 					scope.SelectedFirearm = scope.Firearms[0];

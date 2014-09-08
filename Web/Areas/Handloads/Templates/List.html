@@ -5,7 +5,7 @@
 	<select ng-model="SelectedFirearm" ng-options="f.Name for f in Firearms"></select>
 </div>
 
-<button ng-click="click()">Init</button>
+<button ng-click="click()" ng-disabled="!Firearms || Firearms.length == 0">Init</button>
 
 <table ng-cloak="">
 	<tr>
