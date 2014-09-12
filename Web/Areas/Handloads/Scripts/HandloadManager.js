@@ -75,5 +75,5 @@ angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
 	Add handloads for a firearm
 	Add handload result for a handload
 	Add firearm filter for handload list
-	Add sorting by all parameters
+	Add sorting by useful parameters
 */
