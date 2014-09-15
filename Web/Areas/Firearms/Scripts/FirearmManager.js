@@ -2,15 +2,16 @@
 
 Reload.IncludeModules([
 	'Reload.Angular.Filters',
-	'Reload.Angular.Providers',
 	'Reload.Angular.Services',
 	'Reload.Angular.Directives'
 ]);
 
-angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
-	.constant('loginUrl', '/reload/account/logon')
+angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Reload.Authorization'])
 	.constant('templateUrl', '/reload/areas/firearms/templates/')
 	.value('enumUrl', '/reload/firearms/enums')
+	.config(['$httpProvider', function (httpProvider) {
+		httpProvider.interceptors.push('AuthorizationService');
+	}])
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
 			.when('/list', {
@@ -27,7 +28,6 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
 			})
 			.otherwise({ redirectTo: '/list' });
 	}])
-	.config(['$httpProvider', 'loginUrl', Reload.Angular.Providers.Authorization])
 	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
 	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])

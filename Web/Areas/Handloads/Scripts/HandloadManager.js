@@ -2,13 +2,15 @@
 
 Reload.IncludeModules([
 	'Reload.Angular.Filters',
-	'Reload.Angular.Providers',
 	'Reload.Angular.Services',
 	'Reload.Angular.Directives'
 ]);
 
-angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap'])
+angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Reload.Authorization'])
 	.value('enumUrl', '/reload/handloads/enums')
+	.config(['$httpProvider', function (httpProvider) {
+		httpProvider.interceptors.push('AuthorizationService');
+	}])
 	.config(['$routeProvider', function (routing) {
 		routing
 			.when('/list', { templateUrl: 'areas/handloads/templates/list.html', controller: 'HandloadListController' })

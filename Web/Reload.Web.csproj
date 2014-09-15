@@ -263,6 +263,7 @@
     <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\reload\angular\modules\Authorization.js" />
     <Content Include="Scripts\reload\angular\directives.js" />
     <Content Include="Scripts\reload\angular\filters.js" />
     <Content Include="Scripts\reload\angular\providers.js" />

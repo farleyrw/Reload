@@ -17,6 +17,7 @@ namespace Reload.Web.Areas.Handloads
 						"~/Scripts/reload/angular/filters.js",
 						"~/Scripts/reload/angular/providers.js",
 						"~/Scripts/reload/angular/directives.js",
+						"~/Scripts/reload/angular/modules/Authorization.js",
 						"~/Areas/Firearms/Scripts/FirearmService.js",
 						"~/Areas/Handloads/Scripts/HandloadManager.js"
 					);
