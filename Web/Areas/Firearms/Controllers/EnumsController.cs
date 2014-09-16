@@ -1,23 +1,20 @@
-﻿using System.Web.Mvc;
-using Reload.Common.Enums;
+﻿using Reload.Common.Enums;
 using Reload.Web.Controllers;
 using Reload.Web.Helpers;
 
 namespace Reload.Web.Areas.Firearms.Controllers
 {
 	/// <summary>The firearm enums controller.</summary>
-	public class EnumsController : BaseController
+	public class EnumsController : BaseEnumController
 	{
-		/// <summary>The default view.</summary>
-		public ActionResult Index()
+		/// <summary>Gets the enum view models.</summary>
+		public override dynamic GetEnumViewModels()
 		{
-			var x = new
+			return new
 			{
 				Cartidges = EnumViewModelHelper.ToViewModel<Cartridge>(),
 				Types = EnumViewModelHelper.ToViewModel<FirearmType>()
 			};
-
-			return BaseController.GetJsonResult(x);
 		}
 	}
 }
