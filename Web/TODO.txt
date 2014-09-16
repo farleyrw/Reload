@@ -5,11 +5,12 @@ UI
 Angular validation
 Mock up:
 -Handload entry
--Handload result - yds, conditions
+-Handload result - yds, conditions, fps
+-Calculate energy, trajectory
 Correct id parameter in firearm unit tests
-Create angular tests - testacular, jasmine, karma runner http://docs.angularjs.org/tutorial/step_11
 
 Business
+Determine database context strategy
 Figure out best way to handle integer enum names
 Setup data annotations on handloads/results
 Create layer unit tests
