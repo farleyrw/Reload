@@ -6,7 +6,7 @@ Reload.IncludeModules([
 	'Reload.Angular.Directives'
 ]);
 
-angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Reload.Authorization'])
+angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
 	.value('enumUrl', '/reload/handloads/enums')
 	.config(['$httpProvider', function (httpProvider) {
 		httpProvider.interceptors.push('AuthorizationService');

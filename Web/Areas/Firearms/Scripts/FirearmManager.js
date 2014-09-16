@@ -6,7 +6,7 @@ Reload.IncludeModules([
 	'Reload.Angular.Directives'
 ]);
 
-angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Reload.Authorization'])
+angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
 	.constant('templateUrl', '/reload/areas/firearms/templates/')
 	.value('enumUrl', '/reload/firearms/enums')
 	.config(['$httpProvider', function (httpProvider) {
@@ -36,7 +36,7 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Relo
 		['$scope', '$routeParams', '$location', 'FirearmService', 'FirearmEnumService',
 			function (scope, route, location, FirearmService, EnumService) {
 				scope.Firearm = (route.Id) ? FirearmService.Get(route.Id) : {};
-
+				
 				scope.Save = function () {
 					FirearmService.Save(scope.Firearm, scope.BackToList);
 				};

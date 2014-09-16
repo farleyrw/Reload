@@ -4,6 +4,7 @@
 
 /// <reference path="../../../../web/scripts/reload/reload.js" />
 /// <reference path="../../../../web/scripts/reload/angular/providers.js" />
+/// <reference path="../../../../web/scripts/reload/modules/authorization.js" />
 
 'use strict';
 

@@ -263,13 +263,13 @@
     <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
-    <Content Include="Scripts\reload\angular\modules\Authorization.js" />
+    <Content Include="Scripts\modules\authorization.js" />
     <Content Include="Scripts\reload\angular\directives.js" />
     <Content Include="Scripts\reload\angular\filters.js" />
     <Content Include="Scripts\reload\angular\providers.js" />
     <Content Include="Scripts\reload\angular\services.js" />
     <Content Include="Scripts\reload\reload.js" />
-    <Content Include="Scripts\Site\Site.js" />
+    <Content Include="Scripts\site\site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_666666_40x100.png" />
@@ -297,7 +297,7 @@
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\angular\version.json" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\Site\Account\Account.js" />
+    <Content Include="Scripts\site\account\account.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />
