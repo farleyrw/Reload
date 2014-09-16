@@ -5,7 +5,7 @@ using Reload.Repository.Context;
 namespace Reload.Web.Initialization
 {
 	/// <summary>The user repository setup.</summary>
-	public class UserRepoSetup : CreateDatabaseIfNotExists<UserContext>
+	public class UserRepoSetup : DropCreateDatabaseAlways<UserContext>
 	{
 		/// <summary>Seeds the specified context.</summary>
 		/// <param name="context">The context.</param>
