@@ -29,6 +29,7 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
 			.otherwise({ redirectTo: '/list' });
 	}])
 	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
+	.service('ConfirmDialog', ['$modal', Reload.Angular.Services.ConfirmDialog])
 	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])
 	.directive('modifyItemControl', Reload.Angular.Directives.ModifyItem)
@@ -55,30 +56,9 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
 			}
 		]
 	)
-	.service('ModalService', ['$modal', function (modal) {
-		this.Confirm = function (name) {
-			return modal.open({
-				template:
-					'<div class="modal-header"><h3 class="modal-title">Confirm</h3></div>' +
-					'<div class="modal-body">Are you sure you want to delete your {{ Name }}?</div>' +
-					'<div class="modal-footer">' +
-						'<button class="btn btn-primary" ng-click="Confirm()">OK</button>' +
-						'<button class="btn btn-warning" ng-click="Cancel()">Cancel</button>' +
-					'</div>',
-				controller: function ($scope, $modalInstance) {
-					$scope.Name = name;
-
-					$scope.Confirm = $modalInstance.close;
-
-					$scope.Cancel = $modalInstance.dismiss;
-				},
-				size: 'sm'
-			}).result;
-		};
-	}])
 	.controller('FirearmListController',
-		['$scope', '$location', 'FirearmService', 'FirearmEnumService', 'ModalService',
-			function (scope, location, FirearmService, EnumService, ModalService) {
+		['$scope', '$location', 'FirearmService', 'FirearmEnumService', 'ConfirmDialog',
+			function (scope, location, FirearmService, EnumService, ConfirmDialog) {
         		scope.Firearms = FirearmService.List();
 
         		scope.Add = function () {
@@ -90,7 +70,7 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
         		};
 
         		scope.Delete = function(firearm) {
-        			ModalService.Confirm(firearm.Name).then(function () {
+        			ConfirmDialog.Show(firearm.Name).then(function () {
 						// TODO: switch to resource api $delete();
         				FirearmService.Delete(firearm, function (firearm) {
         					scope.Firearms.splice(scope.Firearms.indexOf(firearm), 1);
