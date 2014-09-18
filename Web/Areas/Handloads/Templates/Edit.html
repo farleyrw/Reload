@@ -1,0 +1,63 @@
+﻿
+<h2>Modify Handload</h2>
+<fieldset>
+	<legend>Info</legend>
+	<form name="HandloadForm" ng-cloak="">
+		<ul>
+			<li>
+				<label>Powder</label>
+				<select ng-model="Hanload.Powder" ng-options="c.Id as c.Name for c in Enums.Powders"></select>
+			</li>
+			<li>
+				<label>Powder Charge</label>
+				<input ng-model="Handload.PowderCharge" type="number" placeholder="Enter the powder charge" required />
+				<span style="font-weight: bold">grains</span>
+			</li>
+			<li>
+				<label>Brass Brand</label>
+				<select ng-model="Hanload.Brass.Manufacturer" ng-options="c.Id as c.Name for c in Enums.Powders"></select>
+				<br />
+				<label>Cartridge</label>
+				<select ng-model="Hanload.Brass.Caliber" ng-options="c.Id as c.Name for c in Enums.Cartidges"></select>
+				<br />
+				<label>Times Fired</label>
+				<input ng-model="Handload.Brass.TimesFired" type="number" placeholder="Enter how many times the brass was fired" required />
+			</li>
+			<li>
+				<label>Primer Brand</label>
+				<select ng-model="Hanload.Primer.Brand" ng-options="c.Id as c.Name for c in Enums.PrimerManufacturers"></select>
+				<br />
+				<label>Primer Type</label>
+				<select ng-model="Hanload.Primer.Type" ng-options="c.Id as c.Name for c in Enums.PrimerTypes"></select>
+			</li>
+			<li>
+				<label>Seating Depth</label>
+				<input ng-model="Handload.SeatingDepth" type="number" placeholder="Enter the seating depth" required />
+				<span style="font-weight: bold">in</span>
+			</li>
+			<li>
+				<label>Bullet Weight</label>
+				<input ng-model="Handload.Bullet.Weight" type="number" placeholder="Enter the bullet weight" required />
+				<br />
+				<label>Bullet Brand</label>
+				<select ng-model="Hanload.Bullet.Brand" ng-options="c.Id as c.Name for c in Enums.BulletManufacturers"></select>
+				<br />
+				<label>Bullet Constuction</label>
+				<select ng-model="Hanload.Bullet.Constuction" ng-options="c.Id as c.Name for c in Enums.BulletConstruction"></select>
+				<br />
+				<label>Bullet Type</label>
+				<select ng-model="Hanload.Bullet.Type" ng-options="c.Id as c.Name for c in Enums.BulletTypes"></select>
+				<br />
+				<label>Bullet Base</label>
+				<select ng-model="Hanload.Bullet.Base" ng-options="c.Id as c.Name for c in Enums.BulletBases"></select>
+				<br />
+				<label>Bullet Caliber</label>
+				<select ng-model="Hanload.Bullet.Caliber" ng-options="c.Id as c.Name for c in Enums.BulletCalibers"></select>
+			</li>
+		</ul>
+		<button ng-click="Save()" ng-disabled="HandloadForm.$invalid" class="btn btn-primary">Save</button>
+	</form>
+</fieldset>
+<p>
+	<button ng-click="BackToList()" class="btn btn-danger">Cancel</button>
+</p>

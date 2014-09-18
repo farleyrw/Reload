@@ -213,6 +213,7 @@
     <Content Include="Areas\Firearms\Scripts\FirearmManager.js" />
     <Content Include="Areas\Firearms\Scripts\FirearmService.js" />
     <Content Include="Areas\Handloads\Scripts\HandloadManager.js" />
+    <Content Include="Areas\Handloads\Templates\Edit.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />

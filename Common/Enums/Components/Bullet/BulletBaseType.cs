@@ -1,7 +1,7 @@
 ﻿
 namespace Reload.Common.Enums.Components.Bullet
 {
-	public enum BulletBase
+	public enum BulletBaseType
 	{
 		Other = 0,
 

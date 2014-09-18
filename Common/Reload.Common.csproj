@@ -55,7 +55,7 @@
     <Compile Include="Authentication\Mvc\UserPrincipal.cs" />
     <Compile Include="Enums\Caliber.cs" />
     <Compile Include="Enums\Components\BrassManufacturer.cs" />
-    <Compile Include="Enums\Components\Bullet\BulletBase.cs" />
+    <Compile Include="Enums\Components\Bullet\BulletBaseType.cs" />
     <Compile Include="Enums\Components\Bullet\BulletConstruction.cs" />
     <Compile Include="Enums\Components\Bullet\BulletManufacturer.cs" />
     <Compile Include="Enums\Components\Bullet\BulletType.cs" />

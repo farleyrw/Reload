@@ -8,7 +8,7 @@ Reload.IncludeModules([
 
 angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
 	.constant('templateUrl', '/reload/areas/firearms/templates/')
-	.value('enumUrl', '/reload/firearms/enums')
+	.value('enumUrl', '/reload/firearms/enums/get')
 	.config(['$httpProvider', function (httpProvider) {
 		httpProvider.interceptors.push('AuthorizationService');
 	}])

@@ -17,7 +17,7 @@ namespace Reload.Common.Models.Components
 
 		public BulletType Type { get; set; }
 
-		public BulletBase BaseType { get; set; }
+		public BulletBaseType BaseType { get; set; }
 
 		public Caliber Caliber { get; set; }
 	}
