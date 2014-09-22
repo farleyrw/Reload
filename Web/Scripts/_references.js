@@ -14,7 +14,6 @@
 /// <reference path="jquery/jquery-2.1.1.js" />
 /// <reference path="modules/authorization.js" />
 /// <reference path="reload/reload.js" />
-/// <reference path="site/site.js" />
 /// <reference path="../areas/firearms/scripts/firearmmanager.js" />
 /// <reference path="../areas/firearms/scripts/firearmservice.js" />
 /// <reference path="../areas/handloads/scripts/handloadmanager.js" />

@@ -271,7 +271,6 @@
     <Content Include="Scripts\reload\angular\providers.js" />
     <Content Include="Scripts\reload\angular\services.js" />
     <Content Include="Scripts\reload\reload.js" />
-    <Content Include="Scripts\site\site.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_666666_40x100.png" />

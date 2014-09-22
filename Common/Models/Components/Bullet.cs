@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Reload.Common.Enums;
 using Reload.Common.Enums.Components.Bullet;
 
 namespace Reload.Common.Models.Components
 {
-	[ComplexType]
+	//[ComplexType]
 	public class Bullet
 	{
 		[Required]

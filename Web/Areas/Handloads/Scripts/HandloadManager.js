@@ -9,9 +9,6 @@ Reload.IncludeModules([
 angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
 	.constant('templateUrl', '/reload/areas/handloads/templates/')
 	.value('enumUrl', '/reload/handloads/enums/get')
-	.config(['$httpProvider', function (httpProvider) {
-		httpProvider.interceptors.push('AuthorizationService');
-	}])
 	.config(['$routeProvider', function (routing) {
 		routing
 			.when('/list', { templateUrl: 'areas/handloads/templates/list.html', controller: 'HandloadListController' })

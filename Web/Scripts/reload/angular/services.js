@@ -32,4 +32,4 @@ Reload.DefineNamespace('Reload.Angular.Services', function () {
 			}
 		};
 	};
-})
+});
