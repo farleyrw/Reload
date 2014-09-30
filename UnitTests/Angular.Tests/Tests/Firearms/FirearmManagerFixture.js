@@ -10,6 +10,7 @@
 /// <reference path="../../../../web/scripts/reload/angular/filters.js" />
 /// <reference path="../../../../web/scripts/reload/angular/providers.js" />
 /// <reference path="../../../../web/scripts/reload/angular/services.js" />
+/// <reference path="../../../../web/scripts/modules/authorization.js" />
 /// <reference path="../../../../web/areas/firearms/scripts/firearmservice.js" />
 /// <reference path="../../../../web/areas/firearms/scripts/firearmmanager.js" />
 
@@ -17,10 +18,10 @@ describe('Firearm Manager tests', function () {
 	beforeEach(module('FirearmManager'));
 
 	describe('FirearmListController', function () {
-		beforeEach(inject(function (_$httpBackend_, $rootScope, $controller, $location) {
-			this.$httpBackend = _$httpBackend_;
-			this.$httpBackend.expectGET('firearms/manage/list').respond([{ abc: '123' }]);
-			this.$httpBackend.expectGET('/reload/firearms/enums').respond({ abc: '123' });
+		beforeEach(inject(function ($httpBackend, $rootScope, $controller, $location) {
+			this.httpBackend = $httpBackend;
+			this.httpBackend.expectGET('firearms/manage/list').respond([{ abc: '123' }]);
+			this.httpBackend.expectGET('/reload/firearms/enums/get').respond({ abc: '123' });
 
 			this.scope = $rootScope.$new();
 			this.controller = $controller('FirearmListController', { $scope: this.scope, $location: $location });
@@ -33,13 +34,13 @@ describe('Firearm Manager tests', function () {
 		});
 
 		it('should create "Enums" model with data fetched from xhr', function () {
-			this.$httpBackend.flush();
+			this.httpBackend.flush();
 
 			expect(this.scope.Enums.abc).toBe('123');
 		});
 
 		it('should create "Firearms" model with data fetched from xhr', function () {
-			this.$httpBackend.flush();
+			this.httpBackend.flush();
 
 			expect(this.scope.Firearms[0].abc).toBe('123');
 		});
