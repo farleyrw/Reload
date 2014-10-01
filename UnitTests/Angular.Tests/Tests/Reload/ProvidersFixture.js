@@ -1,6 +1,5 @@
 ﻿/// <reference path="../../../../web/scripts/angular/angular.js" />
 /// <reference path="../../../../web/scripts/angular/angular-mocks.js" />
-/// <reference path="../../../../web/scripts/angular/angular-resource.js" />
 /// <reference path="../../../../web/scripts/jquery/jquery-2.1.1.js" />
 
 /// <reference path="../../../../web/scripts/reload/reload.js" />
@@ -9,28 +8,45 @@
 
 'use strict';
 
-describe("Authorization provider test", function () {
-	beforeEach(module('Authorization'));
-	
-	describe('Authorization Tests', function () {
-		beforeEach(inject(function (_AuthorizationService_, $httpBackend) {
-			this.httpBackend = $httpBackend;
-			this.AuthorizationService = _AuthorizationService_;
-		}));
+describe("Authorization module tests", function () {
+	var httpProvider;
+	var testLoginUrl = '/logon';
+	var exampleUrl = 'http://localhost/reload';
 
+	beforeEach(module('Authorization', function ($httpProvider, $provide) {
+		httpProvider = $httpProvider;
+		$provide.constant("LoginUrl", testLoginUrl);
+	}));
+
+	beforeEach(inject(function ($httpBackend, _LoginUrl_, _AuthorizationService_) {
+		this.httpBackend = $httpBackend;
+		this.LoginUrl = _LoginUrl_;
+		this.AuthorizationService = _AuthorizationService_;
+	}));
+
+	describe('Authorization service tests', function () {
 		it('should have AuthorizationService be defined', function () {
 			expect(this.AuthorizationService).toBeDefined();
 		});
 
+		it('should have LoginUrl set correctly', function () {
+			expect(this.LoginUrl).toBe(testLoginUrl);
+		});
+
 		it('should have AuthorizationService as an interceptor', function () {
-			expect(this.httpBackend.interceptors).toContain('AuthorizationService');
+			expect(httpProvider.interceptors).toContain('AuthorizationService');
 		});
 			
 		it('should redirect on 401 response', function () {
-			this.httpBackend.expectGet('http://localhost/reload').respond(401, null);
-			this.httpBackend.flush();
-
-			expect(browser().location().path()).toBe("/dashboard"); // TODO: get the login url.
+			this.httpBackend.when('GET', exampleUrl, null, function () {
+				expect(browser().location().path()).toBe(testLoginUrl);
+			}).respond(401, null);
 		});
+
+		it('should pass through a 200 response', function () {
+			this.httpBackend.when('GET', exampleUrl, null, function () {
+				expect(browser().location().path()).toBe(exampleUrl);
+			}).respond(200, null);
+		})
 	});
 });
