@@ -266,6 +266,7 @@
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
     <Content Include="Scripts\modules\authorization.js" />
+    <Content Include="Scripts\modules\session.js" />
     <Content Include="Scripts\reload\angular\directives.js" />
     <Content Include="Scripts\reload\angular\filters.js" />
     <Content Include="Scripts\reload\angular\providers.js" />

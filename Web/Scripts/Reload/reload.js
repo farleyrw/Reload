@@ -1,39 +1,48 @@
 ﻿
-(function (Reload, window, $) {
+(function (Root, window, $) {
 	'use strict';
 
-	Reload.ModuleName = "Reload";
+	Root.ModuleName = "Reload";
+
+	/// Gets the url of the module.
+	Root.GetModuleUrl = function (namespace) {
+		var parts = namespace.split('.');
+
+		parts.splice((parts.indexOf('Areas') == 1) ? 3 : 1, 0, 'Scripts', Root.ModuleName);
+
+		return '/' + parts.join('/') + '.js';
+	};
 
 	/// Adds the module to the page if not already included.
-	Reload.IncludeModule = function (namespace) {
+	Root.IncludeModule = function (namespace) {
 		if (!namespace || DoesNamespaceExist(namespace)) { return; }
 
-		var moduleUrl = namespace.replace(/\./g, '/') + ".js";
-		$('head').append('<script src="/reload/scripts/' + moduleUrl.toLowerCase() + '"></script>\n');
+		var moduleUrl = Root.GetModuleUrl(namespace);
+		$('head').append('<script src="' + moduleUrl.toLowerCase() + '"></script>\n');
 	};
 
 	/// Adds the list of modules.
-	Reload.IncludeModules = function (namespaces) {
-		namespaces.forEach(Reload.IncludeModule);
+	Root.IncludeModules = function (namespaces) {
+		namespaces.forEach(Root.IncludeModule);
 	};
 
 	/// Defines the namespace with the provided implementation with dependencies.
-	Reload.DefineNamespace = function (moduleNamespace, implementation, dependencies) {
-		var namespaceParts = moduleNamespace.split(".");
-		if (namespaceParts[0] != Reload.ModuleName) {
-			throw "Namespace '" + moduleNamespace + "' is not derived from " + Reload.ModuleName;
+	Root.DefineNamespace = function (namespace, implementation, dependencies) {
+		var namespaceParts = namespace.split(".");
+		if (namespaceParts[0] != Root.ModuleName) {
+			throw "Namespace '" + namespace + "' is not derived from " + Root.ModuleName;
 		}
 
 		// Construct the namespace.
-		var namespace = namespaceParts.reduce(function (parent, current) {
+		var module = namespaceParts.reduce(function (parent, current) {
 			return parent[current] = parent[current] || {};
 		}, window);
 
 		// Set the definition to the specified implementation.
-		if ($.isFunction(implementation)) { implementation.apply(namespace, dependencies); }
+		if ($.isFunction(implementation)) { implementation.apply(module, dependencies); }
 
 		// Return the namespaced object with base functionality.
-		return $.extend(true, namespace, GetBaseObject(moduleNamespace));
+		return $.extend(true, module, GetBaseObject(namespace));
 	};
 
 	/// Returns the base object of a namespace.

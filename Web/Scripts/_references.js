@@ -26,3 +26,4 @@
 /// <reference path="../areas/firearms/scripts/firearmmanager.js" />
 /// <reference path="../areas/firearms/scripts/firearmservice.js" />
 /// <reference path="../areas/handloads/scripts/handloadmanager.js" />
+/// <reference path="modules/session.js" />

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tests\Firearms\FirearmManagerFixture.js" />
+    <Content Include="Tests\Folder\Reload.js" />
     <Content Include="Tests\Reload\ProvidersFixture.js" />
   </ItemGroup>
   <ItemGroup>
