@@ -1,8 +1,8 @@
 ﻿'use strict';
 
-Reload.DefineNamespace('Reload.Firearms.Service', function () {
-	// The firearm rest service.
-	this.FirearmService = function (ajax) {
+Reload.DefineNamespace('Reload.Areas.Firearms.Services', function () {
+	/// The firearm web service.
+	this.WebService = function (ajax) {
 		var api = ajax('firearms/manage/:action/:id', {
 			action: '@action',
 			id: '@id'

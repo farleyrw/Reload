@@ -32,4 +32,6 @@ describe("Reload module tests", function () {
 		expect(module.Prop).toBe('lawl');
 		expect(module.Func()).toBe('lawl');
 	});
+
+	// TODO: create tests for the remaining methods in the module.
 });

@@ -3,7 +3,8 @@
 Reload.IncludeModules([
 	'Reload.Angular.Filters',
 	'Reload.Angular.Services',
-	'Reload.Angular.Directives'
+	'Reload.Angular.Directives',
+	'Reload.Areas.Firearms.Services'
 ]);
 
 angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
@@ -28,7 +29,7 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
 	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
 	.service('ConfirmDialog', ['$modal', Reload.Angular.Services.ConfirmDialog])
 	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
-	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])
+	.service('FirearmService', ['$resource', Reload.Areas.Firearms.Services.WebService])
 	.directive('modifyItemControl', Reload.Angular.Directives.ModifyItem)
 	.controller('FirearmEditController',
 		['$scope', '$routeParams', '$location', 'FirearmService', 'FirearmEnumService',

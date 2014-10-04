@@ -11,7 +11,7 @@
 /// <reference path="../../../../web/scripts/reload/angular/providers.js" />
 /// <reference path="../../../../web/scripts/reload/angular/services.js" />
 /// <reference path="../../../../web/scripts/modules/authorization.js" />
-/// <reference path="../../../../web/areas/firearms/scripts/firearmservice.js" />
+/// <reference path="../../../../web/areas/firearms/scripts/reload/services.js" />
 /// <reference path="../../../../web/areas/firearms/scripts/firearmmanager.js" />
 
 describe('Firearm Manager tests', function () {
