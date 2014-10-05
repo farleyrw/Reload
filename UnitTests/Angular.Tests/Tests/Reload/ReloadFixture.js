@@ -12,6 +12,7 @@ describe("Reload module tests", function () {
 
 	it('should have Reload initialized', function () {
 		expect(Reload.ModuleName).toBe("Reload");
+		expect(Reload.GetModuleUrl).toBeDefined();
 		expect(Reload.IncludeModule).toBeDefined();
 		expect(Reload.IncludeModules).toBeDefined();
 		expect(Reload.DefineNamespace).toBeDefined();
@@ -34,4 +35,14 @@ describe("Reload module tests", function () {
 	});
 
 	// TODO: create tests for the remaining methods in the module.
+
+	it('should include module', function () {
+		// To test this we must fake out the GetModuleUrl() function.
+		Reload.GetModuleUrl = function () { return '/reload/test.js'; }
+		
+		Reload.IncludeModule('Reload.Test');
+
+		expect($('head script[src="/reload/test.js"]')).toBeDefined();
+		//expect(document.getElementsByTagName('script')[0].href).toBe('');
+	});
 });

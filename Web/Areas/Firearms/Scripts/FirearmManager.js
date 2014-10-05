@@ -1,9 +1,10 @@
 ﻿'use strict';
 
 Reload.IncludeModules([
-	'Reload.Angular.Filters',
-	'Reload.Angular.Services',
-	'Reload.Angular.Directives',
+	'Reload.Filters.Helpers',
+	'Reload.Web.Services',
+	'Reload.Directives.Controls',
+	'Reload.Ui.Widgets',
 	'Reload.Areas.Firearms.Services'
 ]);
 
@@ -26,15 +27,15 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
 			})
 			.otherwise({ redirectTo: '/list' });
 	}])
-	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
-	.service('ConfirmDialog', ['$modal', Reload.Angular.Services.ConfirmDialog])
-	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
+	.filter('EnumToString', Reload.Filters.Helpers.EnumToString)
+	.service('ConfirmDialog', ['$modal', Reload.Ui.Widgets.ConfirmDialog])
+	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Web.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Areas.Firearms.Services.WebService])
-	.directive('modifyItemControl', Reload.Angular.Directives.ModifyItem)
+	.directive('modifyItemControl', Reload.Directives.Controls.ModifyItem)
 	.controller('FirearmEditController',
 		['$scope', '$routeParams', '$location', 'FirearmService', 'FirearmEnumService',
 			function (scope, route, location, FirearmService, EnumService) {
-				scope.Firearm = (route.Id) ? FirearmService.Get(route.Id) : {};
+				scope.Firearm = FirearmService.Get(route.Id);
 				
 				scope.Save = function () {
 					FirearmService.Save(scope.Firearm, scope.BackToList);

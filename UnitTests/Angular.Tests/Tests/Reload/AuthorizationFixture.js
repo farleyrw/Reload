@@ -3,7 +3,7 @@
 /// <reference path="../../../../web/scripts/jquery/jquery-2.1.1.js" />
 
 /// <reference path="../../../../web/scripts/reload/reload.js" />
-/// <reference path="../../../../web/scripts/reload/angular/providers.js" />
+/// <reference path="../../../../web/scripts/reload/providers/authorization.js" />
 /// <reference path="../../../../web/scripts/modules/authorization.js" />
 
 'use strict';

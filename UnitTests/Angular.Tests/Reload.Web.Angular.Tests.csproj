@@ -58,7 +58,7 @@
   <ItemGroup>
     <Content Include="Tests\Firearms\FirearmManagerFixture.js" />
     <Content Include="Tests\Reload\ReloadFixture.js" />
-    <Content Include="Tests\Reload\ProvidersFixture.js" />
+    <Content Include="Tests\Reload\AuthorizationFixture.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="chutzpah.json" />

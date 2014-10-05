@@ -32,7 +32,7 @@ Reload.DefineNamespace('Reload.Areas.Firearms.Services', function () {
 				api.Delete({ firearmId: firearm.FirearmId }, callback);
 			},
 			Get: function (firearmId) {
-				return api.Edit({ id: firearmId || 0 });
+				return firearmId ? api.Edit({ id: firearmId || 0 }) : {};
 			},
 			Save: function (firearm, callback) {
 				api.Save({ firearm: firearm }, callback);

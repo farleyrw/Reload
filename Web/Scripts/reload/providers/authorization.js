@@ -1,8 +1,8 @@
 ﻿'use strict';
 
-Reload.DefineNamespace('Reload.Angular.Providers', function () {
-	// Provides http request authorization.
-	this.Authorization = function (promise, location, loginUrl) {
+Reload.DefineNamespace('Reload.Providers.Authorization', function () {
+	/// Provides http request authorization.
+	this.RequestAuthorization = function (promise, location, loginUrl) {
 		var ResponseStatus = {
 			Unauthorized: 401
 		};
@@ -18,5 +18,9 @@ Reload.DefineNamespace('Reload.Angular.Providers', function () {
 				return response || promise.reject(response);
 			}
 		};
+	};
+
+	this.CookieAuthorization = function () {
+
 	};
 });
