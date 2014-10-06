@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-Reload.DefineNamespace('Reload.Directives.Controls', function () {
+Reload.DefineNamespace('Reload.Ui.Controls', function () {
 	/// Directive that provides buttons for editing or deleting an item.
 	this.ModifyItem = function () {
 		return {

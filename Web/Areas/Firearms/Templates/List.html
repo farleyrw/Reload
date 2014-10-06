@@ -10,10 +10,10 @@
 			<th></th>
 		</tr>
 	</thead>
-    <tr ng-repeat="firearm in Firearms | orderBy:sort:reverse">
-        <td>{{firearm.Model}}</td>
-        <td>{{firearm.Brand}}</td>
-        <td>{{firearm.Chamber | EnumToString:Enums.Cartidges}}</td>
+    <tr ng-repeat="firearm in Firearms | orderBy:sort:reverse" hover-highlight>
+        <td>{{ firearm.Model }}</td>
+        <td>{{ firearm.Brand }}</td>
+        <td>{{ firearm.Chamber | EnumToString:Enums.Cartidges }}</td>
         <td>
 			<modify-item-control edit-click="Edit(firearm.FirearmId)" delete-click="Delete(firearm)"></modify-item-control>
 		</td>

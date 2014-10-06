@@ -170,7 +170,7 @@
     <Compile Include="App_Data\Initialization\HandloadRepoSetup.cs" />
     <Compile Include="App_Data\Initialization\UserRepoSetup.cs" />
     <Compile Include="Areas\Firearms\Controllers\EnumsController.cs" />
-    <Compile Include="Areas\Firearms\FirearmResourceBundle.cs" />
+    <Compile Include="Areas\Firearms\FirearmsResourceBundle.cs" />
     <Compile Include="Areas\Firearms\FirearmsAreaRegistration.cs" />
     <Compile Include="Areas\Handloads\Controllers\EnumsController.cs" />
     <Compile Include="Areas\Handloads\Controllers\ManageController.cs" />
@@ -210,8 +210,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Firearms\Scripts\FirearmManager.js" />
-    <Content Include="Areas\Firearms\Scripts\reload\Services.js" />
+    <Content Include="Areas\Firearms\Scripts\firearmmanager.js" />
+    <Content Include="Areas\Firearms\Scripts\reload\services.js" />
     <Content Include="Areas\Handloads\Scripts\HandloadManager.js" />
     <Content Include="Areas\Handloads\Templates\Edit.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -267,9 +267,10 @@
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
     <Content Include="Scripts\modules\authorization.js" />
     <Content Include="Scripts\modules\session.js" />
-    <Content Include="Scripts\reload\directives\controls.js" />
+    <Content Include="Scripts\reload\ui\controls.js" />
     <Content Include="Scripts\reload\filters\helpers.js" />
     <Content Include="Scripts\reload\providers\authorization.js" />
+    <Content Include="Scripts\reload\ui\effects.js" />
     <Content Include="Scripts\reload\web\services.js" />
     <Content Include="Scripts\reload\reload.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />

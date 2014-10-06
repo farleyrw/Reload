@@ -3,7 +3,8 @@
 Reload.IncludeModules([
 	'Reload.Filters.Helpers',
 	'Reload.Web.Services',
-	'Reload.Directives.Controls',
+	'Reload.Ui.Controls',
+	'Reload.Ui.Effects',
 	'Reload.Ui.Widgets',
 	'Reload.Areas.Firearms.Services'
 ]);
@@ -31,7 +32,8 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
 	.service('ConfirmDialog', ['$modal', Reload.Ui.Widgets.ConfirmDialog])
 	.service('FirearmEnumService', ['$resource', 'enumUrl', Reload.Web.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Areas.Firearms.Services.WebService])
-	.directive('modifyItemControl', Reload.Directives.Controls.ModifyItem)
+	.directive('modifyItemControl', Reload.Ui.Controls.ModifyItem)
+	.directive('hoverHighlight', Reload.Ui.Effects.HoverHighlight)
 	.controller('FirearmEditController',
 		['$scope', '$routeParams', '$location', 'FirearmService', 'FirearmEnumService',
 			function (scope, route, location, FirearmService, EnumService) {

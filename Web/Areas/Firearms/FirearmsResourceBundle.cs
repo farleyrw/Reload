@@ -4,7 +4,7 @@ using Reload.Web.Bundles;
 namespace Reload.Web.Areas.Firearms
 {
 	/// <summary>The firearm resource bundles.</summary>
-	public class FirearmResourceBundle : BaseResourceBundle
+	public class FirearmsResourceBundle : BaseResourceBundle
 	{
 		/// <summary>Returns the firearms js bundle.</summary>
 		public static Bundle FirearmsJs
@@ -16,7 +16,8 @@ namespace Reload.Web.Areas.Firearms
 						"~/Scripts/reload/providers/authorization.js",
 						"~/Scripts/reload/web/services.js",
 						"~/Scripts/reload/filters/helpers.js",
-						"~/Scripts/reload/directives/controls.js",
+						"~/Scripts/reload/ui/controls.js",
+						"~/Scripts/reload/ui/effects.js",
 						"~/Scripts/reload/ui/widgets.js",
 						"~/Scripts/modules/authorization.js",
 						"~/Areas/Firearms/Scripts/Reload/Services.js",

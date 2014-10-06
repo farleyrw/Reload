@@ -154,6 +154,10 @@ a:link, a:visited {
 	display: none;
 }
 
+tr.hoverHighlight {
+	background-color: #90d1d1 !important;
+}
+
 /* Angular validation CSS */
 /**:not(form).ng-invalid.ng-dirty {
 	border-color: red;
