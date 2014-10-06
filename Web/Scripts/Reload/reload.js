@@ -28,6 +28,9 @@
 
 	/// Defines the namespace with the provided implementation with dependencies.
 	Root.DefineNamespace = function (namespace, implementation, dependencies) {
+		if (DoesNamespaceExist(namespace)) { return; }
+		namespace = namespace || "";
+
 		var namespaceParts = namespace.split(".");
 		if (namespaceParts[0] != Root.ModuleName) {
 			throw "Namespace '" + namespace + "' is not derived from " + Root.ModuleName;

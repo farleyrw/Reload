@@ -6,6 +6,12 @@
 
 describe("Reload module tests", function () {
 	var Reload = window.Reload;
+
+	beforeEach(function () {
+		// Reset test namespace.
+		delete Reload.Test;
+	});
+
 	it('should have Reload be defined', function () {
 		expect(Reload).toBeDefined();
 	});
@@ -34,9 +40,23 @@ describe("Reload module tests", function () {
 		expect(module.Func()).toBe('lawl');
 	});
 
+	it('should not overwrite module', function () {
+		Reload.DefineNamespace('Reload.Test', function () {
+			this.ShouldBeHere = 'I am here';
+		});
+
+		expect(Reload.Test.ShouldBeHere).toBe('I am here');
+
+		Reload.DefineNamespace('Reload.Test', function () {
+			this.ShouldNotBeHere = 'I am not here';
+		});
+
+		expect(Reload.Test.ShouldNotBeHere).toBeUndefined();
+	});
+
 	// TODO: create tests for the remaining methods in the module.
 
-	it('should include module', function () {
+	/*it('should include module', function () {
 		// To test this we must fake out the GetModuleUrl() function.
 		Reload.GetModuleUrl = function () { return '/reload/test.js'; }
 		
@@ -44,5 +64,5 @@ describe("Reload module tests", function () {
 
 		expect($('head script[src="/reload/test.js"]')).toBeDefined();
 		//expect(document.getElementsByTagName('script')[0].href).toBe('');
-	});
+	});*/
 });
