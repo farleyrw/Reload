@@ -12,7 +12,7 @@ Reload.DefineNamespace('Reload.Ui.Controls', function () {
 			},
 			link: function (scope, element, attributes) {
 				element.css({ visibility: 'hidden' })
-					.parents('tr')
+					.parents(attributes.parentElement || 'tr')
 					.bind('mouseenter', function () { element.css({ visibility: 'visible' }); })
 					.bind('mouseleave', function () { element.css({ visibility: 'hidden' }); });
 			},
