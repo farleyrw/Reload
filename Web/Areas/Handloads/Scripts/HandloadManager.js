@@ -1,12 +1,15 @@
 ﻿'use strict';
 
 Reload.IncludeModules([
-	'Reload.Angular.Filters',
-	'Reload.Angular.Services',
-	'Reload.Angular.Directives'
+	'Reload.Filters.Helpers',
+	'Reload.Web.Services',
+	'Reload.Ui.Controls',
+	'Reload.Ui.Effects',
+	'Reload.Ui.Widgets',
+	'Reload.Areas.Firearms.Services'
 ]);
 
-angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
+angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI'])
 	.constant('templateUrl', '/reload/areas/handloads/templates/')
 	.value('enumUrl', '/reload/handloads/enums/get')
 	.config(['$routeProvider', function (routing) {
@@ -16,9 +19,9 @@ angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Aut
 			//.when('/edit/:Id', { templateUrl: 'areas/handloads/templates/edit.html', controller: 'HandloadEditController' })
 			.otherwise({ redirectTo: '/list' });
 	}])
-	.filter('EnumToString', Reload.Angular.Filters.EnumToString)
-	.service('HandloadEnumService', ['$resource', 'enumUrl', Reload.Angular.Services.Enums])
-	.service('FirearmService', ['$resource', Reload.Firearms.Service.FirearmService])
+	.filter('EnumToString', Reload.Filters.Helpers.EnumToString)
+	.service('HandloadEnumService', ['$resource', 'enumUrl', Reload.Web.Services.Enums])
+	.service('FirearmService', ['$resource', Reload.Areas.Firearms.Services.WebService])
 	.service('HandloadService', ['$resource', function (ajax) {
 		var api = ajax('handloads/manage/:action/:id', {
 			action: '@action',

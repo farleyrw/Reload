@@ -9,7 +9,7 @@ Reload.IncludeModules([
 	'Reload.Areas.Firearms.Services'
 ]);
 
-angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization'])
+angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI'])
 	.constant('templateUrl', '/reload/areas/firearms/templates/')
 	.value('enumUrl', '/reload/firearms/enums/get')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {

@@ -5,16 +5,6 @@ namespace Reload.Web.Bundles.Resources
 	/// <summary>Common resource bundles.</summary>
 	public class ResourceBundle : BaseResourceBundle
 	{
-		/// <summary>Returns the html5 shiv js bundle.</summary>
-		public static Bundle Html5Shiv
-		{
-			get
-			{
-				return new ScriptBundle("~/bundles/html5shiv")
-					.Include("~/Scripts/html5/html5shiv.js");
-			}
-		}
-
 		/// <summary>Returns the jquery js bundle.</summary>
 		public static Bundle JqueryJs
 		{
@@ -75,46 +65,13 @@ namespace Reload.Web.Bundles.Resources
 		{
 			get
 			{
-				Bundle angularBundle = new ScriptBundle("~/bundles/angularjs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js")
-					.Include("~/Scripts/angular/angular.js");
-
-				angularBundle.CdnFallbackExpression = "window.angular";
-
-				return angularBundle;
-			}
-		}
-
-		/// <summary>Gets the angular resource js bundle.</summary>
-		public static Bundle AngularResourceJs
-		{
-			get
-			{
-				return new ScriptBundle("~/bundles/angularresourcejs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js")
-					.Include("~/Scripts/angular/angular-resource.js");
-			}
-		}
-
-		/// <summary>Gets the angular loader js bundle.</summary>
-		public static Bundle AngularLoaderJs
-		{
-			get
-			{
-				return new ScriptBundle("~/bundles/angularloaderjs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-loader.min.js")
-					.Include("~/Scripts/angular/angular-loader.js");
-			}
-		}
-
-		/// <summary>Gets the angular route js bundle.</summary>
-		public static Bundle AngularRouteJs
-		{
-			get
-			{
-				return new ScriptBundle("~/bundles/angularroutejs",
-						"//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js")
-					.Include("~/Scripts/angular/angular-route.js");
+				return new ScriptBundle("~/bundles/angularjs")
+					.Include(
+						"~/Scripts/angular/angular.js",
+						"~/Scripts/angular/angular-resource.js",
+						"~/Scripts/angular/angular-loader.js",
+						"~/Scripts/angular/angular-route.js"
+					);
 			}
 		}
 
@@ -131,7 +88,27 @@ namespace Reload.Web.Bundles.Resources
 			}
 		}
 
-		/// <summary>Gets the bootstrap css bundle</summary>
+		/// <summary>Gets the angular block ui bundle.</summary>
+		public static Bundle AngularBlockUi
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/angularblockuijs")
+					.Include("~/Scripts/angular-block-ui/angular-block-ui.js");
+			}
+		}
+
+		/// <summary>Gets the angular block ui css bundle.</summary>
+		public static Bundle AngularBlockUiCss
+		{
+			get
+			{
+				return new StyleBundle("~/bundles/angularblockuicss")
+					.Include("~/Content/angular-block-ui/angular-block-ui.css");
+			}
+		}
+
+		/// <summary>Gets the bootstrap css bundle.</summary>
 		public static Bundle BootStrap
 		{
 			get
