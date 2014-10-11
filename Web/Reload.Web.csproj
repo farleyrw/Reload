@@ -275,12 +275,6 @@
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
     <Content Include="Scripts\modules\authorization.js" />
     <Content Include="Scripts\modules\session.js" />
-    <Content Include="Scripts\reload\ui\controls.js" />
-    <Content Include="Scripts\reload\filters\helpers.js" />
-    <Content Include="Scripts\reload\providers\authorization.js" />
-    <Content Include="Scripts\reload\ui\effects.js" />
-    <Content Include="Scripts\reload\web\services.js" />
-    <Content Include="Scripts\reload\reload.js" />
     <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
     <Content Include="Content\themes\Reload\images\ui-bg_flat_0_666666_40x100.png" />
@@ -308,7 +302,6 @@
     <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\angular\version.json" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\reload\ui\widgets.js" />
     <Content Include="Scripts\site\account\account.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
