@@ -22,4 +22,3 @@
 /// <reference path="../areas/firearms/scripts/reload/services.js" />
 /// <reference path="../areas/handloads/scripts/handloadmanager.js" />
 /// <reference path="angular-block-ui/angular-block-ui.js" />
-/// <reference path="site/account/account.js" />

@@ -151,7 +151,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -181,7 +180,7 @@
     <Compile Include="Binders\EmptyStringModelBinder.cs" />
     <Compile Include="Bundles\BaseResourceBundle.cs" />
     <Compile Include="Configuration\BundleConfig.cs" />
-    <Compile Include="Bundles\Resources\ResourceBundle.cs" />
+    <Compile Include="Bundles\Resources\VendorResourceBundle.cs" />
     <Compile Include="Configuration\DatabaseConfig.cs" />
     <Compile Include="Configuration\DependencyConfig.cs" />
     <Compile Include="Configuration\FilterConfig.cs" />
@@ -309,7 +308,6 @@
     <Content Include="Scripts\reload\ui\effects.js" />
     <Content Include="Scripts\reload\ui\widgets.js" />
     <Content Include="Scripts\reload\web\services.js" />
-    <Content Include="Scripts\site\account\account.js" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Areas\Handloads\Views\Web.config" />
     <Content Include="Areas\Handloads\Views\_ViewStart.cshtml" />

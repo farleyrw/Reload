@@ -2,8 +2,8 @@
 
 namespace Reload.Web.Bundles.Resources
 {
-	/// <summary>Common resource bundles.</summary>
-	public class ResourceBundle : BaseResourceBundle
+	/// <summary>Vendor resource bundles.</summary>
+	public class VendorResourceBundle : BaseResourceBundle
 	{
 		/// <summary>Returns the jquery js bundle.</summary>
 		public static Bundle JqueryJs

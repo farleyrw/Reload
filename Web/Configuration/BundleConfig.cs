@@ -5,7 +5,7 @@ using Reload.Web.Bundles;
 
 namespace Reload.Web.Configuration.Bundles
 {
-	/// <summary>The bundle configuration</summary>
+	/// <summary>The bundle configuration.</summary>
 	public static class BundleConfig
 	{
 		// For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
