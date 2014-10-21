@@ -7,18 +7,21 @@
 
 'use strict';
 
+angular.module('FilterApp', [])
+	.filter('Helper', Reload.Filters.Helpers.EnumToString);
+
 describe("Filter tests", function () {
-	
-	beforeEach(module('', function () {
-	}));
+	beforeEach(module('FilterApp'));
 
-	beforeEach(inject(function () {
-
-	}));
+	beforeEach(function () {
+		this.Enums = {
+			Enum: [{ Id: 1, Name: ''}]
+		};
+	});
 
 	describe('Helper filter tests', function () {
-		it('should have Filter to be defined', function () {
-			expect(this.AuthorizationService).toBeDefined();
-		});
+		it('should have a range filter', inject(function ($filter) {
+			expect($filter('Helper')).toBeDefined();
+		}));
 	});
 });
