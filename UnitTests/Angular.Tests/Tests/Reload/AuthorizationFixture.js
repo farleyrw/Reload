@@ -10,18 +10,21 @@
 
 describe("Authorization module tests", function () {
 	var httpProvider;
-	var testLoginUrl = '/logon';
-	var exampleUrl = 'http://localhost/reload';
+	var exampleUrl = '/reload';
 
-	beforeEach(module('Authorization', function ($httpProvider, $provide) {
+	beforeEach(module('Authorization', function ($httpProvider) {
 		httpProvider = $httpProvider;
-		$provide.constant("LoginUrl", testLoginUrl);
 	}));
 
-	beforeEach(inject(function ($httpBackend, _LoginUrl_, _AuthorizationService_) {
+	beforeEach(inject(function ($httpBackend, _AuthorizationService_, $window) {
 		this.httpBackend = $httpBackend;
-		this.LoginUrl = _LoginUrl_;
 		this.AuthorizationService = _AuthorizationService_;
+
+		this.window = $window;
+		this.window.alert = jasmine.createSpy();
+		this.window.location = {
+			reload: jasmine.createSpy()
+		};
 	}));
 
 	describe('Authorization service tests', function () {
@@ -29,24 +32,22 @@ describe("Authorization module tests", function () {
 			expect(this.AuthorizationService).toBeDefined();
 		});
 
-		it('should have LoginUrl set correctly', function () {
-			expect(this.LoginUrl).toBe(testLoginUrl);
-		});
-
 		it('should have AuthorizationService as an interceptor', function () {
 			expect(httpProvider.interceptors).toContain('AuthorizationService');
 		});
 			
-		it('should redirect on 401 response', function () {
-			this.httpBackend.when('GET', exampleUrl, null, function () {
-				expect(browser().location().path()).toBe(testLoginUrl);
-			}).respond(401, null);
+		it('should redirect on 401 response', function (done) {
+			this.httpBackend.expectGET(exampleUrl).respond(401, null);
+
+			this.httpBackend.flush();
+			expect(this.window.alert).toHaveBeenCalled();
 		});
 
-		it('should pass through a 200 response', function () {
+		/*it('should pass through a 200 response', function (done) {
 			this.httpBackend.when('GET', exampleUrl, null, function () {
-				expect(browser().location().path()).toBe(exampleUrl);
+				expect(this.window.location.reload).toHaveBeenCalled();
+				done();
 			}).respond(200, null);
-		})
+		});*/
 	});
 });

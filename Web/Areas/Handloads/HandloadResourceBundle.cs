@@ -13,13 +13,11 @@ namespace Reload.Web.Areas.Handloads
 			{
 				return new ScriptBundle("~/bundles/handloads")
 					.Include(
-						"~/Scripts/reload/providers/authorization.js",
 						"~/Scripts/reload/web/services.js",
 						"~/Scripts/reload/filters/helpers.js",
 						"~/Scripts/reload/ui/controls.js",
 						"~/Scripts/reload/ui/effects.js",
 						"~/Scripts/reload/ui/widgets.js",
-						"~/Scripts/modules/authorization.js",
 						"~/Areas/Firearms/Scripts/Reload/Services.js",
 						"~/Areas/Handloads/Scripts/HandloadManager.js"
 					);

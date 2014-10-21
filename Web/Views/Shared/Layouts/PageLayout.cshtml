@@ -8,7 +8,8 @@
 	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.png")" type="image/png">
 
 	@Styles.Render("~/bundles/bootstrapcss")
-	@Styles.Render("~/bundles/sitecss", "~/Content/themes/Reload/jqueryuicss")
+
+	@Styles.Render("~/bundles/sitecss")
 	
 	@RenderSection("HeadIncludes", required: false)
 </head>
@@ -24,7 +25,7 @@
 		<div class="Footer">&copy; Copyright</div>
 	</footer>
 
-	@Scripts.Render("~/bundles/jqueryjs", "~/bundles/jqueryuijs")
+	@Scripts.Render("~/bundles/jqueryjs")
 
 	@RenderSection("Scripts", required: false)
 </body>

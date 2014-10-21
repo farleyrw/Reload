@@ -24,5 +24,31 @@ namespace Reload.Web.Bundles.Resources
 					.Include("~/Scripts/Reload/Reload.js");
 			}
 		}
+
+		/// <summary>Returns the authorization js bundle.</summary>
+		public static Bundle Authorization
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/authorization")
+					.Include(
+						"~/Scripts/reload/providers/authorization.js",
+						"~/Scripts/modules/authorization.js"
+					);
+			}
+		}
+
+		/// <summary>Returns the session js bundle.</summary>
+		public static Bundle Session
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/session")
+					.Include(
+						"~/Scripts/angular/angular-cookies.js",
+						"~/Scripts/modules/session.js"
+					);
+			}
+		}
 	}
 }

@@ -274,21 +274,6 @@
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
     <Content Include="Scripts\modules\authorization.js" />
     <Content Include="Scripts\modules\session.js" />
-    <Content Include="Content\themes\Reload\images\animated-overlay.gif" />
-    <Content Include="Content\themes\Reload\images\ui-bg_flat_0_222222_40x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_flat_0_666666_40x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_flat_0_ffcece_40x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_flat_0_ffffff_40x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_glass_100_ffffff_1x400.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_glass_55_fff6c4_1x400.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_highlight-hard_100_aaaaaa_1x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_highlight-hard_100_cccccc_1x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-bg_inset-hard_100_dddddd_1x100.png" />
-    <Content Include="Content\themes\Reload\images\ui-icons_0060ed_256x240.png" />
-    <Content Include="Content\themes\Reload\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\Reload\images\ui-icons_dd0000_256x240.png" />
-    <Content Include="Content\themes\Reload\jquery-ui-1.10.3.custom.css" />
-    <Content Include="Content\themes\Reload\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Areas\Firearms\Views\Web.config" />
@@ -297,8 +282,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery\jquery-2.1.1.min.map" />
-    <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.js" />
-    <Content Include="Scripts\jquery\ui\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\angular\version.json" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\reload\filters\helpers.js" />

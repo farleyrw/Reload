@@ -14,7 +14,10 @@
 		"~/bundles/angularblockuijs"
 	)
 
-    @Scripts.Render("~/bundles/handloads")
+    @Scripts.Render(
+		"~/bundles/authorization",
+		"~/bundles/session",
+		"~/bundles/handloads")
 }
 
 <div ng-app="HandloadManager" block-ui="main">

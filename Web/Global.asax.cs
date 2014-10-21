@@ -12,7 +12,7 @@ namespace Reload.Web
 	/// <summary>The base configuration of the MVC application.</summary>
 	public class MvcApplication : HttpApplication
 	{
-		/// <summary>Application_s the start.</summary>
+		/// <summary>Initializes the application.</summary>
 		protected void Application_Start()
 		{
 			DatabaseConfig.RegisterInitializers();

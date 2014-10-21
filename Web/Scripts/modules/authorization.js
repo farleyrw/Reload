@@ -3,8 +3,8 @@
 Reload.IncludeModule('Reload.Providers.Authorization');
 
 angular.module('Authorization', [])
-	.constant('LoginUrl', '/reload/account/logon')
 	.config(['$httpProvider', function (httpProvider) {
+		httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 		httpProvider.interceptors.push('AuthorizationService');
 	}])
-	.service('AuthorizationService', ['$q', '$location', 'LoginUrl', Reload.Providers.Authorization.RequestAuthorization]);
+	.factory('AuthorizationService', ['$q', '$window', Reload.Providers.Authorization.RequestAuthorization]);

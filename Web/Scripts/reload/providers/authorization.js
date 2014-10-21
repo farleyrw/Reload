@@ -2,25 +2,21 @@
 
 Reload.DefineNamespace('Reload.Providers.Authorization', function () {
 	/// Provides http request authorization.
-	this.RequestAuthorization = function (promise, location, loginUrl) {
+	this.RequestAuthorization = function (promise, window) {
 		var ResponseStatus = {
 			Unauthorized: 401
 		};
 
 		return {
 			responseError: function (response) {
-				// Redirect to logon page on unauthenticated request.
+				// Force a reload on an unauthenticated request.
 				if (response.status == ResponseStatus.Unauthorized) {
-					alert("Your session has expired. Please login again to continue.");
-					location.path(loginUrl);
+					window.alert("Your session has expired.");
+					window.location.reload();
 				}
 
 				return response || promise.reject(response);
 			}
 		};
-	};
-
-	this.CookieAuthorization = function () {
-
 	};
 });

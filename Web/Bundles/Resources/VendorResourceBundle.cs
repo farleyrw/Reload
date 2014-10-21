@@ -20,32 +20,6 @@ namespace Reload.Web.Bundles.Resources
 			}
 		}
 
-		/// <summary>Returns the jquery ui js bundle.</summary>
-		public static Bundle JqueryUiJs
-		{
-			get
-			{
-				Bundle jqueryUiBundle = new ScriptBundle("~/bundles/jqueryuijs",
-						"//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js")
-					.Include("~/Scripts/jquery/ui/jquery-ui-{version}.custom.js");
-
-				jqueryUiBundle.CdnFallbackExpression = "window.jQuery.ui";
-
-				return jqueryUiBundle;
-			}
-		}
-
-		/// <summary>Returns the jquery ui css bundle.</summary>
-		public static Bundle JqueryUiCss
-		{
-			get
-			{
-				// This path is important because of embedded relative resource references.
-				return new StyleBundle("~/Content/themes/Reload/jqueryuicss")
-					.Include("~/Content/themes/Reload/jquery-ui-{version}.custom.css");
-			}
-		}
-
 		/// <summary>Returns the jquery validation bundle.</summary>
 		public static Bundle JqueryValidation
 		{

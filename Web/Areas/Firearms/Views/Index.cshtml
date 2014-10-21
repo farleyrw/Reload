@@ -14,7 +14,11 @@
 		"~/bundles/angularblockuijs"
 	)
 
-	@Scripts.Render("~/bundles/firearms")
+	@Scripts.Render(
+		"~/bundles/authorization",
+		"~/bundles/session",
+		"~/bundles/firearms"
+	)
 }
 
 <div ng-app="FirearmManager" block-ui="main">
