@@ -16,9 +16,9 @@ describe("Authorization module tests", function () {
 		httpProvider = $httpProvider;
 	}));
 
-	beforeEach(inject(function ($httpBackend, _AuthorizationService_, $window) {
+	beforeEach(inject(function ($httpBackend, AuthorizationService, $window) {
 		this.httpBackend = $httpBackend;
-		this.AuthorizationService = _AuthorizationService_;
+		this.AuthorizationService = AuthorizationService;
 
 		this.window = $window;
 		this.window.alert = jasmine.createSpy();
@@ -35,19 +35,19 @@ describe("Authorization module tests", function () {
 		it('should have AuthorizationService as an interceptor', function () {
 			expect(httpProvider.interceptors).toContain('AuthorizationService');
 		});
-			
-		it('should redirect on 401 response', function (done) {
-			this.httpBackend.expectGET(exampleUrl).respond(401, null);
-
-			this.httpBackend.flush();
-			expect(this.window.alert).toHaveBeenCalled();
+		
+		it('should pass through a 200 response', function () {
+			this.httpBackend.whenGET(exampleUrl, null, function () {
+				expect(this.window.alert).not.toHaveBeenCalled();
+				expect(this.window.location.reload).not.toHaveBeenCalled();
+			}).respond(200, null);
 		});
 
-		/*it('should pass through a 200 response', function (done) {
-			this.httpBackend.when('GET', exampleUrl, null, function () {
+		it('should redirect on 401 response', function () {
+			this.httpBackend.whenGET(exampleUrl, null, function (headers) {
+				expect(this.window.alert).toHaveBeenCalled();
 				expect(this.window.location.reload).toHaveBeenCalled();
-				done();
-			}).respond(200, null);
-		});*/
+			}).respond(401, null);
+		});
 	});
 });

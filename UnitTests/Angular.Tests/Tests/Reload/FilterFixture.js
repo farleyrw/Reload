@@ -7,21 +7,35 @@
 
 'use strict';
 
-angular.module('FilterApp', [])
-	.filter('Helper', Reload.Filters.Helpers.EnumToString);
+// Create a module to test the filter.
+angular.module('FilterTestApp', [])
+	.filter('EnumToString', Reload.Filters.Helpers.EnumToString);
 
 describe("Filter tests", function () {
-	beforeEach(module('FilterApp'));
 
-	beforeEach(function () {
+	beforeEach(function() {
+		module('FilterTestApp');
+
+		inject(function ($filter) {
+			this.filter = $filter;
+		});
+
 		this.Enums = {
-			Enum: [{ Id: 1, Name: ''}]
+			Enum: [{ Id: 1, Name: 'Name'}]
 		};
 	});
 
-	describe('Helper filter tests', function () {
-		it('should have a range filter', inject(function ($filter) {
-			expect($filter('Helper')).toBeDefined();
-		}));
+	describe('EnumToString filter tests', function () {
+		it('should have a EnumToString filter defined', function () {
+			expect(this.filter('EnumToString')).toBeDefined();
+		});
+
+		it('should return the name given a valid index', function () {
+			expect(this.filter('EnumToString')(0, this.Enums.Enum)).toEqual(this.Enums.Enum[0].Name);
+		});
+
+		it('should return the index given an invalid index', function () {
+			expect(this.filter('EnumToString')(1, this.Enums.Enum)).toEqual(1);
+		});
 	});
 });
