@@ -45,12 +45,6 @@ angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Auth
 
 				scope.Enums = EnumService.Get();
 
-				scope.IsValid = function () {
-					return scope.Firearm &&
-						scope.Firearm.Chamber >= 0 &&
-						scope.Firearm.BarrelLength > 0;
-				};
-
 				scope.BackToList = function () {
 					location.path('/list');
 				};

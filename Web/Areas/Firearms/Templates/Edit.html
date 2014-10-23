@@ -14,19 +14,19 @@
 			</li>
 			<li>
 				<label>Caliber</label>
-				<select ng-model="Firearm.Chamber" ng-options="c.Id as c.Name for c in Enums.Cartidges"></select>
+				<select ng-model="Firearm.Chamber" ng-options="c.Id as c.Name for c in Enums.Cartidges" required></select>
 			</li>
 			<li>
 				<label>Barrel Length</label>
-				<input ng-model="Firearm.BarrelLength" type="number" placeholder="Enter a barrel length" required />
+				<input ng-model="Firearm.BarrelLength" type="number" placeholder="Enter a barrel length" required min="1" max="40"/>
 				<span style="font-weight: bold">in</span>
 			</li>
 			<li>
 				<label>Type</label>
-				<select ng-model="Firearm.Type" ng-options="t.Id as t.Name for t in Enums.Types"></select>
+				<select ng-model="Firearm.Type" ng-options="t.Id as t.Name for t in Enums.Types" required></select>
 			</li>
 		</ul>
-		<button ng-click="Save()" ng-disabled="FirearmForm.$invalid || !IsValid()" class="btn btn-primary">Save</button>
+		<button ng-click="Save()" ng-disabled="FirearmForm.$invalid" class="btn btn-primary">Save</button>
 	</form>
 </fieldset>
 <p>
