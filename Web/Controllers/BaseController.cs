@@ -1,10 +1,10 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using MvcContrib;
 using Reload.Common.Authentication.Mvc;
+using Reload.Common.Helpers;
 using Reload.Web.Models;
 
 namespace Reload.Web.Controllers
@@ -14,13 +14,7 @@ namespace Reload.Web.Controllers
 	{
 		/// <summary>Gets the identity.</summary>
 		/// <value>The identity.</value>
-		protected UserIdentity Identity
-		{
-			get
-			{
-				return (UserIdentity)this.User.Identity;
-			}
-		}
+		protected UserIdentity Identity { get { return (UserIdentity)this.User.Identity; } }
 
 		/// <summary>Initializes data that is not be available when the constructor is called.</summary>
 		/// <param name="requestContext">The HTTP context and route data.</param>
@@ -28,11 +22,13 @@ namespace Reload.Web.Controllers
 		{
 			base.Initialize(requestContext);
 
-			HttpCookie requestAuthCookie = requestContext.HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
-			if(requestAuthCookie != null)
+			HttpCookie authorizationCookie = requestContext.HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
+
+			if(authorizationCookie != null)
 			{
-				requestAuthCookie.Expires = DateTime.Now.AddMinutes(FormsAuthentication.Timeout.TotalMinutes);
-				requestContext.HttpContext.Response.SetCookie(requestAuthCookie);
+				HttpCookie newAuthCookie = MvcAuthentication.GetAuthorizationCookie(authorizationCookie.Value, FormsAuthentication.Timeout.TotalMinutes);
+
+				requestContext.HttpContext.Response.SetCookie(newAuthCookie);
 			}
 		}
 
@@ -40,15 +36,15 @@ namespace Reload.Web.Controllers
 		/// <param name="userData">The user data.</param>
 		protected void SaveAuthentication(UserIdentityData userData)
 		{
-			double authenticationTimeout = FormsAuthentication.Timeout.TotalMinutes;
+			string xmlUserData = XmlTransformHelper.Serialize(userData);
 
-			HttpCookie authorizationCookie = MvcAuthentication.GetAuthorizationCookie(userData, authenticationTimeout);
+			HttpCookie authorizationCookie = MvcAuthentication.GetAuthorizationCookie(xmlUserData, FormsAuthentication.Timeout.TotalMinutes);
 
 			if(authorizationCookie != null)
 			{
 				this.DeleteFormsAuthentication();
 
-				this.Response.Cookies.Add(authorizationCookie);
+				this.Response.SetCookie(authorizationCookie);
 			}
 		}
 

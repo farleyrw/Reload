@@ -11,15 +11,15 @@ namespace Reload.Common.Authentication.Mvc
 		/// <summary>Gets the authorization cookie.</summary>
 		/// <param name="userData">The user data.</param>
 		/// <param name="timeoutMinutes">The timeout minutes.</param>
-		public static HttpCookie GetAuthorizationCookie(UserIdentityData userData, double timeoutMinutes)
+		public static HttpCookie GetAuthorizationCookie(string userData, double timeoutMinutes)
 		{
 			FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
-				1,
-				UserIdentity.TicketName,
-				DateTime.Now,
-				DateTime.Now.AddMinutes(timeoutMinutes),
-				true,
-				XmlTransformHelper.Serialize(userData)
+				version: 1,
+				name: UserIdentity.TicketName,
+				issueDate: DateTime.Now,
+				expiration: DateTime.Now.AddMinutes(timeoutMinutes),
+				isPersistent: true,
+				userData: userData
 			);
 
 			HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket))

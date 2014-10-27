@@ -4,6 +4,7 @@ using System.Web.Security;
 using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Authentication.Mvc;
+using Reload.Common.Helpers;
 
 namespace Reload.Common.Tests.Authentication
 {
@@ -24,7 +25,11 @@ namespace Reload.Common.Tests.Authentication
 
 		private static HttpCookie TestAuthorizationCookie
 		{
-			get { return MvcAuthentication.GetAuthorizationCookie(TestUserData, TestTimeoutMinutes); }
+			get
+			{
+				string stringUserData = XmlTransformHelper.Serialize(TestUserData);
+				return MvcAuthentication.GetAuthorizationCookie(stringUserData, TestTimeoutMinutes);
+			}
 		}
 
 		[TestMethod]

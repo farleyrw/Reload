@@ -5,7 +5,7 @@ using Reload.Common.Helpers;
 
 namespace Reload.Common.Authentication.Mvc
 {
-	/// <summary>The user data.</summary>
+	/// <summary>The user indentity data.</summary>
 	[XmlRoot("UserData"), KnownType(typeof(UserIdentity))]
 	public class UserIdentityData : IUserIdentityData
 	{
