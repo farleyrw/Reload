@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Reload.Repository
+namespace Reload.Common.Interfaces.Repositories
 {
 	/// <summary>The repository interface.</summary>
 	/// <typeparam name="TEntity">The generic entity.</typeparam>

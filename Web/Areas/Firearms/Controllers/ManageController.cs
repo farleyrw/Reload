@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
+using Reload.Common.Interfaces.Services;
 using Reload.Common.Models;
-using Reload.Service.Interfaces;
 using Reload.Web.Controllers;
 
 namespace Reload.Web.Areas.Firearms.Controllers

@@ -1,9 +1,9 @@
-﻿using MvcContrib;
-using System;
+﻿using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using MvcContrib;
 using Reload.Common.Authentication.Mvc;
 using Reload.Web.Models;
 
@@ -12,6 +12,8 @@ namespace Reload.Web.Controllers
 	/// <summary>Base controller implementation.</summary>
 	public abstract class BaseController : Controller
 	{
+		/// <summary>Gets the identity.</summary>
+		/// <value>The identity.</value>
 		protected UserIdentity Identity
 		{
 			get
@@ -56,7 +58,7 @@ namespace Reload.Web.Controllers
 			FormsAuthentication.SignOut();
 		}
 
-		/// <summary>Logs out the user and removes authentication ticket.</summary>
+		/// <summary>Logs out the user.</summary>
 		protected RedirectToRouteResult Logout()
 		{
 			this.DeleteFormsAuthentication();

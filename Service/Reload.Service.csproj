@@ -44,10 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
-    <Compile Include="Interfaces\IErrorLoggingService.cs" />
-    <Compile Include="Interfaces\IFirearmService.cs" />
-    <Compile Include="Interfaces\IHandloadService.cs" />
-    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Services\ErrorLoggingService.cs" />
     <Compile Include="Services\FirearmService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

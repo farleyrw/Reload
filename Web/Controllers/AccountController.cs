@@ -2,8 +2,7 @@
 using MvcContrib;
 using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
-using Reload.Service.Interfaces;
-using Reload.Service.Services;
+using Reload.Common.Interfaces.Services;
 using Reload.Web.Models.Account;
 
 namespace Reload.Web.Controllers

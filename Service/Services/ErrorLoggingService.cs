@@ -1,11 +1,11 @@
 ﻿using Reload.Common.System;
-using Reload.Repository.Interfaces;
-using Reload.Service.Interfaces;
+using Reload.Common.Interfaces.Repositories;
+using Reload.Common.Interfaces.Services;
 
 namespace Reload.Service.Services
 {
 	/// <summary>The error logging service.</summary>
-	public class ErrorLoggingService : IErrorLoggingService
+	public sealed class ErrorLoggingService : IErrorLoggingService
 	{
 		/// <summary>The repository.</summary>
 		private readonly IErrorLoggingRepository Repository;

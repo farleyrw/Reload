@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Reload.Common.Interfaces.Repositories;
+using Reload.Common.Interfaces.Services;
 using Reload.Common.Models;
-using Reload.Repository.Interfaces;
-using Reload.Service.Interfaces;
 
 namespace Reload.Service.Services
 {
 	/// <summary>The handload service</summary>
-	public class HandloadService : BaseService, IHandloadService
+	public sealed class HandloadService : BaseService, IHandloadService
 	{
 		/// <summary>The repository</summary>
 		private readonly IHandloadRepository Repository;

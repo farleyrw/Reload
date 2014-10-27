@@ -64,6 +64,15 @@
     <Compile Include="Enums\Components\PrimerType.cs" />
     <Compile Include="Enums\WindDirection.cs" />
     <Compile Include="Helpers\XmlTransformHelper.cs" />
+    <Compile Include="Interfaces\Repositories\IErrorLoggingRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFirearmRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IHandloadRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
+    <Compile Include="Interfaces\Services\IErrorLoggingService.cs" />
+    <Compile Include="Interfaces\Services\IFirearmService.cs" />
+    <Compile Include="Interfaces\Services\IHandloadService.cs" />
+    <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Models\IBaseModel.cs" />
     <Compile Include="Models\WeatherConditions.cs" />
     <Compile Include="Models\Firearm.cs" />

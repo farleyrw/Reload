@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Reload.Common.Interfaces.Services;
 using Reload.Common.Models;
-using Reload.Service.Interfaces;
 using Reload.Web.Areas.Firearms.Controllers;
 using Reload.Web.Models;
 using Rhino.Mocks;

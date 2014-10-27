@@ -1,6 +1,6 @@
 ﻿using Reload.Common.Authentication;
 
-namespace Reload.Service.Interfaces
+namespace Reload.Common.Interfaces.Services
 {
 	/// <summary>The user service interface.</summary>
 	public interface IUserService

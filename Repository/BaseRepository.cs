@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Reload.Common.Authentication;
+using Reload.Common.Interfaces.Repositories;
 using Reload.Common.Models;
 
 namespace Reload.Repository

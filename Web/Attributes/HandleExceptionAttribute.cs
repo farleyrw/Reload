@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+using Reload.Common.Interfaces.Services;
 using Reload.Common.System;
-using Reload.Service.Interfaces;
 using Reload.Web.Controllers;
 
 namespace Reload.Web.Attributes

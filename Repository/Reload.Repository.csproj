@@ -81,11 +81,6 @@
     <Compile Include="Context\ErrorContext.cs" />
     <Compile Include="Context\FirearmsContext.cs" />
     <Compile Include="Context\HandloadContext.cs" />
-    <Compile Include="Interfaces\IErrorLoggingRepository.cs" />
-    <Compile Include="Interfaces\IFirearmRepository.cs" />
-    <Compile Include="Interfaces\IHandloadRepository.cs" />
-    <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="IRepository.cs" />
     <Compile Include="Repositories\ErrorLoggingRepository.cs" />
     <Compile Include="Repositories\FirearmRepository.cs" />
     <Compile Include="BaseRepository.cs" />

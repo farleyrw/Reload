@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Reload.Common.Authentication;
+using Reload.Common.Interfaces.Repositories;
 using Reload.Repository.Context;
-using Reload.Repository.Interfaces;
 
 namespace Reload.Repository.Repositories
 {

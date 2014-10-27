@@ -1,11 +1,11 @@
 ﻿using Reload.Common.Authentication;
-using Reload.Repository.Interfaces;
-using Reload.Service.Interfaces;
+using Reload.Common.Interfaces.Repositories;
+using Reload.Common.Interfaces.Services;
 
 namespace Reload.Service.Services
 {
 	/// <summary>The user account service.</summary>
-	public class UserService : BaseService, IUserService
+	public sealed class UserService : BaseService, IUserService
 	{
 		private readonly IUserRepository Repository;
 

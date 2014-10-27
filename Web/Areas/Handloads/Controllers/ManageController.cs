@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Reload.Service.Interfaces;
+using Reload.Common.Interfaces.Services;
 using Reload.Web.Controllers;
 
 namespace Reload.Web.Areas.Handloads.Controllers

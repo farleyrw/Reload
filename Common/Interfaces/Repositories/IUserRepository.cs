@@ -1,6 +1,6 @@
 ﻿using Reload.Common.Authentication;
 
-namespace Reload.Repository.Interfaces
+namespace Reload.Common.Interfaces.Repositories
 {
 	/// <summary>The user repository interface.</summary>
 	public interface IUserRepository : IRepository<UserLogin>

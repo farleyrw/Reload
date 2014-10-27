@@ -1,6 +1,6 @@
 ﻿using Reload.Common.System;
 
-namespace Reload.Service.Interfaces
+namespace Reload.Common.Interfaces.Services
 {
 	/// <summary>Error logging service interface.</summary>
 	public interface IErrorLoggingService

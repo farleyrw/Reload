@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Reload.Common.Models;
 
-namespace Reload.Service.Interfaces
+namespace Reload.Common.Interfaces.Services
 {
 	/// <summary>The handload service interface.</summary>
 	public interface IHandloadService

@@ -1,6 +1,6 @@
-﻿using Reload.Common.Models;
+﻿using Reload.Common.Interfaces.Repositories;
+using Reload.Common.Models;
 using Reload.Repository.Context;
-using Reload.Repository.Interfaces;
 
 namespace Reload.Repository.Repositories
 {

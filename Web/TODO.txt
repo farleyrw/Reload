@@ -10,6 +10,7 @@ Mock up:
 Correct id parameter in firearm unit tests
 
 Business
+Write unit tests around mvc error handling/logging
 Determine database context strategy
 Figure out best way to handle integer enum names
 Setup data annotations on handloads/results

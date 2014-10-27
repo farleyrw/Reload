@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Reload.Common.Interfaces.Repositories;
+using Reload.Common.Interfaces.Services;
 using Reload.Common.Models;
-using Reload.Repository.Interfaces;
-using Reload.Service.Interfaces;
 
 namespace Reload.Service.Services
 {
