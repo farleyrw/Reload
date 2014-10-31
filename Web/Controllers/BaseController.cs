@@ -2,9 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using MvcContrib;
 using Reload.Common.Authentication.Mvc;
-using Reload.Common.Helpers;
 using Reload.Web.Models;
 
 namespace Reload.Web.Controllers
@@ -26,7 +24,9 @@ namespace Reload.Web.Controllers
 
 			if(authorizationCookie != null)
 			{
-				HttpCookie newAuthCookie = MvcAuthentication.GetAuthorizationCookie(authorizationCookie.Value, FormsAuthentication.Timeout.TotalMinutes);
+				UserIdentityData userData = MvcAuthentication.GetUserIdentity(authorizationCookie).GetUserData();
+
+				HttpCookie newAuthCookie = MvcAuthentication.GetAuthorizationCookie(userData);
 
 				requestContext.HttpContext.Response.SetCookie(newAuthCookie);
 			}
@@ -36,9 +36,7 @@ namespace Reload.Web.Controllers
 		/// <param name="userData">The user data.</param>
 		protected void SaveAuthentication(UserIdentityData userData)
 		{
-			string xmlUserData = XmlTransformHelper.Serialize(userData);
-
-			HttpCookie authorizationCookie = MvcAuthentication.GetAuthorizationCookie(xmlUserData, FormsAuthentication.Timeout.TotalMinutes);
+			HttpCookie authorizationCookie = MvcAuthentication.GetAuthorizationCookie(userData);
 
 			if(authorizationCookie != null)
 			{
@@ -55,11 +53,11 @@ namespace Reload.Web.Controllers
 		}
 
 		/// <summary>Logs out the user.</summary>
-		protected RedirectToRouteResult Logout()
+		protected void Logout()
 		{
 			this.DeleteFormsAuthentication();
 
-			return this.RedirectToAction<AccountController>(c => c.Login(null));
+			FormsAuthentication.RedirectToLoginPage();
 		}
 
 		/// <summary>Gets the JSON result.</summary>

@@ -65,10 +65,7 @@ namespace Reload.Web.Controllers
 		[ActionName("Login")]
 		public ActionResult Authenticate(User user, string returnUrl)
 		{
-			if(!ModelState.IsValid)
-			{
-				return View(user);
-			}
+			if(!ModelState.IsValid) { return View(user); }
 
 			UserLogin userLogin = this.Service.GetUser(user.Email, user.Password);
 
@@ -100,13 +97,11 @@ namespace Reload.Web.Controllers
 		/// <summary>Creates the account.</summary>
 		/// <param name="user">The user.</param>
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		[ActionName("Register")]
 		public ActionResult CreateAccount(UnregisteredUser user)
 		{
-			if(!ModelState.IsValid)
-			{
-				return View(user);
-			}
+			if(!ModelState.IsValid) { return View(user); }
 
 			UserLogin newUser = new UserLogin
 			{
@@ -139,9 +134,10 @@ namespace Reload.Web.Controllers
 		}
 
 		/// <summary>Logs out the user.</summary>
-		public new RedirectToRouteResult Logout()
+		[Authorize]
+		public new void Logout()
 		{
-			return base.Logout();
+			base.Logout();
 		}
 	}
 }

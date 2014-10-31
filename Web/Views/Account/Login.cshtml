@@ -20,6 +20,7 @@
 	<legend>Login to your account</legend>
 	@using (Html.BeginForm())
 	{
+		@Html.AntiForgeryToken()
 		@Html.ValidationSummary(true)
 		<div>
 			@Html.LabelFor(u => u.Email)

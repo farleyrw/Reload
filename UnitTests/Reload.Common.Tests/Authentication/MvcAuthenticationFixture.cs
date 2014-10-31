@@ -4,7 +4,6 @@ using System.Web.Security;
 using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Authentication.Mvc;
-using Reload.Common.Helpers;
 
 namespace Reload.Common.Tests.Authentication
 {
@@ -21,14 +20,11 @@ namespace Reload.Common.Tests.Authentication
 			LastName = "User"
 		};
 
-		private static double TestTimeoutMinutes = 10;
-
 		private static HttpCookie TestAuthorizationCookie
 		{
 			get
 			{
-				string stringUserData = XmlTransformHelper.Serialize(TestUserData);
-				return MvcAuthentication.GetAuthorizationCookie(stringUserData, TestTimeoutMinutes);
+				return MvcAuthentication.GetAuthorizationCookie(TestUserData);
 			}
 		}
 
@@ -42,7 +38,7 @@ namespace Reload.Common.Tests.Authentication
 			double expectedTimeoutMinutes = DateTime.Compare(authorizationTicket.IssueDate, authorizationTicket.Expiration);
 
 			Assert.AreEqual<DateTime>(
-				authorizationTicket.IssueDate.AddMinutes(TestTimeoutMinutes),
+				authorizationTicket.IssueDate.AddMinutes(FormsAuthentication.Timeout.Minutes),
 				authorizationTicket.Expiration,
 				"The expected timeout minutes do not match the actual.");
 			ComparisonResult result = comparer.Compare(TestUserData, identity.GetUserData());

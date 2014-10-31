@@ -1,8 +1,8 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
 using Reload.Common.Authentication.Mvc;
 using Reload.Web.Configuration;
 using Reload.Web.Configuration.Bundles;
@@ -39,11 +39,9 @@ namespace Reload.Web
 		/// <summary>Handles the PostAuthenticateRequest event of the MvcApplication control.</summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private static void MvcApplication_PostAuthenticateRequest(object sender, System.EventArgs e)
+		private static void MvcApplication_PostAuthenticateRequest(object sender, EventArgs e)
 		{
-			HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
-
-			UserIdentity identity = MvcAuthentication.GetUserIdentity(authCookie);
+			UserIdentity identity = MvcAuthentication.GetUserIdentity();
 
 			if(identity == null || !identity.HasData()) { return; }
 
