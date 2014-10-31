@@ -12,7 +12,7 @@ namespace Reload.Web.Controllers
 	{
 		/// <summary>Gets the identity.</summary>
 		/// <value>The identity.</value>
-		protected UserIdentity Identity { get { return (UserIdentity)this.User.Identity; } }
+		protected UserIdentity Identity { get { return this.User.Identity as UserIdentity; } }
 
 		/// <summary>Initializes data that is not be available when the constructor is called.</summary>
 		/// <param name="requestContext">The HTTP context and route data.</param>
