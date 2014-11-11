@@ -1,11 +1,12 @@
-﻿
+﻿using Reload.Common.Authentication.Mvc;
+
 namespace Reload.Common.Authentication
 {
-	/// <summary>Interface applying user identity data.</summary>
-	public interface IHasIdentityData
+	/// <summary>Interface applying a user identity.</summary>
+	public interface IHasUserIdentity
 	{
 		/// <summary>Gets or sets the identity.</summary>
 		/// <value>The identity.</value>
-		IUserIdentityData Identity { get; set; }
+		IUserIdentity Identity { get; set; }
 	}
 }

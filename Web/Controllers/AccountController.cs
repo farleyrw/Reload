@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Security;
 using MvcContrib;
 using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
@@ -28,7 +29,6 @@ namespace Reload.Web.Controllers
 		}
 
 		/// <summary>The login view.</summary>
-		[HttpGet]
 		public ActionResult Login(bool? autoLogout = false)
 		{
 			if(this.Request.IsAuthenticated)
@@ -36,7 +36,7 @@ namespace Reload.Web.Controllers
 				return this.RedirectToAction<HomeController>(action => action.Welcome());
 			}
 
-			base.DeleteFormsAuthentication();
+			FormsAuthentication.SignOut();
 
 			ViewBag.AutoLogout = autoLogout.GetValueOrDefault(false);
 
@@ -44,7 +44,6 @@ namespace Reload.Web.Controllers
 		}
 
 		/// <summary>The register view.</summary>
-		[HttpGet]
 		public ActionResult Register()
 		{
 			// TODO: remove this duplication.
@@ -53,7 +52,7 @@ namespace Reload.Web.Controllers
 				return this.RedirectToAction<HomeController>(action => action.Welcome());
 			}
 
-			base.DeleteFormsAuthentication();
+			FormsAuthentication.SignOut();
 
 			return View();
 		}
@@ -62,6 +61,7 @@ namespace Reload.Web.Controllers
 		/// <param name="user">The user.</param>
 		/// <param name="returnUrl">The return URL.</param>
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		[ActionName("Login")]
 		public ActionResult Authenticate(User user, string returnUrl)
 		{
@@ -76,7 +76,7 @@ namespace Reload.Web.Controllers
 				return View(user);
 			}
 
-			UserIdentityData userData = new UserIdentityData
+			IUserIdentity userData = new UserIdentity
 			{
 				AccountId = userLogin.AccountId,
 				Email = userLogin.Email,
@@ -84,7 +84,7 @@ namespace Reload.Web.Controllers
 				LastName = userLogin.LastName
 			};
 
-			base.SaveAuthentication(userData);
+			MvcAuthentication.AuthenticateUser(userData);
 
 			if(Url.IsLocalUrl(returnUrl))
 			{
@@ -120,7 +120,7 @@ namespace Reload.Web.Controllers
 				return View(user);
 			}
 
-			UserIdentityData userData = new UserIdentityData
+			IUserIdentity userData = new UserIdentity
 			{
 				AccountId = userLogin.AccountId,
 				Email = userLogin.Email,
@@ -128,7 +128,7 @@ namespace Reload.Web.Controllers
 				LastName = userLogin.LastName
 			};
 
-			base.SaveAuthentication(userData);
+			MvcAuthentication.AuthenticateUser(userData);
 
 			return this.RedirectToAction<HomeController>(action => action.Welcome());
 		}

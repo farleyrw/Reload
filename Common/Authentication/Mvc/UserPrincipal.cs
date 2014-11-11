@@ -11,7 +11,7 @@ namespace Reload.Common.Authentication.Mvc
 
 		/// <summary>Initializes a new instance of the <see cref="UserPrincipal"/> class.</summary>
 		/// <param name="identity">The identity.</param>
-		public UserPrincipal(UserIdentity identity)
+		public UserPrincipal(IUserIdentity identity)
 		{
 			this.Identity = identity;
 		}

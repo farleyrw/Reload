@@ -1,11 +1,12 @@
-﻿
-namespace Reload.Common.Authentication
+﻿using System.Security.Principal;
+
+namespace Reload.Common.Authentication.Mvc
 {
-	/// <summary>The user identity data interface.</summary>
-	public interface IUserIdentityData
+	/// <summary>The user identity interface.</summary>
+	public interface IUserIdentity : IIdentity
 	{
-		/// <summary>Gets or sets the account id.</summary>
-		/// <value>The account id.</value>
+		/// <summary>Gets or sets the account identifier.</summary>
+		/// <value>The account identifier.</value>
 		int AccountId { get; set; }
 
 		/// <summary>Gets or sets the email.</summary>

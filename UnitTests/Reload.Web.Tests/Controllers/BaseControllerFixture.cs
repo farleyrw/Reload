@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Reload.Common.Authentication.Mvc;
 using Reload.Web.Controllers;
 
 namespace Reload.Web.Tests.Controllers
@@ -27,11 +26,5 @@ namespace Reload.Web.Tests.Controllers
 	/// <summary>A test controller to expose protected methods for testing.</summary>
 	public class TestController : BaseController
 	{
-		/// <summary>Saves the authentication.</summary>
-		/// <param name="userData">The user data.</param>
-		public new void SaveAuthentication(UserIdentityData userData)
-		{
-			//base.SaveAuthentication(userData);
-		}
 	}
 }

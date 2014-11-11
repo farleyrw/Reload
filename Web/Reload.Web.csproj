@@ -225,8 +225,6 @@
     <Content Include="Scripts\angular\angular-animate.min.js" />
     <Content Include="Scripts\angular\angular-aria.js" />
     <Content Include="Scripts\angular\angular-aria.min.js" />
-    <Content Include="Scripts\angular-block-ui\angular-block-ui.js" />
-    <Content Include="Scripts\angular-block-ui\angular-block-ui.min.js" />
     <Content Include="Scripts\angular\angular-cookies.js" />
     <Content Include="Scripts\angular\angular-cookies.min.js" />
     <Content Include="Scripts\angular\angular-csp.css" />
@@ -246,6 +244,8 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\angular-block-ui\angular-block-ui.js" />
+    <Content Include="Scripts\angular-block-ui\angular-block-ui.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />

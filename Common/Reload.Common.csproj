@@ -38,6 +38,7 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,11 +48,9 @@
   <ItemGroup>
     <Compile Include="Attributes\EnumDeserializeDescriptionAttribute.cs" />
     <Compile Include="Authentication\IHasIdentity.cs" />
-    <Compile Include="Authentication\IUserIdentityData.cs" />
+    <Compile Include="Authentication\Mvc\IUserIdentity.cs" />
     <Compile Include="Authentication\Mvc\MvcAuthentication.cs" />
-    <Compile Include="Authentication\Mvc\UserIdentityData.cs" />
     <Compile Include="Authentication\Mvc\UserIdentity.cs" />
-    <Compile Include="Authentication\UserMetadata.cs" />
     <Compile Include="Authentication\Mvc\UserPrincipal.cs" />
     <Compile Include="Enums\Caliber.cs" />
     <Compile Include="Enums\Components\BrassManufacturer.cs" />

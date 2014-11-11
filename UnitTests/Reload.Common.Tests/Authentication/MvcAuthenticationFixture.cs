@@ -1,7 +1,4 @@
-﻿using System;
-using System.Web;
-using System.Web.Security;
-using KellermanSoftware.CompareNetObjects;
+﻿using System.Web;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Authentication.Mvc;
 
@@ -10,9 +7,14 @@ namespace Reload.Common.Tests.Authentication
 	[TestClass]
 	public class MvcAuthenticationFixture
 	{
-		private static readonly CompareLogic comparer = new CompareLogic();
+		[TestInitialize]
+		public void Init()
+		{
+			// Mock up the http context so the tests will work.
+			HttpContext.Current = new HttpContext(new HttpRequest(null, "http://tempuri.org", null), new HttpResponse(null));
+		}
 
-		private static UserIdentityData TestUserData = new UserIdentityData
+		private static IUserIdentity TestUserData = new UserIdentity
 		{
 			AccountId = 1,
 			Email = "user@person.com",
@@ -20,38 +22,30 @@ namespace Reload.Common.Tests.Authentication
 			LastName = "User"
 		};
 
-		private static HttpCookie TestAuthorizationCookie
-		{
-			get
-			{
-				return MvcAuthentication.GetAuthorizationCookie(TestUserData);
-			}
-		}
-
 		[TestMethod]
-		public void GetAuthorizationCookieTest()
+		public void SetAuthorizationTest()
 		{
-			FormsAuthenticationTicket authorizationTicket = FormsAuthentication.Decrypt(TestAuthorizationCookie.Value);
+			MvcAuthentication.AuthenticateUser(TestUserData);
 
-			UserIdentity identity = new UserIdentity(authorizationTicket);
+			IUserIdentity userIdentity = HttpContext.Current.User.Identity as UserIdentity;
 
-			double expectedTimeoutMinutes = DateTime.Compare(authorizationTicket.IssueDate, authorizationTicket.Expiration);
-
-			Assert.AreEqual<DateTime>(
-				authorizationTicket.IssueDate.AddMinutes(FormsAuthentication.Timeout.Minutes),
-				authorizationTicket.Expiration,
-				"The expected timeout minutes do not match the actual.");
-			ComparisonResult result = comparer.Compare(TestUserData, identity.GetUserData());
-			Assert.IsTrue(result.AreEqual, result.DifferencesString);
+			Assert.AreEqual<int>(TestUserData.AccountId, userIdentity.AccountId);
+			Assert.AreEqual<string>(TestUserData.Email, userIdentity.Email);
+			Assert.AreEqual<string>(TestUserData.FirstName, userIdentity.FirstName);
+			Assert.AreEqual<string>(TestUserData.LastName, userIdentity.LastName);
 		}
 
 		[TestMethod]
 		public void GetUserIdentityTest()
 		{
-			UserIdentity identity = MvcAuthentication.GetUserIdentity(TestAuthorizationCookie);
+			string authTicket = MvcAuthentication.GetAuthorizationTicket(TestUserData);
 
-			ComparisonResult result = comparer.Compare(TestUserData, identity.GetUserData());
-			Assert.IsTrue(result.AreEqual, result.DifferencesString);
+			IUserIdentity userIdentity = MvcAuthentication.GetUserIdentityFromEncryptedTicket(authTicket);
+
+			Assert.AreEqual<int>(TestUserData.AccountId, userIdentity.AccountId);
+			Assert.AreEqual<string>(TestUserData.Email, userIdentity.Email);
+			Assert.AreEqual<string>(TestUserData.FirstName, userIdentity.FirstName);
+			Assert.AreEqual<string>(TestUserData.LastName, userIdentity.LastName);
 		}
 	}
 }

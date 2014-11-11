@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Reload.Common.Authentication;
+using Reload.Common.Authentication.Mvc;
 using Reload.Common.Interfaces.Repositories;
 using Reload.Common.Models;
 
@@ -11,11 +12,11 @@ namespace Reload.Repository
 {
 	/// <summary>The base repository for generic CRUD operations.</summary>
 	/// <typeparam name="TEntity">The type of the entity.</typeparam>
-	public abstract class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable, IHasIdentityData where TEntity : class, IBaseModel
+	public abstract class BaseRepository<TEntity> : IRepository<TEntity>, IDisposable, IHasUserIdentity where TEntity : class, IBaseModel
 	{
 		/// <summary>Gets or sets the identity.</summary>
 		/// <value>The identity.</value>
-		public IUserIdentityData Identity { get; set; }
+		public IUserIdentity Identity { get; set; }
 
 		/// <summary>Gets or sets the include expressions.</summary>
 		/// <value>The include expressions.</value>

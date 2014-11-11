@@ -2,6 +2,7 @@
 using Autofac;
 using Autofac.Integration.Mvc;
 using Reload.Common.Authentication;
+using Reload.Common.Authentication.Mvc;
 using Reload.Repository;
 using Reload.Service;
 using Reload.Web.Attributes;
@@ -25,8 +26,6 @@ namespace Reload.Web.Configuration
 
 			builder.RegisterAssemblyTypes(typeof(MvcApplication).Assembly).PropertiesAutowired();
 
-			builder.RegisterType<UserMetadata>().As<IUserIdentityData>();//.InstancePerLifetimeScope();
-
 			// Auto register all Services.
 			builder.RegisterAssemblyTypes(typeof(BaseService).Assembly)
 				.Where(t => t.Name.EndsWith("Service"))
@@ -38,6 +37,9 @@ namespace Reload.Web.Configuration
 				.Where(t => t.Name.EndsWith("Repository"))
 				.AsImplementedInterfaces()
 				.PropertiesAutowired();
+
+			builder.Register(x => { return MvcAuthentication.GetUser(); })
+				.As<IUserIdentity>();
 
 			builder.RegisterFilterProvider();
 
