@@ -16,8 +16,6 @@ namespace Reload.Web
 		{
 			DatabaseConfig.RegisterInitializers();
 
-			AreaRegistration.RegisterAllAreas();
-
 			DependencyConfig.Initialize();
 
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

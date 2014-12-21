@@ -175,6 +175,9 @@
     <Compile Include="Areas\Handloads\Controllers\ManageController.cs" />
     <Compile Include="Areas\Handloads\HandloadResourceBundle.cs" />
     <Compile Include="Areas\Handloads\HandloadsAreaRegistration.cs" />
+    <Compile Include="Areas\User\Controllers\ManageController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\User\UserResourceBundles.cs" />
     <Compile Include="Attributes\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Attributes\HandleExceptionAttribute.cs" />
     <Compile Include="Binders\EmptyStringModelBinder.cs" />
@@ -210,9 +213,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Firearms\Scripts\firearmmanager.js" />
+    <Content Include="Areas\Firearms\Scripts\reload\controllers.js" />
     <Content Include="Areas\Firearms\Scripts\reload\services.js" />
     <Content Include="Areas\Handloads\Scripts\HandloadManager.js" />
     <Content Include="Areas\Handloads\Templates\Edit.html" />
+    <Content Include="Areas\User\Scripts\usermanager.js" />
     <Content Include="Content\angular-block-ui\angular-block-ui.css" />
     <Content Include="Content\angular-block-ui\angular-block-ui.min.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -242,12 +247,12 @@
     <Content Include="Scripts\angular\angular-scenario.js" />
     <Content Include="Scripts\angular\angular-touch.js" />
     <Content Include="Scripts\angular\angular-touch.min.js" />
+    <Content Include="Scripts\angular\angular.js" />
+    <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
-    <Content Include="Scripts\angular\angular.js" />
-    <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\angular-block-ui\angular-block-ui.js" />
     <Content Include="Scripts\angular-block-ui\angular-block-ui.min.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
@@ -268,6 +273,9 @@
     <Content Include="Scripts\angular\angular-aria.min.js.map" />
     <Content Include="Scripts\angular\angular-animate.min.js.map" />
     <Content Include="Scripts\angular\angular.min.js.map" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Index.cshtml" />
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
@@ -331,7 +339,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\User\Models\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Reload.Common.csproj">
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>

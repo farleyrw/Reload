@@ -12,7 +12,9 @@ namespace Reload.Web.Configuration
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			//routes.MapMvcAttributeRoutes();
+			routes.MapMvcAttributeRoutes();
+
+			AreaRegistration.RegisterAllAreas();
 
 			routes.MapRoute(
 				name: "Default",

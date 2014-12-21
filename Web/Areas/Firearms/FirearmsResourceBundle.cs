@@ -19,6 +19,7 @@ namespace Reload.Web.Areas.Firearms
 						"~/Scripts/reload/ui/effects.js",
 						"~/Scripts/reload/ui/widgets.js",
 						"~/Areas/Firearms/Scripts/reload/services.js",
+						"~/Areas/Firearms/Scripts/reload/controllers.js",
 						"~/Areas/Firearms/Scripts/firearmmanager.js"
 					);
 			}

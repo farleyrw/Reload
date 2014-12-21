@@ -30,3 +30,5 @@
 /// <reference path="angular/angular-cookies.min.js" />
 /// <reference path="angular/angular-aria.min.js" />
 /// <reference path="angular/angular-animate.min.js" />
+/// <reference path="../areas/firearms/scripts/reload/controllers.js" />
+/// <reference path="../areas/user/scripts/usermanager.js" />

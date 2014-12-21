@@ -116,7 +116,7 @@ namespace Reload.Web.Controllers
 			// If user was not found, they already exist in the system with this email address.
 			if(userLogin == null)
 			{
-				ModelState.AddModelError("", "User already exists with this email address.");
+				ModelState.AddModelError("", "The email address has already been taken.");
 				return View(user);
 			}
 
