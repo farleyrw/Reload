@@ -1,14 +1,36 @@
-﻿
-@{
-    ViewBag.Title = "Modify Account";
+﻿@{
+	ViewBag.Title = "Manage Account";
 }
 
 @section Scripts {
+	<script>
+		var CurrentUser = @Html.Raw(Json.Encode(this.User.Identity));
+	</script>
+
 	@Scripts.Render("~/bundles/angularjs")
 
 	@Scripts.Render("~/bundles/usermanager")
 }
 
+<h2>Manage Account</h2>
+
 <div ng-app="UserManager">
-	<div ng-controller="UserController">{{ message }}</div>
+	<div ng-form="UserForm" ng-controller="UserController" style="width: 400px;">
+		<p>
+			<label>Email</label>
+			<input class="form-control" ng-model="User.Email" type="email" required />
+		</p>
+		<p>
+			<label>First Name</label>
+			<input class="form-control" ng-model="User.FirstName" required />
+		</p>
+		<p>
+			<label>Last Name</label>
+			<input class="form-control" ng-model="User.LastName" required />
+		</p>
+		<p>
+			<button class="btn btn-success" ng-click="Save()" ng-disabled="UserForm.$invalid || UserForm.$pristine">Save</button>
+			<a style="cursor: pointer; float: right;" ng-click="">Change password</a>
+		</p>
+	</div>
 </div>
