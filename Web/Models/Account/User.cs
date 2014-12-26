@@ -18,7 +18,7 @@ namespace Reload.Web.Models.Account
 		/// <summary>Gets or sets the password.</summary>
 		/// <value>The password.</value>
 		[DisplayName("Password")]
-		[StringLength(16, MinimumLength = 6, ErrorMessage = "{0} length must be between {2} and {1} characters.")]
+		[StringLength(16, MinimumLength = 6, ErrorMessage = "The password does not meet the requirements.")]
 		[DataType(DataType.Password)]
 		[Required]
 		public string Password { get; set; }
