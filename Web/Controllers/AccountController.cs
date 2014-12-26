@@ -120,15 +120,13 @@ namespace Reload.Web.Controllers
 				return View(user);
 			}
 
-			IUserIdentity userData = new UserIdentity
+			MvcAuthentication.AuthenticateUser(new UserIdentity
 			{
 				AccountId = userLogin.AccountId,
 				Email = userLogin.Email,
 				FirstName = userLogin.FirstName,
 				LastName = userLogin.LastName
-			};
-
-			MvcAuthentication.AuthenticateUser(userData);
+			});
 
 			return this.RedirectToAction<HomeController>(action => action.Welcome());
 		}

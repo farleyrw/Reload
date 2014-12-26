@@ -12,7 +12,10 @@ namespace Reload.Web.Areas.User
 			get
 			{
 				return new ScriptBundle("~/bundles/usermanager")
-					.Include("~/Areas/User/Scripts/usermanager.js");
+					.Include(
+						"~/Areas/User/Scripts/reload/services.js",
+						"~/Areas/User/Scripts/usermanager.js"
+					);
 			}
 		}
 	}

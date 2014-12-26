@@ -21,12 +21,10 @@ namespace Reload.Repository.Repositories
 		/// <param name="password">The password.</param>
 		public UserLogin GetUser(string email, string password)
 		{
-			UserLogin userLogin = this.Entities
+			return this.Entities
 				.FirstOrDefault(user =>
 					user.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && 
-					user.Password == password);
-
-			return userLogin;
+					(password == null || user.Password == password));
 		}
 
 		/// <summary>Creates a user.</summary>
@@ -44,6 +42,14 @@ namespace Reload.Repository.Repositories
 			}
 
 			return null;
+		}
+		
+		/// <summary>Determines whether [is email available] [the specified email].</summary>
+		/// <param name="email">The email.</param>
+		public bool IsEmailAvailable(string email)
+		{
+			return !this.Entities
+				.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
 		}
 	}
 }

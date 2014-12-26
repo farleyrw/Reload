@@ -7,7 +7,7 @@
 		var CurrentUser = @Html.Raw(Json.Encode(this.User.Identity));
 	</script>
 
-	@Scripts.Render("~/bundles/angularjs")
+	@Scripts.Render("~/bundles/angularjs", "~/bundles/angularui")
 
 	@Scripts.Render("~/bundles/usermanager")
 }
@@ -18,7 +18,7 @@
 	<div ng-form="UserForm" ng-controller="UserController" style="width: 400px;">
 		<p>
 			<label>Email</label>
-			<input class="form-control" ng-model="User.Email" type="email" required />
+			<input class="form-control" ng-model="User.Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
 		</p>
 		<p>
 			<label>First Name</label>
@@ -29,8 +29,8 @@
 			<input class="form-control" ng-model="User.LastName" required />
 		</p>
 		<p>
-			<button class="btn btn-success" ng-click="Save()" ng-disabled="UserForm.$invalid || UserForm.$pristine">Save</button>
-			<a style="cursor: pointer; float: right;" ng-click="">Change password</a>
+			<a style="cursor: pointer;" ng-click="ChangePassword()">Change password</a>
+			<button class="btn btn-success" style="float: right;" ng-click="Save()" ng-disabled="FormValidation()">Save</button>
 		</p>
 	</div>
 </div>

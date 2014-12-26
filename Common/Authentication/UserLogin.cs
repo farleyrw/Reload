@@ -3,12 +3,14 @@ using Reload.Common.Models;
 
 namespace Reload.Common.Authentication
 {
+	/// <summary>The user login model.</summary>
 	public class UserLogin : IBaseModel
 	{
 		[Key]
 		public int AccountId { get; set; }
 
 		[Required]
+		[EmailAddress]
 		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 

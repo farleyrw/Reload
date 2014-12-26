@@ -81,6 +81,7 @@ namespace Reload.Repository
 		{
 			CheckForNullEntityAndThrowExecption(entity);
 
+			// TODO: make this not stink. Use ModelState on base model or something like that.
 			if(primaryKey == 0)
 			{
 				this.Insert(entity);

@@ -7,13 +7,13 @@ Reload.DefineNamespace('Reload.Ui.Widgets', function () {
 			Show: function (name) {
 				return modal.open({
 					size: 'sm',
-					controller: function ($scope, $modalInstance) {
-						$scope.Name = name;
+					controller: ['$scope', '$modalInstance', function (scope, modalInstance) {
+						scope.Name = name;
 
-						$scope.Confirm = $modalInstance.close;
+						scope.Confirm = modalInstance.close;
 
-						$scope.Cancel = $modalInstance.dismiss;
-					},
+						scope.Cancel = modalInstance.dismiss;
+					}],
 					template:
 						'<div class="modal-header"><h3 class="modal-title">Confirm</h3></div>' +
 						'<div class="modal-body">Are you sure you want to delete your {{ Name }}?</div>' +

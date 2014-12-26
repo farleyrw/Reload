@@ -19,6 +19,14 @@ namespace Reload.Web.Initialization
 				Password = "123456"
 			});
 
+			context.Users.Add(new UserLogin
+			{
+				Email = "test@example.com",
+				FirstName = "Test",
+				LastName = "Guy",
+				Password = "123456"
+			});
+
 			context.SaveChanges();
 		}
 	}

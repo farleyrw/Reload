@@ -13,5 +13,9 @@ namespace Reload.Common.Interfaces.Repositories
 		/// <summary>Creates a user.</summary>
 		/// <param name="user">The user.</param>
 		UserLogin CreateUser(UserLogin user);
+		
+		/// <summary>Determines whether [is email available] [the specified email].</summary>
+		/// <param name="email">The email.</param>
+		bool IsEmailAvailable(string email);
 	}
 }
