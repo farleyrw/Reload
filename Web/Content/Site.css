@@ -73,8 +73,8 @@ fieldset legend {
 	padding-left: 4px;
 }
 
-form button {
-	float: right;
+form .FormFooter {
+	text-align: right;
 }
 
 form ul {

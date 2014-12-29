@@ -13,12 +13,12 @@
 
 @if(ViewBag.AutoLogout ?? false)
 {
-<h3>You have been automatically logged out due to inactivity.</h3>
+	<h3>You have been automatically logged out due to inactivity.</h3>
 }
 
 <fieldset>
 	<legend>Login to your account</legend>
-	@using (Html.BeginForm())
+	@using(Html.BeginForm())
 	{
 		@Html.AntiForgeryToken()
 		@Html.ValidationSummary(true)
@@ -33,7 +33,9 @@
 			@Html.ValidationMessageFor(u => u.Password)
 		</p>
 		@Html.Hidden("ReturnUrl", Request.QueryString.Get("returnUrl"))
-		<button type="submit" class="btn btn-primary">Login</button>
+		<p class="FormFooter">
+			<button type="submit" class="btn btn-primary">Login</button>
+		</p>
 	}
 </fieldset>
 

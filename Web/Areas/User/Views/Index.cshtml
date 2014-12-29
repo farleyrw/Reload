@@ -14,8 +14,8 @@
 
 <h2>Manage Account</h2>
 
-<div ng-app="UserManager">
-	<div ng-form="UserForm" ng-controller="UserController" style="width: 400px;">
+<div ng-app="UserManager" ng-controller="UserController">
+	<form name="UserForm" style="width: 400px;">
 		<p>
 			<label>Email</label>
 			<input class="form-control" ng-model="User.Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
@@ -28,9 +28,9 @@
 			<label>Last Name</label>
 			<input class="form-control" ng-model="User.LastName" required />
 		</p>
-		<p>
-			<a style="cursor: pointer;" ng-click="ChangePassword()">Change password</a>
-			<button class="btn btn-success" style="float: right;" ng-click="Save()" ng-disabled="FormValidation()">Save</button>
+		<p class="FormFooter">
+			<a style="cursor: pointer; float: left;" ng-click="ChangePassword()">Change password</a>
+			<button class="btn btn-success" ng-click="Save()" ng-disabled="FormValidation()">Save</button>
 		</p>
-	</div>
+	</form>
 </div>
