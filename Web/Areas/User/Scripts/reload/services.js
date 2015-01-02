@@ -28,7 +28,9 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 						scope.ConfirmPassword = '';
 
 						scope.ValidatePasswords = function () {
-							if (scope.Password.length >= 6 && scope.Password == scope.ConfirmPassword) { return true; }
+							if (scope.Password && scope.Password.length >= 6 && scope.Password == scope.ConfirmPassword) {
+								return true;
+							}
 
 							return false;
 						};

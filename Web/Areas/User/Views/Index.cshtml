@@ -29,7 +29,8 @@
 			<input class="form-control" ng-model="User.LastName" required />
 		</p>
 		<p class="FormFooter">
-			<a style="cursor: pointer; float: left;" ng-click="ChangePassword()">Change password</a>
+			<a style="cursor: pointer; float: left;" ng-click="ChangePassword()" ng-hide="PasswordSaved">Change password</a>
+			<strong style="float: left;" ng-show="PasswordSaved">Password Saved</strong>
 			<button class="btn btn-success" ng-click="Save()" ng-disabled="FormValidation()">Save</button>
 		</p>
 	</form>
