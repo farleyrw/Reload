@@ -7,47 +7,48 @@
 
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryvalidation")
-
-	<script src="@Url.Content("~/Scripts/Site/Account/Account.js")"></script>
 }
 
 <h2>Become a member</h2>
+
 <fieldset>
 	<legend>Create an account</legend>
-	@using (Html.BeginForm())
+	@using(Html.BeginForm())
 	{
 		@Html.ValidationSummary(true)
-		<div>
+		<p>
 			@Html.LabelFor(u => u.Email)
-			@Html.MaxLengthTextBoxFor(u => u.Email)
+			@Html.MaxLengthTextBoxFor(u => u.Email, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.Email)
-		</div>
-		<div>
+		</p>
+		<p>
 			@Html.LabelFor(u => u.ConfirmEmail)
-			@Html.MaxLengthTextBoxFor(u => u.ConfirmEmail)
+			@Html.MaxLengthTextBoxFor(u => u.ConfirmEmail, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.ConfirmEmail)
-		</div>
-		<div>
+		</p>
+		<p>
 			@Html.LabelFor(u => u.Password)
-			@Html.PasswordFor(u => u.Password)
+			@Html.PasswordFor(u => u.Password, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.Password)
-		</div>
-		<div>
+		</p>
+		<p>
 			@Html.LabelFor(u => u.ConfirmPassword)
-			@Html.PasswordFor(u => u.ConfirmPassword)
+			@Html.PasswordFor(u => u.ConfirmPassword, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.ConfirmPassword)
-		</div>
-		<div>
+		</p>
+		<p>
 			@Html.LabelFor(u => u.FirstName)
-			@Html.MaxLengthTextBoxFor(u => u.FirstName)
+			@Html.MaxLengthTextBoxFor(u => u.FirstName, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.FirstName)
-		</div>
-		<div>
+		</p>
+		<p>
 			@Html.LabelFor(u => u.LastName)
-			@Html.MaxLengthTextBoxFor(u => u.LastName)
+			@Html.MaxLengthTextBoxFor(u => u.LastName, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.LastName)
-		</div>
-		<button type="submit" class="btn btn-primary">Sign Up</button>
+		</p>
+		<p class="FormFooter">
+			<button type="submit" class="btn btn-primary">Sign Up</button>
+		</p>
 	}
 </fieldset>
 <p>@Html.ActionLink("Already a user?", "Login")</p>

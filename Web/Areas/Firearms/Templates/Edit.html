@@ -1,36 +1,29 @@
 ﻿
 <h2>Modify Firearm</h2>
-<fieldset>
-	<legend>Info</legend>
-	<form name="FirearmForm" ng-cloak="">
-		<ul>
-			<li>
-				<label>Brand</label>
-				<input ng-model="Firearm.Brand" type="text" placeholder="Enter a brand" required tooltip-placement="right" tooltip="eg. Remington" />
-			</li>
-			<li>
-				<label>Model</label>
-				<input ng-model="Firearm.Model" type="text" placeholder="Enter a model" required tooltip-placement="right" tooltip="eg. Model 700" />
-			</li>
-			<li>
-				<label>Caliber</label>
-				<select ng-model="Firearm.Chamber" ng-options="c.Id as c.Name for c in Enums.Cartidges" required></select>
-			</li>
-			<li>
-				<label>Barrel Length</label>
-				<input ng-model="Firearm.BarrelLength" type="number" placeholder="Enter a barrel length" required min="1" max="40"/>
-				<span style="font-weight: bold">in</span>
-			</li>
-			<li>
-				<label>Type</label>
-				<select ng-model="Firearm.Type" ng-options="t.Id as t.Name for t in Enums.Types" required></select>
-			</li>
-		</ul>
-		<p class="FormFooter">
-			<button ng-click="Save()" ng-disabled="FirearmForm.$invalid" class="btn btn-primary">Save</button>
-		</p>
-	</form>
-</fieldset>
-<p>
-	<button ng-click="BackToList()" class="btn btn-danger">Cancel</button>
-</p>
+
+<form name="FirearmForm" ng-cloak="" style="width: 400px;">
+	<p>
+		<label>Brand</label>
+		<input class="form-control" ng-model="Firearm.Brand" type="text" placeholder="Enter a brand" required tooltip-placement="right" tooltip="eg. Remington" />
+	</p>
+	<p>
+		<label>Model</label>
+		<input class="form-control" ng-model="Firearm.Model" type="text" placeholder="Enter a model" required tooltip-placement="right" tooltip="eg. Model 700" />
+	</p>
+	<p>
+		<label>Caliber</label>
+		<select class="form-control" ng-model="Firearm.Chamber" ng-options="c.Id as c.Name for c in Enums.Cartidges" required></select>
+	</p>
+	<p>
+		<label>Barrel Length (in)</label>
+		<input class="form-control" ng-model="Firearm.BarrelLength" type="number" placeholder="Enter a barrel length" required min="1" max="40" />
+	</p>
+	<p>
+		<label>Type</label>
+		<select class="form-control" ng-model="Firearm.Type" ng-options="t.Id as t.Name for t in Enums.Types" required></select>
+	</p>
+	<p class="FormFooter">
+		<button ng-click="BackToList()" class="btn btn-danger" style="float: left;">Cancel</button>
+		<button ng-click="Save()" ng-disabled="FirearmForm.$invalid" class="btn btn-success">Save</button>
+	</p>
+</form>
