@@ -7,8 +7,8 @@ using Reload.Web.Controllers;
 namespace Reload.Web.Areas.User.Controllers
 {
 	/// <summary>The account controller.</summary>
-    public class ManageController : BaseController
-    {
+	public class ManageController : BaseController
+	{
 		private readonly IUserService Service;
 
 		/// <summary>Initializes a new instance of the <see cref="ManageController"/> class.</summary>
@@ -19,10 +19,10 @@ namespace Reload.Web.Areas.User.Controllers
 		}
 
 		/// <summary>The default view.</summary>
-        public ActionResult Index()
-        {
-            return View();
-        }
+		public ActionResult Index()
+		{
+			return View();
+		}
 
 		[HttpPost]
 		public ActionResult SaveUser(UserLogin user)
@@ -65,7 +65,12 @@ namespace Reload.Web.Areas.User.Controllers
 		{
 			if(this.Identity.Email.Equals(email)) { return BaseController.GetJsonStatusResult(true); }
 
-			return BaseController.GetJsonStatusResult(this.Service.IsEmailAvailable(email), "The email address is taken.");
+			if(!this.Service.IsEmailAvailable(email))
+			{
+				return BaseController.GetJsonStatusResult(false, "The email address is taken.");
+			}
+
+			return BaseController.GetJsonStatusResult(true);
 		}
-    }
+	}
 }

@@ -18,7 +18,14 @@
 	<form name="UserForm" style="width: 400px;">
 		<p>
 			<label>Email</label>
-			<input class="form-control" ng-model="User.Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
+			<input class="form-control" ng-model="User.Email" name="Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
+			<div ng-if="UserForm.Email.$dirty">
+				<div ng-messages="UserForm.Email.$error">
+					<span ng-message="required">Email field required</span>
+					<span ng-message="email">Valid email required</span>
+					<span ng-message="emailAvailable">The email address is already in use</span>
+				</div>
+			</div>
 		</p>
 		<p>
 			<label>First Name</label>

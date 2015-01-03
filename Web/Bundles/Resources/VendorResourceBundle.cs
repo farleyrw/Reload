@@ -44,7 +44,8 @@ namespace Reload.Web.Bundles.Resources
 						"~/Scripts/angular/angular.js",
 						"~/Scripts/angular/angular-resource.js",
 						"~/Scripts/angular/angular-loader.js",
-						"~/Scripts/angular/angular-route.js"
+						"~/Scripts/angular/angular-route.js",
+						"~/Scripts/angular/angular-messages.js"
 					);
 			}
 		}

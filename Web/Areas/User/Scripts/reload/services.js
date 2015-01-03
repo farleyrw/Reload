@@ -2,8 +2,7 @@
 
 Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 	/// The user service.
-	this.UserService = function (ajax) {
-		var baseUrl = '/Reload/User/Manage/'
+	this.UserService = function (ajax, baseUrl) {
 		return {
 			SaveUser: function (user, callback) {
 				return ajax.post(baseUrl + 'SaveUser', { user: user }).success(callback);
@@ -14,7 +13,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 			ValidateEmail: function (email) {
 				return ajax.post(baseUrl + 'ValidateUniqueEmail', { email: email });
 			}
-		}
+		};
 	};
 
 	/// The password change dialog service.
@@ -24,6 +23,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 				return modal.open({
 					size: 'sm',
 					controller: ['$scope', '$modalInstance', function (scope, modalInstance) {
+						scope.SavePending = false;
 						scope.Password = '';
 						scope.ConfirmPassword = '';
 
@@ -36,6 +36,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 						};
 
 						scope.Save = function () {
+							scope.SavePending = true;
 							var passwords = { password: scope.Password, confirmPassword: scope.ConfirmPassword };
 							UserService.SavePassword(passwords, modalInstance.close);
 						};
@@ -56,7 +57,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 							'</p>' +
 						'</div>' +
 						'<div class="modal-footer">' +
-							'<button class="btn btn-primary" ng-click="Save()" ng-disabled="!ValidatePasswords()">OK</button>' +
+							'<button class="btn btn-primary" ng-click="Save()" ng-disabled="!ValidatePasswords() || SavePending">OK</button>' +
 							'<button class="btn btn-warning" ng-click="Cancel()">Cancel</button>' +
 						'</div>'
 				}).result;
