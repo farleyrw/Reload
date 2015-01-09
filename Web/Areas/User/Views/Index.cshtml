@@ -5,10 +5,6 @@
 }
 
 @section Scripts {
-	<script>
-		var CurrentUser = @Html.Raw(Json.Encode(this.User.Identity));
-	</script>
-
 	@Scripts.Render("~/bundles/angularjs", "~/bundles/angularui")
 
 	@Scripts.Render("~/bundles/usermanager")
@@ -17,7 +13,7 @@
 <h2>Manage Account</h2>
 
 <div ng-app="UserManager" ng-controller="UserController">
-	<form name="UserForm" style="width: 400px;" novalidate>
+	<form name="UserForm" style="width: 400px;" ng-submit="Save()" novalidate>
 		<div>
 			@Html.LabelFor(u => u.Email)
 			<input class="form-control" ng-model="User.Email" name="Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
@@ -40,7 +36,7 @@
 		<p class="FormFooter">
 			<a style="cursor: pointer; float: left;" ng-click="ChangePassword()" ng-hide="PasswordSaved">Change password</a>
 			<strong style="float: left;" ng-show="PasswordSaved">Password Saved</strong>
-			<button class="btn btn-success" ng-click="Save()" ng-disabled="FormValidation()">Save</button>
+			<button class="btn btn-success" type="submit" ng-disabled="FormValidation()">Save</button>
 		</p>
 	</form>
 </div>

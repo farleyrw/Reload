@@ -7,8 +7,11 @@ angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
 	.value('baseUrl', '/Reload/User/Manage/')
 	.service('UserService', ['$http', 'baseUrl', Reload.Areas.User.Services.UserService])
 	.service('PasswordFormDialog', ['$modal', 'UserService', Reload.Areas.User.Services.PasswordChangeDialogService])
-	.controller('UserController', ['$scope', '$timeout', 'CurrentUser', 'UserService', 'PasswordFormDialog', function (scope, timeout, CurrentUser, UserService, PasswordChangeDialog) {
-		scope.User = CurrentUser;
+	.directive('emailUniqueValidator', ['$q', 'UserService', Reload.Areas.User.Services.UniqueEmailDirective])
+	.controller('UserController', ['$scope', '$timeout', 'UserService', 'PasswordFormDialog', function (scope, timeout, UserService, PasswordChangeDialog) {
+		UserService.Get(function (data) {
+			scope.User = data;
+		});
 
 		scope.PasswordSaved = false;
 
@@ -34,21 +37,5 @@ angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
 
 		scope.FormValidation = function () {
 			return scope.UserForm.$invalid || scope.UserForm.$pristine || scope.UserForm.$pending;
-		};
-	}])
-	.directive('emailUniqueValidator', ['$q', 'UserService', function (promise, UserService) {
-		return {
-			require: 'ngModel',
-			link: function (scope, element, attributes, ngModel) {
-				ngModel.$asyncValidators.emailAvailable = function (modelValue, viewValue) {
-					return UserService.ValidateEmail(viewValue).then(function (response) {
-						if (!response.data.Success) {
-							return promise.reject(response.data.Message);
-						}
-
-						return true;
-					});
-				};
-			}
 		};
 	}]);

@@ -9,6 +9,7 @@ namespace Reload.Web.Areas.User.Controllers
 	/// <summary>The account controller.</summary>
 	public class ManageController : BaseController
 	{
+		/// <summary>The user service.</summary>
 		private readonly IUserService Service;
 
 		/// <summary>Initializes a new instance of the <see cref="ManageController"/> class.</summary>
@@ -24,8 +25,16 @@ namespace Reload.Web.Areas.User.Controllers
 			return View();
 		}
 
+		/// <summary>Gets the current user.</summary>
+		public ActionResult Get()
+		{
+			return BaseController.GetJsonResult(this.User.Identity);
+		}
+
+		/// <summary>Saves the specified user.</summary>
+		/// <param name="user">The user.</param>
 		[HttpPost]
-		public ActionResult SaveUser(UserLogin user)
+		public ActionResult Save(UserLogin user)
 		{
 			// Get user by current identity email.
 			UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
@@ -48,6 +57,9 @@ namespace Reload.Web.Areas.User.Controllers
 			return BaseController.GetJsonStatusResult(true, "User saved");
 		}
 
+		/// <summary>Saves the password.</summary>
+		/// <param name="password">The password.</param>
+		/// <param name="confirmPassword">The confirm password.</param>
 		[HttpPost]
 		public ActionResult SavePassword(string password, string confirmPassword)
 		{
@@ -60,6 +72,8 @@ namespace Reload.Web.Areas.User.Controllers
 			return BaseController.GetJsonStatusResult(true, "Password saved");
 		}
 
+		/// <summary>Validates the unique email.</summary>
+		/// <param name="email">The email.</param>
 		[HttpPost]
 		public ActionResult ValidateUniqueEmail(string email)
 		{

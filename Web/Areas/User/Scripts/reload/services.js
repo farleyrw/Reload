@@ -4,14 +4,35 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 	/// The user service.
 	this.UserService = function (ajax, baseUrl) {
 		return {
+			Get: function(callback) {
+				return ajax.get(baseUrl + 'Get').success(callback);
+			},
 			SaveUser: function (user, callback) {
-				return ajax.post(baseUrl + 'SaveUser', { user: user }).success(callback);
+				return ajax.post(baseUrl + 'Save', { user: user }).success(callback);
 			},
 			SavePassword: function (passwords, callback) {
 				return ajax.post(baseUrl + 'SavePassword', passwords).success(callback);
 			},
 			ValidateEmail: function (email) {
 				return ajax.post(baseUrl + 'ValidateUniqueEmail', { email: email });
+			}
+		};
+	};
+
+	/// The unique email directive.
+	this.UniqueEmailDirective = function (promise, UserService) {
+		return {
+			require: 'ngModel',
+			link: function (scope, element, attributes, ngModel) {
+				ngModel.$asyncValidators.emailAvailable = function (modelValue, viewValue) {
+					return UserService.ValidateEmail(viewValue).then(function (response) {
+						if (!response.data.Success) {
+							return promise.reject(response.data.Message);
+						}
+
+						return true;
+					});
+				};
 			}
 		};
 	};
