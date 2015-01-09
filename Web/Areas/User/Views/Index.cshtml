@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Reload.Common.Authentication.UserLogin
+
+@{
 	ViewBag.Title = "Manage Account";
 }
 
@@ -15,9 +17,9 @@
 <h2>Manage Account</h2>
 
 <div ng-app="UserManager" ng-controller="UserController">
-	<form name="UserForm" style="width: 400px;">
-		<p>
-			<label>Email</label>
+	<form name="UserForm" style="width: 400px;" novalidate>
+		<div>
+			@Html.LabelFor(u => u.Email)
 			<input class="form-control" ng-model="User.Email" name="Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
 			<div ng-if="UserForm.Email.$dirty">
 				<div ng-messages="UserForm.Email.$error">
@@ -26,15 +28,15 @@
 					<span ng-message="emailAvailable">The email address is already in use</span>
 				</div>
 			</div>
-		</p>
-		<p>
-			<label>First Name</label>
-			<input class="form-control" ng-model="User.FirstName" required />
-		</p>
-		<p>
-			<label>Last Name</label>
-			<input class="form-control" ng-model="User.LastName" required />
-		</p>
+		</div>
+		<div>
+			@Html.LabelFor(u => u.FirstName)
+			<input class="form-control" name="FirstName" ng-model="User.FirstName" required />
+		</div>
+		<div>
+			@Html.LabelFor(u => u.LastName)
+			<input class="form-control" name="LastName" ng-model="User.LastName" required />
+		</div>
 		<p class="FormFooter">
 			<a style="cursor: pointer; float: left;" ng-click="ChangePassword()" ng-hide="PasswordSaved">Change password</a>
 			<strong style="float: left;" ng-show="PasswordSaved">Password Saved</strong>

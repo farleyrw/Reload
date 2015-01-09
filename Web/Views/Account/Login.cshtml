@@ -22,16 +22,16 @@
 	{
 		@Html.AntiForgeryToken()
 		@Html.ValidationSummary(true)
-		<p>
+		<div>
 			@Html.LabelFor(u => u.Email)
 			@Html.MaxLengthTextBoxFor(u => u.Email, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.Email)
-		</p>
-		<p>
+		</div>
+		<div>
 			@Html.LabelFor(u => u.Password)
 			@Html.PasswordFor(u => u.Password, new { @class = "form-control" })
 			@Html.ValidationMessageFor(u => u.Password)
-		</p>
+		</div>
 		@Html.Hidden("ReturnUrl", Request.QueryString.Get("returnUrl"))
 		<p class="FormFooter">
 			<button type="submit" class="btn btn-primary">Login</button>
