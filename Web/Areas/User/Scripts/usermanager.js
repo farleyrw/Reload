@@ -3,7 +3,6 @@
 Reload.IncludeModule('Reload.Areas.User.Services');
 
 angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
-	.value('CurrentUser', angular.copy(CurrentUser))
 	.value('baseUrl', '/Reload/User/Manage/')
 	.service('UserService', ['$http', 'baseUrl', Reload.Areas.User.Services.UserService])
 	.service('PasswordFormDialog', ['$modal', 'UserService', Reload.Areas.User.Services.PasswordChangeDialogService])

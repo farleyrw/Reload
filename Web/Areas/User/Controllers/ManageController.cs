@@ -43,6 +43,7 @@ namespace Reload.Web.Areas.User.Controllers
 			userLogin.Email = user.Email;
 			userLogin.FirstName = user.FirstName;
 			userLogin.LastName = user.LastName;
+			userLogin.Password = user.Password;
 
 			this.Service.Save(userLogin);
 

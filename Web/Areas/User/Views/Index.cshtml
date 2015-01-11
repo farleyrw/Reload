@@ -17,21 +17,25 @@
 		<div>
 			@Html.LabelFor(u => u.Email)
 			<input class="form-control" ng-model="User.Email" name="Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
-			<div ng-if="UserForm.Email.$dirty">
-				<div ng-messages="UserForm.Email.$error">
-					<span ng-message="required">Email field required</span>
-					<span ng-message="email">Valid email required</span>
-					<span ng-message="emailAvailable">The email address is already in use</span>
-				</div>
+			<div ng-messages="UserForm.Email.$error">
+				<span ng-message="required">Email field required</span>
+				<span ng-message="email">Valid email required</span>
+				<span ng-message="emailAvailable">The email address is already in use</span>
 			</div>
 		</div>
 		<div>
 			@Html.LabelFor(u => u.FirstName)
 			<input class="form-control" name="FirstName" ng-model="User.FirstName" required />
+			<div ng-messages="UserForm.FirstName.$error">
+				<span ng-message="required">The First Name field is required</span>
+			</div>
 		</div>
 		<div>
 			@Html.LabelFor(u => u.LastName)
 			<input class="form-control" name="LastName" ng-model="User.LastName" required />
+			<div ng-messages="UserForm.LastName.$error">
+				<span ng-message="required">The Last Name field is required</span>
+			</div>
 		</div>
 		<p class="FormFooter">
 			<a style="cursor: pointer; float: left;" ng-click="ChangePassword()" ng-hide="PasswordSaved">Change password</a>
