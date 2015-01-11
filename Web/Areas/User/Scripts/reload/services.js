@@ -25,7 +25,15 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 			require: 'ngModel',
 			link: function (scope, element, attributes, ngModel) {
 				ngModel.$asyncValidators.emailAvailable = function (modelValue, viewValue) {
-					return UserService.ValidateEmail(viewValue).then(function (response) {
+					if (!modelValue || scope.OriginalEmail == modelValue) {
+						var empty = promise.defer();
+
+						empty.resolve(function () { return true; });
+
+						return empty.promise;
+					}
+
+					return UserService.ValidateEmail(modelValue).then(function (response) {
 						if (!response.data.Success) {
 							return promise.reject(response.data.Message);
 						}

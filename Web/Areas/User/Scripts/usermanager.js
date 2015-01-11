@@ -10,6 +10,7 @@ angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
 	.controller('UserController', ['$scope', '$timeout', 'UserService', 'PasswordFormDialog', function (scope, timeout, UserService, PasswordChangeDialog) {
 		UserService.Get(function (data) {
 			scope.User = data;
+			scope.OriginalEmail = scope.User.Email;
 		});
 
 		scope.PasswordSaved = false;
