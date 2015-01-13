@@ -7,6 +7,7 @@ angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
 	.service('UserService', ['$http', 'baseUrl', Reload.Areas.User.Services.UserService])
 	.service('PasswordFormDialog', ['$modal', 'UserService', Reload.Areas.User.Services.PasswordChangeDialogService])
 	.directive('emailUniqueValidator', ['$q', 'UserService', Reload.Areas.User.Services.UniqueEmailDirective])
+	.directive('compareTo', Reload.Areas.User.Services.CompareToControl)
 	.controller('UserController', ['$scope', '$timeout', 'UserService', 'PasswordFormDialog', function (scope, timeout, UserService, PasswordChangeDialog) {
 		UserService.Get(function (data) {
 			scope.User = data;

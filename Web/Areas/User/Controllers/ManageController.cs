@@ -2,6 +2,7 @@
 using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
 using Reload.Common.Interfaces.Services;
+using Reload.Web.Areas.User.Models;
 using Reload.Web.Controllers;
 
 namespace Reload.Web.Areas.User.Controllers
@@ -59,18 +60,32 @@ namespace Reload.Web.Areas.User.Controllers
 		}
 
 		/// <summary>Saves the password.</summary>
-		/// <param name="password">The password.</param>
-		/// <param name="confirmPassword">The confirm password.</param>
+		/// <param name="passwords">The passwords.</param>
 		[HttpPost]
-		public ActionResult SavePassword(string password, string confirmPassword)
+		public ActionResult SavePassword(PasswordChangeViewModel passwords)
 		{
-			UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
+			if(ModelState.IsValid)
+			{
+				UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
 
-			userLogin.Password = password;
+				if(!userLogin.Password.Equals(passwords.OldPassword))
+				{
+					return BaseController.GetJsonStatusResult(false, "The old password is not correct.");
+				}
 
-			this.Service.Save(userLogin);
+				if(!passwords.NewPassword.Equals(passwords.ConfirmPassword))
+				{
+					return BaseController.GetJsonStatusResult(false, "The new and confirm passwords do not match.");
+				}
 
-			return BaseController.GetJsonStatusResult(true, "Password saved");
+				userLogin.Password = passwords.NewPassword;
+
+				this.Service.Save(userLogin);
+
+				return BaseController.GetJsonStatusResult(true);
+			}
+
+			return BaseController.GetJsonStatusResult(false, "The form is not valid.");
 		}
 
 		/// <summary>Validates the unique email.</summary>
