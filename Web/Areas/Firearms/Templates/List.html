@@ -4,15 +4,15 @@
 <table ng-cloak="" class="table table-striped">
 	<thead>
 		<tr>
-			<th class="btn-link" ng-click="sort='Model';reverse=!reverse" title="Sort">Model</th>
 			<th class="btn-link" ng-click="sort='Brand';reverse=!reverse" title="Sort">Brand</th>
+			<th class="btn-link" ng-click="sort='Model';reverse=!reverse" title="Sort">Model</th>
 			<th class="btn-link" ng-click="sort='Chamber';reverse=!reverse" title="Sort">Caliber</th>
 			<th></th>
 		</tr>
 	</thead>
     <tr ng-repeat="firearm in Firearms | orderBy:sort:reverse" hover-highlight>
+		<td>{{ firearm.Brand }}</td>
         <td>{{ firearm.Model }}</td>
-        <td>{{ firearm.Brand }}</td>
         <td>{{ firearm.Chamber | EnumToString:Enums.Cartidges }}</td>
         <td>
 			<modify-item-control edit-click="Edit(firearm.FirearmId)" delete-click="Delete(firearm)"></modify-item-control>

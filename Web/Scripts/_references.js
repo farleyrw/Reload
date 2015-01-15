@@ -33,3 +33,5 @@
 /// <reference path="../areas/user/scripts/usermanager.js" />
 /// <reference path="../areas/user/scripts/reload/services.js" />
 /// <reference path="jquery/jquery-2.1.3.min.js" />
+/// <reference path="../areas/handloads/scripts/reload/services.js" />
+/// <reference path="../areas/handloads/scripts/reload/controllers.js" />

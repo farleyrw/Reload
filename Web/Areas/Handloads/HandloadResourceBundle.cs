@@ -19,6 +19,8 @@ namespace Reload.Web.Areas.Handloads
 						"~/Scripts/reload/ui/effects.js",
 						"~/Scripts/reload/ui/widgets.js",
 						"~/Areas/Firearms/Scripts/Reload/Services.js",
+						"~/Areas/Handloads/Scripts/Reload/Services.js",
+						"~/Areas/Handloads/Scripts/Reload/Controllers.js",
 						"~/Areas/Handloads/Scripts/HandloadManager.js"
 					);
 			}

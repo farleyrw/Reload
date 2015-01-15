@@ -1,4 +1,6 @@
 ﻿
+<a href="#/list">Back to list</a>
+
 <h2>Modify Handload</h2>
 <fieldset>
 	<legend>Info</legend>
@@ -9,9 +11,8 @@
 				<select ng-model="Hanload.Powder" ng-options="c.Id as c.Name for c in Enums.Powders"></select>
 			</li>
 			<li>
-				<label>Powder Charge</label>
+				<label>Powder Charge (gr)</label>
 				<input ng-model="Handload.PowderCharge" type="number" placeholder="Enter the powder charge" required />
-				<span style="font-weight: bold">grains</span>
 			</li>
 			<li>
 				<label>Brass Brand</label>
@@ -31,9 +32,8 @@
 				<select ng-model="Hanload.Primer.Type" ng-options="c.Id as c.Name for c in Enums.PrimerTypes"></select>
 			</li>
 			<li>
-				<label>Seating Depth</label>
+				<label>Seating Depth (in)</label>
 				<input ng-model="Handload.SeatingDepth" type="number" placeholder="Enter the seating depth" required />
-				<span style="font-weight: bold">in</span>
 			</li>
 			<li>
 				<label>Bullet Weight</label>

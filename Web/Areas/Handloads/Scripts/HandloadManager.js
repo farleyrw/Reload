@@ -6,73 +6,29 @@ Reload.IncludeModules([
 	'Reload.Ui.Controls',
 	'Reload.Ui.Effects',
 	'Reload.Ui.Widgets',
-	'Reload.Areas.Firearms.Services'
+	'Reload.Areas.Firearms.Services',
+	'Reload.Areas.Handloads.Services',
+	'Reload.Areas.Handloads.Controllers'
 ]);
 
 angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI'])
 	.constant('templateUrl', '/reload/areas/handloads/templates/')
 	.value('enumUrl', '/reload/handloads/enums/get')
-	.config(['$routeProvider', function (routing) {
+	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
-			.when('/list', { templateUrl: 'areas/handloads/templates/list.html', controller: 'HandloadListController' })
-			//.when('/new', { templateUrl: 'areas/handloads/templates/edit.html', controller: 'HandloadEditController' })
-			//.when('/edit/:Id', { templateUrl: 'areas/handloads/templates/edit.html', controller: 'HandloadEditController' })
+			.when('/list', { templateUrl: templateUrl + 'list.html', controller: 'HandloadListController' })
+			.when('/new', { templateUrl: templateUrl + 'edit.html', controller: 'HandloadEditController' })
+			.when('/edit/:Id', { templateUrl: templateUrl + 'edit.html', controller: 'HandloadEditController' })
 			.otherwise({ redirectTo: '/list' });
 	}])
 	.filter('EnumToString', Reload.Filters.Helpers.EnumToString)
 	.service('HandloadEnumService', ['$resource', 'enumUrl', Reload.Web.Services.Enums])
 	.service('FirearmService', ['$resource', Reload.Areas.Firearms.Services.WebService])
-	.service('HandloadService', ['$resource', function (ajax) {
-		var api = ajax('handloads/manage/:action/:id', {
-			action: '@action',
-			id: '@id'
-		}, {
-			List: {
-				method: 'GET',
-				params: { action: 'getthem' },
-				isArray: true
-			},
-			Delete: {
-				method: 'POST',
-				params: { action: 'delete' }
-			},
-			Edit: {
-				method: 'GET',
-				params: { action: 'edit', id: 'id' }
-			},
-			Save: {
-				method: 'POST',
-				params: { action: 'save' }
-			}
-		});
-
-		return {
-			List: api.List,
-			Delete: function (firearm, callback) {
-				api.Delete({ firearmId: firearm.FirearmId }, callback);
-			},
-			Get: function (firearmId) {
-				return api.Edit({ id: firearmId || 0 });
-			},
-			Save: function (firearm, callback) {
-				api.Save({ firearm: firearm }, callback);
-			}
-		};
-	}])
-	.controller('HandloadListController',
-		['$scope', '$location', 'FirearmService', 'HandloadService', 'HandloadEnumService',
-			function (scope, location, FirearmService, HandloadService, EnumService) {
-				scope.Firearms = FirearmService.List();
-
-				scope.Hanloads = HandloadService.List();
-
-				scope.click = function () {
-					scope.SelectedFirearm = scope.Firearms[0];
-				}
-
-				scope.Enums = EnumService.Get();
-			}
-		]);
+	.service('HandloadService', ['$resource', Reload.Areas.Handloads.Services.HandloadService])
+	.controller('HandloadListController', ['$scope', 'HandloadService', 'FirearmService', 'HandloadEnumService',
+		Reload.Areas.Handloads.Controllers.HandloadListController
+	])
+	.controller('HandloadEditController', ['$scope', Reload.Areas.Handloads.Controllers.HandloadEditController]);
 
 /* TODO:
 	Add handloads for a firearm
