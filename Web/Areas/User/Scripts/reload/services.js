@@ -53,43 +53,82 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 					size: 'sm',
 					controller: ['$scope', '$modalInstance', function (scope, modalInstance) {
 						scope.SavePending = false;
-						scope.Password = '';
+						scope.OldPassword = '';
+						scope.NewPassword = '';
 						scope.ConfirmPassword = '';
-
-						scope.ValidatePasswords = function () {
-							if (scope.Password && scope.Password.length >= 6 && scope.Password == scope.ConfirmPassword) {
-								return true;
-							}
-
-							return false;
-						};
 
 						scope.Save = function () {
 							scope.SavePending = true;
-							var passwords = { password: scope.Password, confirmPassword: scope.ConfirmPassword };
-							UserService.SavePassword(passwords, modalInstance.close);
+							var passwords = {
+								oldPassword: scope.OldPassword,
+								newPassword: scope.NewPassword,
+								confirmPassword: scope.ConfirmPassword
+							};
+							UserService.SavePassword({ passwords: passwords }, function (data) {
+								if (data.Success) {
+									modalInstance.close();
+								} else {
+									scope.SavePending = false;
+									alert(data.Message);
+								}
+							});
 						};
 
 						scope.Cancel = modalInstance.dismiss;
 					}],
 					template:
 						'<div class="modal-header"><h3 class="modal-title">Change password</h3></div>' +
-						'<div class="modal-body">' +
-							'<h3>Enter your new password</h3>' +
-							'<p>' +
-								'<label>Password</label>' +
-								'<input class="form-control" ng-model="Password" type="password" required />' +
-							'</p>' +
-							'<p>' +
-								'<label>Confirm Password</label>' +
-								'<input class="form-control" ng-model="ConfirmPassword" type="password" required />' +
-							'</p>' +
-						'</div>' +
-						'<div class="modal-footer">' +
-							'<button class="btn btn-primary" ng-click="Save()" ng-disabled="!ValidatePasswords() || SavePending">OK</button>' +
-							'<button class="btn btn-warning" ng-click="Cancel()">Cancel</button>' +
-						'</div>'
+						'<form name="PasswordForm" ng-submit="Save()" novalidate>' +
+							'<div class="modal-body">' +
+								'<p>' +
+									'<label>Old Password</label>' +
+									'<input class="form-control" type="password" name="OldPassword" ng-model="OldPassword" required />' +
+									'<div ng-if="PasswordForm.OldPassword.$dirty" ng-messages="PasswordForm.OldPassword.$error">' +
+										'<span ng-message="required">The old password is required</span>' +
+									'</div>' +
+								'</p>' +
+								'<p>' +
+									'<label>New Password</label>' +
+									'<input class="form-control" type="password" name="NewPassword" ng-model="NewPassword" minlength="6" required />' +
+									'<div ng-if="PasswordForm.NewPassword.$dirty" ng-messages="PasswordForm.NewPassword.$error">' +
+										'<span ng-message="required">The new password is required</span>' +
+										'<span ng-message="minlength">The new password must be at least 6 characters</span>' +
+									'</div>' +
+								'</p>' +
+								'<p>' +
+									'<label>Confirm Password</label>' +
+									'<input class="form-control" type="password" name="ConfirmPassword" ng-model="ConfirmPassword" compare-to="NewPassword" required />' +
+									'<div ng-if="PasswordForm.ConfirmPassword.$dirty" ng-messages="PasswordForm.ConfirmPassword.$error">' +
+										'<span ng-message="required">The confirm password is required</span>' +
+										'<span ng-message="compareTo">The new and confirm password do not match</span>' +
+									'</div>' +
+								'</p>' +
+							'</div>' +
+							'<div class="modal-footer">' +
+								'<button class="btn btn-primary" type="submit" ng-disabled="PasswordForm.$invalid || SavePending">OK</button>' +
+								'<button class="btn btn-warning" ng-click="Cancel()">Cancel</button>' +
+							'</div>' +
+						'</form>'
 				}).result;
+			}
+		};
+	};
+
+	/// The compare to control directive.
+	this.CompareToControl = function () {
+		return {
+			restrict: 'A',
+			require: 'ngModel',
+			scope: {
+				compareTo: '='
+			},
+			link: function (scope, element, attribute, ngModel) {
+				scope.$watchGroup(['compareTo', function () { return ngModel.$viewValue; }], function (newValues) {
+					var compareValue = newValues[0] || '';
+					var thisValue = newValues[1] || '';
+
+					ngModel.$setValidity('compareTo', thisValue == compareValue);
+				});
 			}
 		};
 	};
