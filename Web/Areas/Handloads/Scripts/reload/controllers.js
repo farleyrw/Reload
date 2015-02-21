@@ -5,7 +5,7 @@ Reload.DefineNamespace('Reload.Areas.Handloads.Controllers', function () {
 	this.HandloadListController = function (scope, HandloadService, FirearmService, EnumService) {
 		scope.Firearms = FirearmService.List();
 
-		scope.Hanloads = HandloadService.List();
+		scope.Handloads = HandloadService.List();
 
 		scope.click = function () {
 			scope.SelectedFirearm = scope.Firearms[0];
