@@ -9,38 +9,51 @@ namespace Reload.Web.Tests.Helpers.Angular
 	[TestClass]
 	public class NgHtmlHelpersFixture
 	{
-		[TestMethod]
-		public void MustReturnRequiredClientValidationMessage()
-		{
-			HtmlHelper<TestEntity> html = null;
-			var result = html.NgDirectivesFor(s => s.RequiredProperty);
-			var expectedValue = "";// "ngval='{\"required\":\"The RequiredProperty field is required.\"}' required";
+		private static HtmlHelper<TestModel> TestHtmlHelper;
 
-			Assert.AreEqual(expectedValue, result.ToString());
+		[ClassInitialize]
+		public static void Initialize(TestContext testContext)
+		{
+			TestHtmlHelper = HtmlHelperMock.GetHtmlHelper<TestModel>(new TestModel());
 		}
 
 		[TestMethod]
-		public void MustReturnStringLength10ClientValidationMessage()
+		public void MustReturnRequiredAttribute()
 		{
-			HtmlHelper<TestEntity> html = null;
-			var result = html.NgDirectivesFor(s => s.Length10Property);
-			var expectedValue = "";// "ngval='{\"length\":\"The field Length10Property must be a string with a maximum length of 10.\"}' ng-maxlength=\"10\"";
-			
-			Assert.AreEqual(expectedValue, result.ToString());
+			string result = TestHtmlHelper.NgDirectivesFor(s => s.RequiredProperty).ToString();
+
+			Assert.IsTrue(result.Contains("required"));
+			Assert.IsFalse(result.Contains("required="));
 		}
 
 		[TestMethod]
-		public void MustReturnCombinedResultForRequiredAndPatternValidation()
+		public void MustReturnNgMaxlengthAttribute()
 		{
-			HtmlHelper<TestEntity> html = null;
-			var resultStr = html.NgDirectivesFor(s => s.MultipleValidationProperty).ToString();
-			var expectedValue = "";// "ngval='{\"regex\":\"The field MultipleValidationProperty must match the regular expression \\u0027\\\\d\\u0027.\",\"required\":\"The MultipleValidationProperty field is required.\"}' ng-pattern=\"\\d\" required";
-			
-			Assert.AreEqual(expectedValue, resultStr);
+			string result = TestHtmlHelper.NgDirectivesFor(s => s.Length10Property).ToString();
+
+			Assert.IsTrue(result.Contains("ng-maxlength=\"10\""));
+		}
+
+		[TestMethod]
+		public void MustReturnNgPatternAttribute()
+		{
+			string result = TestHtmlHelper.NgDirectivesFor(s => s.PatternProperty).ToString();
+
+			Assert.IsTrue(result.Contains("ng-pattern=\"\\d\""));
+		}
+
+		[TestMethod]
+		public void MustReturnMultipleNgAttributes()
+		{
+			string result = TestHtmlHelper.NgDirectivesFor(s => s.MultipleValidationProperty).ToString();
+
+			Assert.IsTrue(result.Contains("required"));
+
+			Assert.IsTrue(result.Contains("ng-maxlength=\"5\""));
 		}
 	}
 
-	public class TestEntity
+	public class TestModel
 	{
 		[Required]
 		public string RequiredProperty { get; set; }
@@ -48,8 +61,11 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[StringLength(10)]
 		public string Length10Property { get; set; }
 
-		[Required]
 		[RegularExpression("\\d")]
+		public string PatternProperty { get; set; }
+
+		[Required]
+		[StringLength(5)]
 		public string MultipleValidationProperty { get; set; }
 	}
 }

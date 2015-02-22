@@ -6,6 +6,10 @@ namespace Reload.Web.Tests.Helpers
 {
 	internal static class HtmlHelperMock
 	{
+		/// <summary>Gets the HTML helper.</summary>
+		/// <typeparam name="TModel">The type of the model.</typeparam>
+		/// <param name="inputDictionary">The input dictionary.</param>
+		/// <returns>A mocked HtmlHelper for unit testing.</returns>
 		public static HtmlHelper<TModel> GetHtmlHelper<TModel>(TModel inputDictionary)
 		{
 			var viewData = new ViewDataDictionary<TModel>(inputDictionary);
@@ -16,7 +20,7 @@ namespace Reload.Web.Tests.Helpers
 			return new HtmlHelper<TModel>(mockViewContext.Object, GetViewDataContainer(viewData));
 		}
 
-		public static IViewDataContainer GetViewDataContainer(ViewDataDictionary viewData)
+		private static IViewDataContainer GetViewDataContainer(ViewDataDictionary viewData)
 		{
 			var mockContainer = new Mock<IViewDataContainer>();
 			mockContainer.Setup(c => c.ViewData).Returns(viewData);

@@ -8,20 +8,26 @@ namespace Reload.Web.Tests.Helpers.Html
 	[TestClass]
 	public class MaxlengthTextboFixture
 	{
+		private static HtmlHelper<TestModel> TestHtmlHelper;
+
+		[ClassInitialize]
+		public static void Initialize(TestContext testContext)
+		{
+			TestHtmlHelper = HtmlHelperMock.GetHtmlHelper<TestModel>(new TestModel());
+		}
+
 		[TestMethod]
 		public void CanAddMaxlengthAttribute()
 		{
-			HtmlHelper<TestModel> html = HtmlHelperMock.GetHtmlHelper<TestModel>(new TestModel());
-			string result = html.MaxLengthTextBoxFor(x => x.MaxlengthField).ToString();
+			string result = TestHtmlHelper.MaxLengthTextBoxFor(x => x.MaxlengthField).ToString();
 
 			Assert.IsTrue(result.Contains("maxlength=\"20\""));
 		}
 
 		[TestMethod]
-		public void CanSkipMaxlengthAttribute()
+		public void CanIgnoreMaxlengthAttribute()
 		{
-			HtmlHelper<TestModel> html = HtmlHelperMock.GetHtmlHelper<TestModel>(new TestModel());
-			string result = html.MaxLengthTextBoxFor(x => x.NoMaxlengthField).ToString();
+			string result = TestHtmlHelper.MaxLengthTextBoxFor(x => x.NoMaxlengthField).ToString();
 
 			Assert.IsFalse(result.Contains("maxlength"));
 		}

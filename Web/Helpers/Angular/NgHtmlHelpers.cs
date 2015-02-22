@@ -18,11 +18,13 @@ namespace Reload.Web.Helpers.Angular
 	 *	Or as a full input model creator:
 	 *	@Html.NgModelFor(model => model.Property [, string:name|id] [, object:htmlAttributes])
 	 *	Resulting in similar functionality from native Html model helpers producing:
-	 *	<input ng-model="name" name="name" id="name" type="typeof(property)" ng-*="" />
+	 *	<input ng-model="name" name="name" id="name" type="typeof(property)" ng-*="*" />
 	 */
 	public static class NgHtmlHelpers
 	{
-		public static MvcHtmlString NgDirectivesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
+		public static MvcHtmlString NgDirectivesFor<TModel, TProperty>(
+			this HtmlHelper<TModel> htmlHelper, 
+			Expression<Func<TModel, TProperty>> expression)
 		{
 			List<ModelClientValidationRule> validations = GetValidationRules<TModel, TProperty>(expression);
 
@@ -33,7 +35,9 @@ namespace Reload.Web.Helpers.Angular
 			return new MvcHtmlString(html);
 		}
 
-		public static MvcHtmlString NgValidationMessagesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
+		public static MvcHtmlString NgValidationMessagesFor<TModel, TProperty>(
+			this HtmlHelper<TModel> htmlHelper, 
+			Expression<Func<TModel, TProperty>> expression)
 		{
 			List<ModelClientValidationRule> validations = GetValidationRules<TModel, TProperty>(expression);
 			IDictionary<string, string> validatorMessages = validations
@@ -55,7 +59,8 @@ namespace Reload.Web.Helpers.Angular
 			return new MvcHtmlString(validationMessages.ToString());
 		}
 
-		private static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(Expression<Func<TModel, TProperty>> expression)
+		private static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(
+			Expression<Func<TModel, TProperty>> expression)
 		{
 			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, new ViewDataDictionary<TModel>());
 			string name = ExpressionHelper.GetExpressionText(expression);
@@ -99,7 +104,7 @@ namespace Reload.Web.Helpers.Angular
 
 						if(validation.ValidationParameters.ContainsKey("max"))
 						{
-							attributes.Add("ng-maxlength=\"{0}\"", validation.ValidationParameters["max"].ToString());
+							attributes.Add("ng-maxlength", validation.ValidationParameters["max"].ToString());
 						}
 						break;
 					default:
@@ -117,7 +122,12 @@ namespace Reload.Web.Helpers.Angular
 
 			foreach(var attribute in attributes)
 			{
-				result.Append(string.Format("{0}=\"{1}\"", attribute.Key, attribute.Value ?? string.Empty));
+				result.Append(attribute.Key);
+
+				if(!string.IsNullOrWhiteSpace(attribute.Value))
+				{
+					result.Append(string.Format("=\"{0}\"", attribute.Value));
+				}
 			}
 
 			return String.Join(" ", result.ToString());
