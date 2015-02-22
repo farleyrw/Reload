@@ -11,16 +11,27 @@ namespace Reload.Web.Tests.Helpers.Html
 		[TestMethod]
 		public void CanAddMaxlengthAttribute()
 		{
-			HtmlHelper<TestModel> html = HtmlHelperFactory.Create<TestModel>(new TestModel { Field = "lol" });
-			string result = html.MaxLengthTextBoxFor(x => x.Field).ToString();
+			HtmlHelper<TestModel> html = HtmlHelperMock.GetHtmlHelper<TestModel>(new TestModel());
+			string result = html.MaxLengthTextBoxFor(x => x.MaxlengthField).ToString();
 
 			Assert.IsTrue(result.Contains("maxlength=\"20\""));
+		}
+
+		[TestMethod]
+		public void CanSkipMaxlengthAttribute()
+		{
+			HtmlHelper<TestModel> html = HtmlHelperMock.GetHtmlHelper<TestModel>(new TestModel());
+			string result = html.MaxLengthTextBoxFor(x => x.NoMaxlengthField).ToString();
+
+			Assert.IsFalse(result.Contains("maxlength"));
 		}
 	}
 
 	public class TestModel
 	{
 		[StringLength(20)]
-		public string Field { get; set; }
+		public string MaxlengthField { get; set; }
+
+		public string NoMaxlengthField { get; set; }
 	}
 }
