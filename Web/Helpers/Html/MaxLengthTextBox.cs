@@ -11,7 +11,7 @@ namespace Reload.Web.Helpers.Html
 	/// <summary>The maxlength text box helper class.</summary>
 	public static class MaxLengthTextBox
 	{
-		/// <summary>Extends the base textbox by adding a maximum length attribute from a model data annotation.</summary>
+		/// <summary>Extends the base textbox by adding a maximum length attribute from the StringLengthAttribute.</summary>
 		/// <typeparam name="TModel">The type of the model.</typeparam>
 		/// <typeparam name="TProperty">The type of the property.</typeparam>
 		/// <param name="htmlHelper">The HTML helper.</param>
@@ -25,7 +25,7 @@ namespace Reload.Web.Helpers.Html
 			MemberExpression propertyExpression = expression.Body as MemberExpression;
 			StringLengthAttribute stringLength = propertyExpression.Member.GetCustomAttribute<StringLengthAttribute>(false);
 
-			IDictionary<string, object> attributes = (IDictionary<string, object>)(htmlAttributes ?? new { });
+			var attributes = HtmlHelper.ObjectToDictionary(htmlAttributes ?? new { });
 			if(stringLength != null)
 			{
 				attributes.Add("maxlength", stringLength.MaximumLength);

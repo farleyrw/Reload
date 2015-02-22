@@ -110,6 +110,8 @@
     <Compile Include="Controllers\AccountControllerFixture.cs" />
     <Compile Include="Controllers\BaseControllerFixture.cs" />
     <Compile Include="Helpers\Angular\NgHtmlHelpersFixture.cs" />
+    <Compile Include="Helpers\HtmlHelperFactory.cs" />
+    <Compile Include="Helpers\Html\MaxlengthTextboxFixture.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelperFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\FirearmControllerFixture.cs" />
