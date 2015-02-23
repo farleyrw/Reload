@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace Reload.Web.Helpers.Angular
 {
@@ -22,44 +21,14 @@ namespace Reload.Web.Helpers.Angular
 	 */
 	public static class NgHtmlHelpers
 	{
-		public static MvcHtmlString NgDirectivesFor<TModel, TProperty>(
-			this HtmlHelper<TModel> htmlHelper, 
-			Expression<Func<TModel, TProperty>> expression)
+		public static IDictionary<string, object> GetAttributesFromValidations<TModel, TProperty>(Expression<Func<TModel, TProperty>> expression)
 		{
-			List<ModelClientValidationRule> validations = GetValidationRules<TModel, TProperty>(expression);
+			List<ModelClientValidationRule> validations = NgHtmlHelpers.GetValidationRules<TModel, TProperty>(expression);
 
-			IDictionary<string, string> ngAttributes = TransformValidatorsToDirectives(validations);
-
-			string html = AttributesToHtmlString(ngAttributes);
-
-			return new MvcHtmlString(html);
+			return NgHtmlHelpers.TransformValidatorsToDirectives(validations);
 		}
 
-		public static MvcHtmlString NgValidationMessagesFor<TModel, TProperty>(
-			this HtmlHelper<TModel> htmlHelper, 
-			Expression<Func<TModel, TProperty>> expression)
-		{
-			List<ModelClientValidationRule> validations = GetValidationRules<TModel, TProperty>(expression);
-			IDictionary<string, string> validatorMessages = validations
-				.ToDictionary(key => key.ValidationType.ToLower(), value => value.ErrorMessage);
-
-			StringBuilder validationMessages = new StringBuilder();
-
-			// TODO: needs form name to access field
-			// TODO: build ng-messages validation string, allow for extra messages and ordering
-			// types: pattern, email, date, size-> int, other types
-			//	<span ng-message="{0}">{1}</span>
-
-			foreach(var validationMessage in validatorMessages)
-			{
-				// TODO: probably going to need some transform here.
-				validationMessages.Append(string.Format("<span ng-message=\"{0}\">{1}</span>", validationMessage.Key, validationMessage.Value));
-			}
-
-			return new MvcHtmlString(validationMessages.ToString());
-		}
-
-		private static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(
+		public static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(
 			Expression<Func<TModel, TProperty>> expression)
 		{
 			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, new ViewDataDictionary<TModel>());
@@ -76,9 +45,9 @@ namespace Reload.Web.Helpers.Angular
 		/// <summary>Transforms the .Net validators to angular directives.</summary>
 		/// <param name="validations">The validations.</param>
 		/// <returns>A set of attributes representing angular directives.</returns>
-		private static IDictionary<string, string> TransformValidatorsToDirectives(List<ModelClientValidationRule> validations)
+		public static IDictionary<string, object> TransformValidatorsToDirectives(List<ModelClientValidationRule> validations)
 		{
-			IDictionary<string, string> attributes = new Dictionary<string, string>();
+			IDictionary<string, object> attributes = new Dictionary<string, object>();
 
 			validations.ForEach(validation =>
 			{
@@ -116,7 +85,7 @@ namespace Reload.Web.Helpers.Angular
 			return attributes;
 		}
 
-		private static string AttributesToHtmlString(IDictionary<string, string> attributes)
+		public static string AttributesToHtmlString(IDictionary<string, object> attributes)
 		{
 			StringBuilder result = new StringBuilder();
 
@@ -124,7 +93,7 @@ namespace Reload.Web.Helpers.Angular
 			{
 				result.Append(attribute.Key);
 
-				if(!string.IsNullOrWhiteSpace(attribute.Value))
+				if(!string.IsNullOrWhiteSpace(attribute.Value as string))
 				{
 					result.Append(string.Format("=\"{0}\"", attribute.Value));
 				}
