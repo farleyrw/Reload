@@ -1,5 +1,8 @@
 ﻿using System.Collections;
+using System.Security.Principal;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Moq;
 
 namespace Reload.Web.Tests.Helpers
@@ -17,6 +20,14 @@ namespace Reload.Web.Tests.Helpers
 			mockViewContext.Setup(c => c.ViewData).Returns(viewData);
 			mockViewContext.Setup(c => c.HttpContext.Items).Returns(new Hashtable());
 
+			var mockController = new Mock<Controller> { CallBase = true };
+			/*mockController.Setup(c => c.ControllerContext).Returns(new ControllerContext
+			{
+				Controller = mockController.Object,
+				RequestContext = new RequestContext(new MockHttpContext(), new RouteData())
+			});*/
+			mockViewContext.Setup(c => c.Controller).Returns(mockController.Object);
+
 			return new HtmlHelper<TModel>(mockViewContext.Object, GetViewDataContainer(viewData));
 		}
 
@@ -26,6 +37,17 @@ namespace Reload.Web.Tests.Helpers
 			mockContainer.Setup(c => c.ViewData).Returns(viewData);
 
 			return mockContainer.Object;
+		}
+
+		private class MockHttpContext : HttpContextBase
+		{
+			private readonly IPrincipal _user = new GenericPrincipal(new GenericIdentity("someUser"), null);
+
+			public override IPrincipal User
+			{
+				get { return _user; }
+				set { base.User = value; }
+			}
 		}
 	}
 }
