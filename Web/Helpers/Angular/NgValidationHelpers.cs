@@ -13,28 +13,36 @@ namespace Reload.Web.Helpers.Angular
 			this HtmlHelper<TModel> htmlHelper,
 			Expression<Func<TModel, TProperty>> expression)
 		{
-			List<ModelClientValidationRule> validations = null;// GetValidationRules<TModel, TProperty>(expression);
-			IDictionary<string, string> validatorMessages = validations
-				.ToDictionary(key => key.ValidationType.ToLower(), value => value.ErrorMessage);
+			List<ModelClientValidationRule> validations = NgHtmlHelpers.GetValidationRules(expression);
 
-			StringBuilder validationMessages = new StringBuilder();
+			IDictionary<string, string> validationMessages = GetTransformedValidations(validations);
 
-			// TODO: needs form name to access field
-			// TODO: build ng-messages validation string, allow for extra messages and ordering
-			// types: pattern, email, date, size-> int, other types
+			StringBuilder validationMessageHtml = new StringBuilder();
+
+			// TODO: build ng-message validation string, allow for extra messages and ordering
+			// TODO: needs form name to access field if creating parent ng-messages
 			//	<span ng-message="{0}">{1}</span>
 
-			foreach(var validationMessage in validatorMessages)
+			foreach(var validationMessage in validationMessages)
 			{
-				// TODO: probably going to need some transform here.
-				validationMessages.Append(string.Format(
+				validationMessageHtml.Append(string.Format(
 					"<span ng-message=\"{0}\">{1}</span>",
-					validationMessage.Key,
+					validationMessage.Key.Replace("ng-", string.Empty),
 					validationMessage.Value
 				));
 			}
 
-			return new MvcHtmlString(validationMessages.ToString());
+			return new MvcHtmlString(validationMessageHtml.ToString());
+		}
+
+		private static IDictionary<string, string> GetTransformedValidations(List<ModelClientValidationRule> validations)
+		{
+			IDictionary<string, string> validationMessages = validations
+				.ToDictionary(key => key.ValidationType.ToLower(), value => value.ErrorMessage);
+
+			// TODO: transform to angular error key from enum
+
+			return validationMessages;
 		}
 	}
 }

@@ -206,6 +206,7 @@
     <Compile Include="Helpers\Angular\NgHtmlHelpers.cs" />
     <Compile Include="Helpers\Angular\NgModelHelpers.cs" />
     <Compile Include="Helpers\Angular\NgValidationHelpers.cs" />
+    <Compile Include="Helpers\Angular\ValidatorTypes.cs" />
     <Compile Include="Helpers\EnumViewModelHelper.cs" />
     <Compile Include="Helpers\Json\EnumDescriptionConverter.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelper.cs" />

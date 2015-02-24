@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Authentication\MvcAuthenticationFixture.cs" />
     <Compile Include="Helpers\EnumHelperFixture.cs" />
+    <Compile Include="Helpers\AttributeHelperFixture.cs" />
     <Compile Include="Helpers\XmlTransformHelperFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

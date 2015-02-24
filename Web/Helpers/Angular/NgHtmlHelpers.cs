@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Web.Mvc;
 
 namespace Reload.Web.Helpers.Angular
@@ -21,7 +20,8 @@ namespace Reload.Web.Helpers.Angular
 	 */
 	public static class NgHtmlHelpers
 	{
-		public static IDictionary<string, object> GetAttributesFromValidations<TModel, TProperty>(Expression<Func<TModel, TProperty>> expression)
+		public static IDictionary<string, object> GetAttributesFromValidations<TModel, TProperty>(
+			Expression<Func<TModel, TProperty>> expression)
 		{
 			List<ModelClientValidationRule> validations = NgHtmlHelpers.GetValidationRules<TModel, TProperty>(expression);
 
@@ -53,6 +53,7 @@ namespace Reload.Web.Helpers.Angular
 			{
 				string validationType = validation.ValidationType.ToLower();
 
+				// TODO: add enums instead of strings, move attribute conversion into different method
 				switch(validationType)
 				{
 					// TOOD: email? other types?
@@ -64,7 +65,7 @@ namespace Reload.Web.Helpers.Angular
 
 						attributes.Add("ng-pattern", patternValue);
 						break;
-					case "range":
+					//case "range":
 					case "length":
 						if(validation.ValidationParameters.ContainsKey("min"))
 						{
@@ -83,23 +84,6 @@ namespace Reload.Web.Helpers.Angular
 			});
 
 			return attributes;
-		}
-
-		public static string AttributesToHtmlString(IDictionary<string, object> attributes)
-		{
-			StringBuilder result = new StringBuilder();
-
-			foreach(var attribute in attributes)
-			{
-				result.Append(attribute.Key);
-
-				if(!string.IsNullOrWhiteSpace(attribute.Value as string))
-				{
-					result.Append(string.Format("=\"{0}\"", attribute.Value));
-				}
-			}
-
-			return String.Join(" ", result.ToString());
 		}
 	}
 }

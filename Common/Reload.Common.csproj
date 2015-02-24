@@ -62,6 +62,7 @@
     <Compile Include="Enums\Components\PrimerManufacturer.cs" />
     <Compile Include="Enums\Components\PrimerType.cs" />
     <Compile Include="Enums\WindDirection.cs" />
+    <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\XmlTransformHelper.cs" />
     <Compile Include="Interfaces\Repositories\IErrorLoggingRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFirearmRepository.cs" />
