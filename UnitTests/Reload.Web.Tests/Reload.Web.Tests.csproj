@@ -115,6 +115,7 @@
     <Compile Include="Helpers\Angular\NgModelHelpersFixture.cs" />
     <Compile Include="Helpers\Angular\NgModelValidationHelpersFixture.cs" />
     <Compile Include="Helpers\Angular\TestModel.cs" />
+    <Compile Include="Helpers\HtmlHelperMockBetter.cs" />
     <Compile Include="Helpers\HtmlHelperMock.cs" />
     <Compile Include="Helpers\Html\MaxlengthTextboxFixture.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelperFixture.cs" />
