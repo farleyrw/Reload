@@ -6,7 +6,7 @@ using Reload.Web.Helpers.Angular;
 namespace Reload.Web.Tests.Helpers.Angular
 {
 	[TestClass]
-	public class NgModelValidationHelpersFixture
+	public class NgModelDirectiveHelpersFixture
 	{
 		private static HtmlHelper<NgTestModel> TestHtmlHelper;
 
@@ -58,6 +58,18 @@ namespace Reload.Web.Tests.Helpers.Angular
 			Assert.IsTrue(attributes.Contains("required"));
 
 			Assert.IsTrue(attributes.Contains("ng-maxlength=\"5\""));
+		}
+
+		[TestMethod]
+		public void MustReturnNumericNgAttribute()
+		{
+			Assert.Inconclusive();
+		}
+
+		[TestMethod]
+		public void MustReturnDateNgAttribute()
+		{
+			Assert.Inconclusive();
 		}
 	}
 }

@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Reload.Web.Tests.Helpers.Angular
 {
 	public class NgTestModel
 	{
+		public int NumericProperty { get; set; }
+
+		public DateTime DateProperty { get; set; }
+
 		[Required]
 		public string RequiredProperty { get; set; }
 

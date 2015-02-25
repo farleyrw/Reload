@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace Reload.Web.Helpers.Angular
 {
 	/// <summary>Angular directive model validation helpers.</summary>
-	public static class NgModelValidationHelpers
+	public static class NgModelDirectiveHelpers
 	{
 		/// <summary>Generates a list of validation attributes as angular directives.</summary>
 		/// <typeparam name="TModel">The type of the model.</typeparam>
@@ -34,7 +34,7 @@ namespace Reload.Web.Helpers.Angular
 			{
 				result.Append(attribute.Key);
 
-				if(!string.IsNullOrWhiteSpace(attribute.Value as string))
+				if(attribute.Value != null)
 				{
 					result.Append(string.Format("=\"{0}\"", attribute.Value));
 				}
