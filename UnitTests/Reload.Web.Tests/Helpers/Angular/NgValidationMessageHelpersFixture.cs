@@ -56,5 +56,13 @@ namespace Reload.Web.Tests.Helpers.Angular
 
 			Assert.IsTrue(messages.Contains("ng-message=\"email\""));
 		}
+
+		[TestMethod]
+		public void MustReturnCustomErrorValidationMessage()
+		{
+			string messages = TestHtmlHelper.NgValidationMessagesFor(s => s.CustomErrorMessageProperty).ToString();
+
+			Assert.IsTrue(messages.Contains(">Custom error message</"));
+		}
 	}
 }

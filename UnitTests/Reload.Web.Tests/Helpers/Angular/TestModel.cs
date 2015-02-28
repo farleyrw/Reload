@@ -31,5 +31,8 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[Required]
 		[StringLength(5)]
 		public string MultipleValidationProperty { get; set; }
+
+		[Required(ErrorMessage = "Custom error message")]
+		public string CustomErrorMessageProperty { get; set; }
 	}
 }
