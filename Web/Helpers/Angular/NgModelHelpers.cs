@@ -23,7 +23,7 @@ namespace Reload.Web.Helpers.Angular
 				attributes.Add(item);
 			}
 
-			return htmlHelper.EditorFor(expression, attributes);
+			return htmlHelper.TextBoxFor(expression, attributes);
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[ClassInitialize]
 		public static void Initialize(TestContext testContext)
 		{
-			TestHtmlHelper = HtmlHelperMock.GetHtmlHelper<NgTestModel>(new NgTestModel());
+			TestHtmlHelper = HtmlHelperMockBetter.GetHtmlHelper<NgTestModel>(new NgTestModel());
 		}
 
 		[TestMethod]

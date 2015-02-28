@@ -14,19 +14,19 @@ namespace Reload.Web.Tests.Helpers
 		/// <returns>A mocked HtmlHelper for unit testing.</returns>
 		public static HtmlHelper<TModel> GetHtmlHelper<TModel>(TModel inputDictionary)
 		{
-			ViewDataDictionary viewDataDictionary = new ViewDataDictionary(inputDictionary);
+			var viewDataDictionary = new ViewDataDictionary<TModel>(inputDictionary);
 
-			Mock<ViewContext> mockViewContext = new Mock<ViewContext>(
+			var mockViewContext = new Mock<ViewContext>(
 				new Mock<ControllerContext>(
 					new Mock<HttpContextBase>().Object,
-					new RouteData(),
+					new Mock<RouteData>().Object,
 					new Mock<ControllerBase>().Object
 				).Object,
 				new Mock<IView>().Object,
 				viewDataDictionary,
 				new TempDataDictionary(),
 				new Mock<TextWriter>().Object
-			);
+			) { CallBase = true };
 			
 			Mock<IViewDataContainer> mockDataContainer = new Mock<IViewDataContainer>();
 			mockDataContainer.Setup(c => c.ViewData).Returns(viewDataDictionary);

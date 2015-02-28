@@ -21,7 +21,7 @@ namespace Reload.Web.Tests.Helpers
 			mockViewContext.Setup(c => c.HttpContext.Items).Returns(new Hashtable());
 
 			var mockController = new Mock<Controller> { CallBase = true };
-			/*mockController.Setup(c => c.ControllerContext).Returns(new ControllerContext
+			/*mockController.Setup(c => c.ControllerContext).Returns(new ControllerContext()
 			{
 				Controller = mockController.Object,
 				RequestContext = new RequestContext(new MockHttpContext(), new RouteData())

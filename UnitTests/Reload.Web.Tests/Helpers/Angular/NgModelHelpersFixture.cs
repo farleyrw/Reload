@@ -13,7 +13,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[ClassInitialize]
 		public static void Initialize(TestContext testContext)
 		{
-			TestHtmlHelper = HtmlHelperMockBetter.GetHtmlHelper<NgTestModel>(new NgTestModel());
+			TestHtmlHelper = HtmlHelperMock.GetHtmlHelper<NgTestModel>(new NgTestModel());
 		}
 
 		[TestMethod]
@@ -24,6 +24,50 @@ namespace Reload.Web.Tests.Helpers.Angular
 			Assert.IsTrue(element.StartsWith("<input"));
 
 			Assert.IsTrue(element.Contains("required"));
+		}
+
+		[TestMethod]
+		public void MustReturnElementWithMaxlengthAttribute()
+		{
+			string element = TestHtmlHelper.NgModelFor(s => s.MaxLength10Property).ToString();
+
+			Assert.IsTrue(element.StartsWith("<input"));
+
+			Assert.IsTrue(element.Contains("ng-maxlength=\"10\""));
+		}
+
+		[TestMethod]
+		public void MustReturnElementWithMinAndMaxlengthAttributes()
+		{
+			string element = TestHtmlHelper.NgModelFor(s => s.Between5And10Property).ToString();
+
+			Assert.IsTrue(element.StartsWith("<input"));
+
+			Assert.IsTrue(element.Contains("ng-minlength=\"5\""));
+
+			Assert.IsTrue(element.Contains("ng-maxlength=\"10\""));
+		}
+
+		[TestMethod]
+		public void MustReturnElementWithPatternAttribute()
+		{
+			string element = TestHtmlHelper.NgModelFor(s => s.PatternProperty).ToString();
+
+			Assert.IsTrue(element.StartsWith("<input"));
+
+			Assert.IsTrue(element.Contains("ng-pattern=\"\\d\""));
+		}
+
+		[TestMethod]
+		public void MustReturnElementWithMultipleAttribute()
+		{
+			string element = TestHtmlHelper.NgModelFor(s => s.MultipleValidationProperty).ToString();
+
+			Assert.IsTrue(element.StartsWith("<input"));
+
+			Assert.IsTrue(element.Contains("required"));
+
+			Assert.IsTrue(element.Contains("ng-maxlength=\"5\""));
 		}
 	}
 }
