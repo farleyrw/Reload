@@ -48,5 +48,13 @@ namespace Reload.Web.Tests.Helpers.Angular
 
 			Assert.IsTrue(messages.Contains("ng-message=\"pattern\""));
 		}
+
+		[TestMethod]
+		public void MustReturnEmailValidationMessage()
+		{
+			string messages = TestHtmlHelper.NgValidationMessagesFor(s => s.EmailProperty).ToString();
+
+			Assert.IsTrue(messages.Contains("ng-message=\"email\""));
+		}
 	}
 }

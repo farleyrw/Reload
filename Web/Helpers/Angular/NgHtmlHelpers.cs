@@ -39,9 +39,10 @@ namespace Reload.Web.Helpers.Angular
 			Expression<Func<TModel, TProperty>> expression)
 		{
 			List<ModelClientValidationRule> validations = NgHtmlHelpers.GetValidationRules<TModel, TProperty>(expression);
-			var fun = GetNgValidations(validations, typeof(TProperty));
 
-			return NgHtmlHelpers.TransformValidatorsToDirectives(fun);
+			IDictionary<NgValidatorType, ModelClientValidationRule> ngValidations = GetNgValidations(validations, typeof(TProperty));
+
+			return NgHtmlHelpers.TransformValidatorsToDirectives(ngValidations);
 		}
 
 		/// <summary>Gets the angular validations.</summary>

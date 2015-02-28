@@ -5,9 +5,16 @@ namespace Reload.Web.Tests.Helpers.Angular
 {
 	public class NgTestModel
 	{
+		public string SimpleProperty { get; set; }
+
 		public int NumericProperty { get; set; }
 
+		//[DataType(DataType.DateTime)]
 		public DateTime DateProperty { get; set; }
+
+		[EmailAddress]
+		[DataType(DataType.EmailAddress)]
+		public string EmailProperty { get; set; }
 
 		[Required]
 		public string RequiredProperty { get; set; }
