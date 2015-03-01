@@ -26,6 +26,9 @@ namespace Reload.Web.Helpers.Angular
 			return new MvcHtmlString(html);
 		}
 
+		/// <summary>Transforms a set of attributes to an html string.</summary>
+		/// <param name="attributes">The attributes.</param>
+		/// <returns>An html string representing the given attributes.</returns>
 		private static string AttributesToHtmlString(IDictionary<string, object> attributes)
 		{
 			StringBuilder result = new StringBuilder();

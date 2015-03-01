@@ -16,25 +16,24 @@
 	<form name="UserForm" style="width: 400px;" ng-submit="Save()" novalidate>
 		<div>
 			@Html.LabelFor(u => u.Email)
-			<input class="form-control" ng-model="User.Email" name="Email" type="email" required email-unique-validator ng-model-options="ModelValidateOptions" />
+			@Html.NgTextBoxFor(u => u.Email, new { @class = "form-control", ng_model = "User.Email", email_unique_validator = "", ng_model_options = "ModelValidateOptions" })
 			<div ng-messages="UserForm.Email.$error">
-				<span ng-message="required">Email field required</span>
-				<span ng-message="email">Valid email required</span>
-				<span ng-message="emailAvailable">The email address is already in use</span>
+				@Html.NgValidationMessagesFor(u => u.Email)
+				<span ng-message="emailAvailable"> {{ UserForm.Email.emailValidationErrorMessage }}</span>
 			</div>
 		</div>
 		<div>
 			@Html.LabelFor(u => u.FirstName)
-			<input class="form-control" name="FirstName" ng-model="User.FirstName" required />
+			@Html.NgTextBoxFor(u => u.FirstName, new { @class = "form-control", ng_model = "User.FirstName" })
 			<div ng-messages="UserForm.FirstName.$error">
-				<span ng-message="required">The First Name field is required</span>
+				@Html.NgValidationMessagesFor(u => u.FirstName)
 			</div>
 		</div>
 		<div>
 			@Html.LabelFor(u => u.LastName)
-			<input class="form-control" name="LastName" ng-model="User.LastName" required />
+			@Html.NgTextBoxFor(u => u.LastName, new { @class = "form-control", ng_model = "User.LastName" })
 			<div ng-messages="UserForm.LastName.$error">
-				<span ng-message="required">The Last Name field is required</span>
+				@Html.NgValidationMessagesFor(u => u.LastName)
 			</div>
 		</div>
 		<p class="FormFooter">

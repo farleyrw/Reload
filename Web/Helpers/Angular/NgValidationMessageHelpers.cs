@@ -10,19 +10,17 @@ namespace Reload.Web.Helpers.Angular
 	/// <summary>The angular validation message helpers.</summary>
 	public static class NgValidationMessageHelpers
 	{
-		/// <summary>Gets the angular validation messages for the model.</summary>
+		/// <summary>Gets the angular validation messages from the given expression.</summary>
 		/// <typeparam name="TModel">The type of the model.</typeparam>
 		/// <typeparam name="TProperty">The type of the property.</typeparam>
 		/// <param name="htmlHelper">The HTML helper.</param>
 		/// <param name="expression">The expression.</param>
-		/// <returns>The html of the validation messages for the model.</returns>
+		/// <returns>The html of the validation messages from the given expression.</returns>
 		public static MvcHtmlString NgValidationMessagesFor<TModel, TProperty>(
 			this HtmlHelper<TModel> htmlHelper,
 			Expression<Func<TModel, TProperty>> expression)
 		{
-			List<ModelClientValidationRule> validations = NgHtmlHelpers.GetValidationRules(expression);
-
-			IDictionary<NgValidatorType, ModelClientValidationRule> validationMessages = NgHtmlHelpers.GetNgValidations(validations, typeof(TProperty));
+			IDictionary<NgValidatorType, ModelClientValidationRule> validationMessages = NgHtmlHelpers.GetNgValidations(expression);
 
 			StringBuilder validationMessageHtml = new StringBuilder();
 
@@ -42,7 +40,9 @@ namespace Reload.Web.Helpers.Angular
 			return new MvcHtmlString(validationMessageHtml.ToString());
 		}
 
-		private static IDictionary<NgValidatorType, ModelClientValidationRule> GetFilteredRules(this IDictionary<NgValidatorType, ModelClientValidationRule> validations)
+		// TODO: what was this meant for?
+		private static IDictionary<NgValidatorType, ModelClientValidationRule> GetFilteredRules(
+			this IDictionary<NgValidatorType, ModelClientValidationRule> validations)
 		{
 			NgValidatorType[] validMessageTypes = new NgValidatorType[]
 			{

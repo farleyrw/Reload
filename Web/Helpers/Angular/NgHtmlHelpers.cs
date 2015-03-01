@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
-using Reload.Common.Helpers;
 
 namespace Reload.Web.Helpers.Angular
 {
@@ -19,41 +18,31 @@ namespace Reload.Web.Helpers.Angular
 	 *	Resulting in similar functionality from native Html model helpers producing:
 	 *	<input ng-model="name" name="name" id="name" type="typeof(property)" ng-*="*" />
 	 */
+	/// <summary>Angular html helpers that produce valid ng markup.</summary>
 	public static class NgHtmlHelpers
 	{
-		public static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(
-			Expression<Func<TModel, TProperty>> expression)
-		{
-			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, new ViewDataDictionary<TModel>());
-			string name = ExpressionHelper.GetExpressionText(expression);
-			List<ModelClientValidationRule> validations = ModelValidatorProviders.Providers.GetValidators(
-					metadata ?? ModelMetadata.FromStringExpression(name, new ViewDataDictionary()),
-					new ControllerContext())
-				.SelectMany(v => v.GetClientValidationRules())
-				.ToList();
-
-			return validations;
-		}
-
 		public static IDictionary<string, object> GetAttributesFromValidations<TModel, TProperty>(
 			Expression<Func<TModel, TProperty>> expression)
 		{
-			List<ModelClientValidationRule> validations = NgHtmlHelpers.GetValidationRules<TModel, TProperty>(expression);
+			IDictionary<NgValidatorType, ModelClientValidationRule> ngValidations = GetNgValidations(expression);
 
-			IDictionary<NgValidatorType, ModelClientValidationRule> ngValidations = GetNgValidations(validations, typeof(TProperty));
-
-			return NgHtmlHelpers.TransformValidatorsToDirectives(ngValidations);
+			return TransformValidatorsToDirectives(ngValidations);
 		}
 
 		/// <summary>Gets the angular validations.</summary>
-		/// <param name="validations">The validations.</param>
+		/// <typeparam name="TModel">The type of the model.</typeparam>
+		/// <typeparam name="TProperty">The type of the property.</typeparam>
+		/// <param name="expression">The expression.</param>
 		/// <param name="propertyType">Type of the property.</param>
 		/// <returns>Returns a dictionary of the angular type keyed validation.</returns>
-		public static IDictionary<NgValidatorType, ModelClientValidationRule> GetNgValidations(List<ModelClientValidationRule> validations, Type propertyType)
+		public static IDictionary<NgValidatorType, ModelClientValidationRule> GetNgValidations<TModel, TProperty>(
+			Expression<Func<TModel, TProperty>> expression)
 		{
 			IDictionary<NgValidatorType, ModelClientValidationRule> result = new Dictionary<NgValidatorType, ModelClientValidationRule>();
-			
-			if (propertyType == typeof(int))
+			var propertyType = typeof(TProperty);
+
+			// TODO: Should this function off the DataType attribute instead of the .net type?
+			if(propertyType == typeof(int))
 			{
 				result.Add(NgValidatorType.Number, null);
 			}
@@ -62,7 +51,9 @@ namespace Reload.Web.Helpers.Angular
 			{
 				result.Add(NgValidatorType.Date, null);
 			}
-			
+
+			List<ModelClientValidationRule> validations = GetValidationRules<TModel, TProperty>(expression);
+
 			validations.ForEach(validation =>
 			{
 				switch(validation.ValidationType.ToLower())
@@ -93,6 +84,25 @@ namespace Reload.Web.Helpers.Angular
 			return result;
 		}
 
+		/// <summary>Gets the .net validation rules.</summary>
+		/// <typeparam name="TModel">The type of the model.</typeparam>
+		/// <typeparam name="TProperty">The type of the property.</typeparam>
+		/// <param name="expression">The expression.</param>
+		/// <returns>A list of validation rules for the property.</returns>
+		private static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(
+			Expression<Func<TModel, TProperty>> expression)
+		{
+			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, new ViewDataDictionary<TModel>());
+			string name = ExpressionHelper.GetExpressionText(expression);
+			List<ModelClientValidationRule> validations = ModelValidatorProviders.Providers.GetValidators(
+					metadata ?? ModelMetadata.FromStringExpression(name, new ViewDataDictionary()),
+					new ControllerContext())
+				.SelectMany(v => v.GetClientValidationRules())
+				.ToList();
+
+			return validations;
+		}
+
 		/// <summary>Transforms the .Net validators to angular directives.</summary>
 		/// <param name="validations">The validations.</param>
 		/// <returns>A set of attributes representing angular directives.</returns>
@@ -105,7 +115,7 @@ namespace Reload.Web.Helpers.Angular
 				ModelClientValidationRule validation = item.Value;
 				switch(item.Key)
 				{
-					// TOOD: email? other types?
+					// TOOD: other types?
 					case NgValidatorType.Required:
 						attributes.Add("required", null);
 						break;

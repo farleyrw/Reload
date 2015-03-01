@@ -14,7 +14,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 				return ajax.post(baseUrl + 'SavePassword', passwords).success(callback);
 			},
 			ValidateEmail: function (email) {
-				return ajax.post(baseUrl + 'ValidateUniqueEmail', { email: email });
+				return ajax.post(baseUrl + 'ValidateUniqueEmail', { emailValidation: { Email: email } });
 			}
 		};
 	};
@@ -35,6 +35,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 
 					return UserService.ValidateEmail(modelValue).then(function (response) {
 						if (!response.data.Success) {
+							ngModel.emailValidationErrorMessage = response.data.Message;
 							return promise.reject(response.data.Message);
 						}
 
@@ -59,24 +60,26 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 
 						scope.Save = function () {
 							scope.SavePending = true;
+
 							var passwords = {
 								oldPassword: scope.OldPassword,
 								newPassword: scope.NewPassword,
 								confirmPassword: scope.ConfirmPassword
 							};
+
 							UserService.SavePassword({ passwords: passwords }, function (data) {
 								if (data.Success) {
 									modalInstance.close();
 								} else {
 									scope.SavePending = false;
-									alert(data.Message);
+									alert(data.Message); // TODO: fix alert from showing on cancel.
 								}
 							});
 						};
 
 						scope.Cancel = modalInstance.dismiss;
 					}],
-					template:
+					template: // TODO: move this into razor view. TODO: add inverted compare to old vs new password
 						'<div class="modal-header"><h3 class="modal-title">Change password</h3></div>' +
 						'<form name="PasswordForm" ng-submit="Save()" novalidate>' +
 							'<div class="modal-body">' +
@@ -119,7 +122,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 		return {
 			restrict: 'A',
 			require: 'ngModel',
-			scope: {
+			scope: { // TODO: remove scope and read from attribute
 				compareTo: '='
 			},
 			link: function (scope, element, attribute, ngModel) {

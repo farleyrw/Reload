@@ -176,6 +176,7 @@
     <Compile Include="Areas\Handloads\HandloadResourceBundle.cs" />
     <Compile Include="Areas\Handloads\HandloadsAreaRegistration.cs" />
     <Compile Include="Areas\User\Controllers\ManageController.cs" />
+    <Compile Include="Areas\User\Models\EmailValidationViewModel.cs" />
     <Compile Include="Areas\User\Models\PasswordChangeViewModel.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Areas\User\UserResourceBundles.cs" />

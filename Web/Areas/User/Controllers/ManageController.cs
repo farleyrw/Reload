@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Linq;
 using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
 using Reload.Common.Interfaces.Services;
@@ -89,13 +90,27 @@ namespace Reload.Web.Areas.User.Controllers
 		}
 
 		/// <summary>Validates the unique email.</summary>
-		/// <param name="email">The email.</param>
+		/// <param name="emailValidation">The email validation model.</param>
 		[HttpPost]
-		public ActionResult ValidateUniqueEmail(string email)
+		public ActionResult ValidateUniqueEmail(EmailValidationViewModel emailValidation)
 		{
-			if(this.Identity.Email.Equals(email)) { return BaseController.GetJsonStatusResult(true); }
+			if(!ModelState.IsValid)
+			{
+				string validationMessage = ModelState.Values
+					.SelectMany(v => v.Errors.Select(e => e.ErrorMessage))
+					.FirstOrDefault();
 
-			if(!this.Service.IsEmailAvailable(email))
+				// This is to account for a difference in .Net vs Html5 email validation that does not require a complete TLD.
+				return BaseController.GetJsonStatusResult(false, validationMessage);
+			}
+
+			// The email is the same as the current user (unchanged).
+			if(this.Identity.Email.Equals(emailValidation.Email))
+			{
+				return BaseController.GetJsonStatusResult(true); 
+			}
+
+			if(!this.Service.IsEmailAvailable(emailValidation.Email))
 			{
 				return BaseController.GetJsonStatusResult(false, "The email address is taken.");
 			}

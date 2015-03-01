@@ -19,7 +19,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnSimpleElement()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.SimpleProperty).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.SimpleProperty).ToString();
 
 			Assert.IsTrue(element.StartsWith("<input"));
 
@@ -29,7 +29,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnElementWithRequiredAttribute()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.RequiredProperty).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.RequiredProperty).ToString();
 
 			Assert.IsTrue(element.Contains("required"));
 		}
@@ -37,7 +37,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnElementWithMaxlengthAttribute()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.MaxLength10Property).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.MaxLength10Property).ToString();
 
 			Assert.IsTrue(element.Contains("ng-maxlength=\"10\""));
 		}
@@ -45,7 +45,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnElementWithMinAndMaxlengthAttributes()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.Between5And10Property).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.Between5And10Property).ToString();
 
 			Assert.IsTrue(element.Contains(" ng-minlength=\"5\" "));
 
@@ -55,7 +55,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnElementWithPatternAttribute()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.PatternProperty).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.PatternProperty).ToString();
 
 			Assert.IsTrue(element.Contains("ng-pattern=\"\\d\""));
 		}
@@ -63,7 +63,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnElementWithMultipleAttribute()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.MultipleValidationProperty).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.MultipleValidationProperty).ToString();
 
 			Assert.IsTrue(element.Contains(" required=\"\" "));
 
@@ -73,9 +73,17 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnElementWithEmailTypeAttribute()
 		{
-			string element = TestHtmlHelper.NgModelFor(s => s.EmailProperty, new { type = "email" }).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.EmailProperty).ToString();
 
 			Assert.IsTrue(element.Contains(" type=\"email\" "));
+		}
+
+		[TestMethod]
+		public void MustReturnElementWithDateTypeAttribute()
+		{
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.DateProperty).ToString();
+
+			Assert.IsTrue(element.Contains(" type=\"date\" "));
 		}
 	}
 }
