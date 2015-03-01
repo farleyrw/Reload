@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Helpers;
@@ -66,7 +67,7 @@ namespace Reload.Common.Tests.Helpers
 		[TestMethod]
 		public void ParseCustomDescription()
 		{
-			TestCustomEnum testEnum = EnumHelper.ParseCustomDescription<TestCustomEnum, TestCustomAttribute>("2");
+			TestCustomEnum testEnum = EnumHelper.ParseCustomDescription<TestCustomEnum, TestCustomDescriptionAttribute>("2");
 
 			Assert.AreEqual(TestCustomEnum.B, testEnum);
 		}
@@ -74,45 +75,57 @@ namespace Reload.Common.Tests.Helpers
 		[TestMethod]
 		public void CustomDescription()
 		{
-			string x = EnumHelper.CustomDescription<TestCustomEnum, TestCustomAttribute>(TestCustomEnum.B);
+			string x = EnumHelper.CustomDescription<TestCustomEnum, TestCustomDescriptionAttribute>(TestCustomEnum.B);
 
-			Assert.AreEqual(x, "2");
+			Assert.AreEqual("2", x);
 		}
 
 		[TestMethod]
 		public void CustomDescriptions()
 		{
-			IDictionary<TestCustomEnum, string> enums = EnumHelper.CustomDescriptions<TestCustomEnum, TestCustomAttribute>();
+			IDictionary<TestCustomEnum, string> enums = EnumHelper.CustomDescriptions<TestCustomEnum, TestCustomDescriptionAttribute>();
 
 			Assert.AreEqual(3, enums.Count);
 			Assert.AreEqual("1", enums[TestCustomEnum.A]);
 			Assert.AreEqual("2", enums[TestCustomEnum.B]);
 			Assert.AreEqual("3", enums[TestCustomEnum.C]);
 		}
+
+		[TestMethod]
+		public void CustomAttributes()
+		{
+			List<TestEnum> enums = EnumHelper.CustomAttributes<TestEnum, TestCustomAttribute>();
+
+			Assert.AreEqual(2, enums.Count);
+		}
 	}
 
 	public enum TestEnum
 	{
+		[TestCustom]
 		[Description("A")]
 		A = 0,
 		[Description("B")]
 		B,
+		[TestCustom]
 		[Description("C")]
 		C
 	}
 
 	public enum TestCustomEnum
 	{
-		[TestCustomAttribute("1")]
+		[TestCustomDescription("1")]
 		A = 0,
-		[TestCustomAttribute("2")]
+		[TestCustomDescription("2")]
 		B,
-		[TestCustomAttribute("3")]
+		[TestCustomDescription("3")]
 		C
 	}
 
-	public class TestCustomAttribute : Description
+	public class TestCustomDescriptionAttribute : Description
 	{
-		public TestCustomAttribute(string description) : base(description) { }
+		public TestCustomDescriptionAttribute(string description) : base(description) { }
 	}
+
+	public class TestCustomAttribute : Attribute { }
 }

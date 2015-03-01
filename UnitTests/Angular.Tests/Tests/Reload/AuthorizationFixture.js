@@ -1,6 +1,7 @@
-﻿/// <reference path="../../../../web/scripts/angular/angular.js" />
+﻿/// <reference path="../../../../web/scripts/jquery/jquery-2.1.3.js" />
+
+/// <reference path="../../../../web/scripts/angular/angular.js" />
 /// <reference path="../../../../web/scripts/angular/angular-mocks.js" />
-/// <reference path="../../../../web/scripts/jquery/jquery-2.1.1.js" />
 
 /// <reference path="../../../../web/scripts/reload/reload.js" />
 /// <reference path="../../../../web/scripts/reload/providers/authorization.js" />

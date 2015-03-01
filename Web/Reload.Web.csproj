@@ -203,6 +203,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Angular\NgHtmlInputTypeAttribute.cs" />
     <Compile Include="Helpers\Angular\NgModelDirectiveHelpers.cs" />
     <Compile Include="Helpers\Angular\NgHtmlHelpers.cs" />
     <Compile Include="Helpers\Angular\NgModelHelpers.cs" />
@@ -348,9 +349,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\Angular\Attributes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Reload.Common.csproj">
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>

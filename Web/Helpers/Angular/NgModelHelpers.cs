@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using EnumHelper = Reload.Common.Helpers.EnumHelper;
 
 namespace Reload.Web.Helpers.Angular
 {
@@ -52,13 +53,7 @@ namespace Reload.Web.Helpers.Angular
 		/// <returns>A strongly typed html input type.</returns>
 		private static NgValidatorType GetModelHtmlType<TModel, TProperty>(Expression<Func<TModel, TProperty>> expression)
 		{
-			// TODO: use custom attribute on the enum to get this list.
-			NgValidatorType[] htmlInputTypes = new NgValidatorType[]
-			{
-				NgValidatorType.Email,
-				NgValidatorType.Date,
-				NgValidatorType.Number
-			};
+			List<NgValidatorType> htmlInputTypes = EnumHelper.CustomAttributes<NgValidatorType, NgHtmlInputTypeAttribute>();
 
 			return NgHtmlHelpers.GetNgValidations(expression)
 				.FirstOrDefault(a => htmlInputTypes.Contains(a.Key))

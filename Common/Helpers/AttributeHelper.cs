@@ -7,12 +7,12 @@ namespace Reload.Common.Helpers
 	public static class AttributeHelper
 	{
 		/// <summary>Determines whether the specified property has attribute.</summary>
-		/// <param name="attribute">The attribute.</param>
-		public static bool PropertyHasAttribute<TA>(object value) where TA : Attribute
+		/// <param name="value">The value.</param>
+		public static bool PropertyHasAttribute<TAttribute>(object value) where TAttribute : Attribute
 		{
 			FieldInfo propertyInfo = value.GetType().GetField(value.ToString());
 
-			Attribute attribute = propertyInfo.GetCustomAttribute<TA>(false);
+			Attribute attribute = propertyInfo.GetCustomAttribute<TAttribute>(false);
 
 			return attribute != null;
 		}

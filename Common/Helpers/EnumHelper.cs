@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Reload.Common.Helpers
 {
-	/// <summary>Enum helper class.</summary>
+	/// <summary>Extension methods for helpful operations on enums.</summary>
 	public static class EnumHelper
 	{
 		/// <summary>Returns the enum value of the specified string value.</summary>
@@ -21,8 +21,7 @@ namespace Reload.Common.Helpers
 		{
 			Type enumType = typeof(T);
 
-			// Enum.TryParse doesn't take a generic type :(
-			// and Enum.IsDefined checks the enum values by data type.
+			// Enum.TryParse doesn't take a generic type and Enum.IsDefined checks the enum values by data type.
 			// i.e. Evaluates to false when passing in "1" (string) to trying to see if the One = 1 value exists.
 			int i;
 			if(int.TryParse(value, out i))
@@ -121,6 +120,16 @@ namespace Reload.Common.Helpers
 			where TAttribute : DescriptionAttribute
 		{
 			return ToList<T>().ToDictionary(key => key, value => CustomDescription<T, TAttribute>(value));
+		}
+
+		/// <summary>Returns a list of enums with the given attribute.</summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="TAttribute">The type of the attribute.</typeparam>
+		public static List<T> CustomAttributes<T, TAttribute>()
+			where T : struct
+			where TAttribute : Attribute
+		{
+			return ToList<T>().Where(item => AttributeHelper.PropertyHasAttribute<TAttribute>(item)).ToList();
 		}
 
 		/// <summary>Returns a list of enum values.</summary>
