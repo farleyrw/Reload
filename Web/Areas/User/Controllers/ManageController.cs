@@ -60,33 +60,37 @@ namespace Reload.Web.Areas.User.Controllers
 			return BaseController.GetJsonStatusResult(true, "User saved");
 		}
 
+		public ActionResult ChangePassword()
+		{
+			return PartialView();
+		}
+
 		/// <summary>Saves the password.</summary>
 		/// <param name="passwords">The passwords.</param>
 		[HttpPost]
 		public ActionResult SavePassword(PasswordChangeViewModel passwords)
 		{
-			if(ModelState.IsValid)
+			if(!ModelState.IsValid)
 			{
-				UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
+				string validationMessage = ModelState.Values
+					   .SelectMany(v => v.Errors.Select(e => e.ErrorMessage))
+					   .FirstOrDefault();
 
-				if(!userLogin.Password.Equals(passwords.OldPassword))
-				{
-					return BaseController.GetJsonStatusResult(false, "The old password is not correct.");
-				}
-
-				if(!passwords.NewPassword.Equals(passwords.ConfirmPassword))
-				{
-					return BaseController.GetJsonStatusResult(false, "The new and confirm passwords do not match.");
-				}
-
-				userLogin.Password = passwords.NewPassword;
-
-				this.Service.Save(userLogin);
-
-				return BaseController.GetJsonStatusResult(true);
+				return BaseController.GetJsonStatusResult(false, validationMessage);
 			}
 
-			return BaseController.GetJsonStatusResult(false, "The form is not valid.");
+			UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
+
+			if(!userLogin.Password.Equals(passwords.OldPassword))
+			{
+				return BaseController.GetJsonStatusResult(false, "The old password is invalid.");
+			}
+
+			userLogin.Password = passwords.NewPassword;
+
+			this.Service.Save(userLogin);
+
+			return BaseController.GetJsonStatusResult(true);
 		}
 
 		/// <summary>Validates the unique email.</summary>

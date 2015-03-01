@@ -19,7 +19,6 @@ namespace Reload.Web.Tests.Routing
 		[TestMethod]
 		public void DefaultRoutingTest()
 		{
-			// https://github.com/AnthonySteele/MvcRouteTester
 			//System.Web.Routing.RouteTable.Routes.ShouldMap("~/").To<HomeController>(action => action.Index());
 			//System.Web.Routing.RouteTable.Routes.ShouldMap("~/Home").To<HomeController>(action => action.Index());
 			//System.Web.Routing.RouteTable.Routes.ShouldMap("~/Home/Index").To<HomeController>(action => action.Index());

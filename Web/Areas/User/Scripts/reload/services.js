@@ -47,7 +47,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 	};
 
 	/// The password change dialog service.
-	this.PasswordChangeDialogService = function (modal, UserService) {
+	this.PasswordChangeDialogService = function (modal, baseUrl, UserService) {
 		return {
 			Show: function () {
 				return modal.open({
@@ -79,39 +79,8 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 
 						scope.Cancel = modalInstance.dismiss;
 					}],
-					template: // TODO: move this into razor view. TODO: add inverted compare to old vs new password
-						'<div class="modal-header"><h3 class="modal-title">Change password</h3></div>' +
-						'<form name="PasswordForm" ng-submit="Save()" novalidate>' +
-							'<div class="modal-body">' +
-								'<p>' +
-									'<label>Old Password</label>' +
-									'<input class="form-control" type="password" name="OldPassword" ng-model="OldPassword" required />' +
-									'<div ng-if="PasswordForm.OldPassword.$dirty" ng-messages="PasswordForm.OldPassword.$error">' +
-										'<span ng-message="required">The old password is required</span>' +
-									'</div>' +
-								'</p>' +
-								'<p>' +
-									'<label>New Password</label>' +
-									'<input class="form-control" type="password" name="NewPassword" ng-model="NewPassword" minlength="6" required />' +
-									'<div ng-if="PasswordForm.NewPassword.$dirty" ng-messages="PasswordForm.NewPassword.$error">' +
-										'<span ng-message="required">The new password is required</span>' +
-										'<span ng-message="minlength">The new password must be at least 6 characters</span>' +
-									'</div>' +
-								'</p>' +
-								'<p>' +
-									'<label>Confirm Password</label>' +
-									'<input class="form-control" type="password" name="ConfirmPassword" ng-model="ConfirmPassword" compare-to="NewPassword" required />' +
-									'<div ng-if="PasswordForm.ConfirmPassword.$dirty" ng-messages="PasswordForm.ConfirmPassword.$error">' +
-										'<span ng-message="required">The confirm password is required</span>' +
-										'<span ng-message="compareTo">The new and confirm password do not match</span>' +
-									'</div>' +
-								'</p>' +
-							'</div>' +
-							'<div class="modal-footer">' +
-								'<button class="btn btn-primary" type="submit" ng-disabled="PasswordForm.$invalid || SavePending">OK</button>' +
-								'<button class="btn btn-warning" ng-click="Cancel()">Cancel</button>' +
-							'</div>' +
-						'</form>'
+					templateUrl: baseUrl + 'ChangePassword'
+					// TODO: add inverted compare to old vs new password
 				}).result;
 			}
 		};
