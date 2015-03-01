@@ -28,11 +28,14 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[RegularExpression("\\d")]
 		public string PatternProperty { get; set; }
 
+		[Range(1, 5)]
+		public int RangedProperty { get; set; }
+
 		[Required]
 		[StringLength(5)]
 		public string MultipleValidationProperty { get; set; }
 
-		[Required(ErrorMessage = "Custom error message")]
+		[Required(ErrorMessage = "Custom required error message")]
 		public string CustomErrorMessageProperty { get; set; }
 	}
 }

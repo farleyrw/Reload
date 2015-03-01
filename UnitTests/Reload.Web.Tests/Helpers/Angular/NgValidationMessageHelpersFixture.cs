@@ -62,7 +62,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		{
 			string messages = TestHtmlHelper.NgValidationMessagesFor(s => s.CustomErrorMessageProperty).ToString();
 
-			Assert.IsTrue(messages.Contains(">Custom error message</"));
+			Assert.IsTrue(messages.Contains(">Custom required error message</"));
 		}
 	}
 }

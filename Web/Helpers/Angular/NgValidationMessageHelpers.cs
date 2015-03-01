@@ -30,7 +30,7 @@ namespace Reload.Web.Helpers.Angular
 
 			foreach(var validationMessage in validationMessages)
 			{
-				validationMessageHtml.Append(string.Format(
+				validationMessageHtml.AppendLine(string.Format(
 					"<span ng-message=\"{0}\">{1}</span>",
 					validationMessage.Key.ToString().ToLower(),
 					validationMessage.Value.ErrorMessage
@@ -40,15 +40,19 @@ namespace Reload.Web.Helpers.Angular
 			return new MvcHtmlString(validationMessageHtml.ToString());
 		}
 
-		// TODO: what was this meant for?
 		private static IDictionary<NgValidatorType, ModelClientValidationRule> GetFilteredRules(
 			this IDictionary<NgValidatorType, ModelClientValidationRule> validations)
 		{
+			// TODO: this was meant to restrict to only appropriate validation messages.
+
+			// TODO: use custom attribute on the enum to get this list.
 			NgValidatorType[] validMessageTypes = new NgValidatorType[]
 			{
 				NgValidatorType.Minlength,
 				NgValidatorType.Maxlength,
 				NgValidatorType.Email,
+				NgValidatorType.Date,
+				NgValidatorType.Number,
 				NgValidatorType.Required,
 				NgValidatorType.Pattern
 			};

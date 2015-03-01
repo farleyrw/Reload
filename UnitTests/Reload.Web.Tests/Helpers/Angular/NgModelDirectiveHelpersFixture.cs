@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Web.Helpers.Angular;
 
@@ -61,15 +60,13 @@ namespace Reload.Web.Tests.Helpers.Angular
 		}
 
 		[TestMethod]
-		public void MustReturnNumericNgAttribute()
+		public void MustReturnNgRangeAttributes()
 		{
-			Assert.Inconclusive();
-		}
+			string attributes = TestHtmlHelper.NgValidationAttributesFor(s => s.RangedProperty).ToString();
 
-		[TestMethod]
-		public void MustReturnDateNgAttribute()
-		{
-			Assert.Inconclusive();
+			Assert.IsTrue(attributes.Contains("min=\"1\""));
+
+			Assert.IsTrue(attributes.Contains("max=\"5\""));
 		}
 	}
 }

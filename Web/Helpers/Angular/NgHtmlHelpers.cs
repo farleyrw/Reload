@@ -21,6 +21,11 @@ namespace Reload.Web.Helpers.Angular
 	/// <summary>Angular html helpers that produce valid ng markup.</summary>
 	public static class NgHtmlHelpers
 	{
+		/// <summary>Gets the angular attributes from the .net validations from the given expression.</summary>
+		/// <typeparam name="TModel">The type of the model.</typeparam>
+		/// <typeparam name="TProperty">The type of the property.</typeparam>
+		/// <param name="expression">The expression.</param>
+		/// <returns>A dictionary of the html attribute validations.</returns>
 		public static IDictionary<string, object> GetAttributesFromValidations<TModel, TProperty>(
 			Expression<Func<TModel, TProperty>> expression)
 		{
@@ -34,19 +39,20 @@ namespace Reload.Web.Helpers.Angular
 		/// <typeparam name="TProperty">The type of the property.</typeparam>
 		/// <param name="expression">The expression.</param>
 		/// <param name="propertyType">Type of the property.</param>
-		/// <returns>Returns a dictionary of the angular type keyed validation.</returns>
+		/// <returns>A dictionary of the angular type keyed validations.</returns>
 		public static IDictionary<NgValidatorType, ModelClientValidationRule> GetNgValidations<TModel, TProperty>(
 			Expression<Func<TModel, TProperty>> expression)
 		{
 			IDictionary<NgValidatorType, ModelClientValidationRule> result = new Dictionary<NgValidatorType, ModelClientValidationRule>();
-			var propertyType = typeof(TProperty);
+			
+			Type propertyType = typeof(TProperty);
 
-			// TODO: Should this function off the DataType attribute instead of the .net type?
 			if(propertyType == typeof(int))
 			{
 				result.Add(NgValidatorType.Number, null);
 			}
 
+			// TODO: Should this function off the DataType attribute instead of the .net type?
 			if(propertyType == typeof(DateTime))
 			{
 				result.Add(NgValidatorType.Date, null);
@@ -75,6 +81,10 @@ namespace Reload.Web.Helpers.Angular
 
 						result.Add(NgValidatorType.Maxlength, validation);
 						break;
+					case "range":
+						result.Add(NgValidatorType.Min, validation);
+						result.Add(NgValidatorType.Max, validation);
+						break;
 					default:
 						result.Add(NgValidatorType.Unknown, validation);
 						break;
@@ -88,7 +98,7 @@ namespace Reload.Web.Helpers.Angular
 		/// <typeparam name="TModel">The type of the model.</typeparam>
 		/// <typeparam name="TProperty">The type of the property.</typeparam>
 		/// <param name="expression">The expression.</param>
-		/// <returns>A list of validation rules for the property.</returns>
+		/// <returns>A list of validation rules for the given expression.</returns>
 		private static List<ModelClientValidationRule> GetValidationRules<TModel, TProperty>(
 			Expression<Func<TModel, TProperty>> expression)
 		{
@@ -113,6 +123,7 @@ namespace Reload.Web.Helpers.Angular
 			foreach(var item in validations)
 			{
 				ModelClientValidationRule validation = item.Value;
+
 				switch(item.Key)
 				{
 					// TOOD: other types?
@@ -122,12 +133,17 @@ namespace Reload.Web.Helpers.Angular
 					case NgValidatorType.Pattern:
 						attributes.Add("ng-pattern", validation.ValidationParameters["pattern"]);
 						break;
-					//case "range":
+					case NgValidatorType.Minlength:
+						attributes.Add("ng-minlength", validation.ValidationParameters["min"]);
+						break;
 					case NgValidatorType.Maxlength:
 						attributes.Add("ng-maxlength", validation.ValidationParameters["max"]);
 						break;
-					case NgValidatorType.Minlength:
-						attributes.Add("ng-minlength", validation.ValidationParameters["min"]);
+					case NgValidatorType.Min:
+						attributes.Add("min", validation.ValidationParameters["min"]);
+						break;
+					case NgValidatorType.Max:
+						attributes.Add("max", validation.ValidationParameters["max"]);
 						break;
 					default:
 						//attributes.Add(validationType, System.Web.Helpers.Json.Encode(validation.ValidationParameters));

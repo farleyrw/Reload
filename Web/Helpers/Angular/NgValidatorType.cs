@@ -13,7 +13,9 @@ namespace Reload.Web.Helpers.Angular
 
 		Maxlength,
 
-		//Range,
+		Min,
+
+		Max,
 
 		Email,
 

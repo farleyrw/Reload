@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Web.Helpers.Angular;
 
@@ -19,11 +18,13 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnSimpleElement()
 		{
-			string element = TestHtmlHelper.NgTextBoxFor(s => s.SimpleProperty).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.SimpleProperty, new { thing = "stuff" }).ToString();
 
 			Assert.IsTrue(element.StartsWith("<input"));
 
-			Assert.IsTrue(element.Contains("type=\"text\""));
+			Assert.IsTrue(element.Contains(" type=\"text\" "));
+
+			Assert.IsTrue(element.Contains(" thing=\"stuff\" "));
 		}
 
 		[TestMethod]
@@ -31,7 +32,7 @@ namespace Reload.Web.Tests.Helpers.Angular
 		{
 			string element = TestHtmlHelper.NgTextBoxFor(s => s.RequiredProperty).ToString();
 
-			Assert.IsTrue(element.Contains("required"));
+			Assert.IsTrue(element.Contains(" required=\"\" "));
 		}
 
 		[TestMethod]
@@ -71,6 +72,16 @@ namespace Reload.Web.Tests.Helpers.Angular
 		}
 
 		[TestMethod]
+		public void MustReturnElementWithRangedAttribute()
+		{
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.RangedProperty).ToString();
+
+			Assert.IsTrue(element.Contains(" min=\"1\" "));
+
+			Assert.IsTrue(element.Contains(" max=\"5\" "));
+		}
+
+		[TestMethod]
 		public void MustReturnElementWithEmailTypeAttribute()
 		{
 			string element = TestHtmlHelper.NgTextBoxFor(s => s.EmailProperty).ToString();
@@ -84,6 +95,14 @@ namespace Reload.Web.Tests.Helpers.Angular
 			string element = TestHtmlHelper.NgTextBoxFor(s => s.DateProperty).ToString();
 
 			Assert.IsTrue(element.Contains(" type=\"date\" "));
+		}
+
+		[TestMethod]
+		public void MustReturnElementWithNumericTypeAttribute()
+		{
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.NumericProperty).ToString();
+
+			Assert.IsTrue(element.Contains(" type=\"number\" "));
 		}
 	}
 }
