@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using Reload.Common.Authentication.Mvc;
+using Reload.Web.Helpers.Json;
 using Reload.Web.Models;
 
 namespace Reload.Web.Controllers
@@ -22,7 +23,7 @@ namespace Reload.Web.Controllers
 		/// <param name="result">The result.</param>
 		public static JsonResult GetJsonResult(object result)
 		{
-			return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+			return new JsonNetResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 		}
 
 		/// <summary>Gets the JSON status result.</summary>
@@ -31,6 +32,13 @@ namespace Reload.Web.Controllers
 		public static JsonResult GetJsonStatusResult(bool success, object message = null)
 		{
 			return GetJsonResult(new JsonStatusResult { Success = success, Message = message });
+		}
+
+		/// <summary>Gets the json .net result.</summary>
+		/// <param name="data">The data.</param>
+		public static JsonResult GetJsonNetResult(object data)
+		{
+			return new JsonNetResult { Data = data };
 		}
 	}
 }

@@ -5,6 +5,7 @@ using Reload.Common.Authentication.Mvc;
 using Reload.Common.Interfaces.Services;
 using Reload.Web.Areas.User.Models;
 using Reload.Web.Controllers;
+using System.Collections.Generic;
 
 namespace Reload.Web.Areas.User.Controllers
 {
@@ -28,7 +29,7 @@ namespace Reload.Web.Areas.User.Controllers
 		}
 
 		/// <summary>Gets the current user.</summary>
-		public ActionResult Get()
+		public JsonResult Get()
 		{
 			return BaseController.GetJsonResult(this.User.Identity);
 		}
@@ -36,7 +37,7 @@ namespace Reload.Web.Areas.User.Controllers
 		/// <summary>Saves the specified user.</summary>
 		/// <param name="user">The user.</param>
 		[HttpPost]
-		public ActionResult Save(UserLogin user)
+		public JsonResult Save(UserLogin user)
 		{
 			// Get user by current identity email.
 			UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
@@ -60,6 +61,8 @@ namespace Reload.Web.Areas.User.Controllers
 			return BaseController.GetJsonStatusResult(true, "User saved");
 		}
 
+		/// <summary>The change password partial view.</summary>
+		/// <returns></returns>
 		public ActionResult ChangePassword()
 		{
 			return PartialView();
@@ -68,7 +71,7 @@ namespace Reload.Web.Areas.User.Controllers
 		/// <summary>Saves the password.</summary>
 		/// <param name="passwords">The passwords.</param>
 		[HttpPost]
-		public ActionResult SavePassword(PasswordChangeViewModel passwords)
+		public JsonResult SavePassword(PasswordChangeViewModel passwords)
 		{
 			if(!ModelState.IsValid)
 			{
@@ -96,7 +99,7 @@ namespace Reload.Web.Areas.User.Controllers
 		/// <summary>Validates the unique email.</summary>
 		/// <param name="emailValidation">The email validation model.</param>
 		[HttpPost]
-		public ActionResult ValidateUniqueEmail(EmailValidationViewModel emailValidation)
+		public JsonResult ValidateUniqueEmail(EmailValidationViewModel emailValidation)
 		{
 			if(!ModelState.IsValid)
 			{

@@ -126,7 +126,6 @@ namespace Reload.Web.Helpers.Angular
 
 				switch(item.Key)
 				{
-					// TOOD: other types?
 					case NgValidatorType.Required:
 						attributes.Add("required", null);
 						break;
@@ -144,9 +143,6 @@ namespace Reload.Web.Helpers.Angular
 						break;
 					case NgValidatorType.Max:
 						attributes.Add("max", validation.ValidationParameters["max"]);
-						break;
-					default:
-						//attributes.Add(validationType, System.Web.Helpers.Json.Encode(validation.ValidationParameters));
 						break;
 				}
 			}

@@ -213,6 +213,7 @@
     <Compile Include="Helpers\Json\EnumDescriptionConverter.cs" />
     <Compile Include="Helpers\Json\JsonDeserializationHelper.cs" />
     <Compile Include="Helpers\Html\MaxLengthTextBox.cs" />
+    <Compile Include="Helpers\Json\JsonNetResult.cs" />
     <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Account\UnregisteredUser.cs" />
     <Compile Include="Models\Enums\FirearmEnumViewModel.cs" />
