@@ -12,6 +12,11 @@ namespace Reload.Web.Helpers.Json
 			this.Settings = new JsonSerializerSettings();
 		}
 
+		public JsonNetResult(object data) : base()
+		{
+			this.Data = data;
+		}
+
 		public JsonSerializerSettings Settings { get; private set; }
 
 		public override void ExecuteResult(ControllerContext context)

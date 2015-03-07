@@ -23,7 +23,7 @@ namespace Reload.Web.Controllers
 		/// <param name="data">The data.</param>
 		public static JsonResult GetJsonResult(object data)
 		{
-			return new JsonNetResult { Data = data };
+			return new JsonNetResult(data);
 		}
 
 		/// <summary>Gets the JSON status result.</summary>
