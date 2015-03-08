@@ -72,7 +72,8 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 									modalInstance.close();
 								} else {
 									scope.SavePending = false;
-									alert(data.Message); // TODO: fix alert from showing on cancel.
+									// TODO: switch to modal popup.
+									alert(data.Message);
 								}
 							});
 						};
@@ -80,7 +81,6 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 						scope.Cancel = modalInstance.dismiss;
 					}],
 					templateUrl: baseUrl + 'ChangePassword'
-					// TODO: add inverted compare to old vs new password
 				}).result;
 			}
 		};
@@ -88,6 +88,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 
 	/// The compare to control directive.
 	this.CompareToControl = function () {
+		// TODO: add inverted compare to old vs new password
 		return {
 			restrict: 'A',
 			require: 'ngModel',

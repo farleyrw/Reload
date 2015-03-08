@@ -16,6 +16,7 @@ namespace Reload.Common.Authentication
 		public string Email { get; set; }
 
 		[DataType(DataType.Password)]
+		// TODO: do not store this value as plain text.
 		public string Password { get; set; }
 
 		[Required]
