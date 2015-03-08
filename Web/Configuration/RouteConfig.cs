@@ -8,13 +8,17 @@ namespace Reload.Web.Configuration
 	{
 		/// <summary>Registers the routes.</summary>
 		/// <param name="routes">The routes.</param>
-		public static void RegisterRoutes(RouteCollection routes)
+		/// <param name="disableTestingCrap">if set to <c>true</c> [disable testing crap].</param>
+		public static void RegisterRoutes(RouteCollection routes, bool disableTestingCrap = false)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			routes.MapMvcAttributeRoutes();
-
-			AreaRegistration.RegisterAllAreas();
+			if(!disableTestingCrap)
+			{
+				routes.MapMvcAttributeRoutes();
+			
+				AreaRegistration.RegisterAllAreas();
+			}
 
 			routes.MapRoute(
 				name: "Default",

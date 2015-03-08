@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Web.Optimization;
 using Reload.Web.Bundles;
 
-namespace Reload.Web.Configuration.Bundles
+namespace Reload.Web.Configuration
 {
 	/// <summary>The bundle configuration.</summary>
 	public static class BundleConfig

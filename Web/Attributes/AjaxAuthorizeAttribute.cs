@@ -12,7 +12,7 @@ namespace Reload.Web.Attributes
 		{
 			var httpContext = filterContext.RequestContext.HttpContext;
 
-			// TODO: Check if request is ajax and return 401 with specific json response.
+			// Check if request is ajax and return 401 with specific json response.
 			// http://stackoverflow.com/questions/2580596/how-do-you-handle-ajax-requests-when-user-is-not-authenticated
 			if(httpContext.Request.IsAjaxRequest())
 			{

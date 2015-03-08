@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-using Reload.Common.Authentication;
 using Reload.Common.Authentication.Mvc;
 using Reload.Repository;
 using Reload.Service;

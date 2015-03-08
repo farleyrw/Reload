@@ -46,7 +46,7 @@ namespace Reload.Web.Attributes
 
 			this.Service.LogError(error);
 
-			if(filterContext.HttpContext.Request.IsAjaxRequest() && filterContext.Exception != null)
+			if(filterContext.HttpContext.Request.IsAjaxRequest())
 			{
 				filterContext.Result = BaseController.GetJsonStatusResult(false, error);
 				filterContext.HttpContext.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
