@@ -20,7 +20,7 @@ namespace Reload.Web
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
-			ViewEngineConfig.RegisterCustomViewEngines(ViewEngines.Engines);
+			ViewEngineConfig.RegisterViewEngines(ViewEngines.Engines);
 			ModelBinderConfig.RegisterModelBinders(ModelBinders.Binders);
 		}
 

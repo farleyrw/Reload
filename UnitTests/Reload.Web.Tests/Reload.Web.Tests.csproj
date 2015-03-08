@@ -122,6 +122,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ViewEngineConfigFixture.cs" />
     <Compile Include="Controllers\AccountControllerFixture.cs" />
     <Compile Include="Controllers\BaseControllerFixture.cs" />
     <Compile Include="Helpers\Angular\NgModelHelpersFixture.cs" />

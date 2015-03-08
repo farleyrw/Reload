@@ -17,6 +17,7 @@ namespace Reload.Web.Tests.Configuration
 		}
 
 		[TestMethod]
+		[TestCategory("Application Configuration")]
 		public void DefaultRouteTest()
 		{
 			RouteTable.Routes.ShouldMap("~/").To<HomeController>(action => action.Index());
@@ -25,6 +26,7 @@ namespace Reload.Web.Tests.Configuration
 		}
 
 		[TestMethod]
+		[TestCategory("Application Configuration")]
 		public void StandardRouteTest()
 		{
 			RouteTable.Routes.ShouldMap("~/Home/Welcome").To<HomeController>(action => action.Welcome());
