@@ -18,13 +18,15 @@ namespace Reload.Web.Tests.Helpers.Angular
 		[TestMethod]
 		public void MustReturnSimpleElement()
 		{
-			string element = TestHtmlHelper.NgTextBoxFor(s => s.SimpleProperty, new { thing = "stuff" }).ToString();
+			string element = TestHtmlHelper.NgTextBoxFor(s => s.SimpleProperty, new { @ng_model = "stuff", thing = "stuff" }).ToString();
 
 			Assert.IsTrue(element.StartsWith("<input"));
 
 			Assert.IsTrue(element.Contains(" type=\"text\" "));
 
 			Assert.IsTrue(element.Contains(" thing=\"stuff\" "));
+
+			Assert.IsTrue(element.Contains(" ng-model=\"stuff\" "));
 		}
 
 		[TestMethod]

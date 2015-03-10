@@ -25,7 +25,7 @@ namespace Reload.Web.Helpers.Angular
 		{
 			IDictionary<string, object> ngAttributes = NgHtmlHelpers.GetAttributesFromValidations(expression);
 
-			IDictionary<string, object> attributes = HtmlHelper.ObjectToDictionary(htmlAttributes ?? new { });
+			IDictionary<string, object> attributes = ConvertAttributes(htmlAttributes);
 
 			// Merge generated ng attributes with those optionally provided.
 			foreach(var item in ngAttributes)
@@ -58,6 +58,24 @@ namespace Reload.Web.Helpers.Angular
 			return NgHtmlHelpers.GetNgValidations(expression)
 				.FirstOrDefault(a => htmlInputTypes.Contains(a.Key))
 				.Key;
+		}
+
+		/// <summary>Converts the attributes.</summary>
+		/// <param name="htmlAttributes">The HTML attributes.</param>
+		/// <returns>Returns a dictionary of attributes with _ as =.</returns>
+		private static IDictionary<string, object> ConvertAttributes(object htmlAttributes)
+		{
+			// The following line does not transform _ to - for html attributes.
+			var htmlAttributesObject = HtmlHelper.ObjectToDictionary(htmlAttributes ?? new { });
+
+			var result = new Dictionary<string, object>();
+
+			foreach(var item in htmlAttributesObject)
+			{
+				result.Add(item.Key.Replace("_", "-"), item.Value);
+			}
+
+			return result;
 		}
 	}
 }

@@ -54,17 +54,19 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 					size: 'sm',
 					controller: ['$scope', '$modalInstance', function (scope, modalInstance) {
 						scope.SavePending = false;
-						scope.OldPassword = '';
-						scope.NewPassword = '';
-						scope.ConfirmPassword = '';
+						scope.Passwords = {
+							Old: '',
+							New: '',
+							Confirm: ''
+						};
 
 						scope.Save = function () {
 							scope.SavePending = true;
 
 							var passwords = {
-								oldPassword: scope.OldPassword,
-								newPassword: scope.NewPassword,
-								confirmPassword: scope.ConfirmPassword
+								oldPassword: scope.Passwords.Old,
+								newPassword: scope.Passwords.New,
+								confirmPassword: scope.Passwords.Confirm
 							};
 
 							UserService.SavePassword({ passwords: passwords }, function (data) {
@@ -72,12 +74,12 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 									modalInstance.close();
 								} else {
 									scope.SavePending = false;
-									// TODO: switch to modal popup.
-									alert(data.Message);
+
+									scope.ErrorMessage = data.Message;
 								}
 							});
 						};
-
+						window.scope = scope;
 						scope.Cancel = modalInstance.dismiss;
 					}],
 					templateUrl: baseUrl + 'ChangePassword'
@@ -93,15 +95,23 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 			restrict: 'A',
 			require: 'ngModel',
 			scope: { // TODO: remove scope and read from attribute
-				compareTo: '='
+				compareValue: '=compareTo'
 			},
-			link: function (scope, element, attribute, ngModel) {
-				scope.$watchGroup(['compareTo', function () { return ngModel.$viewValue; }], function (newValues) {
-					var compareValue = newValues[0] || '';
-					var thisValue = newValues[1] || '';
+			link: function (scope, element, attributes, ngModel) {
+				ngModel.$validators.compareTo = function (modelValue) {
+					if (attributes.negate === true) {
+						return modelValue != scope.compareValue;
+					} else {
+						return modelValue == scope.compareValue;
+					}
+				};
 
-					ngModel.$setValidity('compareTo', thisValue == compareValue);
+				scope.$watch('compareValue', function (newValue) {
+					console.log(newValue);
+					ngModel.$validate();
 				});
+				console.log(scope.compareValue);
+				window.compareTo = { confirmpw: scope, newpw: ngModel };
 			}
 		};
 	};
