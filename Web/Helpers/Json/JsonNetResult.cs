@@ -1,24 +1,32 @@
-﻿using System.IO;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 
 namespace Reload.Web.Helpers.Json
 {
+	/// <summary>The JsonNet json result.</summary>
+	/// <remarks>This is faster than the standard Json result and supports proper dictionary output.</remarks>
 	public class JsonNetResult : JsonResult
 	{
+		/// <summary>Initializes a new instance of the <see cref="JsonNetResult"/> class.</summary>
 		public JsonNetResult()
 		{
 			this.Settings = new JsonSerializerSettings();
 		}
 
-		public JsonNetResult(object data) : base()
+		/// <summary>Initializes a new instance of the <see cref="JsonNetResult"/> class.</summary>
+		/// <param name="data">The data.</param>
+		public JsonNetResult(object data) : this()
 		{
 			this.Data = data;
 		}
 
+		/// <summary>Gets the settings.</summary>
+		/// <value>The settings.</value>
 		public JsonSerializerSettings Settings { get; private set; }
 
+		/// <summary>Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.</summary>
+		/// <param name="context">The context within which the result is executed.</param>
 		public override void ExecuteResult(ControllerContext context)
 		{
 			HttpResponseBase response = context.HttpContext.Response;
@@ -31,12 +39,11 @@ namespace Reload.Web.Helpers.Json
 
 			if(this.Data == null) { return; }
 
-			JsonSerializer scriptSerializer = JsonSerializer.Create(this.Settings);
-
-			using(StringWriter sw = new StringWriter())
+			using(JsonTextWriter writer = new JsonTextWriter(response.Output))
 			{
-				scriptSerializer.Serialize(sw, this.Data);
-				response.Write(sw.ToString());
+				JsonSerializer serializer = JsonSerializer.Create(this.Settings);
+				serializer.Serialize(writer, this.Data);
+				writer.Flush();
 			}
 		}
 	}
