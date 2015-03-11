@@ -79,7 +79,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 								}
 							});
 						};
-						window.scope = scope;
+
 						scope.Cancel = modalInstance.dismiss;
 					}],
 					templateUrl: baseUrl + 'ChangePassword'
@@ -98,20 +98,19 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 				compareValue: '=compareTo'
 			},
 			link: function (scope, element, attributes, ngModel) {
+				console.log(attributes.negate);
 				ngModel.$validators.compareTo = function (modelValue) {
-					if (attributes.negate === true) {
+					if (attributes.negate === 'true') {
 						return modelValue != scope.compareValue;
 					} else {
 						return modelValue == scope.compareValue;
 					}
 				};
 
-				scope.$watch('compareValue', function (newValue) {
+				scope.$watch(function () { scope.compareValue; }, function (newValue) {
 					console.log(newValue);
 					ngModel.$validate();
 				});
-				console.log(scope.compareValue);
-				window.compareTo = { confirmpw: scope, newpw: ngModel };
 			}
 		};
 	};
