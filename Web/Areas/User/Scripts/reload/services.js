@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 Reload.DefineNamespace('Reload.Areas.User.Services', function () {
-	/// The user service.
+	/// The user web service.
 	this.UserService = function (ajax, baseUrl) {
 		return {
 			Get: function(callback) {
@@ -25,6 +25,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 			require: 'ngModel',
 			link: function (scope, element, attributes, ngModel) {
 				ngModel.$asyncValidators.emailAvailable = function (modelValue, viewValue) {
+					// TODO: fix OriginalEmail parent scope dependency.
 					if (!modelValue || scope.OriginalEmail == modelValue) {
 						return promise.when();
 					}
@@ -85,26 +86,33 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 	};
 
 	/// The compare to control directive.
-	this.CompareToControl = function () {
-		// TODO: add negate compare option
+	this.CompareToControl = function ($parse) {
 		return {
 			restrict: 'A',
 			require: 'ngModel',
-			scope: { // TODO: remove scope and read from attribute
-				compareValue: '=compareTo'
-			},
 			link: function (scope, element, attributes, ngModel) {
+				var compare = $parse(attributes.compareTo);
+
 				ngModel.$validators.compareTo = function (modelValue) {
+					var compareValue = compare(scope);
+
+					if (typeof compareValue == 'undefined' || typeof modelValue == 'undefined') {
+						return true;
+					}
+
 					if (attributes.negate === 'true') {
-						return modelValue != scope.compareValue;
+						return modelValue != compareValue;
 					} else {
-						return modelValue == scope.compareValue;
+						return modelValue == compareValue;
 					}
 				};
 
-				scope.$watch(function () { scope.compareValue; }, function (newValue) {
-					ngModel.$validate();
-				});
+				scope.$watchGroup([
+						function () { return compare(scope); },
+						function () { return ngModel.$modelValue; }
+					],
+					function () { ngModel.$validate(); }
+				);
 			}
 		};
 	};

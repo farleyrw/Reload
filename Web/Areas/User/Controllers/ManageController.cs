@@ -75,11 +75,17 @@ namespace Reload.Web.Areas.User.Controllers
 		{
 			if(!ModelState.IsValid)
 			{
+				// TODO: rollup all validation messages.
 				string validationMessage = ModelState.Values
 					   .SelectMany(v => v.Errors.Select(e => e.ErrorMessage))
 					   .FirstOrDefault();
 
 				return BaseController.GetJsonStatusResult(false, validationMessage);
+			}
+
+			if(passwords.OldPassword.Equals(passwords.NewPassword))
+			{
+				return BaseController.GetJsonStatusResult(false, "The new password cannot match the old password.");
 			}
 
 			UserLogin userLogin = this.Service.GetUser(base.Identity.Email);
