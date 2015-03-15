@@ -26,11 +26,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 			link: function (scope, element, attributes, ngModel) {
 				ngModel.$asyncValidators.emailAvailable = function (modelValue, viewValue) {
 					if (!modelValue || scope.OriginalEmail == modelValue) {
-						var empty = promise.defer();
-
-						empty.resolve(function () { return true; });
-
-						return empty.promise;
+						return promise.when();
 					}
 
 					return UserService.ValidateEmail(modelValue).then(function (response) {
@@ -90,7 +86,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 
 	/// The compare to control directive.
 	this.CompareToControl = function () {
-		// TODO: add inverted compare to old vs new password
+		// TODO: add negate compare option
 		return {
 			restrict: 'A',
 			require: 'ngModel',
@@ -98,7 +94,6 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 				compareValue: '=compareTo'
 			},
 			link: function (scope, element, attributes, ngModel) {
-				console.log(attributes.negate);
 				ngModel.$validators.compareTo = function (modelValue) {
 					if (attributes.negate === 'true') {
 						return modelValue != scope.compareValue;
@@ -108,7 +103,6 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 				};
 
 				scope.$watch(function () { scope.compareValue; }, function (newValue) {
-					console.log(newValue);
 					ngModel.$validate();
 				});
 			}
