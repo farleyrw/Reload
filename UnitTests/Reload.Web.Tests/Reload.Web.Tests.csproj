@@ -140,8 +140,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="Areas\Firearms\Scripts\firearmmanagerfixture.js" />
+    <Content Include="Scripts\modules\authorizationfixture.js" />
+    <Content Include="Scripts\reload\filters\helperfixture.js" />
+    <Content Include="Scripts\reload\reloadfixture.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="chutzpah.json" />
     <None Include="packages.config" />
     <Content Include="TestData\Initialization\TestThing.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
