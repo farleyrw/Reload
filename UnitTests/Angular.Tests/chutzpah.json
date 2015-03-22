@@ -1,5 +1,0 @@
-﻿{
-    "Tests": [
-        { "Path": "Tests", "Include": "*.js" }
-    ]
-}

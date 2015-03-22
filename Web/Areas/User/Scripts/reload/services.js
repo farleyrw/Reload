@@ -100,6 +100,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 						return true;
 					}
 
+					// TODO: use XOR expression
 					if (attributes.negate === 'true') {
 						return modelValue != compareValue;
 					} else {
@@ -109,6 +110,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 
 				scope.$watchGroup([
 						function () { return compare(scope); },
+						// TODO: this is probably not needed since it's part of the validation pipeline
 						function () { return ngModel.$modelValue; }
 					],
 					function () { ngModel.$validate(); }
