@@ -228,6 +228,7 @@
     <Content Include="Areas\Handloads\Scripts\reload\controllers.js" />
     <Content Include="Areas\Handloads\Scripts\reload\services.js" />
     <Content Include="Areas\Handloads\Templates\Edit.html" />
+    <Content Include="Areas\User\Scripts\reload\directives.js" />
     <Content Include="Areas\User\Scripts\reload\services.js" />
     <Content Include="Areas\User\Scripts\usermanager.js" />
     <Content Include="Content\angular-block-ui\angular-block-ui.css" />

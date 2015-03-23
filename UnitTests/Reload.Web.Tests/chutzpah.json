@@ -1,5 +1,5 @@
 ﻿{
     "Tests": [
-        { "Path": "Tests", "Include": "*.js" }
+        { "Include": "*fixture.js" }
     ]
 }

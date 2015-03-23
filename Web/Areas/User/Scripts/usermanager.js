@@ -1,13 +1,16 @@
 ﻿'use strict';
 
-Reload.IncludeModule('Reload.Areas.User.Services');
+Reload.IncludeModules([
+	'Reload.Areas.User.Services',
+	'Reload.Areas.User.Directives'
+]);
 
 angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
-	.value('baseUrl', '/Reload/User/Manage/')
+	.constant('baseUrl', '/Reload/User/Manage/')
 	.service('UserService', ['$http', 'baseUrl', Reload.Areas.User.Services.UserService])
 	.service('PasswordFormDialog', ['$modal', 'baseUrl', 'UserService', Reload.Areas.User.Services.PasswordChangeDialogService])
-	.directive('emailUniqueValidator', ['$q', 'UserService', Reload.Areas.User.Services.UniqueEmailDirective])
-	.directive('compareTo', ['$parse', Reload.Areas.User.Services.CompareToControl])
+	.directive('emailUniqueValidator', ['$q', 'UserService', Reload.Areas.User.Directives.UniqueEmail])
+	.directive('compareTo', ['$parse', Reload.Areas.User.Directives.CompareTo])
 	.controller('UserController', ['$scope', '$timeout', 'UserService', 'PasswordFormDialog',
 		function (scope, timeout, UserService, PasswordChangeDialog) {
 			UserService.Get(function (data) {

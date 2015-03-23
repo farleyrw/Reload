@@ -19,31 +19,7 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 		};
 	};
 
-	/// The unique email directive.
-	this.UniqueEmailDirective = function (promise, UserService) {
-		return {
-			require: 'ngModel',
-			link: function (scope, element, attributes, ngModel) {
-				ngModel.$asyncValidators.emailAvailable = function (modelValue, viewValue) {
-					// TODO: fix OriginalEmail parent scope dependency.
-					if (!modelValue || scope.OriginalEmail == modelValue) {
-						return promise.when();
-					}
-
-					return UserService.ValidateEmail(modelValue).then(function (response) {
-						if (!response.data.Success) {
-							ngModel.emailValidationErrorMessage = response.data.Message;
-							return promise.reject(response.data.Message);
-						}
-
-						return true;
-					});
-				};
-			}
-		};
-	};
-
-	/// The password change dialog service.
+	/// A dialog for changing a password.
 	this.PasswordChangeDialogService = function (modal, baseUrl, UserService) {
 		return {
 			Show: function () {
@@ -81,40 +57,6 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 					}],
 					templateUrl: baseUrl + 'ChangePassword'
 				}).result;
-			}
-		};
-	};
-
-	/// The compare to control directive.
-	this.CompareToControl = function ($parse) {
-		return {
-			restrict: 'A',
-			require: 'ngModel',
-			link: function (scope, element, attributes, ngModel) {
-				var compare = $parse(attributes.compareTo);
-
-				ngModel.$validators.compareTo = function (modelValue) {
-					var compareValue = compare(scope);
-
-					if (typeof compareValue == 'undefined' || typeof modelValue == 'undefined') {
-						return true;
-					}
-
-					// TODO: use XOR expression
-					if (attributes.negate === 'true') {
-						return modelValue != compareValue;
-					} else {
-						return modelValue == compareValue;
-					}
-				};
-
-				scope.$watchGroup([
-						function () { return compare(scope); },
-						// TODO: this is probably not needed since it's part of the validation pipeline
-						function () { return ngModel.$modelValue; }
-					],
-					function () { ngModel.$validate(); }
-				);
 			}
 		};
 	};

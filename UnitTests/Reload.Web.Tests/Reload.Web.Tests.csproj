@@ -141,6 +141,7 @@
   <ItemGroup>
     <Content Include="App.config" />
     <Content Include="Areas\Firearms\Scripts\firearmmanagerfixture.js" />
+    <Content Include="Areas\User\Scripts\reload\directivesfixture.js" />
     <Content Include="Scripts\modules\authorizationfixture.js" />
     <Content Include="Scripts\reload\filters\helperfixture.js" />
     <Content Include="Scripts\reload\reloadfixture.js" />
