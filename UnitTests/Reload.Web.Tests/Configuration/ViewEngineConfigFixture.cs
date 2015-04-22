@@ -34,7 +34,7 @@ namespace Reload.Web.Tests.Configuration
 		{
 			var baseView = ViewEngines[0] as VirtualPathProviderViewEngine;
 
-			CollectionAssert.AreEqual(new string[] { "cshtml" }, baseView.FileExtensions);
+			CollectionAssert.AreEqual(new[] { "cshtml" }, baseView.FileExtensions);
 		}
 
 		[TestMethod]
@@ -45,17 +45,6 @@ namespace Reload.Web.Tests.Configuration
 
 			CollectionAssert.AreEqual(baseView.ViewLocationFormats, baseView.PartialViewLocationFormats);
 			CollectionAssert.AreEqual(baseView.AreaViewLocationFormats, baseView.AreaPartialViewLocationFormats);
-		}
-
-		[TestMethod]
-		[TestCategory("Application Configuration")]
-		public void ShouldHaveMasterViewsMapped()
-		{
-			var baseView = ViewEngines[0] as VirtualPathProviderViewEngine;
-
-			// TODO: these tests have no meaning.  Figure out what Master Locations are.
-			CollectionAssert.AreEqual(baseView.ViewLocationFormats, baseView.MasterLocationFormats);
-			CollectionAssert.AreEqual(baseView.AreaViewLocationFormats, baseView.AreaMasterLocationFormats);
 		}
 	}
 }

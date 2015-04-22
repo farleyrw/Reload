@@ -23,7 +23,7 @@ namespace Reload.Web.Controllers.Shared
 		{
 			this.Service.LogError(error);
 
-			return this.Index();
+			return View("Error");
 		}
 
 		public ViewResult NotFound()

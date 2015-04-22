@@ -4,9 +4,14 @@ using Reload.Common.Models;
 
 namespace Reload.Common.System
 {
-	/// <summary>Represents an error in the system.</summary>
+	/// <summary>Represents an application error in the system.</summary>
 	public class Error : IBaseModel
 	{
+		public Error()
+		{
+			this.TimeStamp = DateTime.Now;
+		}
+
 		[Key]
 		public int Id { get; set; }
 
@@ -31,11 +36,6 @@ namespace Reload.Common.System
 				this.Description,
 				this.StackTrace
 			);
-		}
-
-		public Error()
-		{
-			this.TimeStamp = DateTime.Now;
 		}
 	}
 }

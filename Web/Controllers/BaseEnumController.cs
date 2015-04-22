@@ -8,10 +8,10 @@ namespace Reload.Web.Controllers
 		/// <summary>Gets the enum data.</summary>
 		public ActionResult Get()
 		{
-			return GetJsonResult(this.GetEnumViewModels());
+			return GetJsonResult(this.GetViewModel());
 		}
 
-		/// <summary>Gets the enum view models.</summary>
-		public abstract dynamic GetEnumViewModels();
+		/// <summary>Gets the view model.</summary>
+		public abstract object GetViewModel();
     }
 }

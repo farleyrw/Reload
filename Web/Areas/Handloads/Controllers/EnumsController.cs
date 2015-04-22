@@ -9,8 +9,8 @@ namespace Reload.Web.Areas.Handloads.Controllers
 	/// <summary>The handload enums controller.</summary>
 	public class EnumsController : BaseEnumController
 	{
-		/// <summary>Gets the enum view models.</summary>
-		public override dynamic GetEnumViewModels()
+		/// <summary>Gets the view model.</summary>
+		public override object GetViewModel()
 		{
 			return new
 			{

@@ -10,18 +10,19 @@ namespace Reload.Web.Configuration
 		/// <param name="viewEngines">The view engines.</param>
 		public static void RegisterViewEngines(ICollection<IViewEngine> viewEngines)
 		{
-			string[] viewPaths = new string[]
+			string[] viewPaths = new[]
 			{
 				"~/Views/{1}/{0}.cshtml",
 				"~/Views/Shared/{0}.cshtml",
 				"~/Views/{0}.cshtml"
 			};
 
-			string[] areaViewPaths = new string[]
+			string[] areaViewPaths = new[]
 			{
 				"~/Areas/{2}/Views/{1}/{0}.cshtml",
 				"~/Areas/{2}/Views/Shared/{0}.cshtml",
-				"~/Areas/{2}/Views/{0}.cshtml"
+				"~/Areas/{2}/Views/{0}.cshtml", 
+				"~/Views/Shared/{0}.cshtml"
 			};
 
 			// Remove web forms and vb view paths since this is pure a C# MVC app and they slow things down.
@@ -29,13 +30,11 @@ namespace Reload.Web.Configuration
 
 			viewEngines.Add(new RazorViewEngine
 			{
-				MasterLocationFormats = viewPaths,
 				ViewLocationFormats = viewPaths,
 				PartialViewLocationFormats = viewPaths,
-				AreaMasterLocationFormats = areaViewPaths,
 				AreaViewLocationFormats = areaViewPaths,
 				AreaPartialViewLocationFormats = areaViewPaths,
-				FileExtensions = new string[] { "cshtml" }
+				FileExtensions = new[] { "cshtml" }
 			});
 		}
 	}

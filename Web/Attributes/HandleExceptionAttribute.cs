@@ -48,6 +48,7 @@ namespace Reload.Web.Attributes
 
 			if(filterContext.HttpContext.Request.IsAjaxRequest())
 			{
+				// TODO: switch result based on debug enabled
 				filterContext.Result = BaseController.GetJsonStatusResult(false, error);
 				filterContext.HttpContext.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
 				filterContext.ExceptionHandled = true;

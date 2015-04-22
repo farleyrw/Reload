@@ -37,18 +37,5 @@ namespace Reload.Web.Bundles.Resources
 					);
 			}
 		}
-
-		/// <summary>Returns the session js bundle.</summary>
-		public static Bundle Session
-		{
-			get
-			{
-				return new ScriptBundle("~/bundles/session")
-					.Include(
-						"~/Scripts/angular/angular-cookies.js",
-						"~/Scripts/modules/session.js"
-					);
-			}
-		}
 	}
 }

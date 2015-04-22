@@ -216,7 +216,7 @@
     <Compile Include="Helpers\Json\JsonNetResult.cs" />
     <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Account\UnregisteredUser.cs" />
-    <Compile Include="Models\Enums\FirearmEnumViewModel.cs" />
+    <Compile Include="Models\Enums\EnumViewModel.cs" />
     <Compile Include="Models\JsonStatusResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -271,7 +271,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\Web.config" />
     <Content Include="Areas\User\Views\_ViewStart.cshtml" />
     <Content Include="Areas\User\Views\Index.cshtml" />
     <Content Include="Scripts\angular-block-ui\angular-block-ui.min.js.map" />
@@ -300,7 +300,6 @@
     <Content Include="Scripts\jquery\validation\jquery.validate.js" />
     <Content Include="Scripts\jquery\validation\jquery.validate.min.js" />
     <Content Include="Scripts\modules\authorization.js" />
-    <Content Include="Scripts\modules\session.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Areas\Firearms\Views\Web.config" />

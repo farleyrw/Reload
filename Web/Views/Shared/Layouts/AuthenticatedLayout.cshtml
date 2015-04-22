@@ -5,10 +5,11 @@
 
 @section HeadIncludes {
 	@{
-		string currentUrl = new UrlHelper().Encode(Request.Url.PathAndQuery);
+		string currentUrl = Url.Encode(Request.Url.PathAndQuery);
+		double timeoutSeconds = FormsAuthentication.Timeout.TotalSeconds;
 	}
 
-	<meta name="meta-refresh" http-equiv="refresh" content="@FormsAuthentication.Timeout.TotalSeconds;url=@FormsAuthentication.LoginUrl?autologout=true&ReturnUrl=@currentUrl" />
+	<meta name="meta-refresh" http-equiv="refresh" content="@timeoutSeconds;url=@FormsAuthentication.LoginUrl?autologout=true&ReturnUrl=@currentUrl" />
 
 	@RenderSection("HeadIncludes", required: false)
 }
