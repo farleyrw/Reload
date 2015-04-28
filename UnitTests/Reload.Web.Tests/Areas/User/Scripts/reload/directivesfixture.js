@@ -65,13 +65,22 @@ describe('User area', function () {
 	});
 
 	describe('Unique email directive', function () {
-		var form, element, scope;
+		var form, element, scope, q;
 
 		app
 			.service('UserService', function () {
 				return {
 					ValidateEmail: function (email) {
-						// TODO: mock this result with a promise
+						var deferred = q.defer();
+
+						// Mock the result with an http get promise
+						if (email.indexOf('taken') > -1) {
+							deferred.resolve({ data: { Success: false, Message: 'Taken email' } });
+						} else {
+							deferred.resolve({ data: { Success: true, Message: '' } });
+						}
+
+						return deferred.promise;
 					}
 				};
 			})
@@ -79,7 +88,8 @@ describe('User area', function () {
 
 		beforeEach(module('TestApp'));
 
-		beforeEach(inject(function ($rootScope) {
+		beforeEach(inject(function ($compile, $rootScope, $q) {
+			q = $q;
 			scope = $rootScope;
 
 			scope.stuff = {
@@ -98,10 +108,22 @@ describe('User area', function () {
 			form = scope.funform;
 		}));
 
-		xit('should have prerequisites defined', function () {
+		it('should have prerequisites defined', function () {
 			expect(form).toBeDefined();
 			expect(form.email).toBeDefined();
 			expect(element).toBeDefined();
+		});
+
+		it('should validate email', function () {
+			form.email.$setViewValue('test@email.com');
+			scope.$digest();
+			expect(form.email.$valid).toBe(true);
+			expect(form.email.$error.emailAvailable).toBeUndefined();
+			
+			form.email.$setViewValue('taken@email.com');
+			scope.$digest();
+			expect(form.email.$invalid).toBe(true);
+			expect(form.email.$error.emailAvailable).toBe(true);
 		});
 	});
 });
