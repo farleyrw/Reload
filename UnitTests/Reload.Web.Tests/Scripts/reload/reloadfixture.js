@@ -1,6 +1,4 @@
-﻿/// <reference path="../../../../web/scripts/jquery/jquery-2.1.3.js" />
-/// <reference path="../../../../web/scripts/reload/reload.js" />
-
+﻿
 'use strict';
 
 describe("Reload module tests", function () {

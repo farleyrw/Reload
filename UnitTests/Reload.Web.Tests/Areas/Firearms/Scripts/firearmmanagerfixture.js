@@ -1,24 +1,20 @@
-﻿/// <reference path="../../../../../web/scripts/jquery/jquery-2.1.3.js" />
+﻿
+/// <reference path="/../../web/scripts/angular/angular-route.js" />
+/// <reference path="/../../web/scripts/angular/angular-resource.js" />
+/// <reference path="/../../web/scripts/angular-ui/ui-bootstrap-tpls.js" />
+/// <reference path="/../../web/scripts/angular-ui/ui-bootstrap.js" />
+/// <reference path="/../../web/scripts/angular-block-ui/angular-block-ui.js" />
 
-/// <reference path="../../../../../web/scripts/angular/angular.js" />
-/// <reference path="../../../../../web/scripts/angular/angular-route.js" />
-/// <reference path="../../../../../web/scripts/angular/angular-resource.js" />
-/// <reference path="../../../../../web/scripts/angular/angular-mocks.js" />
-/// <reference path="../../../../../web/scripts/angular-ui/ui-bootstrap-tpls.js" />
-/// <reference path="../../../../../web/scripts/angular-ui/ui-bootstrap.js" />
-/// <reference path="../../../../../web/scripts/angular-block-ui/angular-block-ui.js" />
-
-/// <reference path="../../../../../web/scripts/reload/reload.js" />
-/// <reference path="../../../../../web/scripts/reload/filters/helpers.js" />
-/// <reference path="../../../../../web/scripts/reload/providers/authorization.js" />
-/// <reference path="../../../../../web/scripts/reload/web/services.js" />
-/// <reference path="../../../../../web/scripts/reload/ui/controls.js" />
-/// <reference path="../../../../../web/scripts/reload/ui/effects.js" />
-/// <reference path="../../../../../web/scripts/reload/ui/widgets.js" />
-/// <reference path="../../../../../web/scripts/modules/authorization.js" />
-/// <reference path="../../../../../web/areas/firearms/scripts/reload/services.js" />
-/// <reference path="../../../../../web/areas/firearms/scripts/reload/controllers.js" />
-/// <reference path="../../../../../web/areas/firearms/scripts/firearmmanager.js" />
+/// <reference path="/../../web/scripts/reload/filters/helpers.js" />
+/// <reference path="/../../web/scripts/reload/providers/authorization.js" />
+/// <reference path="/../../web/scripts/reload/web/services.js" />
+/// <reference path="/../../web/scripts/reload/ui/controls.js" />
+/// <reference path="/../../web/scripts/reload/ui/effects.js" />
+/// <reference path="/../../web/scripts/reload/ui/widgets.js" />
+/// <reference path="/../../web/scripts/modules/authorization.js" />
+/// <reference path="/../../web/areas/firearms/scripts/reload/services.js" />
+/// <reference path="/../../web/areas/firearms/scripts/reload/controllers.js" />
+/// <reference path="/../../web/areas/firearms/scripts/firearmmanager.js" />
 
 describe('Firearm Manager tests', function () {
 	beforeEach(module('FirearmManager'));

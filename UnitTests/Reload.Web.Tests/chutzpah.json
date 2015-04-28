@@ -1,5 +1,12 @@
 ﻿{
     "Tests": [
         { "Include": "*fixture.js" }
+    ],
+    "RootReferencePathMode": "SettingsFileDirectory",
+    "References": [
+        { "Path": "../../web/scripts/jquery/jquery-2.1.3.js" },
+        { "Path": "../../web/scripts/angular/angular.js" },
+        { "Path": "../../web/scripts/angular/angular-mocks.js" },
+        { "Path": "../../web/scripts/reload/reload.js" }
     ]
 }
