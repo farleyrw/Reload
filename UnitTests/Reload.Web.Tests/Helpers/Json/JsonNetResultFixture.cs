@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -58,11 +60,19 @@ namespace Reload.Web.Tests.Helpers.Json
 			controllerContextMock.Setup(x => x.HttpContext).Returns(httpContextMock.Object);
 
 			string result = string.Empty;
+			MemoryStream responseStream = new MemoryStream();
 
-			httpResponseMock.Setup(x => x.Write(It.IsAny<string>()))
-				.Callback<string>(x => result = x);
+			TextWriter streamWriter = new StreamWriter(responseStream);
+
+			httpResponseMock.Setup(x => x.Output)
+				.Returns(streamWriter);
 
 			jsonResult.ExecuteResult(controllerContextMock.Object);
+
+			using(var streamReader = new StreamReader(responseStream))
+			{
+				result = streamReader.ReadToEnd();
+			}
 
 			return result;
 		}
