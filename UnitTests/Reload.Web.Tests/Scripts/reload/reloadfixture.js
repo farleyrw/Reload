@@ -22,8 +22,10 @@ describe("Reload module tests", function () {
 	});
 
 	it('should create module url', function () {
-		expect(Reload.GetModuleUrl('Reload.Test.Example')).toBe('/Reload/Scripts/Reload/Test/Example.js');
-		expect(Reload.GetModuleUrl('Reload.Areas.AreaName.Test.Example')).toBe('/Reload/Areas/AreaName/Scripts/Reload/Test/Example.js');
+		expect(Reload.GetModuleUrl('Reload.Test.Example'))
+			.toBe('/Reload/Scripts/Reload/Test/Example.js');
+		expect(Reload.GetModuleUrl('Reload.Areas.AreaName.Test.Example'))
+			.toBe('/Reload/Areas/AreaName/Scripts/Reload/Test/Example.js');
 	});
 
 	it('should create namespaced module', function () {
