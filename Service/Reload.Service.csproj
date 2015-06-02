@@ -55,10 +55,6 @@
       <Project>{2c404a8c-88d1-4131-b035-67950e79d423}</Project>
       <Name>Reload.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Repository\Reload.Repository.csproj">
-      <Project>{a6902463-4887-4e58-aa17-c4fd1b9ae9f2}</Project>
-      <Name>Reload.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

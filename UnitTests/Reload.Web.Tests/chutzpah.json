@@ -1,6 +1,6 @@
 ﻿{
     "Tests": [
-        { "Include": "*fixture.js" }
+        { "Includes": ["*fixture.js"] }
     ],
     "RootReferencePathMode": "SettingsFileDirectory",
     "References": [

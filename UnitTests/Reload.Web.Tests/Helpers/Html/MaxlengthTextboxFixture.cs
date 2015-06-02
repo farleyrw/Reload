@@ -6,7 +6,7 @@ using Reload.Web.Helpers.Html;
 namespace Reload.Web.Tests.Helpers.Html
 {
 	[TestClass]
-	public class MaxlengthTextboFixture
+	public class MaxlengthTextboxFixture
 	{
 		private static HtmlHelper<TestModel> TestHtmlHelper;
 
