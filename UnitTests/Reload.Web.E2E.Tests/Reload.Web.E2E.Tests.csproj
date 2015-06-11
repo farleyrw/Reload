@@ -56,6 +56,10 @@
     <Content Include="conf.js" />
     <Content Include="tests\fixture.js" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="RunTests.ps1" />
+    <None Include="StartServer.ps1" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
