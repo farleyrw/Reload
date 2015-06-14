@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Diagnostics;
 
 namespace Reload.Repository
 {
@@ -9,6 +10,8 @@ namespace Reload.Repository
 		public BaseContext()// : base("DefaultConnection")
 		{
 			this.Configuration.LazyLoadingEnabled = false;
+
+			this.Database.Log = s => Debug.WriteLine(s);
 		}
 	}
 }

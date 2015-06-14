@@ -10,9 +10,6 @@ namespace Reload.Repository.Repositories
 	public class UserRepository : BaseRepository<UserLogin>, IUserRepository
 	{
 		/// <summary>Initializes a new instance of the <see cref="UserRepository"/> class.</summary>
-		public UserRepository() : this(new UserContext()) { }
-
-		/// <summary>Initializes a new instance of the <see cref="UserRepository"/> class.</summary>
 		/// <param name="context">The context.</param>
 		public UserRepository(UserContext context) : base(context) { }
 
