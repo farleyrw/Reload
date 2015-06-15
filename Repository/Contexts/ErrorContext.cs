@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Reload.Common.System;
 
-namespace Reload.Repository.Context
+namespace Reload.Repository.Contexts
 {
 	/// <summary>The error context.</summary>
 	public class ErrorContext : BaseContext

@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Reload.Common.Authentication;
 
-namespace Reload.Repository.Context
+namespace Reload.Repository.Contexts
 {
 	/// <summary>The user context.</summary>
 	public class UserContext : BaseContext

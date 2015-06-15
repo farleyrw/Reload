@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Reload.Common.Models;
 
-namespace Reload.Repository.Context
+namespace Reload.Repository.Contexts
 {
 	/// <summary>The handload context.</summary>
 	public class HandloadContext : BaseContext

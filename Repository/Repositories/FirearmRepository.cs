@@ -1,6 +1,6 @@
 ﻿using Reload.Common.Interfaces.Repositories;
 using Reload.Common.Models;
-using Reload.Repository.Context;
+using Reload.Repository.Contexts;
 
 namespace Reload.Repository.Repositories
 {
@@ -9,7 +9,7 @@ namespace Reload.Repository.Repositories
 	{
 		/// <summary>Initializes a new instance of the <see cref="FirearmRepository"/> class.</summary>
 		/// <param name="context">The context.</param>
-		public FirearmRepository(FirearmContext context) : base(context)
+		public FirearmRepository() : base(new FirearmContext())
 		{
 			this.IncludeExpressions.Add(f => f.Handloads);
 		}

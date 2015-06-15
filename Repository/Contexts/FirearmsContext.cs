@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Reload.Common.Models;
 
-namespace Reload.Repository.Context
+namespace Reload.Repository.Contexts
 {
 	/// <summary>The firearm context.</summary>
 	public class FirearmContext : BaseContext

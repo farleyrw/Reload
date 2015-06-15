@@ -1,6 +1,6 @@
 ﻿using Reload.Common.Interfaces.Repositories;
 using Reload.Common.System;
-using Reload.Repository.Context;
+using Reload.Repository.Contexts;
 
 namespace Reload.Repository.Repositories
 {
@@ -8,6 +8,6 @@ namespace Reload.Repository.Repositories
 	public class ErrorLoggingRepository : BaseRepository<Error>, IErrorLoggingRepository
 	{
 		/// <summary>Creates a new instance of the error logging repository.</summary>
-		public ErrorLoggingRepository(ErrorContext context) : base(context) { }
+		public ErrorLoggingRepository() : base(new ErrorContext()) { }
 	}
 }

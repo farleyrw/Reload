@@ -2,7 +2,7 @@
 using System.Linq;
 using Reload.Common.Authentication;
 using Reload.Common.Interfaces.Repositories;
-using Reload.Repository.Context;
+using Reload.Repository.Contexts;
 
 namespace Reload.Repository.Repositories
 {
@@ -11,7 +11,7 @@ namespace Reload.Repository.Repositories
 	{
 		/// <summary>Initializes a new instance of the <see cref="UserRepository"/> class.</summary>
 		/// <param name="context">The context.</param>
-		public UserRepository(UserContext context) : base(context) { }
+		public UserRepository() : base(new UserContext()) { }
 
 		/// <summary>Returns a user login.</summary>
 		/// <param name="email">The email.</param>

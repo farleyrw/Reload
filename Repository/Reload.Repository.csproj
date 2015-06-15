@@ -78,15 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseContext.cs" />
-    <Compile Include="Context\ErrorContext.cs" />
-    <Compile Include="Context\FirearmsContext.cs" />
-    <Compile Include="Context\HandloadContext.cs" />
+    <Compile Include="Contexts\ErrorContext.cs" />
+    <Compile Include="Contexts\FirearmsContext.cs" />
+    <Compile Include="Contexts\HandloadContext.cs" />
     <Compile Include="Repositories\ErrorLoggingRepository.cs" />
     <Compile Include="Repositories\FirearmRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\HandloadRepository.cs" />
-    <Compile Include="Context\UserContext.cs" />
+    <Compile Include="Contexts\UserContext.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
