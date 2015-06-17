@@ -20,6 +20,7 @@ namespace Reload.New.Base
 
 		public async Task<TEntity> FindWithChildrenAsync<TEntity>(params object[] ids) where TEntity : class
 		{
+			// TODO: create way to add include properties
 			return await this.FindAsync<TEntity>(ids);
 		}
 

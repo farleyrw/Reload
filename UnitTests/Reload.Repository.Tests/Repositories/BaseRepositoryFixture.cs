@@ -1,7 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Threading.Tasks;
+using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Models;
+using Reload.New.Base;
 
 namespace Reload.Repository.Tests.Repositories
 {
@@ -9,24 +13,33 @@ namespace Reload.Repository.Tests.Repositories
 	public class BaseRepositoryFixture
 	{
 		[TestMethod]
-		public void EntitySavedWithAccountIdTest()
+		public async Task CanFindEntities()
 		{
-			TestRepository repo = new TestRepository();
+			TestClass testClass = new TestClass { Id = 1 };
 
-			var x = repo.Identity;
+			ITestContext context = MockEFHelper.GetMockContext<ITestContext>()
+				.CreateFakeDbSet(new List<TestClass> { testClass });
 
-			Assert.Inconclusive();
+			ITestRepository repo = new TestRepository(context);
+
+			TestClass result = await repo.FindAsync<TestClass>(1);
+
+			Assert.IsNotNull(result);
+
+			Assert.AreEqual(testClass.Id, result.Id);
 		}
 	}
 
-	public class TestRepository : BaseRepository<TestClass>
-	{
-		public TestRepository() : base(new TestContext()) { }
-	}
+	public interface ITestRepository : IRepository { }
 
-	public class TestContext : BaseContext
+	public interface ITestContext : IDbContext
 	{
 		DbSet<TestClass> TestClasses { get; set; }
+	}
+
+	public class TestRepository : BaseRepository<ITestContext>, ITestRepository
+	{
+		public TestRepository(ITestContext context) : base(context) { }
 	}
 
 	public class TestClass : IBaseModel
