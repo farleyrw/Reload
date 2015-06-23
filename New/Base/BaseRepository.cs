@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Reload.New.Base
@@ -18,10 +21,22 @@ namespace Reload.New.Base
 			return await this.Context.Set<TEntity>().FindAsync(ids);
 		}
 
-		public async Task<TEntity> FindWithChildrenAsync<TEntity>(params object[] ids) where TEntity : class
+		public async Task<TEntity> FindWithChildrenAsync<TEntity>(
+			Expression<Func<TEntity, bool>> predicate,
+			IEnumerable<Expression<Func<TEntity, object>>> includes = null)
+			where TEntity : class
 		{
-			// TODO: create way to add include properties
-			return await this.FindAsync<TEntity>(ids);
+			if(includes == null || !includes.Any())
+			{
+				return await this.Context.Set<TEntity>().SingleOrDefaultAsync(predicate);
+			}
+
+			return await 
+				includes.Aggregate(
+					this.Context.Set<TEntity>().AsQueryable(),
+					(current, include) => current.Include(include)
+				)
+				.SingleOrDefaultAsync(predicate);
 		}
 
 		public void ApplyChanges<TEntity>(TEntity entity) where TEntity : class

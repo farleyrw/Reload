@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Reload.New.Base
@@ -7,7 +9,10 @@ namespace Reload.New.Base
 	{
 		Task<TEntity> FindAsync<TEntity>(params object[] ids) where TEntity : class;
 
-		Task<TEntity> FindWithChildrenAsync<TEntity>(params object[] ids) where TEntity : class;
+		Task<TEntity> FindWithChildrenAsync<TEntity>(
+			Expression<Func<TEntity, bool>> predicate,
+			IEnumerable<Expression<Func<TEntity, object>>> includes = null)
+			where TEntity : class;
 
 		void ApplyChanges<TEntity>(TEntity entity) where TEntity : class;
 
