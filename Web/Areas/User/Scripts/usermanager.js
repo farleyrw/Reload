@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-Reload.IncludeModules([
+Reload.UsingModules([
 	'Reload.Areas.User.Services',
 	'Reload.Areas.User.Directives'
 ]);

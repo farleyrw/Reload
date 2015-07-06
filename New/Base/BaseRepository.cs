@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -23,7 +22,7 @@ namespace Reload.New.Base
 
 		public async Task<TEntity> FindWithChildrenAsync<TEntity>(
 			Expression<Func<TEntity, bool>> predicate,
-			IEnumerable<Expression<Func<TEntity, object>>> includes = null)
+			params Expression<Func<TEntity, object>>[] includes)
 			where TEntity : class
 		{
 			if(includes == null || !includes.Any())

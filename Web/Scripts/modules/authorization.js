@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-Reload.IncludeModule('Reload.Providers.Authorization');
+Reload.UsingModule('Reload.Providers.Authorization');
 
 angular.module('Authorization', [])
 	.config(['$httpProvider', function (httpProvider) {

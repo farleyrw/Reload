@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-Reload.IncludeModules([
+Reload.UsingModules([
 	'Reload.Filters.Helpers',
 	'Reload.Web.Services',
 	'Reload.Ui.Controls',

@@ -15,17 +15,9 @@ describe("Reload module tests", function () {
 
 	it('should have Reload initialized', function () {
 		expect(Reload.ModuleName).toBe("Reload");
-		expect(Reload.GetModuleUrl).toBeDefined();
-		expect(Reload.IncludeModule).toBeDefined();
-		expect(Reload.IncludeModules).toBeDefined();
+		expect(Reload.UsingModule).toBeDefined();
+		expect(Reload.UsingModules).toBeDefined();
 		expect(Reload.DefineNamespace).toBeDefined();
-	});
-
-	it('should create module url', function () {
-		expect(Reload.GetModuleUrl('Reload.Test.Example'))
-			.toBe('/Reload/Scripts/Reload/Test/Example.js');
-		expect(Reload.GetModuleUrl('Reload.Areas.AreaName.Test.Example'))
-			.toBe('/Reload/Areas/AreaName/Scripts/Reload/Test/Example.js');
 	});
 
 	it('should create namespaced module', function () {
@@ -37,6 +29,18 @@ describe("Reload module tests", function () {
 		expect(module).toEqual(Reload.Test);
 		expect(module.Prop).toBe('lawl');
 		expect(module.Func()).toBe('lawl');
+	});
+
+	it('should throw if namespace dependency not defined', function () {
+		expect(function () { Reload.UsingModule(''); }).toThrow();
+
+		expect(function () { Reload.UsingModule('Reload.DNE'); }).toThrow();
+	});
+
+	it('should not throw if namespace dependency defined', function () {
+		Reload.DefineNamespace('Reload.Test', function () { });
+
+		expect(function () { Reload.UsingModule('Reload.Test'); }).not.toThrow();
 	});
 
 	it('should not overwrite module', function () {
@@ -59,7 +63,7 @@ describe("Reload module tests", function () {
 		// To test this we must fake out the GetModuleUrl() function.
 		Reload.GetModuleUrl = function () { return '/reload/test.js'; }
 		
-		Reload.IncludeModule('Reload.Test');
+		Reload.UsingModule('Reload.Test');
 
 		expect($('head script[src="/reload/test.js"]')).toBeDefined();
 		//expect(document.getElementsByTagName('script')[0].href).toBe('');

@@ -4,26 +4,16 @@
 
 	Root.ModuleName = "Reload";
 
-	/// Gets the url of the module.
-	Root.GetModuleUrl = function (namespace) {
-		var parts = namespace.split('.');
-
-		parts.splice((parts.indexOf('Areas') == 1) ? 3 : 1, 0, 'Scripts', Root.ModuleName);
-
-		return '/' + parts.join('/') + '.js';
-	};
-
 	/// Adds the module to the page if not already included.
-	Root.IncludeModule = function (namespace) {
-		if (!namespace || DoesNamespaceExist(namespace)) { return; }
-
-		var moduleUrl = Root.GetModuleUrl(namespace);
-		$('head').append('<script src="' + moduleUrl.toLowerCase() + '"></script>\n');
+	Root.UsingModule = function (namespace) {
+		if (!namespace || !DoesNamespaceExist(namespace)) {
+			throw 'Namespace dependency "' + namespace + '" does not exist.';
+		}
 	};
 
 	/// Adds the list of modules.
-	Root.IncludeModules = function (namespaces) {
-		namespaces.forEach(Root.IncludeModule);
+	Root.UsingModules = function (namespaces) {
+		namespaces.forEach(Root.UsingModule);
 	};
 
 	/// Defines the namespace with the provided implementation with dependencies.

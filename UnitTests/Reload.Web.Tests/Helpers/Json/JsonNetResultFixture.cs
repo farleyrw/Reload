@@ -10,6 +10,7 @@ using Reload.Web.Helpers.Json;
 namespace Reload.Web.Tests.Helpers.Json
 {
 	[TestClass]
+	[Ignore]
 	public class JsonNetResultFixture
 	{
 		[TestMethod]

@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Threading.Tasks;
-using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reload.Common.Models;
 using Reload.New.Base;
@@ -13,7 +12,7 @@ namespace Reload.Repository.Tests.Repositories
 	public class BaseRepositoryFixture
 	{
 		[TestMethod]
-		public async Task CanFindEntities()
+		public async Task CanFindEntity()
 		{
 			TestClass testClass = new TestClass { Id = 1 };
 
@@ -23,6 +22,49 @@ namespace Reload.Repository.Tests.Repositories
 			ITestRepository repo = new TestRepository(context);
 
 			TestClass result = await repo.FindAsync<TestClass>(1);
+
+			Assert.IsNotNull(result);
+
+			Assert.AreEqual(testClass.Id, result.Id);
+		}
+
+		[TestMethod]
+		public async Task CantFindNonExistentEntity()
+		{
+			TestClass testClass = new TestClass { Id = 2 };
+
+			ITestContext context = MockEFHelper.GetMockContext<ITestContext>()
+				.CreateFakeDbSet(new List<TestClass> { testClass });
+
+			ITestRepository repo = new TestRepository(context);
+
+			TestClass result = await repo.FindAsync<TestClass>(1);
+
+			Assert.IsNull(result);
+		}
+
+		[TestMethod]
+		public async Task CanFindEntityWithChildren()
+		{
+			TestChildClass testChildClass = new TestChildClass { Id = 1 };
+
+			TestClass testClass = new TestClass
+			{
+				Id = 1,
+				ChildClasses = new List<TestChildClass> { testChildClass }
+			};
+
+			ITestContext context = MockEFHelper.GetMockContext<ITestContext>()
+				.CreateFakeDbSet(new List<TestClass> { testClass })
+				.CreateFakeDbSet(new List<TestChildClass> { testChildClass });
+
+			// TODO: mock .Include()
+
+			ITestRepository repo = new TestRepository(context);
+
+			TestClass result = await repo.FindWithChildrenAsync<TestClass>(
+				t => t.AccountId == 1,
+				t => t.ChildClasses);
 
 			Assert.IsNotNull(result);
 
@@ -49,6 +91,14 @@ namespace Reload.Repository.Tests.Repositories
 
 		public int AccountId { get; set; }
 
-		public string TestField { get; set; }
+		public List<TestChildClass> ChildClasses { get; set; }
+	}
+
+	public class TestChildClass : IBaseModel
+	{
+		[Key]
+		public int Id { get; set; }
+
+		public int AccountId { get; set; }
 	}
 }
