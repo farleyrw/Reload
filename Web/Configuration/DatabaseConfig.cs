@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Reload.New.Example;
 using Reload.Repository.Contexts;
 using Reload.Web.Initialization;
 
@@ -13,6 +14,8 @@ namespace Reload.Web.Configuration
 			Database.SetInitializer<UserContext>(new UserRepoSetup());
 			Database.SetInitializer<FirearmContext>(new FirearmRepoSetup());
 			Database.SetInitializer<HandloadContext>(new HandloadRepoSetup());
+
+			Database.SetInitializer<FunContext>(new FunRepoSetup());
 		}
 	}
 }
