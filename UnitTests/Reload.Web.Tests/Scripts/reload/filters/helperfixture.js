@@ -1,13 +1,12 @@
 ﻿
 /// <reference path="/../../web/scripts/reload/filters/helpers.js" />
 
-'use strict';
-
-// Create a module to test the filter.
-angular.module('FilterTestApp', [])
-	.filter('EnumToString', Reload.Filters.Helpers.EnumToString);
-
 describe("Filter tests", function () {
+	'use strict';
+
+	// Create a module to test the filter.
+	angular.module('FilterTestApp', [])
+		.filter('EnumToString', Reload.Filters.Helpers.EnumToString);
 
 	beforeEach(function() {
 		module('FilterTestApp');

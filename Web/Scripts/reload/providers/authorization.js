@@ -1,6 +1,7 @@
-﻿'use strict';
-
+﻿
 Reload.DefineNamespace('Reload.Providers.Authorization', function () {
+	'use strict';
+
 	/// Provides http request authorization.
 	this.RequestAuthorization = function (promise, window) {
 		var ResponseStatus = {

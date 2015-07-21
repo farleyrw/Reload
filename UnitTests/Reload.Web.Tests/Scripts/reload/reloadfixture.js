@@ -1,7 +1,7 @@
 ﻿
-'use strict';
-
 describe("Reload module tests", function () {
+	'use strict';
+
 	var Reload = window.Reload;
 
 	beforeEach(function () {
@@ -56,16 +56,4 @@ describe("Reload module tests", function () {
 
 		expect(Reload.Test.ShouldNotBeHere).toBeUndefined();
 	});
-
-	// TODO: create tests for the remaining methods in the module.
-
-	/*it('should include module', function () {
-		// To test this we must fake out the GetModuleUrl() function.
-		Reload.GetModuleUrl = function () { return '/reload/test.js'; }
-		
-		Reload.UsingModule('Reload.Test');
-
-		expect($('head script[src="/reload/test.js"]')).toBeDefined();
-		//expect(document.getElementsByTagName('script')[0].href).toBe('');
-	});*/
 });

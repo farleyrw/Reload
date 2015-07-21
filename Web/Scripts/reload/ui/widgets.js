@@ -1,6 +1,7 @@
-﻿'use strict';
-
+﻿
 Reload.DefineNamespace('Reload.Ui.Widgets', function () {
+	'use strict';
+
 	// Provides a confirmation dialog.
 	this.ConfirmDialog = function (modal) {
 		return {

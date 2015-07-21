@@ -1,6 +1,7 @@
-﻿'use strict';
-
+﻿
 Reload.DefineNamespace('Reload.Filters.Helpers', function () {
+	'use strict';
+
 	/// Coverts the index of an enum to a string.
 	this.EnumToString = function () {
 		return function (index, array) {

@@ -1,6 +1,7 @@
-﻿'use strict';
-
+﻿
 Reload.DefineNamespace('Reload.Ui.Effects', function () {
+	'use strict';
+
 	/// Directive that provides hover highlighting.
 	this.HoverHighlight = function () {
 		return {
