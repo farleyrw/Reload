@@ -1,6 +1,5 @@
 ﻿
-/// <reference path="../../../../web/scripts/reload/providers/authorization.js" />
-/// <reference path="../../../../web/scripts/modules/authorization.js" />
+/// <reference path="../../../../../web/scripts/reload/providers/authorization.js" />
 
 describe("Authorization module tests", function () {
 	'use strict';

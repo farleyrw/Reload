@@ -1,5 +1,4 @@
 ﻿/// <autosync enabled="true" />
-/// <reference path="modules/authorization.js" />
 /// <reference path="reload/reload.js" />
 /// <reference path="../areas/firearms/scripts/firearmmanager.js" />
 /// <reference path="../areas/handloads/scripts/handloadmanager.js" />

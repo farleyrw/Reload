@@ -31,10 +31,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/authorization")
-					.Include(
-						"~/Scripts/reload/providers/authorization.js",
-						"~/Scripts/modules/authorization.js"
-					);
+					.Include("~/Scripts/reload/providers/authorization.js");
 			}
 		}
 	}
