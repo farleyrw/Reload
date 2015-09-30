@@ -44,16 +44,21 @@ describe("Reload module tests", function () {
 	});
 
 	it('should not overwrite module', function () {
-		Reload.DefineNamespace('Reload.Test', function () {
-			this.ShouldBeHere = 'I am here';
-		});
-
-		expect(Reload.Test.ShouldBeHere).toBe('I am here');
+		var shouldBeHerePhrase = 'I am here';
 
 		Reload.DefineNamespace('Reload.Test', function () {
-			this.ShouldNotBeHere = 'I am not here';
+			this.ShouldBeHere = shouldBeHerePhrase;
 		});
 
-		expect(Reload.Test.ShouldNotBeHere).toBeUndefined();
+		expect(Reload.Test.ShouldBeHere).toBe(shouldBeHerePhrase);
+
+		var shouldAlsoBeHerePhrase = 'I am also here';
+
+		Reload.DefineNamespace('Reload.Test', function () {
+			this.ShouldAlsoBeHere = shouldAlsoBeHerePhrase;
+		});
+
+		expect(Reload.Test.ShouldBeHere).toBe(shouldBeHerePhrase);
+		expect(Reload.Test.ShouldAlsoBeHere).toBe(shouldAlsoBeHerePhrase);
 	});
 });
