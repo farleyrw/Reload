@@ -6,7 +6,7 @@
 
 	/// Adds the module to the page if not already included.
 	Root.UsingModule = function (namespace) {
-		if (!namespace || !DoesNamespaceExist(namespace)) {
+		if (!namespace || !ParseNamespace(namespace)) {
 			throw 'Namespace dependency "' + namespace + '" does not exist.';
 		}
 	};
@@ -18,7 +18,7 @@
 
 	/// Defines the namespace with the provided implementation with dependencies.
 	Root.DefineNamespace = function (namespace, implementation, dependencies) {
-		var module = ConvertToNamespace(namespace);
+		var module = ParseNamespace(namespace);
 
 		if (!module) {
 			namespace = namespace || '';
@@ -46,19 +46,10 @@
 		return { ModuleName: moduleNamespace };
 	}
 
-	/// Converts the string namespace to an object.
-	function ConvertToNamespace(namespace) {
+	/// Parses the string namespace to an object.
+	function ParseNamespace(namespace) {
 		return namespace.split('.').reduce(function (parent, current) {
 			return parent[current];
 		}, window);
-	}
-
-	/// Returns if the namespace exists.
-	function DoesNamespaceExist(namespace) {
-		var highestDefinedModule = namespace.split('.').reduce(function (parent, current) {
-			return parent[current] || parent;
-		}, window);
-
-		return highestDefinedModule.ModuleName == namespace;
 	}
 })(window.Reload = window.Reload || {}, window, jQuery);
