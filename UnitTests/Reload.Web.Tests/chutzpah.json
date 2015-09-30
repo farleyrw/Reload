@@ -13,7 +13,8 @@
         { "Path": "../../web/scripts/reload/reload.js" }
     ],
     "CodeCoverageExcludes": [
-        "*\\Scripts\\vendor\\*",
+        "*\\Scripts\\angular\\*",
+        "*\\Scripts\\jquery\\*",
         "**fixture.js"
     ]
 }
