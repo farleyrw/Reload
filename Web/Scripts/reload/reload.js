@@ -21,15 +21,13 @@
 		var module = ParseNamespace(namespace);
 
 		if (!module) {
-			namespace = namespace || '';
-
 			var namespaceParts = namespace.split('.');
 			if (namespaceParts[0] != Root.ModuleName) {
 				throw 'Namespace "' + namespace + '" is not derived from ' + Root.ModuleName;
 			}
 
 			// Construct the namespace.
-			var module = namespaceParts.reduce(function (parent, current) {
+			module = namespaceParts.reduce(function (parent, current) {
 				return parent[current] = parent[current] || {};
 			}, window);
 		}
@@ -49,7 +47,7 @@
 	/// Parses the string namespace to an object.
 	function ParseNamespace(namespace) {
 		return namespace.split('.').reduce(function (parent, current) {
-			return parent[current];
+			return parent && parent[current];
 		}, window);
 	}
 })(window.Reload = window.Reload || {}, window, jQuery);
