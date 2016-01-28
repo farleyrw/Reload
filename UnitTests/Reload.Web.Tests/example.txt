@@ -1,0 +1,39 @@
+private List<object> localPermissions
+		{
+			get
+			{
+				ObjectCache cache = MemoryCache.Default;
+
+				BlockingCollection<object> permissions = cache.Get(CacheKey) as BlockingCollection<object>;
+
+				if(permissions == null)
+				{
+					List<object> permissionsList = this.Context.Set<object>().AsNoTracking().ToList();
+
+					permissions = new BlockingCollection<object>();
+
+					foreach (object permission in permissionsList)
+					{
+						permissions.Add(permission);
+					}
+
+					permissions.CompleteAdding();
+
+					CacheItemPolicy policy = new CacheItemPolicy
+					{
+						AbsoluteExpiration = DateTimeOffset.Now.AddHours(cacheRefreshIntervalHours),
+						RemovedCallback = (args) =>
+						{
+							if (args.CacheItem.Value is IDisposable)
+							{
+								((IDisposable)args.CacheItem.Value).Dispose();
+							}
+						}
+					};
+
+					cache.Set(CacheKey, permissions, policy);
+				}
+
+				return permissions.ToList();
+			}
+		}
