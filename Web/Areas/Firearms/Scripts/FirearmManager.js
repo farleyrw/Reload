@@ -11,8 +11,8 @@ Reload.UsingModules([
 ]);
 
 angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI'])
-	.constant('templateUrl', '/reload/areas/firearms/templates/')
-	.value('enumUrl', '/reload/firearms/enums/get')
+	.constant('templateUrl', '/areas/firearms/templates/')
+	.value('enumUrl', '/firearms/enums/get')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
 			.when('/list', {

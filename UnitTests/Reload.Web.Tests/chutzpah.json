@@ -2,18 +2,21 @@
     "Tests": [
         {
             "Includes": [ "**fixture.js" ],
-            "ExpandReferenceComments": "true"
+            "ExpandReferenceComments": true
         }
     ],
     "RootReferencePathMode": "SettingsFileDirectory",
     "References": [
-        { "Path": "../../web/scripts/jquery", "Includes": [ "*.min.js" ] },
-        { "Path": "../../web/scripts/angular/angular.js" },
-        { "Path": "../../web/scripts/angular/angular-mocks.js" },
+        { "Path": "../../web/scripts/vendor/jquery", "Includes": [ "*.min.js" ] },
+        { "Path": "../../web/scripts/vendor/angular/angular.js" },
+        { "Path": "../../web/scripts/vendor/angular/angular-mocks.js" },
         { "Path": "../../web/scripts/reload/reload.js" }
     ],
+    "CodeCoverageIncludes": [
+        "*/scripts/reload/*",
+        "*/areas/**/scripts/*"
+    ],
     "CodeCoverageExcludes": [
-        "*\\Scripts\\angular\\*",
-        "*\\Scripts\\jquery\\*"
+        "*/scripts/vendor/*"
     ]
 }

@@ -6,7 +6,7 @@ Reload.UsingModules([
 ]);
 
 angular.module('UserManager', ['ui.bootstrap', 'ngMessages'])
-	.constant('baseUrl', '/Reload/User/Manage/')
+	.constant('baseUrl', '/User/Manage/')
 	.service('UserService', ['$http', 'baseUrl', Reload.Areas.User.Services.UserService])
 	.service('PasswordFormDialog', ['$modal', 'baseUrl', 'UserService', Reload.Areas.User.Services.PasswordChangeDialogService])
 	.directive('emailUniqueValidator', ['$q', 'UserService', Reload.Areas.User.Directives.UniqueEmail])

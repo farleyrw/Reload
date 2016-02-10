@@ -1,11 +1,13 @@
 ﻿
-Reload.DefineNamespace('Reload.Filters.Helpers', function () {
+(function () {
 	'use strict';
 
-	/// Coverts the index of an enum to a string.
-	this.EnumToString = function () {
-		return function (index, array) {
-			return (array instanceof Array && array[index]) ? array[index].Name : index;
+	Reload.DefineNamespace('Reload.Filters.Helpers', function () {
+		/// Coverts the index of an enum to a string.
+		this.EnumToString = function () {
+			return function (index, array) {
+				return (array instanceof Array && array[index]) ? array[index].Name : index;
+			};
 		};
-	};
-});
+	});
+})();

@@ -4,7 +4,7 @@ Reload.DefineNamespace('Reload.Areas.Firearms.Services', function () {
 	/// The firearm web service.
 	this.WebService = function (ajax) {
 		// TODO: replace with http.
-		var api = ajax('firearms/manage/:action/:id', {
+		var api = ajax('/firearms/manage/:action/:id', {
 			action: '@action',
 			id: '@id'
 		}, {
