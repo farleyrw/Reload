@@ -12,7 +12,7 @@ namespace Reload.Web.Bundles.Resources
 			{
 				Bundle jqueryBundle = new ScriptBundle("~/bundles/jqueryjs",
 						"//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
-					.Include("~/Scripts/jquery/jquery-{version}.js");
+					.Include("~/Scripts/vendor/jquery/jquery-{version}.js");
 
 				jqueryBundle.CdnFallbackExpression = "window.jQuery";
 
@@ -27,9 +27,9 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/jqueryvalidation")
 					.Include(
-						"~/Scripts/jquery/validation/jquery.unobtrusive-ajax.js",
-						"~/Scripts/jquery/validation/jquery.validate.js",
-						"~/Scripts/jquery/validation/jquery.validate.unobtrusive.js"
+						"~/Scripts/vendor/jquery/validation/jquery.unobtrusive-ajax.js",
+						"~/Scripts/vendor/jquery/validation/jquery.validate.js",
+						"~/Scripts/vendor/jquery/validation/jquery.validate.unobtrusive.js"
 					);
 			}
 		}
@@ -41,11 +41,11 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/angularjs")
 					.Include(
-						"~/Scripts/angular/angular.js",
-						"~/Scripts/angular/angular-resource.js",
-						"~/Scripts/angular/angular-loader.js",
-						"~/Scripts/angular/angular-route.js",
-						"~/Scripts/angular/angular-messages.js"
+						"~/Scripts/vendor/angular/angular.js",
+						"~/Scripts/vendor/angular/angular-resource.js",
+						"~/Scripts/vendor/angular/angular-loader.js",
+						"~/Scripts/vendor/angular/angular-route.js",
+						"~/Scripts/vendor/angular/angular-messages.js"
 					);
 			}
 		}
@@ -57,8 +57,8 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/angularui")
 					.Include(
-						"~/Scripts/angular-ui/ui-bootstrap.js",
-						"~/Scripts/angular-ui/ui-bootstrap-tpls.js"
+						"~/Scripts/vendor/angular-ui/ui-bootstrap.js",
+						"~/Scripts/vendor/angular-ui/ui-bootstrap-tpls.js"
 					);
 			}
 		}
@@ -69,7 +69,17 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/angularblockuijs")
-					.Include("~/Scripts/angular-block-ui/angular-block-ui.js");
+					.Include("~/Scripts/vendor/angular-block-ui/angular-block-ui.js");
+			}
+		}
+
+		/// <summary>Gets the angular idle bundle.</summary>
+		public static Bundle AngularIdle
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/angularidlejs")
+					.Include("~/Scripts/vendor/angular-idle/angular-idle.js");
 			}
 		}
 

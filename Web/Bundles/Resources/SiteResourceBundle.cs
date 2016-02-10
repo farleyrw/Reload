@@ -1,4 +1,8 @@
-﻿using System.Web.Optimization;
+﻿using System.Collections.Specialized;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Web.Optimization;
+using Reload.Web.Bundles.Transforms;
 
 namespace Reload.Web.Bundles.Resources
 {
@@ -32,6 +36,30 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/authorization")
 					.Include("~/Scripts/reload/providers/authorization.js");
+			}
+		}
+
+		public static Bundle AppConfig
+		{
+			get
+			{
+				CompilationSection compilationSection = (CompilationSection)ConfigurationManager.GetSection(@"system.web/compilation");
+
+				string isDebug = compilationSection.Debug.ToString().ToLower();
+
+				NameValueCollection configSettings = new NameValueCollection();
+
+				configSettings.Add("IsDebug", isDebug);
+				configSettings.Add("SessionTimeout", "30");
+				
+				Bundle configBundle = new ScriptBundle("~/bundles/appconfig")
+					.Include(
+						"~/Scripts/reload/config/app.js",
+						new NameValueBundleTransform(configSettings, "IsDebug", "SessionTimeout"));
+
+				configBundle.Transforms.Clear();
+
+				return configBundle;
 			}
 		}
 	}
