@@ -14,9 +14,12 @@ namespace Reload.Web.Areas.Handloads.Controllers
 		{
 			return new
 			{
-				BulletConstuctions = EnumViewModelHelper.ToViewModel<BulletConstruction>(),
+				BrassManufacturers = EnumViewModelHelper.ToViewModel<BrassManufacturer>(),
+				BulletConstuction = EnumViewModelHelper.ToViewModel<BulletConstruction>(),
 				BulletTypes = EnumViewModelHelper.ToViewModel<BulletType>(),
 				BulletBaseTypes = EnumViewModelHelper.ToViewModel<BulletBaseType>(),
+				BulletManufacturers = EnumViewModelHelper.ToViewModel<BulletManufacturer>(),
+				Calibers = EnumViewModelHelper.ToViewModel<Caliber>(),
 				Cartidges = EnumViewModelHelper.ToViewModel<Cartridge>(),
 				PrimerTypes = EnumViewModelHelper.ToViewModel<PrimerType>(),
 				PrimerManufacturers = EnumViewModelHelper.ToViewModel<PrimerManufacturer>(),

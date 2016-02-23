@@ -4,7 +4,7 @@ using Reload.Common.Attributes;
 namespace Reload.Common.Enums
 {
 	/// <summary>The gun caliber.</summary>
-	[EnumDeserializeDescriptionAttribute]
+	[EnumDeserializeDescription]
 	[DefaultValue(Cartridge.None)]
 	public enum Cartridge
 	{

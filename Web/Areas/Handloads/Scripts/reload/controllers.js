@@ -15,7 +15,8 @@ Reload.DefineNamespace('Reload.Areas.Handloads.Controllers', function () {
 	};
 
 	/// The handload edit controller.
-	this.HandloadEditController = function (scope) {
+	this.HandloadEditController = function (scope, EnumService) {
 
+		scope.Enums = EnumService.Get();
 	};
 });

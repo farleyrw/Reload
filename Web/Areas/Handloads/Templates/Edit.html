@@ -16,7 +16,7 @@
 			</li>
 			<li>
 				<label>Brass Brand</label>
-				<select ng-model="Hanload.Brass.Manufacturer" ng-options="c.Id as c.Name for c in Enums.Powders"></select>
+				<select ng-model="Hanload.Brass.Manufacturer" ng-options="c.Id as c.Name for c in Enums.BrassManufacturers"></select>
 				<br />
 				<label>Cartridge</label>
 				<select ng-model="Hanload.Brass.Caliber" ng-options="c.Id as c.Name for c in Enums.Cartidges"></select>
@@ -43,16 +43,16 @@
 				<select ng-model="Hanload.Bullet.Brand" ng-options="c.Id as c.Name for c in Enums.BulletManufacturers"></select>
 				<br />
 				<label>Bullet Constuction</label>
-				<select ng-model="Hanload.Bullet.Constuction" ng-options="c.Id as c.Name for c in Enums.BulletConstruction"></select>
+				<select ng-model="Hanload.Bullet.Constuction" ng-options="c.Id as c.Name for c in Enums.BulletConstuction"></select>
 				<br />
 				<label>Bullet Type</label>
 				<select ng-model="Hanload.Bullet.Type" ng-options="c.Id as c.Name for c in Enums.BulletTypes"></select>
 				<br />
 				<label>Bullet Base</label>
-				<select ng-model="Hanload.Bullet.Base" ng-options="c.Id as c.Name for c in Enums.BulletBases"></select>
+				<select ng-model="Hanload.Bullet.Base" ng-options="c.Id as c.Name for c in Enums.BulletBaseTypes"></select>
 				<br />
 				<label>Bullet Caliber</label>
-				<select ng-model="Hanload.Bullet.Caliber" ng-options="c.Id as c.Name for c in Enums.BulletCalibers"></select>
+				<select ng-model="Hanload.Bullet.Caliber" ng-options="c.Id as c.Name for c in Enums.Calibers"></select>
 			</li>
 		</ul>
 		<button ng-click="Save()" ng-disabled="HandloadForm.$invalid" class="btn btn-primary">Save</button>

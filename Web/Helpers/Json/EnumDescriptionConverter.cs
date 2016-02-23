@@ -19,7 +19,7 @@ namespace Reload.Web.Helpers.Json
 		/// <param name="enumValue">The enum value.</param>
 		public string GetDescription(object enumValue)
 		{
-			return EnumHelper.Description<T>((T)enumValue);
+			return EnumHelper.Description((T)enumValue);
 		}
 
 		/// <summary>Determines whether this instance can convert the specified object type.</summary>

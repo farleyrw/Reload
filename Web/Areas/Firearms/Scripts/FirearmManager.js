@@ -8,20 +8,20 @@ Reload.UsingModules([
 ]);
 
 angular.module('FirearmManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI', 'reload.ui'])
-	.constant('templateUrl', '/areas/firearms/templates/')
+	.constant('templateUrl', '/areas/firearms/templates')
 	.value('enumUrl', '/firearms/enums/get')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
 			.when('/list', {
-				templateUrl: templateUrl + 'list.html',
+				templateUrl: templateUrl + '/list.html',
 				controller: 'FirearmListController'
 			})
 			.when('/edit/:Id', {
-				templateUrl: templateUrl + 'edit.html',
+				templateUrl: templateUrl + '/edit.html',
 				controller: 'FirearmEditController'
 			})
 			.when('/new', {
-				templateUrl: templateUrl + 'edit.html',
+				templateUrl: templateUrl + '/edit.html',
 				controller: 'FirearmEditController'
 			})
 			.otherwise({ redirectTo: '/list' });

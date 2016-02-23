@@ -25,7 +25,9 @@ angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Aut
 	.controller('HandloadListController', ['$scope', 'HandloadService', 'FirearmService', 'HandloadEnumService',
 		Reload.Areas.Handloads.Controllers.HandloadListController
 	])
-	.controller('HandloadEditController', ['$scope', Reload.Areas.Handloads.Controllers.HandloadEditController]);
+	.controller('HandloadEditController', ['$scope', 'HandloadEnumService', 
+		Reload.Areas.Handloads.Controllers.HandloadEditController
+	]);
 
 /* TODO:
 	Add handloads for a firearm
