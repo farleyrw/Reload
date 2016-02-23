@@ -25,7 +25,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/reloadjs")
-					.Include("~/Scripts/Reload/Reload.js");
+					.Include("~/Scripts/reload/reload.js");
 			}
 		}
 
@@ -46,11 +46,21 @@ namespace Reload.Web.Bundles.Resources
 			{
 				return new ScriptBundle("~/bundles/reloaduijs")
 					.Include(
-						"~/Scripts/reload/ui/ui.js",
 						"~/Scripts/reload/ui/controls.js",
 						"~/Scripts/reload/ui/effects.js",
-						"~/Scripts/reload/ui/widgets.js"
+						"~/Scripts/reload/ui/widgets.js",
+						"~/Scripts/reload/ui/ui.js"
 					);
+			}
+		}
+
+		/// <summary>Returns the reload events js bundle.</summary>
+		public static Bundle ReloadEvents
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/reloadevents")
+					.Include("~/Scripts/reload/events/mediator.js");
 			}
 		}
 

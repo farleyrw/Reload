@@ -3,17 +3,14 @@
 Reload.UsingModules([
 	'Reload.Filters.Helpers',
 	'Reload.Web.Services',
-	'Reload.Ui.Controls',
-	'Reload.Ui.Effects',
-	'Reload.Ui.Widgets',
 	'Reload.Areas.Firearms.Services',
 	'Reload.Areas.Handloads.Services',
 	'Reload.Areas.Handloads.Controllers'
 ]);
 
-angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI'])
-	.constant('templateUrl', '/reload/areas/handloads/templates/')
-	.value('enumUrl', '/reload/handloads/enums/get')
+angular.module('HandloadManager', ['ngRoute', 'ngResource', 'ui.bootstrap', 'Authorization', 'blockUI', 'reload.ui'])
+	.constant('templateUrl', '/areas/handloads/templates/')
+	.value('enumUrl', '/handloads/enums/get')
 	.config(['$routeProvider', 'templateUrl', function (routing, templateUrl) {
 		routing
 			.when('/list', { templateUrl: templateUrl + 'list.html', controller: 'HandloadListController' })
