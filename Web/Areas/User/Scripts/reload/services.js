@@ -4,8 +4,8 @@ Reload.DefineNamespace('Reload.Areas.User.Services', function () {
 	/// The user web service.
 	this.UserService = function (ajax, baseUrl) {
 		return {
-			Get: function(callback) {
-				return ajax.get(baseUrl + 'Get').success(callback);
+			Get: function() {
+				return ajax.get(baseUrl + 'Get');
 			},
 			SaveUser: function (user, callback) {
 				return ajax.post(baseUrl + 'Save', { user: user }).success(callback);

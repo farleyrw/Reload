@@ -17,6 +17,8 @@
         "*/areas/**/scripts/*"
     ],
     "CodeCoverageExcludes": [
-        "*/scripts/vendor/*"
+        "*fixture.js",
+        "*/scripts/vendor/*",
+        "*_globals.js"
     ]
 }

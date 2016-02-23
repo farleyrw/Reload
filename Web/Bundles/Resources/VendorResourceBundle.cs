@@ -56,10 +56,7 @@ namespace Reload.Web.Bundles.Resources
 			get
 			{
 				return new ScriptBundle("~/bundles/angularui")
-					.Include(
-						"~/Scripts/vendor/angular-ui/ui-bootstrap.js",
-						"~/Scripts/vendor/angular-ui/ui-bootstrap-tpls.js"
-					);
+					.Include("~/Scripts/vendor/angular-ui/ui-bootstrap-tpls.js");
 			}
 		}
 

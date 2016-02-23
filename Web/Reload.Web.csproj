@@ -23,6 +23,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <NuGetPackageImportStamp>33dd0cfa</NuGetPackageImportStamp>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -247,6 +248,8 @@
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Scripts\reload\config\session.js" />
     <Content Include="Scripts\reload\config\app.js" />
+    <Content Include="Scripts\reload\services\events\mediator.js" />
+    <Content Include="Scripts\reload\ui\ui.js" />
     <Content Include="Scripts\vendor\angular-idle\angular-idle.min.js" />
     <Content Include="Scripts\vendor\angular-idle\angular-idle.js" />
     <Content Include="Scripts\vendor\angular\angular-animate.js" />

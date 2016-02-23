@@ -15,7 +15,7 @@
         <td>{{ firearm.Model }}</td>
         <td>{{ firearm.Chamber | EnumToString:Enums.Cartidges }}</td>
         <td>
-			<modify-item-control edit-click="Edit(firearm.FirearmId)" delete-click="Delete(firearm)"></modify-item-control>
+			<modify-item edit-click="Edit(firearm.FirearmId)" delete-click="Delete(firearm)"></modify-item>
 		</td>
     </tr>
 </table>

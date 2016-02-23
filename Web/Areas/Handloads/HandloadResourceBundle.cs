@@ -15,9 +15,6 @@ namespace Reload.Web.Areas.Handloads
 					.Include(
 						"~/Scripts/reload/web/services.js",
 						"~/Scripts/reload/filters/helpers.js",
-						"~/Scripts/reload/ui/controls.js",
-						"~/Scripts/reload/ui/effects.js",
-						"~/Scripts/reload/ui/widgets.js",
 						"~/Areas/Firearms/Scripts/Reload/Services.js",
 						"~/Areas/Handloads/Scripts/Reload/Services.js",
 						"~/Areas/Handloads/Scripts/Reload/Controllers.js",

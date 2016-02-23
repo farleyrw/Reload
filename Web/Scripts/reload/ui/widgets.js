@@ -1,11 +1,11 @@
 ﻿
-Reload.DefineNamespace('Reload.Ui.Widgets', function () {
+(function () {
 	'use strict';
 
-	// Provides a confirmation dialog.
-	this.ConfirmDialog = function (modal) {
-		return {
-			Show: function (name) {
+	angular.module('reload.ui.widgets', ['ui.bootstrap'])
+		.service('ConfirmDialog', ['$modal', function (modal) {
+			// Provides a confirmation dialog.
+			this.Show = function (name) {
 				return modal.open({
 					size: 'sm',
 					controller: ['$scope', '$modalInstance', function (scope, modalInstance) {
@@ -23,7 +23,6 @@ Reload.DefineNamespace('Reload.Ui.Widgets', function () {
 							'<button class="btn btn-warning" ng-click="Cancel()">Cancel</button>' +
 						'</div>'
 				}).result;
-			}
-		};
-	};
-});
+			};
+		}]);
+})();

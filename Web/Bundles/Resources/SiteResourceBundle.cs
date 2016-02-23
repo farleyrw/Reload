@@ -39,6 +39,22 @@ namespace Reload.Web.Bundles.Resources
 			}
 		}
 
+		/// <summary>Returns the reload ui js bundle.</summary>
+		public static Bundle ReloadUiJs
+		{
+			get
+			{
+				return new ScriptBundle("~/bundles/reloaduijs")
+					.Include(
+						"~/Scripts/reload/ui/ui.js",
+						"~/Scripts/reload/ui/controls.js",
+						"~/Scripts/reload/ui/effects.js",
+						"~/Scripts/reload/ui/widgets.js"
+					);
+			}
+		}
+
+		/// <summary>Returns the app config js bundle.</summary>
 		public static Bundle AppConfig
 		{
 			get

@@ -154,6 +154,8 @@
   <ItemGroup>
     <Content Include="App.config" />
     <Content Include="Areas\Firearms\Scripts\firearmmanagerfixture.js" />
+    <Content Include="Areas\User\Scripts\usermanagerfixture_globals.js" />
+    <Content Include="Areas\User\Scripts\usermanagerfixture.js" />
     <Content Include="Areas\User\Scripts\reload\directivesfixture.js" />
     <Content Include="Scripts\reload\config\appfixture.js" />
     <Content Include="Scripts\reload\config\httpfixture.js" />
@@ -164,6 +166,7 @@
   <ItemGroup>
     <None Include="chutzpah.json" />
     <None Include="packages.config" />
+    <Content Include="Scripts\reload\services\events\mediatorfixture.js" />
     <Content Include="TestData\Initialization\TestThing.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
