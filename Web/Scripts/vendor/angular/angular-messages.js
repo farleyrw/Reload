@@ -1,6 +1,6 @@
 /**
- * @license AngularJS v1.4.0
- * (c) 2010-2015 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.5.0
+ * (c) 2010-2016 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular, undefined) {'use strict';
@@ -56,7 +56,7 @@ var jqLite = angular.element;
  *
  * ```javascript
  * <!-- keep in mind that ngModel automatically sets these error flags -->
- * myField.$error = { minlength : true, required : false };
+ * myField.$error = { minlength : true, required : true };
  * ```
  *
  * Then the `required` message will be displayed first. When required is false then the `minlength` message
@@ -256,7 +256,7 @@ angular.module('ngMessages', [])
     *
     * @description
     * `ngMessages` is a directive that is designed to show and hide messages based on the state
-    * of a key/value object that it listens on. The directive itself compliments error message
+    * of a key/value object that it listens on. The directive itself complements error message
     * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
     *
     * `ngMessages` manages the state of internal messages within its container element. The internal
@@ -330,6 +330,9 @@ angular.module('ngMessages', [])
        controller: ['$element', '$scope', '$attrs', function($element, $scope, $attrs) {
          var ctrl = this;
          var latestKey = 0;
+         var nextAttachId = 0;
+
+         this.getAttachId = function getAttachId() { return nextAttachId++; };
 
          var messages = this.messages = {};
          var renderLater, cachedCollection;
@@ -567,13 +570,14 @@ angular.module('ngMessages', [])
     *
     * @param {expression} ngMessage|when a string value corresponding to the message key.
     */
-  .directive('ngMessage', ngMessageDirectiveFactory('AE'))
+  .directive('ngMessage', ngMessageDirectiveFactory())
 
 
    /**
     * @ngdoc directive
     * @name ngMessageExp
     * @restrict AE
+    * @priority 1
     * @scope
     *
     * @description
@@ -599,13 +603,14 @@ angular.module('ngMessages', [])
     *
     * @param {expression} ngMessageExp|whenExp an expression value corresponding to the message key.
     */
-  .directive('ngMessageExp', ngMessageDirectiveFactory('A'));
+  .directive('ngMessageExp', ngMessageDirectiveFactory());
 
-function ngMessageDirectiveFactory(restrict) {
+function ngMessageDirectiveFactory() {
   return ['$animate', function($animate) {
     return {
       restrict: 'AE',
       transclude: 'element',
+      priority: 1, // must run before ngBind, otherwise the text is set on the comment
       terminal: true,
       require: '^^ngMessages',
       link: function(scope, element, attrs, ngMessagesCtrl, $transclude) {
@@ -641,11 +646,15 @@ function ngMessageDirectiveFactory(restrict) {
                 $animate.enter(elm, null, element);
                 currentElement = elm;
 
+                // Each time we attach this node to a message we get a new id that we can match
+                // when we are destroying the node later.
+                var $$attachId = currentElement.$$attachId = ngMessagesCtrl.getAttachId();
+
                 // in the event that the parent element is destroyed
                 // by any other structural directive then it's time
                 // to deregister the message from the controller
                 currentElement.on('$destroy', function() {
-                  if (currentElement) {
+                  if (currentElement && currentElement.$$attachId === $$attachId) {
                     ngMessagesCtrl.deregister(commentNode);
                     messageCtrl.detach();
                   }
