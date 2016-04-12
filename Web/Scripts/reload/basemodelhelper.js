@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-Informz.DefineNamespace('Informz.System.BaseModelHelper', function ($) {
+Reload.DefineNamespace('Reload.System.BaseModelHelper', function ($) {
 	/// The model extender service.
 	this.ModelExtender = function () {
 		/// Extends the model implementation to include base functionality.

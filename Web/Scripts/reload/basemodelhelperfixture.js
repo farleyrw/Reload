@@ -1,12 +1,12 @@
 ﻿
 /// <reference path="../../../../../web/App/scripts/jquery/jquery-2.1.3.js" />
-/// <reference path="../../../../../web/App/scripts/informz/informz.js" />
-/// <reference path="../../../../../web/App/scripts/informz/system/basemodelhelper.js" />
+/// <reference path="../../../../../web/App/scripts/reload/reload.js" />
+/// <reference path="../../../../../web/App/scripts/reload/system/basemodelhelper.js" />
 
 'use strict';
 
 describe("Base Model Helper module tests", function () {
-	var BaseModelHelper = Informz.System.BaseModelHelper;
+	var BaseModelHelper = Reload.System.BaseModelHelper;
 	var ModelExtender = new BaseModelHelper.ModelExtender();
 
 	it('should have BaseModelHelper defined', function () {
